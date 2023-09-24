@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget {
@@ -15,13 +16,13 @@ class AppBarWidget extends StatelessWidget {
             Text(
               'Radar Screen',
               style: TextStyle(
-                  color: const Color(0xFF4A64FE),
+                  color: Global.blue,
                   fontWeight: FontWeight.w900,
                   fontSize: 16.0),
             ),
             Icon(
               Icons.arrow_drop_down,
-              color: const Color(0xFF4A64FE),
+              color: Global.blue,
             ),
           ],
         ),

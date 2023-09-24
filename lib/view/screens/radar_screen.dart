@@ -35,14 +35,26 @@ class RadarScreen extends StatelessWidget {
                 ? SafeArea(
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: Container(
-                        height: 50,
-                        width: 140,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            utilViewModel.reset();
-                          },
-                          child: Container(),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.close,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          utilViewModel.reset();
+                        },
+                        iconSize: 24,
+                        splashRadius: 10,
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  12), // Radius for at lave runde hjørner
+                            ),
+                          ),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Global.blue),
                         ),
                       ),
                     ),
