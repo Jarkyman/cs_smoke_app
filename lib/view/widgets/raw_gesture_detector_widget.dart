@@ -12,7 +12,7 @@ class RawGestureDetectorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<RadarViewModel>(context);
+    final radarViewModel = Provider.of<RadarViewModel>(context);
     final Size size = MediaQuery.of(context).size;
 
     final _gestures = {
@@ -21,13 +21,13 @@ class RawGestureDetectorWidget extends StatelessWidget {
         (DragAndScale instance) {
           instance
             ..onStart = (details) {
-              model.handleDragScaleStart(details);
+              radarViewModel.handleDragScaleStart(details);
             }
             ..onUpdate = (details) {
-              model.handleDragScaleUpdate(details);
+              radarViewModel.handleDragScaleUpdate(details);
             }
             ..onEnd = (_) {
-              model.handleDragScaleEnd();
+              radarViewModel.handleDragScaleEnd();
             };
         },
       )
@@ -48,13 +48,13 @@ class RawGestureDetectorWidget extends StatelessWidget {
 
     final Matrix4 _transform = Matrix4.diagonal3(
       Vector3(
-        model.scale,
-        model.scale,
-        model.scale,
+        radarViewModel.scale,
+        radarViewModel.scale,
+        radarViewModel.scale,
       ),
     )..translate(
-        model.pos.x,
-        model.pos.y,
+        radarViewModel.pos.x,
+        radarViewModel.pos.y,
       );
 
     return RawGestureDetector(
