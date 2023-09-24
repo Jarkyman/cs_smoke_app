@@ -28,7 +28,7 @@ class RadarScreen extends StatelessWidget {
           children: [
             Container(
               color: Global.bgColor,
-              child: Center(
+              child: const Center(
                   child: RawGestureDetectorWidget(child: GridViewWidget())),
             ),
             utilViewModel.isUtilSelected
@@ -49,8 +49,7 @@ class RadarScreen extends StatelessWidget {
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  12), // Radius for at lave runde hjørner
+                              borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                           backgroundColor:
