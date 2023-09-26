@@ -36,7 +36,7 @@ class AppBarWidget extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 18.0, bottom: 50),
+                        padding: const EdgeInsets.only(right: 38.0, bottom: 50),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -87,6 +87,40 @@ class AppBarWidget extends StatelessWidget {
                         Colors.transparent,
                       ],
                     ),
+                  ),
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 38.0, bottom: 50),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            UtilButton(
+                              imagePath: 'assets/icons/smoke util.png',
+                              isSelected: utilViewModel.isSmokeCt,
+                              onTap: () {
+                                utilViewModel.toggleUtil('smokeCt');
+                              },
+                            ),
+                            UtilButton(
+                              imagePath: 'assets/icons/flash util.png',
+                              isSelected: utilViewModel.isFlashCt,
+                              onTap: () {
+                                utilViewModel.toggleUtil('flashCt');
+                              },
+                            ),
+                            UtilButton(
+                              imagePath: 'assets/icons/molotov util ct.png',
+                              isSelected: utilViewModel.isMolotovCt,
+                              onTap: () {
+                                utilViewModel.toggleUtil('molotovCt');
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
