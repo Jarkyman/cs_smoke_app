@@ -44,6 +44,18 @@ abstract class Global {
     },
     {
       'location': 'overpass',
+      'description': 'upper tunnels',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.053, 0.281],
+      'stands': [
+        [-0.014, -0.040],
+        [-0.129, 0.084]
+      ],
+      'tile': 1,
+    },
+    {
+      'location': 'overpass',
       'description': 'heaven',
       'name': 'smoke',
       'status': true,
