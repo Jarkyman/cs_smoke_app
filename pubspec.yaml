@@ -26,4 +26,5 @@ flutter:
 
   assets:
     - assets/icons/
+    - assets/img/
     - assets/img/radar/

@@ -16,114 +16,147 @@ class AppBarWidget extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.centerLeft,
-            child: Container(
-              height: 260,
-              width: (MediaQuery.of(context).size.width / 2) + 28,
-              child: ClipPath(
-                clipper: SkewedClipper(true),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Colors.transparent,
-                        Colors.red.withOpacity(0.5),
-                      ],
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: ClipPath(
+                    clipper: SkewedClipper(true),
+                    child: Container(
+                      child: Image.asset(
+                        'assets/img/t test.png',
+                      ),
                     ),
                   ),
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 38.0, bottom: 50),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            UtilButton(
-                              imagePath: 'assets/icons/smoke util.png',
-                              isSelected: utilViewModel.isSmokeT,
-                              onTap: () {
-                                utilViewModel.toggleUtil('smokeT');
-                              },
-                            ),
-                            UtilButton(
-                              imagePath: 'assets/icons/flash util.png',
-                              isSelected: utilViewModel.isFlashT,
-                              onTap: () {
-                                utilViewModel.toggleUtil('flashT');
-                              },
-                            ),
-                            UtilButton(
-                              imagePath: 'assets/icons/molotov util t.png',
-                              isSelected: utilViewModel.isMolotovT,
-                              onTap: () {
-                                utilViewModel.toggleUtil('molotovT');
-                              },
-                            ),
+                ),
+                Container(
+                  height: 260,
+                  width: (MediaQuery.of(context).size.width / 2) + 28,
+                  child: ClipPath(
+                    clipper: SkewedClipper(true),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [
+                            Colors.transparent,
+                            Colors.red.withOpacity(0.5),
                           ],
                         ),
                       ),
-                    ],
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 38.0, bottom: 50),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                UtilButton(
+                                  imagePath: 'assets/icons/smoke util.png',
+                                  isSelected: utilViewModel.isSmokeT,
+                                  onTap: () {
+                                    utilViewModel.toggleUtil('smokeT');
+                                  },
+                                ),
+                                UtilButton(
+                                  imagePath: 'assets/icons/flash util.png',
+                                  isSelected: utilViewModel.isFlashT,
+                                  onTap: () {
+                                    utilViewModel.toggleUtil('flashT');
+                                  },
+                                ),
+                                UtilButton(
+                                  imagePath: 'assets/icons/molotov util t.png',
+                                  isSelected: utilViewModel.isMolotovT,
+                                  onTap: () {
+                                    utilViewModel.toggleUtil('molotovT');
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ),
           Align(
             alignment: Alignment.centerRight,
-            child: Container(
-              height: 260,
-              width: (MediaQuery.of(context).size.width / 2) + 28,
-              child: ClipPath(
-                clipper: SkewedClipper(false),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        Colors.blue.withOpacity(0.5),
-                        Colors.transparent,
-                      ],
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: ClipPath(
+                    clipper: SkewedClipper(false),
+                    child: Container(
+                      child: Image.asset(
+                        'assets/img/ct test.png',
+                      ),
                     ),
                   ),
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 38.0, bottom: 50),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            UtilButton(
-                              imagePath: 'assets/icons/smoke util.png',
-                              isSelected: utilViewModel.isSmokeCt,
-                              onTap: () {
-                                utilViewModel.toggleUtil('smokeCt');
-                              },
-                            ),
-                            UtilButton(
-                              imagePath: 'assets/icons/flash util.png',
-                              isSelected: utilViewModel.isFlashCt,
-                              onTap: () {
-                                utilViewModel.toggleUtil('flashCt');
-                              },
-                            ),
-                            UtilButton(
-                              imagePath: 'assets/icons/molotov util ct.png',
-                              isSelected: utilViewModel.isMolotovCt,
-                              onTap: () {
-                                utilViewModel.toggleUtil('molotovCt');
-                              },
-                            ),
+                ),
+                Container(
+                  height: 260,
+                  width: (MediaQuery.of(context).size.width / 2) + 28,
+                  child: ClipPath(
+                    clipper: SkewedClipper(false),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [
+                            Colors.blue.withOpacity(0.5),
+                            Colors.transparent,
                           ],
                         ),
                       ),
-                    ],
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 38.0, bottom: 50),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                UtilButton(
+                                  imagePath: 'assets/icons/smoke util.png',
+                                  isSelected: utilViewModel.isSmokeCt,
+                                  onTap: () {
+                                    utilViewModel.toggleUtil('smokeCt');
+                                  },
+                                ),
+                                UtilButton(
+                                  imagePath: 'assets/icons/flash util.png',
+                                  isSelected: utilViewModel.isFlashCt,
+                                  onTap: () {
+                                    utilViewModel.toggleUtil('flashCt');
+                                  },
+                                ),
+                                UtilButton(
+                                  imagePath: 'assets/icons/molotov util ct.png',
+                                  isSelected: utilViewModel.isMolotovCt,
+                                  onTap: () {
+                                    utilViewModel.toggleUtil('molotovCt');
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ),
         ],
