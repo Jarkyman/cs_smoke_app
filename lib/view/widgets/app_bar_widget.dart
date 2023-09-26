@@ -42,21 +42,21 @@ class AppBarWidget extends StatelessWidget {
                           children: [
                             UtilButton(
                               imagePath: 'assets/icons/smoke util.png',
-                              isSelected: false,
+                              isSelected: utilViewModel.isSmokeT,
                               onTap: () {
                                 utilViewModel.toggleUtil('smokeT');
                               },
                             ),
                             UtilButton(
                               imagePath: 'assets/icons/flash util.png',
-                              isSelected: false,
+                              isSelected: utilViewModel.isFlashT,
                               onTap: () {
                                 utilViewModel.toggleUtil('flashT');
                               },
                             ),
                             UtilButton(
                               imagePath: 'assets/icons/molotov util t.png',
-                              isSelected: false,
+                              isSelected: utilViewModel.isMolotovT,
                               onTap: () {
                                 utilViewModel.toggleUtil('molotovT');
                               },
@@ -118,7 +118,7 @@ class UtilButton extends StatelessWidget {
         height: 40,
         width: 40,
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.4),
+          color: isSelected ? Colors.grey : Colors.grey.withOpacity(0.4),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(color: Colors.grey, width: 2),
         ),

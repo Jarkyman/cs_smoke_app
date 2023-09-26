@@ -10,7 +10,7 @@ class UtilViewModel extends ChangeNotifier {
   Smoke? _selectedUtil;
   Smoke? get selectedUtil => _selectedUtil;
 
-  bool _isSmokeT = false;
+  bool _isSmokeT = true;
   bool get isSmokeT => _isSmokeT;
   bool _isSmokeCt = false;
   bool get isSmokeCt => _isSmokeCt;
@@ -28,6 +28,13 @@ class UtilViewModel extends ChangeNotifier {
   List<Smoke> get smokes => _smokes;
 
   void toggleUtil(String utilName) {
+    _isSmokeT = false;
+    _isSmokeCt = false;
+    _isFlashT = false;
+    _isFlashCt = false;
+    _isMolotovT = false;
+    _isMolotovCt = false;
+
     switch (utilName) {
       case 'smokeT':
         _isSmokeT = !_isSmokeT;
@@ -48,6 +55,7 @@ class UtilViewModel extends ChangeNotifier {
         _isMolotovCt = !_isMolotovCt;
         break;
     }
+    notifyListeners();
   }
 
   void selectUtil(Smoke util) {
