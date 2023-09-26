@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/viewmodels/util_view_model.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final utilViewModel = Provider.of<UtilViewModel>(context);
+
     return Container(
       height: 240,
       child: Stack(
@@ -38,14 +43,23 @@ class AppBarWidget extends StatelessWidget {
                             UtilButton(
                               imagePath: 'assets/icons/smoke util.png',
                               isSelected: false,
+                              onTap: () {
+                                utilViewModel.toggleUtil('smokeT');
+                              },
                             ),
                             UtilButton(
                               imagePath: 'assets/icons/flash util.png',
                               isSelected: false,
+                              onTap: () {
+                                utilViewModel.toggleUtil('flashT');
+                              },
                             ),
                             UtilButton(
                               imagePath: 'assets/icons/molotov util t.png',
                               isSelected: false,
+                              onTap: () {
+                                utilViewModel.toggleUtil('molotovT');
+                              },
                             ),
                           ],
                         ),
@@ -89,24 +103,29 @@ class UtilButton extends StatelessWidget {
     super.key,
     required this.imagePath,
     required this.isSelected,
+    required this.onTap,
   });
 
-  final imagePath;
-  final isSelected;
+  final String imagePath;
+  final bool isSelected;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 40,
-      width: 40,
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.4),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey, width: 2),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Image.asset(imagePath),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(0.4),
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Colors.grey, width: 2),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Image.asset(imagePath),
+        ),
       ),
     );
   }
