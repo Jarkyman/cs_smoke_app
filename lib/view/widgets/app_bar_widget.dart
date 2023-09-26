@@ -60,6 +60,7 @@ class AppBarWidget extends StatelessWidget {
                                   onTap: () {
                                     utilViewModel.toggleUtil('smokeT');
                                   },
+                                  isCt: false,
                                 ),
                                 UtilButton(
                                   imagePath: 'assets/icons/flash util.png',
@@ -67,6 +68,7 @@ class AppBarWidget extends StatelessWidget {
                                   onTap: () {
                                     utilViewModel.toggleUtil('flashT');
                                   },
+                                  isCt: false,
                                 ),
                                 UtilButton(
                                   imagePath: 'assets/icons/molotov util t.png',
@@ -74,6 +76,7 @@ class AppBarWidget extends StatelessWidget {
                                   onTap: () {
                                     utilViewModel.toggleUtil('molotovT');
                                   },
+                                  isCt: false,
                                 ),
                               ],
                             ),
@@ -133,6 +136,7 @@ class AppBarWidget extends StatelessWidget {
                                   onTap: () {
                                     utilViewModel.toggleUtil('smokeCt');
                                   },
+                                  isCt: true,
                                 ),
                                 UtilButton(
                                   imagePath: 'assets/icons/flash util.png',
@@ -140,6 +144,7 @@ class AppBarWidget extends StatelessWidget {
                                   onTap: () {
                                     utilViewModel.toggleUtil('flashCt');
                                   },
+                                  isCt: true,
                                 ),
                                 UtilButton(
                                   imagePath: 'assets/icons/molotov util ct.png',
@@ -147,6 +152,7 @@ class AppBarWidget extends StatelessWidget {
                                   onTap: () {
                                     utilViewModel.toggleUtil('molotovCt');
                                   },
+                                  isCt: true,
                                 ),
                               ],
                             ),
@@ -171,11 +177,13 @@ class UtilButton extends StatelessWidget {
     required this.imagePath,
     required this.isSelected,
     required this.onTap,
+    required this.isCt,
   });
 
   final String imagePath;
   final bool isSelected;
   final VoidCallback onTap;
+  final bool isCt;
 
   @override
   Widget build(BuildContext context) {
@@ -185,7 +193,11 @@ class UtilButton extends StatelessWidget {
         height: 40,
         width: 40,
         decoration: BoxDecoration(
-          color: isSelected ? Colors.grey : Colors.grey.withOpacity(0.4),
+          color: isSelected
+              ? isCt
+                  ? Colors.blue.withOpacity(0.4)
+                  : Colors.red.withOpacity(0.4)
+              : Colors.grey.withOpacity(0.4),
           borderRadius: BorderRadius.circular(8),
           border: Border.all(color: Colors.grey, width: 2),
         ),
