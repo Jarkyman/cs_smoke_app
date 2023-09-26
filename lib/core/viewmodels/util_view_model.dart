@@ -10,6 +10,15 @@ class UtilViewModel extends ChangeNotifier {
   Smoke? _selectedUtil;
   Smoke? get selectedUtil => _selectedUtil;
 
+  bool _isT = true;
+  bool get isT => _isT;
+
+  bool _isCt = false;
+  bool get isCt => _isCt;
+
+  String _util = 'smoke';
+  String get util => _util;
+
   bool _isSmokeT = true;
   bool get isSmokeT => _isSmokeT;
   bool _isSmokeCt = false;
@@ -34,25 +43,39 @@ class UtilViewModel extends ChangeNotifier {
     _isFlashCt = false;
     _isMolotovT = false;
     _isMolotovCt = false;
+    _isCt = false;
+    _isT = false;
 
     switch (utilName) {
       case 'smokeT':
-        _isSmokeT = !_isSmokeT;
+        _isSmokeT = true;
+        _isT = true;
+        _util = 'smoke';
         break;
       case 'smokeCt':
-        _isSmokeCt = !_isSmokeCt;
+        _isSmokeCt = true;
+        _isCt = true;
+        _util = 'smoke';
         break;
       case 'flashT':
-        _isFlashT = !_isFlashT;
+        _isFlashT = true;
+        _isT = true;
+        _util = 'flash';
         break;
       case 'flashCt':
-        _isFlashCt = !_isFlashCt;
+        _isFlashCt = true;
+        _isCt = true;
+        _util = 'flash';
         break;
       case 'molotovT':
-        _isMolotovT = !_isMolotovT;
+        _isMolotovT = true;
+        _isT = true;
+        _util = 'molotov';
         break;
       case 'molotovCt':
-        _isMolotovCt = !_isMolotovCt;
+        _isMolotovCt = true;
+        _isCt = true;
+        _util = 'molotov';
         break;
     }
     notifyListeners();

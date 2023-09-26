@@ -33,7 +33,7 @@ abstract class Global {
     {
       'location': 'overpass',
       'description': 'bank',
-      'name': 'fire',
+      'name': 'molotov',
       'status': true,
       'position': [-0.055, -0.397],
       'stands': [

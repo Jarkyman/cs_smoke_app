@@ -31,9 +31,10 @@ class _GridViewWidgetState extends State<GridViewWidget> {
             itemCount: 1,
             shrinkWrap: true,
             itemBuilder: (context, index) {
-              List<Smoke> tileSmokes = utilViewModel.smokes
-                  .where((item) => item.location == map)
-                  .toList();
+              List<Smoke> tileSmokes = utilViewModel.smokes.where((item) {
+                return (item.location == map &&
+                    item.name == utilViewModel.util);
+              }).toList();
 
               return Stack(
                 alignment: Alignment.center,
