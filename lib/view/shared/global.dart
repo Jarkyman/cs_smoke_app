@@ -19,12 +19,12 @@ abstract class Global {
         },
         {
           'position': [-0.031, 0.074],
-          'description': 'Jump Throw',
+          'description': 'Jump Throw 2',
           'videoId': 'dQw4w9WgXcQ'
         },
         {
           'position': [0.002, -0.052],
-          'description': 'Jump Throw',
+          'description': 'Jump Throw 3',
           'videoId': 'dQw4w9WgXcQ'
         },
       ],

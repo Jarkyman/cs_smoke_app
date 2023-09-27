@@ -104,7 +104,11 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const InfoScreen()),
+                                                  const InfoScreen(),
+                                              settings: RouteSettings(
+                                                  arguments: utilViewModel
+                                                      .selectedUtil!
+                                                      .stands[idx])),
                                         );
                                       },
                                       child: SizedBox(

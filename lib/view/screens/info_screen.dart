@@ -1,3 +1,5 @@
+import 'package:cs_smoke_app/core/models/info_model.dart';
+import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
@@ -41,65 +43,61 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: YoutubePlayerScaffold(
-        controller: _controller,
-        builder: (context, player) {
-          return Scaffold(
-            body: LayoutBuilder(
-              builder: (context, constraints) {
-                /*if (kIsWeb && constraints.maxWidth > 750) {
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Column(
-                          children: [
-                            player,
-                          ],
-                        ),
-                      ),
-                      const Expanded(
-                        flex: 2,
-                        child: SingleChildScrollView(
-                          child: Controls(),
-                        ),
-                      ),
-                    ],
-                  );
-                }*/
+    final info = ModalRoute.of(context)!.settings.arguments as InfoModel;
 
-                return ListView(
-                  children: [
-                    player,
-                    Container(
-                      child: Text('Description'),
-                    )
-                  ],
-                );
-              },
+    return Scaffold(
+      backgroundColor: Global.bgColor,
+      body: SafeArea(
+        child: Column(
+          children: [
+            YoutubePlayer(
+              controller: _controller,
+              aspectRatio: 16 / 9,
             ),
-          );
-        },
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+                child: Container(
+              child: Text(
+                info.description,
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
+            )),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF002259).withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Color(0xFF000a1a), width: 2),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Go Back',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            decoration: TextDecoration.none),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
-}
-
-class Controls extends StatelessWidget {
-  const Controls();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [],
-      ),
-    );
-  }
-
-  Widget get _space => const SizedBox(height: 10);
 }
