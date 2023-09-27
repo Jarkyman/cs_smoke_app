@@ -1,4 +1,5 @@
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
+import 'package:cs_smoke_app/view/screens/info_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -99,7 +100,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                     ),
                                     child: GestureDetector(
                                       onTap: () {
-                                        //TODO: open show util page
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const InfoScreen()),
+                                        );
                                       },
                                       child: SizedBox(
                                         height: 16,
