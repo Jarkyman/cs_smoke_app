@@ -1,9 +1,15 @@
+import 'package:cs_smoke_app/view/screens/radar_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/viewmodels/radar_view_model.dart';
 
 class MapsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final radarViewModel = Provider.of<RadarViewModel>(context);
+
     return Scaffold(
       backgroundColor: Global.bgColor,
       appBar: AppBar(
@@ -13,7 +19,18 @@ class MapsScreen extends StatelessWidget {
         itemCount: Global.maps.length, // Antallet af elementer i listen
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              radarViewModel.reset();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RadarScreen(),
+                  settings: RouteSettings(
+                    arguments: Global.maps[index],
+                  ),
+                ),
+              );
+            },
             child: Container(
               height: 160, // Juster højden efter behov
               margin: EdgeInsets.all(10), // Afstand mellem felterne

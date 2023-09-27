@@ -7,7 +7,8 @@ import 'package:provider/provider.dart';
 import '../../core/models/util_model.dart';
 
 class GridViewWidget extends StatefulWidget {
-  const GridViewWidget({super.key});
+  GridViewWidget({Key? key, required this.mapName}) : super(key: key);
+  final String mapName;
 
   @override
   State<GridViewWidget> createState() => _GridViewWidgetState();
@@ -21,7 +22,6 @@ class _GridViewWidgetState extends State<GridViewWidget> {
   Widget build(BuildContext context) {
     final utilViewModel = Provider.of<UtilViewModel>(context);
     final Size size = MediaQuery.of(context).size;
-    final String map = 'overpass'; //TODO: Skal ændres når siden vælges
 
     return Container(
       height: double.maxFinite,
@@ -34,11 +34,11 @@ class _GridViewWidgetState extends State<GridViewWidget> {
             itemBuilder: (context, index) {
               List<UtilModel> tileSmokes = utilViewModel.utils.where((item) {
                 if (utilViewModel.isCt) {
-                  return (item.location == map &&
+                  return (item.location == widget.mapName.toLowerCase() &&
                       item.name == utilViewModel.util &&
                       !item.status);
                 } else {
-                  return (item.location == map &&
+                  return (item.location == widget.mapName.toLowerCase() &&
                       item.name == utilViewModel.util &&
                       item.status);
                 }
@@ -49,7 +49,8 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                 children: [
                   Container(
                     color: Global.bgColor,
-                    child: Image.asset('assets/img/radar/CS2_${map}_radar.png'),
+                    child: Image.asset(
+                        'assets/img/radar/CS2_${widget.mapName.toLowerCase()}_radar.png'),
                   ),
                   utilViewModel.isUtilSelected &&
                           utilViewModel.selectedUtil != null
@@ -103,12 +104,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const InfoScreen(),
-                                              settings: RouteSettings(
-                                                  arguments: utilViewModel
-                                                      .selectedUtil!
-                                                      .stands[idx])),
+                                            builder: (context) =>
+                                                const InfoScreen(),
+                                            settings: RouteSettings(
+                                                arguments: utilViewModel
+                                                    .selectedUtil!.stands[idx]),
+                                          ),
                                         );
                                       },
                                       child: SizedBox(

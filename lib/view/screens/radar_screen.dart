@@ -13,6 +13,8 @@ class RadarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final utilViewModel = Provider.of<UtilViewModel>(context);
+    final String mapName =
+        ModalRoute.of(context)!.settings.arguments as String ?? '';
 
     return Scaffold(
       /*appBar: PreferredSize(
@@ -35,9 +37,11 @@ class RadarScreen extends StatelessWidget {
                   children: [
                     Container(
                       color: Global.bgColor,
-                      child: const Center(
+                      child: Center(
                           child: RawGestureDetectorWidget(
-                              child: GridViewWidget())),
+                              child: GridViewWidget(
+                        mapName: mapName,
+                      ))),
                     ),
                     utilViewModel.isUtilSelected
                         ? SafeArea(
