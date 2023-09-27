@@ -14,22 +14,17 @@ class _InfoScreenState extends State<InfoScreen> {
   final List<String> url = ['dQw4w9WgXcQ'];
 
   final _controller = YoutubePlayerController.fromVideoId(
-    videoId: 'dQw4w9WgXcQ',
+    videoId: '',
     autoPlay: true,
     params: const YoutubePlayerParams(
       mute: true,
-      captionLanguage: 'en',
       enableCaption: false,
-      pointerEvents: PointerEvents.initial,
-      color: 'black',
       showControls: true,
       enableKeyboard: false,
       enableJavaScript: true,
       showFullscreenButton: true,
-      interfaceLanguage: 'en',
       showVideoAnnotations: false,
       loop: true,
-      origin: 'https://www.youtube.com',
       playsInline: true,
       strictRelatedVideos: true,
     ),
@@ -44,6 +39,7 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
     final info = ModalRoute.of(context)!.settings.arguments as InfoModel;
+    _controller.loadVideoById(videoId: info.videoId);
 
     return Scaffold(
       backgroundColor: Global.bgColor,

@@ -4,7 +4,7 @@ import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/models/smoke_model.dart';
+import '../../core/models/util_model.dart';
 
 class GridViewWidget extends StatefulWidget {
   const GridViewWidget({super.key});
@@ -15,7 +15,7 @@ class GridViewWidget extends StatefulWidget {
 
 class _GridViewWidgetState extends State<GridViewWidget> {
   bool isUtilSelected = false;
-  Smoke? selectedUtil;
+  UtilModel? selectedUtil;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
             itemCount: 1,
             shrinkWrap: true,
             itemBuilder: (context, index) {
-              List<Smoke> tileSmokes = utilViewModel.smokes.where((item) {
+              List<UtilModel> tileSmokes = utilViewModel.utils.where((item) {
                 if (utilViewModel.isCt) {
                   return (item.location == map &&
                       item.name == utilViewModel.util &&

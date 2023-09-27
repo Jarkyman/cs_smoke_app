@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../view/shared/global.dart';
-import '../models/smoke_model.dart';
+import '../models/util_model.dart';
 
 class UtilViewModel extends ChangeNotifier {
   bool _isUtilSelected = false;
   bool get isUtilSelected => _isUtilSelected;
 
-  Smoke? _selectedUtil;
-  Smoke? get selectedUtil => _selectedUtil;
+  UtilModel? _selectedUtil;
+  UtilModel? get selectedUtil => _selectedUtil;
 
   bool _isT = true;
   bool get isT => _isT;
@@ -32,9 +32,9 @@ class UtilViewModel extends ChangeNotifier {
   bool _isMolotovCt = false;
   bool get isMolotovCt => _isMolotovCt;
 
-  final List<Smoke> _smokes =
-      Global.smokes.map((item) => Smoke.fromMap(item)).toList();
-  List<Smoke> get smokes => _smokes;
+  final List<UtilModel> _utils =
+      Global.allUtils.map((item) => UtilModel.fromMap(item)).toList();
+  List<UtilModel> get utils => _utils;
 
   void toggleUtil(String utilName) {
     _isSmokeT = false;
@@ -81,7 +81,7 @@ class UtilViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void selectUtil(Smoke util) {
+  void selectUtil(UtilModel util) {
     _isUtilSelected = true;
     _selectedUtil = util;
     notifyListeners();

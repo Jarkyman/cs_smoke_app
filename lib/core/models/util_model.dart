@@ -1,6 +1,6 @@
 import 'package:cs_smoke_app/core/models/info_model.dart';
 
-class Smoke {
+class UtilModel {
   late String location;
   late String description;
   late String name;
@@ -9,7 +9,7 @@ class Smoke {
   late List<InfoModel> stands;
   bool isSelected = false;
 
-  Smoke.fromMap(Map data) {
+  UtilModel.fromMap(Map data) {
     this.location = data['location'] ?? '';
     this.description = data['description'] ?? '';
     this.name = data['name'] ?? '';
