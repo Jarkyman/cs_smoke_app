@@ -92,11 +92,11 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                   child: Transform.translate(
                                     offset: Offset(
                                       size.width *
-                                          utilViewModel
-                                              .selectedUtil!.stands[idx][0],
+                                          utilViewModel.selectedUtil!
+                                              .stands[idx].position[0],
                                       size.width *
-                                          utilViewModel
-                                              .selectedUtil!.stands[idx][1],
+                                          utilViewModel.selectedUtil!
+                                              .stands[idx].position[1],
                                     ),
                                     child: GestureDetector(
                                       onTap: () {

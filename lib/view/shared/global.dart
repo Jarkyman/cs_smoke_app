@@ -12,11 +12,22 @@ abstract class Global {
       'status': true,
       'position': [0.036, -0.339],
       'stands': [
-        [-0.034, -0.012],
-        [0.002, -0.052],
-        [-0.031, 0.074],
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
+        {
+          'position': [-0.031, 0.074],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
+        {
+          'position': [0.002, -0.052],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
     {
       'location': 'overpass',
@@ -25,10 +36,14 @@ abstract class Global {
       'status': true,
       'position': [0.178, -0.124],
       'stands': [
-        [0.105, -0.025],
-        [0.268, 0.110],
+        //[0.105, -0.025],
+        //[0.268, 0.110],
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
     {
       'location': 'overpass',
@@ -37,10 +52,14 @@ abstract class Global {
       'status': true,
       'position': [-0.055, -0.397],
       'stands': [
-        [-0.022, -0.067],
-        [-0.212, -0.150],
+        //[-0.022, -0.067],
+        //[-0.212, -0.150],
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
     {
       'location': 'overpass',
@@ -49,10 +68,14 @@ abstract class Global {
       'status': false,
       'position': [0.053, 0.281],
       'stands': [
-        [-0.014, -0.040],
-        [-0.129, 0.084]
+        //[-0.014, -0.040],
+        //[-0.129, 0.084]
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
     {
       'location': 'overpass',
@@ -61,10 +84,14 @@ abstract class Global {
       'status': true,
       'position': [0.088, -0.256],
       'stands': [
-        [0.105, -0.023],
-        [0.268, 0.197],
+        //[0.105, -0.023],
+        //[0.268, 0.197],
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
     {
       'location': 'overpass',
@@ -73,9 +100,13 @@ abstract class Global {
       'status': false,
       'position': [0.312, -0.031],
       'stands': [
-        [0.007, -0.319],
+        //[0.007, -0.319],
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
     {
       'location': 'overpass',
@@ -84,10 +115,14 @@ abstract class Global {
       'status': true,
       'position': [0.370, -0.153],
       'stands': [
-        [0.253, 0.114],
-        [0.283, 0.020],
+        //[0.253, 0.114],
+        //[0.283, 0.020],
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
     {
       'location': 'overpass',
@@ -96,10 +131,14 @@ abstract class Global {
       'status': true,
       'position': [0.171, 0.047],
       'stands': [
-        [0.272, 0.126],
-        [0.349, 0.038],
+        //[0.272, 0.126],
+        //[0.349, 0.038],
+        {
+          'position': [-0.034, -0.012],
+          'description': 'Jump Throw',
+          'videoId': 'dQw4w9WgXcQ'
+        },
       ],
-      'tile': 1,
     },
   ];
 }
