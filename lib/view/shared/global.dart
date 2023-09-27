@@ -4,6 +4,17 @@ abstract class Global {
   static const Color bgColor = Color(0xFF02010F);
   static const Color blue = Color(0xFF4A64FE);
 
+  static const List<String> maps = [
+    'Ancient',
+    'Anubis',
+    'Dust2',
+    'Inferno',
+    'Mirage',
+    'Nuke',
+    'Overpass',
+    'Vertigo',
+  ];
+
   static const List allUtils = [
     {
       'location': 'overpass',
