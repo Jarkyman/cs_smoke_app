@@ -45,33 +45,68 @@ class RadarScreen extends StatelessWidget {
                     ),
                     utilViewModel.isUtilSelected
                         ? SafeArea(
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: IconButton(
-                                icon: const Icon(
-                                  Icons.close,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {
-                                  utilViewModel.reset();
-                                },
-                                iconSize: 24,
-                                splashRadius: 10,
-                                style: ButtonStyle(
-                                  shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    utilViewModel.reset();
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF002259).withOpacity(0.6),
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                          color: Color(0xFF000a1a), width: 2),
+                                    ),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Icon(
+                                        Icons.close,
+                                        color: Colors.white,
+                                        size: 24,
+                                      ),
                                     ),
                                   ),
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Global.blue),
                                 ),
                               ),
                             ),
                           )
-                        : Container(),
+                        : SafeArea(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF002259).withOpacity(0.6),
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                          color: Color(0xFF000a1a), width: 2),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Go Back',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 14,
+                                            decoration: TextDecoration.none),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                   ],
                 ),
               ),
