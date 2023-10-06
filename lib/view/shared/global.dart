@@ -48,7 +48,7 @@ abstract class Global {
         {
           'position': [0.330, 0.127],
           'description': 'Running jump throw',
-          'videoId': ''
+          'videoId': 'HNY3ReHKv-Y'
         },
       ],
     },
@@ -61,7 +61,7 @@ abstract class Global {
       'stands': [
         {
           'position': [0.287, 0.177],
-          'description': 'Left and right click jump throw',
+          'description': 'Left right click jump throw',
           'videoId': 'ICKI7X8ji8o'
         },
       ],
@@ -242,12 +242,12 @@ abstract class Global {
         {
           'position': [-0.033, -0.018],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'Len0Pq_nMJk'
         },
         {
           'position': [-0.253, -0.158],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'HzMU2W7lxqg'
         },
       ],
     },
@@ -261,12 +261,12 @@ abstract class Global {
         {
           'position': [-0.289, 0.041],
           'description': 'Jump Throw',
-          'videoId': ''
+          'videoId': 'AeSGHJfz2Lc'
         },
         {
           'position': [-0.032, -0.017],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'zUOs1tQiVm8'
         },
       ],
     },
@@ -280,7 +280,7 @@ abstract class Global {
         {
           'position': [-0.227, -0.101],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'Ivrv0R85G14'
         },
       ],
     },
@@ -294,12 +294,12 @@ abstract class Global {
         {
           'position': [-0.289, 0.040],
           'description': 'Jump throw',
-          'videoId': ''
+          'videoId': 'aFyrfa1Cm18'
         },
         {
           'position': [-0.224, -0.099],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'AGEAminTsf0'
         },
       ],
     },
@@ -313,7 +313,7 @@ abstract class Global {
         {
           'position': [-0.024, -0.051],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': '1vki0C2F88E'
         },
       ],
     },
@@ -327,7 +327,7 @@ abstract class Global {
         {
           'position': [-0.192, -0.250],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'lsz2QDIi0s8'
         },
       ],
     },
@@ -341,12 +341,12 @@ abstract class Global {
         {
           'position': [0.036, -0.322],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'A1h7qqpihJo'
         },
         {
           'position': [0.048, -0.183],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'OB2Cn4hsD6M'
         },
       ],
     },
@@ -360,12 +360,12 @@ abstract class Global {
         {
           'position': [0.048, -0.183],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': '7JlVdqvY32k'
         },
         {
           'position': [-0.031, -0.181],
           'description': 'Run throw',
-          'videoId': ''
+          'videoId': 'AQ7NMSFIf5k'
         },
       ],
     },
@@ -379,7 +379,7 @@ abstract class Global {
         {
           'position': [0.199, -0.218],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': '6u_O4QulAdA'
         },
       ],
     },
@@ -393,12 +393,12 @@ abstract class Global {
         {
           'position': [0.008, -0.352],
           'description': 'Crouch jump throw',
-          'videoId': ''
+          'videoId': 'bdm6nLuumZY'
         },
         {
           'position': [0.188, -0.205],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'IH3bTVVBsaA'
         },
       ],
     },
@@ -412,7 +412,7 @@ abstract class Global {
         {
           'position': [0.205, -0.226],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'l4odQ0YcIPw'
         },
       ],
     },
@@ -425,8 +425,8 @@ abstract class Global {
       'stands': [
         {
           'position': [0.171, -0.221],
-          'description': 'Left and right click',
-          'videoId': ''
+          'description': 'Left right click',
+          'videoId': 'lyGVd2UH9so'
         },
       ],
     },
@@ -440,7 +440,7 @@ abstract class Global {
         {
           'position': [-0.002, -0.108],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'k1hRKO6KYgE'
         },
       ],
     },
@@ -454,21 +454,7 @@ abstract class Global {
         {
           'position': [-0.002, -0.108],
           'description': 'Left click',
-          'videoId': ''
-        },
-      ],
-    },
-    {
-      'location': 'overpass',
-      'description': 'Mid',
-      'name': 'smoke',
-      'status': false,
-      'position': [-0.092, 0.170],
-      'stands': [
-        {
-          'position': [-0.002, -0.108],
-          'description': 'Left click',
-          'videoId': ''
+          'videoId': '8vwV2g-VWqg'
         },
       ],
     },
@@ -482,7 +468,7 @@ abstract class Global {
         {
           'position': [-0.032, -0.103],
           'description': 'Running jump throw',
-          'videoId': ''
+          'videoId': 'HN-DoJaE6QA'
         },
       ],
     },
@@ -496,7 +482,7 @@ abstract class Global {
         {
           'position': [-0.080, -0.375],
           'description': 'Right click',
-          'videoId': ''
+          'videoId': 'IXZAbe0mxzk'
         },
       ],
     },
@@ -510,7 +496,7 @@ abstract class Global {
         {
           'position': [-0.176, 0.305],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'C4J8BEHHo_Q'
         },
       ],
     },
@@ -524,18 +510,18 @@ abstract class Global {
         {
           'position': [0.302, 0.222],
           'description': 'Jump throw',
-          'videoId': ''
+          'videoId': 'qkbhDsP67ag'
         },
         {
           'position': [0.178, 0.030],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': '7Su0I6tVc3c'
         },
       ],
     },
     {
       'location': 'overpass',
-      'description': 'Car',
+      'description': 'Truck',
       'name': 'smoke',
       'status': true,
       'position': [-0.003, -0.265],
@@ -543,12 +529,12 @@ abstract class Global {
         {
           'position': [-0.298, 0.030],
           'description': 'Jump throw',
-          'videoId': ''
+          'videoId': 'fnowkMO9s1E'
         },
         {
           'position': [-0.027, -0.026],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'zzlS5FuiJlw'
         },
       ],
     },
@@ -562,7 +548,7 @@ abstract class Global {
         {
           'position': [0.115, -0.046],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'CD8hwxVXGGY'
         },
       ],
     },
@@ -576,12 +562,12 @@ abstract class Global {
         {
           'position': [0.296, 0.122],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'USB5VvuekFY'
         },
         {
           'position': [0.084, -0.029],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'aOQxGmcY-fw'
         },
       ],
     },
@@ -595,7 +581,7 @@ abstract class Global {
         {
           'position': [0.080, -0.039],
           'description': 'Left click',
-          'videoId': ''
+          'videoId': 'p81UmjF6ngY'
         },
       ],
     },
