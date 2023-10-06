@@ -7,10 +7,12 @@ abstract class Global {
   static const List<String> maps = [
     'Ancient',
     'Anubis',
-    'Dust2',
+    //'Dust2',
     'Inferno',
+    //'Italy',
     'Mirage',
     'Nuke',
+    //'Office',
     'Overpass',
     'Vertigo',
   ];

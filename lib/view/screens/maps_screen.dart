@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ class MapsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final radarViewModel = Provider.of<RadarViewModel>(context);
+    final utilViewModel = Provider.of<UtilViewModel>(context);
 
     return Scaffold(
       backgroundColor: Global.bgColor,
@@ -21,6 +23,7 @@ class MapsScreen extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               radarViewModel.reset();
+              utilViewModel.reset();
               Navigator.push(
                 context,
                 MaterialPageRoute(
