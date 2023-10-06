@@ -1,3 +1,4 @@
+import 'package:bordered_text/bordered_text.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
@@ -48,28 +49,17 @@ class MapsScreen extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Stack(
-                  children: [
-                    Text(
-                      Global.maps[index],
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 48,
-                          fontWeight: FontWeight.bold,
-                          foreground: Paint()
-                            ..style = PaintingStyle.stroke
-                            ..color = Colors.black
-                            ..strokeWidth = 1),
+                child: BorderedText(
+                  strokeWidth: 4.0,
+                  strokeColor: Colors.black,
+                  child: Text(
+                    Global.maps[index],
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 48,
+                      fontWeight: FontWeight.w700,
                     ),
-                    Text(
-                      Global.maps[index],
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 48,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
