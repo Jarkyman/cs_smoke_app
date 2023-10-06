@@ -18,6 +18,7 @@ abstract class Global {
   ];
 
   static const List allUtils = [
+    //NUKE
     {
       'location': 'nuke',
       'description': 'Ramp',
@@ -29,6 +30,420 @@ abstract class Global {
           'position': [-0.008, 0.122],
           'description': 'Run throw',
           'videoId': 'nLxXvy5wJ4k'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Third outside',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.117, 0.391],
+      'stands': [
+        {
+          'position': [-0.189, 0.204],
+          'description': 'Jump throw',
+          'videoId': 'ghRVMbMXLPk'
+        },
+        {
+          'position': [-0.038, 0.363],
+          'description': 'Left click',
+          'videoId': 'FOzrUYa1WGQ'
+        },
+        {
+          'position': [-0.173, 0.231],
+          'description': 'Jump throw',
+          'videoId': 'r3vhbubhzqc'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Second outside',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.090, 0.392],
+      'stands': [
+        {
+          'position': [-0.225, 0.240],
+          'description': 'Jump throw',
+          'videoId': 'tT6kWqEj4Zo'
+        },
+        {
+          'position': [-0.055, 0.339],
+          'description': 'Left click',
+          'videoId': 'nz_HX3KLi_M'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Main cross',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.098, 0.314],
+      'stands': [
+        {
+          'position': [-0.085, 0.349],
+          'description': 'Jump throw',
+          'videoId': 's7-qi8YmfO8'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Blue cross',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.127, 0.311],
+      'stands': [
+        {
+          'position': [-0.037, 0.364],
+          'description': 'Left click',
+          'videoId': 'D6ofE1mFwUs'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Main cross',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.162, 0.348],
+      'stands': [
+        {
+          'position': [-0.054, 0.353],
+          'description': 'Left click',
+          'videoId': 'QDg8PIKS0Iw'
+        },
+        {
+          'position': [-0.093, 0.277],
+          'description': 'Left click',
+          'videoId': 'xdKtSO1L3kQ'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'First outside',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.016, 0.377],
+      'stands': [
+        {
+          'position': [-0.104, 0.298],
+          'description': 'Run throw',
+          'videoId': 'wieQjZQg-No'
+        },
+        {
+          'position': [-0.205, 0.241],
+          'description': 'Jump throw',
+          'videoId': 'mSX4QL8ZcS4'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Secret',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.159, 0.418],
+      'stands': [
+        {
+          'position': [-0.019, 0.362],
+          'description': 'Left click',
+          'videoId': 'bA5K5QHTn_k'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Red',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.056, 0.377],
+      'stands': [
+        {
+          'position': [-0.097, 0.323],
+          'description': 'Left click',
+          'videoId': '0eHsjKTtkkM'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Outside',
+      'name': 'flash',
+      'status': true,
+      'position': [0.053, 0.374],
+      'stands': [
+        {
+          'position': [-0.103, 0.306],
+          'description': 'Run throw',
+          'videoId': 'EJRCNpNDgYM'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Top hut',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.017, 0.222],
+      'stands': [
+        {
+          'position': [-0.147, 0.261],
+          'description': 'Jump throw',
+          'videoId': 'syVVqEjUJDs'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Heaven',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.118, 0.128],
+      'stands': [
+        {
+          'position': [-0.026, 0.275],
+          'description': 'Left click',
+          'videoId': 'bG2iecjo4yM'
+        },
+        {
+          'position': [-0.046, 0.266],
+          'description': 'Left click',
+          'videoId': 'XjvR6y_bKO0'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Door',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.035, 0.261],
+      'stands': [
+        {
+          'position': [-0.165, 0.209],
+          'description': 'Jump throw',
+          'videoId': 'A8jMS-HcqmI'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Top hut',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.014, 0.223],
+      'stands': [
+        {
+          'position': [0.264, -0.134],
+          'description': 'Left click',
+          'videoId': 'U0hRHI3L9pw'
+        },
+        {
+          'position': [0.188, -0.112],
+          'description': 'Running jump throw',
+          'videoId': 'rpcM-KmZOlU'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'A Site',
+      'name': 'flash',
+      'status': true,
+      'position': [0.049, 0.249],
+      'stands': [
+        {
+          'position': [0.189, -0.112],
+          'description': 'Running jump throw',
+          'videoId': '0XMz8xJjHv4'
+        },
+        {
+          'position': [0.264, -0.155],
+          'description': 'Run throw',
+          'videoId': 'M5cni6tYibQ'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'A Site',
+      'name': 'flash',
+      'status': true,
+      'position': [0.060, 0.169],
+      'stands': [
+        {
+          'position': [0.262, -0.155],
+          'description': 'Left click',
+          'videoId': 'orP0rRHyJd4'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Main',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.051, 0.295],
+      'stands': [
+        {
+          'position': [0.246, -0.237],
+          'description': 'Left right click jump throw',
+          'videoId': '4WYqd-Yg2Uw'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Ramp',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.017, 0.088],
+      'stands': [
+        {
+          'position': [0.061, -0.010],
+          'description': 'Left click',
+          'videoId': 'geVgRZBRzrc'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Trophy',
+      'name': 'molotov',
+      'status': false,
+      'position': [-0.018, 0.114],
+      'stands': [
+        {
+          'position': [0.052, -0.016],
+          'description': 'Left click',
+          'videoId': 'Lblf4-c9nmc'
+        },
+        {
+          'position': [0.053, 0.059],
+          'description': 'Run throw',
+          'videoId': 'Vy7U2MO0JHA'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Outside cross',
+      'name': 'smoke',
+      'status': false,
+      'position': [0.059, 0.355],
+      'stands': [
+        {
+          'position': [0.145, 0.260],
+          'description': 'Run throw',
+          'videoId': '-h5VmHllLCY'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Control',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.228, -0.224],
+      'stands': [
+        {
+          'position': [0.032, -0.050],
+          'description': 'Left click',
+          'videoId': 'MbUXAo4h67M'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Dark',
+      'name': 'molotov',
+      'status': false,
+      'position': [-0.245, -0.238],
+      'stands': [
+        {
+          'position': [-0.252, -0.302],
+          'description': 'Left right click',
+          'videoId': 'o1XtRQyLxpI'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Blue site',
+      'name': 'molotov',
+      'status': false,
+      'position': [-0.254, -0.113],
+      'stands': [
+        {
+          'position': [-0.252, -0.302],
+          'description': 'Run throw',
+          'videoId': 'CfnuuDY-J5w'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Vent',
+      'name': 'flash',
+      'status': false,
+      'position': [-0.301, -0.090],
+      'stands': [
+        {
+          'position': [0.044, 0.230],
+          'description': 'Jump throw',
+          'videoId': 'w5lU_6VMqjc'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Hut',
+      'name': 'smoke',
+      'status': false,
+      'position': [0.015, 0.198],
+      'stands': [
+        {
+          'position': [0.137, 0.118],
+          'description': 'Left click',
+          'videoId': 'YkApTVE0p7k'
+        },
+        {
+          'position': [0.098, 0.116],
+          'description': 'Left right click',
+          'videoId': 'n2RaaU-YXkI'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Hut',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.008, 0.224],
+      'stands': [
+        {
+          'position': [0.110, 0.116],
+          'description': 'Left click',
+          'videoId': 'MvKzC7tFuBw'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Door',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.014, 0.261],
+      'stands': [
+        {
+          'position': [0.106, 0.127],
+          'description': 'Run throw',
+          'videoId': 'sG_EXKQ6dW8'
         },
       ],
     },
