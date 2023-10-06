@@ -78,6 +78,8 @@ class UtilViewModel extends ChangeNotifier {
         _util = 'molotov';
         break;
     }
+    _isUtilSelected = false;
+    _selectedUtil = null;
     notifyListeners();
   }
 
