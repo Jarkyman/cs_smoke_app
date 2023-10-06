@@ -122,8 +122,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                             child: Container(
                                               height: 12,
                                               width: 12,
-                                              color: Colors
-                                                  .red, //TODO: Skal være blå ved ct og rød ved t
+                                              color: utilViewModel.isT
+                                                  ? Colors.red
+                                                  : Colors.blue,
                                             ),
                                           ),
                                         ),
