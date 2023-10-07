@@ -24,7 +24,7 @@ class AppBarWidget extends StatelessWidget {
                     clipper: SkewedClipper(true),
                     child: Container(
                       child: Image.asset(
-                        'assets/img/t test.png',
+                        'assets/img/Terroist outline.png',
                       ),
                     ),
                   ),
@@ -100,7 +100,7 @@ class AppBarWidget extends StatelessWidget {
                     clipper: SkewedClipper(false),
                     child: Container(
                       child: Image.asset(
-                        'assets/img/ct test.png',
+                        'assets/img/Counter Terroist outline.png',
                       ),
                     ),
                   ),
