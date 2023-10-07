@@ -48,7 +48,7 @@ abstract class Global {
         {
           'position': [0.010, -0.130],
           'description': 'Left click',
-          'videoId': 'zjGGozzrE7Y'
+          'videoId': 'ya7QUSC-B4U'
         },
       ],
     },
@@ -1193,7 +1193,7 @@ abstract class Global {
         {
           'position': [-0.103, 0.306],
           'description': 'Run throw',
-          'videoId': 'EJRCNpNDgYM'
+          'videoId': 'Iz0etrWjiSs'
         },
       ],
     },
