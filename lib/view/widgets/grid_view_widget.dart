@@ -1,13 +1,14 @@
-import 'package:cs_smoke_app/core/viewmodels/radar_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
+import 'package:cs_smoke_app/view/screens/info_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/models/smoke_model.dart';
+import '../../core/models/util_model.dart';
 
 class GridViewWidget extends StatefulWidget {
-  const GridViewWidget({super.key});
+  GridViewWidget({Key? key, required this.mapName}) : super(key: key);
+  final String mapName;
 
   @override
   State<GridViewWidget> createState() => _GridViewWidgetState();
@@ -15,14 +16,12 @@ class GridViewWidget extends StatefulWidget {
 
 class _GridViewWidgetState extends State<GridViewWidget> {
   bool isUtilSelected = false;
-  Smoke? selectedUtil;
+  UtilModel? selectedUtil;
 
   @override
   Widget build(BuildContext context) {
-    final radarViewModel = Provider.of<RadarViewModel>(context);
     final utilViewModel = Provider.of<UtilViewModel>(context);
     final Size size = MediaQuery.of(context).size;
-    final String map = 'overpass'; //TODO: Skal ændres når siden vælges
 
     return Container(
       height: double.maxFinite,
@@ -33,64 +32,115 @@ class _GridViewWidgetState extends State<GridViewWidget> {
             itemCount: 1,
             shrinkWrap: true,
             itemBuilder: (context, index) {
-              List<Smoke> tileSmokes = utilViewModel.smokes
-                  .where((item) => item.location == map)
-                  .toList();
+              List<UtilModel> tileSmokes = utilViewModel.utils.where((item) {
+                if (utilViewModel.isCt) {
+                  return (item.location == widget.mapName.toLowerCase() &&
+                      item.name == utilViewModel.util &&
+                      !item.status);
+                } else {
+                  return (item.location == widget.mapName.toLowerCase() &&
+                      item.name == utilViewModel.util &&
+                      item.status);
+                }
+              }).toList();
 
               return Stack(
                 alignment: Alignment.center,
                 children: [
                   Container(
                     color: Global.bgColor,
-                    child: Image.asset('assets/img/radar/CS2_${map}_radar.png'),
+                    child: Image.asset(
+                        'assets/img/radar/CS2_${widget.mapName.toLowerCase()}_radar.png'),
                   ),
                   utilViewModel.isUtilSelected &&
                           utilViewModel.selectedUtil != null
                       ? Stack(
-                          children: List.generate(
-                              utilViewModel.selectedUtil!.stands.length, (idx) {
-                            return Container(
+                          children: [
+                            Container(
                               height: double.infinity,
                               width: double.infinity,
-                              //color: Colors.yellow.withOpacity(0.05),
                               child: Transform.translate(
                                 offset: Offset(
                                   size.width *
-                                      utilViewModel.selectedUtil!.stands[idx]
-                                          [0],
+                                      utilViewModel.selectedUtil!.position[0],
                                   size.width *
-                                      utilViewModel.selectedUtil!.stands[idx]
-                                          [1],
+                                      utilViewModel.selectedUtil!.position[1],
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
-                                    setState(() {});
+                                    utilViewModel.reset();
                                   },
                                   child: SizedBox(
                                     height: 16,
                                     width: 16,
                                     child: Center(
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
-                                        child: Container(
-                                          height: 12,
-                                          width: 12,
-                                          color: Colors.red,
-                                        ),
+                                      child: Image.asset(
+                                        'assets/icons/${utilViewModel.selectedUtil!.name}.png',
+                                        width: 16,
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            );
-                          }),
+                            ),
+                            Stack(
+                              children: List.generate(
+                                  utilViewModel.selectedUtil!.stands.length,
+                                  (idx) {
+                                return Container(
+                                  height: double.infinity,
+                                  width: double.infinity,
+                                  child: Transform.translate(
+                                    offset: Offset(
+                                      size.width *
+                                          utilViewModel.selectedUtil!
+                                              .stands[idx].position[0],
+                                      size.width *
+                                          utilViewModel.selectedUtil!
+                                              .stands[idx].position[1],
+                                    ),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const InfoScreen(),
+                                            settings: RouteSettings(
+                                                arguments: utilViewModel
+                                                    .selectedUtil!.stands[idx]),
+                                          ),
+                                        );
+                                      },
+                                      child: SizedBox(
+                                        height: 16,
+                                        width: 16,
+                                        child: Center(
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            child: Container(
+                                              height: 12,
+                                              width: 12,
+                                              color: utilViewModel.isT
+                                                  ? Colors.red
+                                                  : Colors.blue,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ),
+                          ],
                         )
                       : Stack(
                           children: List.generate(tileSmokes.length, (idx) {
                             return Container(
                               height: double.infinity,
                               width: double.infinity,
-                              //color: Colors.yellow.withOpacity(0.05),
                               child: Transform.translate(
                                 offset: Offset(
                                   size.width * tileSmokes[idx].position[0],
@@ -116,38 +166,10 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                               ),
                             );
                           }),
-                        )
+                        ),
                 ],
               );
             }),
-      ),
-    );
-  }
-}
-
-class SmokeIndicator extends StatelessWidget {
-  const SmokeIndicator({
-    super.key,
-    required this.tileSmoke,
-  });
-
-  final Smoke tileSmoke;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        print('object');
-      },
-      child: SizedBox(
-        height: 16,
-        width: 16,
-        child: Center(
-          child: Image.asset(
-            'assets/icons/${tileSmoke.name}.png',
-            width: 16,
-          ),
-        ),
       ),
     );
   }

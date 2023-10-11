@@ -1,5 +1,5 @@
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
-import 'package:cs_smoke_app/view/screens/radar_screen.dart';
+import 'package:cs_smoke_app/view/screens/maps_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.dark(),
           useMaterial3: true,
         ),
-        home: RadarScreen(),
+        home: MapsScreen(),
       ),
     );
   }
