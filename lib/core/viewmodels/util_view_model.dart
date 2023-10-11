@@ -92,7 +92,6 @@ class UtilViewModel extends ChangeNotifier {
   void reset() {
     _isUtilSelected = false;
     _selectedUtil = null;
-    toggleUtil('smokeT');
     notifyListeners();
   }
 }

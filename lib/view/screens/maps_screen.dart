@@ -25,6 +25,7 @@ class MapsScreen extends StatelessWidget {
             onTap: () {
               radarViewModel.reset();
               utilViewModel.reset();
+              utilViewModel.toggleUtil('smokeT');
               Navigator.push(
                 context,
                 MaterialPageRoute(
