@@ -18,13 +18,17 @@ class AppBarWidget extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Stack(
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: ClipPath(
-                    clipper: SkewedClipper(true),
-                    child: Container(
-                      child: Image.asset(
-                        'assets/img/Terroist outline.png',
+                Container(
+                  height: 260,
+                  width: (MediaQuery.of(context).size.width / 2) + 28,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: ClipPath(
+                      clipper: SkewedClipper(true),
+                      child: Container(
+                        child: Image.asset(
+                          'assets/img/Terroist outline.png',
+                        ),
                       ),
                     ),
                   ),
@@ -91,78 +95,84 @@ class AppBarWidget extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerRight,
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: ClipPath(
-                    clipper: SkewedClipper(false),
-                    child: Container(
-                      child: Image.asset(
-                        'assets/img/Counter Terroist outline.png',
+            child: Container(
+              height: 260,
+              width: (MediaQuery.of(context).size.width / 2) + 28,
+              child: Stack(
+                alignment: Alignment.topRight,
+                children: [
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: ClipPath(
+                      clipper: SkewedClipper(false),
+                      child: Container(
+                        child: Image.asset(
+                          'assets/img/Counter Terroist outline.png',
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  height: 260,
-                  width: (MediaQuery.of(context).size.width / 2) + 28,
-                  child: ClipPath(
-                    clipper: SkewedClipper(false),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [
-                            Colors.blue.withOpacity(0.5),
-                            Colors.transparent,
+                  Container(
+                    height: 260,
+                    width: (MediaQuery.of(context).size.width / 2) + 28,
+                    child: ClipPath(
+                      clipper: SkewedClipper(false),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [
+                              Colors.blue.withOpacity(0.5),
+                              Colors.transparent,
+                            ],
+                          ),
+                        ),
+                        child: Stack(
+                          alignment: Alignment.bottomCenter,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 38.0, bottom: 50),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  UtilButton(
+                                    imagePath: 'assets/icons/smoke util.png',
+                                    isSelected: utilViewModel.isSmokeCt,
+                                    onTap: () {
+                                      utilViewModel.toggleUtil('smokeCt');
+                                    },
+                                    isCt: true,
+                                  ),
+                                  UtilButton(
+                                    imagePath: 'assets/icons/flash util.png',
+                                    isSelected: utilViewModel.isFlashCt,
+                                    onTap: () {
+                                      utilViewModel.toggleUtil('flashCt');
+                                    },
+                                    isCt: true,
+                                  ),
+                                  UtilButton(
+                                    imagePath:
+                                        'assets/icons/molotov util ct.png',
+                                    isSelected: utilViewModel.isMolotovCt,
+                                    onTap: () {
+                                      utilViewModel.toggleUtil('molotovCt');
+                                    },
+                                    isCt: true,
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      child: Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 38.0, bottom: 50),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                UtilButton(
-                                  imagePath: 'assets/icons/smoke util.png',
-                                  isSelected: utilViewModel.isSmokeCt,
-                                  onTap: () {
-                                    utilViewModel.toggleUtil('smokeCt');
-                                  },
-                                  isCt: true,
-                                ),
-                                UtilButton(
-                                  imagePath: 'assets/icons/flash util.png',
-                                  isSelected: utilViewModel.isFlashCt,
-                                  onTap: () {
-                                    utilViewModel.toggleUtil('flashCt');
-                                  },
-                                  isCt: true,
-                                ),
-                                UtilButton(
-                                  imagePath: 'assets/icons/molotov util ct.png',
-                                  isSelected: utilViewModel.isMolotovCt,
-                                  onTap: () {
-                                    utilViewModel.toggleUtil('molotovCt');
-                                  },
-                                  isCt: true,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
