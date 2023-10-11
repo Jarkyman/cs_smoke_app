@@ -375,6 +375,9 @@ fabric.properties
 .idea
 **/node_modules/*
 **/.firebaserc
+ios/firebase_app_id_file.json
+lib/firebase_options.dart
+ios/Runner/GoogleService-Info.plist
 
 ### Firebase Patch ###
 .runtimeconfig.json
