@@ -2391,6 +2391,20 @@ abstract class Global {
     },
     {
       'location': 'nuke',
+      'description': 'Ramp',
+      'name': 'flash',
+      'status': true,
+      'position': [-0.001, 0.061],
+      'stands': [
+        {
+          'position': [-0.061, 0.155],
+          'description': 'Left click',
+          'videoId': 'T7M6fJsj1us'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
       'description': 'Third outside',
       'name': 'smoke',
       'status': true,
@@ -2641,6 +2655,20 @@ abstract class Global {
     },
     {
       'location': 'nuke',
+      'description': 'A Site',
+      'name': 'flash',
+      'status': true,
+      'position': [0.031, 0.194],
+      'stands': [
+        {
+          'position': [-0.013, 0.230],
+          'description': 'Run throw',
+          'videoId': 'zzr_G3SxKZY'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
       'description': 'Main',
       'name': 'smoke',
       'status': true,
@@ -2814,6 +2842,114 @@ abstract class Global {
           'position': [0.207, 0.254],
           'description': 'Running jump throw',
           'videoId': 'BaHodXqcmTE'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Ramp',
+      'name': 'flash',
+      'status': false,
+      'position': [-0.011, 0.053],
+      'stands': [
+        {
+          'position': [0.041, 0.026],
+          'description': 'Left click',
+          'videoId': 'ybWn_zIaP_4'
+        },
+        {
+          'position': [0.046, -0.058],
+          'description': 'Left click',
+          'videoId': 'tKQP7a47ZJI'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Outside',
+      'name': 'flash',
+      'status': false,
+      'position': [0.158, 0.368],
+      'stands': [
+        {
+          'position': [0.145, 0.254],
+          'description': 'Run thorw',
+          'videoId': 'rsWQ52klVwc'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Outside',
+      'name': 'flash',
+      'status': false,
+      'position': [0.062, 0.414],
+      'stands': [
+        {
+          'position': [0.140, 0.255],
+          'description': 'Run thorw',
+          'videoId': '4ulAGGJWhuI'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'Outside',
+      'name': 'flash',
+      'status': false,
+      'position': [0.048, 0.312],
+      'stands': [
+        {
+          'position': [0.082, 0.169],
+          'description': 'Jump thorw',
+          'videoId': 'eQcBTBSgIkM'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'A site',
+      'name': 'flash',
+      'status': false,
+      'position': [0.085, 0.127],
+      'stands': [
+        {
+          'position': [0.131, 0.116],
+          'description': 'Left click',
+          'videoId': '6wK6FozB_Pw'
+        },
+        {
+          'position': [0.132, 0.136],
+          'description': 'Left click',
+          'videoId': '2Ixql3oyj2g'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'A Site Blue box',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.019, 0.125],
+      'stands': [
+        {
+          'position': [0.135, 0.135],
+          'description': 'Left click',
+          'videoId': 'S-EijUqvBTU'
+        },
+      ],
+    },
+    {
+      'location': 'nuke',
+      'description': 'A Site Drop',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.088, 0.126],
+      'stands': [
+        {
+          'position': [0.135, 0.135],
+          'description': 'Left click',
+          'videoId': '803DEyZin00'
         },
       ],
     },
