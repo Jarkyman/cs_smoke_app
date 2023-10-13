@@ -3222,6 +3222,11 @@ abstract class Global {
           'description': 'Left click',
           'videoId': 'AGEAminTsf0'
         },
+        {
+          'position': [-0.033, -0.002],
+          'description': 'Jump throw',
+          'videoId': 'U2AXbIk9qhI'
+        },
       ],
     },
     {
@@ -3249,6 +3254,34 @@ abstract class Global {
           'position': [-0.192, -0.250],
           'description': 'Left click',
           'videoId': 'lsz2QDIi0s8'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'A site',
+      'name': 'flash',
+      'status': true,
+      'position': [-0.009, -0.262],
+      'stands': [
+        {
+          'position': [-0.029, -0.043],
+          'description': 'Jump throw',
+          'videoId': 'y0atcvinFso'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'Long',
+      'name': 'flash',
+      'status': true,
+      'position': [-0.297, 0.054],
+      'stands': [
+        {
+          'position': [-0.137, 0.329],
+          'description': 'Run throw',
+          'videoId': 'friVNZYXcgs'
         },
       ],
     },
@@ -3376,6 +3409,114 @@ abstract class Global {
           'position': [-0.002, -0.108],
           'description': 'Left click',
           'videoId': '8vwV2g-VWqg'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'Banana',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.058, -0.173],
+      'stands': [
+        {
+          'position': [0.074, -0.411],
+          'description': 'Left right click jump throw',
+          'videoId': 'F21GfBbeFUc'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'Toilets',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.097, -0.160],
+      'stands': [
+        {
+          'position': [0.006, -0.412],
+          'description': 'Left right click jump throw',
+          'videoId': 'kXdW5w_R3Dw'
+        },
+        {
+          'position': [0.074, -0.411],
+          'description': 'Left right click jump throw',
+          'videoId': 'l9bdFFoaFp4'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'Long',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.161, -0.278],
+      'stands': [
+        {
+          'position': [0.076, -0.394],
+          'description': 'Left right click jump throw',
+          'videoId': 'Y2itK8Lsrj8'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'Short',
+      'name': 'smoke',
+      'status': false,
+      'position': [0.228, -0.094],
+      'stands': [
+        {
+          'position': [0.050, -0.214],
+          'description': 'Left click',
+          'videoId': '3WmZKG-WVIA'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'A site',
+      'name': 'flash',
+      'status': false,
+      'position': [0.043, -0.300],
+      'stands': [
+        {
+          'position': [0.076, -0.412],
+          'description': 'Left right click jump throw',
+          'videoId': 'uJzGB-G29Uk'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'A site',
+      'name': 'flash',
+      'status': false,
+      'position': [-0.029, -0.321],
+      'stands': [
+        {
+          'position': [-0.098, -0.465],
+          'description': 'Left click',
+          'videoId': 'NW7jqP737HU'
+        },
+      ],
+    },
+    {
+      'location': 'overpass',
+      'description': 'B site',
+      'name': 'flash',
+      'status': false,
+      'position': [0.191, -0.123],
+      'stands': [
+        {
+          'position': [0.173, 0.026],
+          'description': 'Left click',
+          'videoId': '_rAJIbqMF3k'
+        },
+        {
+          'position': [0.033, -0.202],
+          'description': 'Jump throw',
+          'videoId': 'qhoqYMvsxjU'
         },
       ],
     },
