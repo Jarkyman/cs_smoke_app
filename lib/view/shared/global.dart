@@ -1379,6 +1379,11 @@ abstract class Global {
           'description': 'Left click',
           'videoId': '2FBD_En3OPU'
         },
+        {
+          'position': [-0.032, -0.045],
+          'description': 'Left click',
+          'videoId': 'wmEaR_qOXQg'
+        },
       ],
     },
     {
@@ -1406,6 +1411,16 @@ abstract class Global {
           'position': [-0.004, -0.082],
           'description': 'Left click',
           'videoId': 'cHsS7jzpRfs'
+        },
+        {
+          'position': [-0.032, -0.045],
+          'description': 'Left click',
+          'videoId': 'IlF-XOKzp1g'
+        },
+        {
+          'position': [-0.203, 0.184],
+          'description': 'Run jump throw',
+          'videoId': 'fptkVxsSqhQ'
         },
       ],
     },
@@ -1481,6 +1496,20 @@ abstract class Global {
     },
     {
       'location': 'inferno',
+      'description': 'Top Banana',
+      'name': 'flash',
+      'status': true,
+      'position': [0.000, -0.107],
+      'stands': [
+        {
+          'position': [-0.066, 0.070],
+          'description': 'Crouch left click',
+          'videoId': 'tw2yNQHzED0'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
       'description': 'B Site',
       'name': 'flash',
       'status': true,
@@ -1510,6 +1539,11 @@ abstract class Global {
           'description': 'Left right click jump throw',
           'videoId': '_gTedZRXwjg'
         },
+        {
+          'position': [0.034, 0.321],
+          'description': 'Left right click jump throw',
+          'videoId': 'zeN5uHYJYgM'
+        },
       ],
     },
     {
@@ -1523,6 +1557,11 @@ abstract class Global {
           'position': [0.048, 0.284],
           'description': 'Left click',
           'videoId': 'dc9P7Aps2_c'
+        },
+        {
+          'position': [-0.034, 0.284],
+          'description': 'Jump throw',
+          'videoId': 'E7KXTqjlNUg'
         },
       ],
     },
@@ -1576,6 +1615,11 @@ abstract class Global {
           'description': 'Jump throw',
           'videoId': 'YBHWZlo2Moo'
         },
+        {
+          'position': [-0.024, 0.325],
+          'description': 'Jump throw',
+          'videoId': '_5_wBy61B2M'
+        },
       ],
     },
     {
@@ -1613,6 +1657,20 @@ abstract class Global {
     },
     {
       'location': 'inferno',
+      'description': 'Long corner',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.192, 0.035],
+      'stands': [
+        {
+          'position': [0.155, 0.182],
+          'description': 'Left click',
+          'videoId': 'yPz54fYWHMQ'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
       'description': 'Pit',
       'name': 'molotov',
       'status': true,
@@ -1627,6 +1685,20 @@ abstract class Global {
     },
     {
       'location': 'inferno',
+      'description': 'Top mid',
+      'name': 'flash',
+      'status': true,
+      'position': [0.178, 0.159],
+      'stands': [
+        {
+          'position': [-0.030, 0.175],
+          'description': 'Left click',
+          'videoId': '1ndS7tgWsho'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
       'description': 'A Site',
       'name': 'flash',
       'status': true,
@@ -1636,6 +1708,20 @@ abstract class Global {
           'position': [0.243, 0.336],
           'description': 'Left click',
           'videoId': '2ijw-Emk_5A'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
+      'description': 'Bedroom',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.150, 0.270],
+      'stands': [
+        {
+          'position': [-0.175, 0.279],
+          'description': 'Run jump throw',
+          'videoId': 'DJsboozK7og'
         },
       ],
     },
@@ -1759,6 +1845,25 @@ abstract class Global {
           'description': 'Left click',
           'videoId': 'SBRABh8RDj8'
         },
+        {
+          'position': [0.111, -0.281],
+          'description': 'Left right click jump throw',
+          'videoId': 'UGcPSJrLVX0'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
+      'description': 'Top Banana',
+      'name': 'flash',
+      'status': false,
+      'position': [0.020, -0.323],
+      'stands': [
+        {
+          'position': [0.022, -0.393],
+          'description': 'Ritgh click jump throw',
+          'videoId': '1zgjOrP-SPA'
+        },
       ],
     },
     {
@@ -1772,6 +1877,96 @@ abstract class Global {
           'position': [0.421, -0.196],
           'description': 'Jump throw',
           'videoId': 'KyB7Nl2e698'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
+      'description': 'Short',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.205, 0.258],
+      'stands': [
+        {
+          'position': [0.437, 0.307],
+          'description': 'Run throw',
+          'videoId': 'qtGhrqbpBK0'
+        },
+        {
+          'position': [0.325, 0.210],
+          'description': 'Left click',
+          'videoId': 'YQVJ5XBd9Hk'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
+      'description': 'Aps',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.292, 0.325],
+      'stands': [
+        {
+          'position': [0.437, 0.307],
+          'description': 'Crouch left click',
+          'videoId': 'vu4dABefiMM'
+        },
+        {
+          'position': [0.348, 0.175],
+          'description': 'Left click',
+          'videoId': 'Po2rGhnikCo'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
+      'description': 'A Site Default',
+      'name': 'molotov',
+      'status': false,
+      'position': [0.332, 0.227],
+      'stands': [
+        {
+          'position': [0.330, 0.028],
+          'description': 'W left right click jump throw',
+          'videoId': 'U_EWH5A_A_k'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
+      'description': 'Second mid',
+      'name': 'flash',
+      'status': false,
+      'position': [0.072, 0.305],
+      'stands': [
+        {
+          'position': [0.215, 0.106],
+          'description': 'Jump throw',
+          'videoId': 'VEpxc3Gh_lY'
+        },
+        {
+          'position': [0.309, 0.275],
+          'description': 'Run jump throw',
+          'videoId': '0buuYd7NtWs'
+        },
+      ],
+    },
+    {
+      'location': 'inferno',
+      'description': 'Mid',
+      'name': 'flash',
+      'status': false,
+      'position': [0.147, 0.168],
+      'stands': [
+        {
+          'position': [0.175, 0.116],
+          'description': 'Left click',
+          'videoId': 'V4fLh-xMQgM'
+        },
+        {
+          'position': [0.216, 0.219],
+          'description': 'Left click',
+          'videoId': 'cRNGHYCWDtc'
         },
       ],
     },
