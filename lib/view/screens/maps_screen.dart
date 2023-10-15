@@ -1,5 +1,6 @@
 import 'package:bordered_text/bordered_text.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
+import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,19 @@ class MapsScreen extends StatelessWidget {
       appBar: AppBar(
         leading: Image.asset('assets/icons/Logo.png'),
         title: Text('Maps'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MenuScreen(),
+                ),
+              );
+            },
+            icon: Icon(Icons.menu),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: Global.maps.length, // Antallet af elementer i listen
