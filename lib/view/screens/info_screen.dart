@@ -1,7 +1,11 @@
 import 'package:cs_smoke_app/core/models/info_model.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
+
+import '../../core/viewmodels/util_view_model.dart';
 
 class InfoScreen extends StatefulWidget {
   const InfoScreen({super.key});
@@ -39,10 +43,27 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   Widget build(BuildContext context) {
     final info = ModalRoute.of(context)!.settings.arguments as InfoModel;
+    final utilViewModel = Provider.of<UtilViewModel>(context);
     _controller.loadVideoById(videoId: info.videoId);
 
     return Scaffold(
       backgroundColor: Global.bgColor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          String url = await _controller.videoUrl;
+          Share.share(
+              "Check out this ${utilViewModel.selectedUtil!.name}: $url");
+        },
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Color(0xFF000a1a), width: 2.0),
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        backgroundColor: Color(0xFF002259).withOpacity(0.6),
+        child: Icon(
+          Icons.share,
+          color: Colors.white,
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
