@@ -16,7 +16,8 @@ class MapsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Global.bgColor,
       appBar: AppBar(
-        title: Text('Cs2 maps'),
+        leading: Image.asset('assets/icons/Logo.png'),
+        title: Text('Maps'),
       ),
       body: ListView.builder(
         itemCount: Global.maps.length, // Antallet af elementer i listen
