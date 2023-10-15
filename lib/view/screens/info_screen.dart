@@ -15,8 +15,6 @@ class InfoScreen extends StatefulWidget {
 }
 
 class _InfoScreenState extends State<InfoScreen> {
-  final List<String> url = ['dQw4w9WgXcQ'];
-
   final _controller = YoutubePlayerController.fromVideoId(
     videoId: '',
     autoPlay: true,
@@ -51,8 +49,11 @@ class _InfoScreenState extends State<InfoScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           String url = await _controller.videoUrl;
-          Share.share(
-              "Check out this ${utilViewModel.selectedUtil!.name}: $url");
+          if (url.isNotEmpty) {
+            print("url = " + url);
+            await Share.share(
+                "Check out this ${utilViewModel.selectedUtil!.name}: $url");
+          }
         },
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Color(0xFF000a1a), width: 2.0),
