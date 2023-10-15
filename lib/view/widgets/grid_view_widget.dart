@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/models/util_model.dart';
+import '../../core/viewmodels/radar_view_model.dart';
 
 class GridViewWidget extends StatefulWidget {
   GridViewWidget({Key? key, required this.mapName}) : super(key: key);
@@ -21,6 +22,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
   @override
   Widget build(BuildContext context) {
     final utilViewModel = Provider.of<UtilViewModel>(context);
+    final radarViewModel = Provider.of<RadarViewModel>(context);
     final Size size = MediaQuery.of(context).size;
 
     return Container(
@@ -120,8 +122,8 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(8),
                                             child: Container(
-                                              height: 12,
-                                              width: 12,
+                                              height: radarViewModel.posScale,
+                                              width: radarViewModel.posScale,
                                               color: utilViewModel.isT
                                                   ? Colors.red
                                                   : Colors.blue,

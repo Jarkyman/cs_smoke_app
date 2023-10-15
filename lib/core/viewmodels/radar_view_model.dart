@@ -2,13 +2,16 @@ import 'package:flutter/cupertino.dart';
 
 class RadarViewModel extends ChangeNotifier {
   double _scale = 1.0;
+  double _posScale = 12;
   double _previousScale = 1.0;
+  double _previousPosScale = 12;
   Pos _pos = Pos(0.0, 0.0);
   Pos _previousPos = Pos(0.0, 0.0);
   Pos _endPos = Pos(0.0, 0.0);
   bool _isScaled = false;
 
   double get scale => _scale;
+  double get posScale => _posScale;
   double get previousScale => _previousScale;
   Pos get pos => _pos;
   Pos get previousPos => _previousPos;
@@ -25,6 +28,7 @@ class RadarViewModel extends ChangeNotifier {
   void handleDragScaleStart(ScaleStartDetails details) {
     _hasTouched = true;
     _previousScale = _scale;
+    _previousPosScale = _posScale;
     _previousPos.x = (details.focalPoint.dx / _scale) - _endPos.x;
     _previousPos.y = (details.focalPoint.dy / _scale) - _endPos.y;
     notifyListeners();
@@ -49,8 +53,19 @@ class RadarViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void handleDragScalePositionUpdate(ScaleUpdateDetails details) {
+    if (scale > 4.0) {
+      _posScale = 5.0; // Minimumsværdien for posScale
+    } else {
+      // Beregn posScale baseret på en lineær sammenhæng med scale
+      _posScale = 12.0 - (scale - 1.0) * 1.8; // Justér efter behov
+    }
+    notifyListeners();
+  }
+
   void reset() {
     _scale = 1.0;
+    _posScale = 12;
     _previousScale = 1.0;
     _pos = Pos(0.0, 0.0);
     _previousPos = Pos(0.0, 0.0);
@@ -61,6 +76,7 @@ class RadarViewModel extends ChangeNotifier {
 
   void handleDragScaleEnd() {
     _previousScale = 1.0;
+    _previousPosScale = 12;
     _endPos = _pos;
     notifyListeners();
   }
