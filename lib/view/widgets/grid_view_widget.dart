@@ -73,12 +73,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                     utilViewModel.reset();
                                   },
                                   child: SizedBox(
-                                    height: 16,
-                                    width: 16,
+                                    height: radarViewModel.utilScale,
+                                    width: radarViewModel.utilScale,
                                     child: Center(
                                       child: Image.asset(
                                         'assets/icons/${utilViewModel.selectedUtil!.name}.png',
-                                        width: 16,
+                                        width: radarViewModel.utilScale,
                                       ),
                                     ),
                                   ),
@@ -155,12 +155,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                     });
                                   },
                                   child: SizedBox(
-                                    height: 16,
-                                    width: 16,
+                                    height: radarViewModel.utilScale,
+                                    width: radarViewModel.utilScale,
                                     child: Center(
                                       child: Image.asset(
                                         'assets/icons/${tileSmokes[idx].name}.png',
-                                        width: 16,
+                                        width: radarViewModel.utilScale,
                                       ),
                                     ),
                                   ),
