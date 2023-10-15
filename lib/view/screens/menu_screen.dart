@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/models/utils.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -26,7 +27,9 @@ class MenuScreen extends StatelessWidget {
               icon: Icons.star_border_outlined,
             ),
             MenuButton(
-              onTap: () {},
+              onTap: () async {
+                Utils.openLink(url: 'www.youtube.com/@UtilMaster');
+              },
               title: 'Visit YouTube',
               icon: Icons.ondemand_video_outlined,
             ),
