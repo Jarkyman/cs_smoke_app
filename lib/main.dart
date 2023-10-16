@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/maps_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
             create: (context) => RadarViewModel()),
         ChangeNotifierProvider<UtilViewModel>(
             create: (context) => UtilViewModel()),
+        ChangeNotifierProvider<SettingsViewModel>(
+          create: (context) => SettingsViewModel(),
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

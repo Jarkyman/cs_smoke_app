@@ -1,26 +1,39 @@
 import 'package:cs_smoke_app/core/models/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
+
+import '../../core/viewmodels/settings_view_model.dart';
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final SettingsViewModel settingsViewModel =
+        Provider.of<SettingsViewModel>(context);
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
         child: Column(
           children: [
             MenuButton(
-              onTap: () {},
+              onTap: () {
+                settingsViewModel.toggleNotification();
+              },
               title: 'Notifications',
-              icon: Icons.check_box_outlined,
+              icon: settingsViewModel.isNotification
+                  ? Icons.check_box_outlined
+                  : Icons.check_box_outline_blank_outlined,
             ), //check_box_outlined & check_box_outline_blank_outlined
             MenuButton(
-              onTap: () {},
+              onTap: () {
+                Share.share(
+                    'Check out this app \nhttp://Utilmaster.epizy.com/app');
+              },
               title: 'Share app',
               icon: Icons.share_outlined,
-            ),
+            ), //TODO: Link virker ikke endu, siden skal først laves
             /*MenuButton(
               onTap: () {
                 LaunchReview.launch(
