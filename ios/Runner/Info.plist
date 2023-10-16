@@ -47,9 +47,9 @@
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-	    <string>youtube</string>
-	    <string>itms-beta</string>
-	    <string>itms</string>
+		<string>youtube</string>
+		<string>itms-beta</string>
+		<string>itms</string>
 	</array>
 </dict>
 </plist>

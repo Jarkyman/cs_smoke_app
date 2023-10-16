@@ -11,21 +11,30 @@ class SettingsViewModel extends ChangeNotifier {
 
   void toggleNotification() async {
     var status = await Permission.notification.status;
-    if (status.isDenied) {
-      askPermission();
+    if (_isNotification) {
+      print('off');
+      _isNotification = false;
+    } else {
+      if (status.isGranted) {
+        print('on');
+        _isNotification = true;
+      } else {
+        print('Not granted');
+        askPermission();
+      }
     }
-    _isNotification = !_isNotification;
     notifyListeners();
   }
 
   void checkPermission() async {
     var status = await Permission.notification.status;
-    if (status.isDenied) {
+    print(status);
+    if (status.isGranted) {
+      print('premission On');
+    } else {
       print('premission OFF');
       _isNotification = false;
       notifyListeners();
-    } else {
-      print('premission On');
     }
 
     if (await Permission.notification.isRestricted) {
@@ -38,7 +47,7 @@ class SettingsViewModel extends ChangeNotifier {
   void askPermission() async {
     if (await Permission.notification.request().isGranted) {
       print('Get premission');
-    } else if (await Permission.speech.isPermanentlyDenied) {
+    } else if (await Permission.notification.isPermanentlyDenied) {
       print('Open premission setting');
       openAppSettings();
     } else {

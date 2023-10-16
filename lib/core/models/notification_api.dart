@@ -8,11 +8,11 @@ class NotificationApi {
   static final onNotifications = BehaviorSubject<String?>();
 
   static Future _notificationDetails() async {
-    return NotificationDetails(
+    return const NotificationDetails(
       android: AndroidNotificationDetails(
-        'channel id',
-        'channel name',
-        channelDescription: 'channel description',
+        'Util Master',
+        'News',
+        channelDescription: 'Get news and keep up with the game.',
         importance: Importance.max,
       ),
       iOS: DarwinNotificationDetails(),
@@ -30,7 +30,6 @@ class NotificationApi {
     await _notifications.initialize(
       settings,
       onDidReceiveNotificationResponse: (payload) async {
-        print(payload.payload);
         onNotifications.add(payload.payload);
       },
     );

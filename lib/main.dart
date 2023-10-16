@@ -8,6 +8,7 @@ import 'package:timezone/data/latest.dart' as tz;
 import 'core/viewmodels/radar_view_model.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   tz.initializeTimeZones();
   runApp(const MyApp());
 }

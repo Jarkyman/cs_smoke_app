@@ -36,6 +36,7 @@ class MenuScreen extends StatelessWidget {
                     payload: 'Inferno',
                  );*/
                 //TODO: Skal ligge et andet sted
+                print('Call notification 8 sek');
                 NotificationApi.showScheduledNotification(
                   title: 'Go practice now',
                   body: 'Check out this new smokes on Inferno',
