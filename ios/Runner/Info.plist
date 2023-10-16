@@ -46,6 +46,10 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
-	<array> <string>youtube</string> </array>
+	<array>
+	    <string>youtube</string>
+	    <string>itms-beta</string>
+	    <string>itms</string>
+	</array>
 </dict>
 </plist>

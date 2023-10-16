@@ -21,11 +21,16 @@ class MenuScreen extends StatelessWidget {
               title: 'Share app',
               icon: Icons.share_outlined,
             ),
-            MenuButton(
-              onTap: () {},
+            /*MenuButton(
+              onTap: () {
+                LaunchReview.launch(
+                  androidAppId: '',
+                  iOSAppId: ''
+                );
+              },
               title: 'Rate app',
               icon: Icons.star_border_outlined,
-            ),
+            ),*/ //TODO: add review for ios and android
             MenuButton(
               onTap: () async {
                 Utils.openLink(url: 'www.youtube.com/@UtilMaster');
