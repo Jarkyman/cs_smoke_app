@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../models/notification_api.dart';
+
 class SettingsViewModel extends ChangeNotifier {
   SettingsViewModel() {
     checkPermission();
@@ -54,6 +56,17 @@ class SettingsViewModel extends ChangeNotifier {
       print('No premission');
       _isNotification = false;
       notifyListeners();
+    }
+  }
+
+  void callNotification() {
+    if (_isNotification) {
+      NotificationApi.showScheduledNotification(
+        title: 'Go practice now',
+        body: 'Check out this new smokes on Inferno',
+        payload: 'Inferno',
+        scheduledDate: DateTime.now().add(Duration(seconds: 10)),
+      );
     }
   }
 }

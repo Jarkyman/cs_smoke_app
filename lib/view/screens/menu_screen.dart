@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../core/models/notification_api.dart';
 import '../../core/viewmodels/settings_view_model.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -26,29 +25,7 @@ class MenuScreen extends StatelessWidget {
               icon: settingsViewModel.isNotification
                   ? Icons.check_box_outlined
                   : Icons.check_box_outline_blank_outlined,
-            ), //check_box_outlined & check_box_outline_blank_outlined
-            MenuButton(
-              onTap: () {
-                //settingsViewModel.toggleNotification();
-                /*NotificationApi.showNotification(
-                    title: 'Go practice now',
-                    body: 'Check out this new smokes on Inferno',
-                    payload: 'Inferno',
-                 );*/
-                //TODO: Skal ligge et andet sted
-                print('Call notification 8 sek');
-                NotificationApi.showScheduledNotification(
-                  title: 'Go practice now',
-                  body: 'Check out this new smokes on Inferno',
-                  payload: 'Inferno',
-                  scheduledDate: DateTime.now().add(Duration(seconds: 8)),
-                );
-              },
-              title: 'Test Notifications',
-              icon: settingsViewModel.isNotification
-                  ? Icons.check_box_outlined
-                  : Icons.check_box_outline_blank_outlined,
-            ), //check_box_outlined & check_box_outline_blank_outlined
+            ),
             MenuButton(
               onTap: () {
                 Share.share(
