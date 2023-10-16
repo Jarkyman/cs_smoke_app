@@ -36,7 +36,6 @@ class Utils {
     if (Platform.isIOS) {
       if (await canLaunchUrl(Uri.parse('youtube://' + url)) && Platform.isIOS) {
         await launchUrl(Uri.parse('youtube://' + url));
-        //TODO: Check that youtube app opens works on a device with youtube
       } else {
         if (await canLaunchUrl(Uri.parse('https://' + url))) {
           await launchUrl(Uri.parse('https://' + url));
