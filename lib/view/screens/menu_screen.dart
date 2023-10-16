@@ -20,6 +20,15 @@ class MenuScreen extends StatelessWidget {
           children: [
             MenuButton(
               onTap: () {
+                settingsViewModel.toggleNotification();
+              },
+              title: 'Notifications',
+              icon: settingsViewModel.isNotification
+                  ? Icons.check_box_outlined
+                  : Icons.check_box_outline_blank_outlined,
+            ), //check_box_outlined & check_box_outline_blank_outlined
+            MenuButton(
+              onTap: () {
                 //settingsViewModel.toggleNotification();
                 /*NotificationApi.showNotification(
                     title: 'Go practice now',
@@ -31,10 +40,10 @@ class MenuScreen extends StatelessWidget {
                   title: 'Go practice now',
                   body: 'Check out this new smokes on Inferno',
                   payload: 'Inferno',
-                  scheduledDate: DateTime.now().add(Duration(seconds: 12)),
+                  scheduledDate: DateTime.now().add(Duration(seconds: 8)),
                 );
               },
-              title: 'Notifications',
+              title: 'Test Notifications',
               icon: settingsViewModel.isNotification
                   ? Icons.check_box_outlined
                   : Icons.check_box_outline_blank_outlined,
