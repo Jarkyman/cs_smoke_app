@@ -6,9 +6,35 @@ import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/models/notification_api.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
-class MapsScreen extends StatelessWidget {
+class MapsScreen extends StatefulWidget {
+  @override
+  State<MapsScreen> createState() => _MapsScreenState();
+}
+
+class _MapsScreenState extends State<MapsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    NotificationApi.init();
+    listenNotifications();
+  }
+
+  void listenNotifications() =>
+      NotificationApi.onNotifications.stream.listen(onClickedNotification);
+
+  void onClickedNotification(String? payload) {
+    print('GO to: $payload');
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const RadarScreen(),
+      settings: RouteSettings(
+        arguments: payload,
+      ),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final radarViewModel = Provider.of<RadarViewModel>(context);

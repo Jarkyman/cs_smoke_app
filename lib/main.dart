@@ -3,10 +3,12 @@ import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/maps_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 import 'core/viewmodels/radar_view_model.dart';
 
 void main() {
+  tz.initializeTimeZones();
   runApp(const MyApp());
 }
 

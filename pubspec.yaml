@@ -21,6 +21,8 @@ dependencies:
   url_launcher: ^6.1.14
   rate_my_app: ^2.0.0
   launch_review: ^3.0.1
+  flutter_local_notifications: ^16.1.0
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:

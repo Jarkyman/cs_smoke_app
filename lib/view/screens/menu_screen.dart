@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../core/models/notification_api.dart';
 import '../../core/viewmodels/settings_view_model.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -19,7 +20,19 @@ class MenuScreen extends StatelessWidget {
           children: [
             MenuButton(
               onTap: () {
-                settingsViewModel.toggleNotification();
+                //settingsViewModel.toggleNotification();
+                /*NotificationApi.showNotification(
+                    title: 'Go practice now',
+                    body: 'Check out this new smokes on Inferno',
+                    payload: 'Inferno',
+                 );*/
+                //TODO: Skal ligge et andet sted
+                NotificationApi.showScheduledNotification(
+                  title: 'Go practice now',
+                  body: 'Check out this new smokes on Inferno',
+                  payload: 'Inferno',
+                  scheduledDate: DateTime.now().add(Duration(seconds: 12)),
+                );
               },
               title: 'Notifications',
               icon: settingsViewModel.isNotification
