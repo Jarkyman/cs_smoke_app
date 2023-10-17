@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bordered_text/bordered_text.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
@@ -20,11 +22,13 @@ class _MapsScreenState extends State<MapsScreen> {
     super.initState();
     NotificationApi.init(initScheduled: true);
     listenNotifications();
+    Random random = Random();
+    String randomMap = Global.maps[random.nextInt(Global.maps.length)];
     NotificationApi.showScheduledNotification(
       title: 'Go practice now',
-      body: 'Check out this new smokes on Inferno',
-      payload: 'Inferno',
-      scheduledDate: DateTime.now().add(Duration(seconds: 10)),
+      body: 'Check out this new smokes on $randomMap',
+      payload: randomMap,
+      //scheduledDate: DateTime.now().add(Duration(seconds: 10)), //Test
     );
   }
 

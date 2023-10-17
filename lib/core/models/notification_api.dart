@@ -72,14 +72,15 @@ class NotificationApi {
     String? title,
     String? body,
     String? payload,
-    required DateTime scheduledDate, //For test only
+    DateTime? scheduledDate, //For test only
   }) async =>
       _notifications.zonedSchedule(
         id,
         title,
         body,
-        tz.TZDateTime.from(scheduledDate, tz.local),
-        //_scheduleWeekly(TimeOfDay(hour: 17, minute: 00), days: [DateTime.tuesday, DateTime.friday]),
+        //tz.TZDateTime.from(scheduledDate!, tz.local), //Test only
+        _scheduleWeekly(TimeOfDay(hour: 17, minute: 00),
+            days: [DateTime.tuesday, DateTime.friday]),
         await _notificationDetails(),
         payload: payload,
         uiLocalNotificationDateInterpretation:
