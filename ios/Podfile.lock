@@ -45,6 +45,8 @@ PODS:
   - Flutter (1.0.0)
   - flutter_local_notifications (0.0.1):
     - Flutter
+  - flutter_native_timezone_updated_gradle (0.0.1):
+    - Flutter
   - GoogleAppMeasurement (10.15.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.15.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
@@ -114,6 +116,7 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
+  - flutter_native_timezone_updated_gradle (from `.symlinks/plugins/flutter_native_timezone_updated_gradle/ios`)
   - launch_review (from `.symlinks/plugins/launch_review/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
@@ -144,6 +147,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_local_notifications:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
+  flutter_native_timezone_updated_gradle:
+    :path: ".symlinks/plugins/flutter_native_timezone_updated_gradle/ios"
   launch_review:
     :path: ".symlinks/plugins/launch_review/ios"
   path_provider_foundation:
@@ -171,6 +176,7 @@ SPEC CHECKSUMS:
   FirebaseInstallations: b822f91a61f7d1ba763e5ccc9d4f2e6f2ed3b3ee
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_local_notifications: 0c0b1ae97e741e1521e4c1629a459d04b9aec743
+  flutter_native_timezone_updated_gradle: d144a6b4980d61d022c539d090ab39bb390aac90
   GoogleAppMeasurement: 722db6550d1e6d552b08398b69a975ac61039338
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
   launch_review: 75d5a956ba8eaa493e9c9d4bf4c05e505e8d5ed0

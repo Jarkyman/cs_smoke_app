@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_native_timezone_updated_gradle/flutter_native_timezone.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -8,14 +9,20 @@ class NotificationApi {
   static final onNotifications = BehaviorSubject<String?>();
 
   static Future _notificationDetails() async {
+    //Sound skal ligge under android/app/main/res/raw/
+    //Sound skal ligge under Runner/Resources/
+    const String _sound = 'Sound name'; //Do not include .wav on android
     return const NotificationDetails(
       android: AndroidNotificationDetails(
         'Util Master',
         'News',
         channelDescription: 'Get news and keep up with the game.',
         importance: Importance.max,
+        //sound: RawResourceAndroidNotificationSound(_sound),
       ),
-      iOS: DarwinNotificationDetails(),
+      iOS: DarwinNotificationDetails(
+          //sound: _sound,
+          ),
     );
   }
 
@@ -25,6 +32,12 @@ class NotificationApi {
         AndroidInitializationSettings('@mipmap/ic_launcher');
     final iOSSettings = DarwinInitializationSettings();
 
+    //If the app is closed
+    final details = await _notifications.getNotificationAppLaunchDetails();
+    if (details != null && details.didNotificationLaunchApp) {
+      onNotifications.add(details.notificationResponse!.payload);
+    }
+
     final settings =
         InitializationSettings(android: androidSettings, iOS: iOSSettings);
     await _notifications.initialize(
@@ -33,6 +46,11 @@ class NotificationApi {
         onNotifications.add(payload.payload);
       },
     );
+
+    if (initScheduled) {
+      final locationName = await FlutterNativeTimezone.getLocalTimezone();
+      tz.setLocalLocation(tz.getLocation(locationName));
+    }
   }
 
   static Future showNotification({
@@ -54,18 +72,19 @@ class NotificationApi {
     String? title,
     String? body,
     String? payload,
-    required DateTime scheduledDate,
+    required DateTime scheduledDate, //For test only
   }) async =>
       _notifications.zonedSchedule(
         id,
         title,
         body,
-        tz.TZDateTime.from(scheduledDate, tz.local), //_scheduleDaily(Time(8)),
+        tz.TZDateTime.from(scheduledDate, tz.local),
+        //_scheduleWeekly(TimeOfDay(hour: 17, minute: 00), days: [DateTime.tuesday, DateTime.friday]),
         await _notificationDetails(),
         payload: payload,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
-        matchDateTimeComponents: DateTimeComponents.time, //dayofWeekAndTime
+        matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
       );
 
   static tz.TZDateTime _scheduleDaily(TimeOfDay time) {
@@ -77,4 +96,17 @@ class NotificationApi {
         ? scheduledDate.add(Duration(days: 1))
         : scheduledDate;
   }
+
+  static tz.TZDateTime _scheduleWeekly(TimeOfDay time,
+      {required List<int> days}) {
+    tz.TZDateTime scheduledDate = _scheduleDaily(time);
+    while (!days.contains(scheduledDate.weekday)) {
+      scheduledDate = scheduledDate.add(Duration(days: 1));
+    }
+
+    return scheduledDate;
+  }
+
+  static void cancel(int id) => _notifications.cancel(id);
+  static void cancelAll() => _notifications.cancelAll();
 }

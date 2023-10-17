@@ -1,5 +1,4 @@
 import 'package:bordered_text/bordered_text.dart';
-import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
@@ -19,8 +18,14 @@ class _MapsScreenState extends State<MapsScreen> {
   @override
   void initState() {
     super.initState();
-    NotificationApi.init();
+    NotificationApi.init(initScheduled: true);
     listenNotifications();
+    NotificationApi.showScheduledNotification(
+      title: 'Go practice now',
+      body: 'Check out this new smokes on Inferno',
+      payload: 'Inferno',
+      scheduledDate: DateTime.now().add(Duration(seconds: 10)),
+    );
   }
 
   void listenNotifications() =>
@@ -40,9 +45,6 @@ class _MapsScreenState extends State<MapsScreen> {
   Widget build(BuildContext context) {
     final radarViewModel = Provider.of<RadarViewModel>(context);
     final utilViewModel = Provider.of<UtilViewModel>(context);
-    final settingsViewModel = Provider.of<SettingsViewModel>(context);
-
-    settingsViewModel.callNotification(); //TODO: Loading screen
 
     return Scaffold(
       backgroundColor: Global.bgColor,

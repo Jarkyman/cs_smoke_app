@@ -17,6 +17,9 @@ class SettingsViewModel extends ChangeNotifier {
   Future<void> loadSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     _isNotification = prefs.getBool(_notificationKey) ?? true;
+    if (!_isNotification) {
+      NotificationApi.cancelAll();
+    }
     print('Load: $_isNotification');
   }
 
@@ -31,6 +34,7 @@ class SettingsViewModel extends ChangeNotifier {
     if (_isNotification) {
       print('off');
       _isNotification = false;
+      NotificationApi.cancelAll();
       saveSettings();
     } else {
       if (status.isGranted) {
@@ -53,6 +57,7 @@ class SettingsViewModel extends ChangeNotifier {
     } else {
       print('premission OFF');
       _isNotification = false;
+      NotificationApi.cancelAll();
       saveSettings();
       notifyListeners();
     }
@@ -60,6 +65,7 @@ class SettingsViewModel extends ChangeNotifier {
     if (await Permission.notification.isRestricted) {
       print('premission Restrcted');
       _isNotification = false;
+      NotificationApi.cancelAll();
       saveSettings();
       notifyListeners();
     }
@@ -74,20 +80,9 @@ class SettingsViewModel extends ChangeNotifier {
     } else {
       print('No premission');
       _isNotification = false;
+      NotificationApi.cancelAll();
       saveSettings();
       notifyListeners();
-    }
-  }
-
-  void callNotification() async {
-    await loadSettings();
-    if (_isNotification) {
-      NotificationApi.showScheduledNotification(
-        title: 'Go practice now',
-        body: 'Check out this new smokes on Inferno',
-        payload: 'Inferno',
-        scheduledDate: DateTime.now().add(Duration(seconds: 4)),
-      );
     }
   }
 }
