@@ -21,8 +21,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -32,11 +30,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<UtilViewModel>(
             create: (context) => UtilViewModel()),
         ChangeNotifierProvider<SettingsViewModel>(
-          create: (context) => SettingsViewModel(),
-        )
+            create: (context) => SettingsViewModel())
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Util Master',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.dark(),
