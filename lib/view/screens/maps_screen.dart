@@ -26,7 +26,8 @@ class _MapsScreenState extends State<MapsScreen> {
     String randomMap = Global.maps[random.nextInt(Global.maps.length)];
     NotificationApi.showScheduledNotification(
       title: 'Go practice now',
-      body: 'Check out this new smokes on $randomMap',
+      body:
+          'Get in the game! Click to dive into $randomMap and perfect your utility skills. Master smokes, flashes, and molotovs to dominate the battlefield',
       payload: randomMap,
       //scheduledDate: DateTime.now().add(Duration(seconds: 10)), //Test
     );
