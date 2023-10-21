@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class RadarViewModel extends ChangeNotifier {
-  double _scale = 1.0;
+  double _scale = 1.6;
   double _posScale = 12;
   double _utilScale = 24;
   double _previousScale = 1.0;
@@ -78,7 +78,7 @@ class RadarViewModel extends ChangeNotifier {
   }
 
   void reset() {
-    _scale = 1.0;
+    _scale = 1.6;
     _posScale = 12;
     _utilScale = 24;
     _previousScale = 1.0;
