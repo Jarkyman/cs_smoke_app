@@ -2,6 +2,7 @@ import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/maps_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -23,6 +24,10 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<RadarViewModel>(
