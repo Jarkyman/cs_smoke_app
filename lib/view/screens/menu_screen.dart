@@ -1,4 +1,4 @@
-import 'package:cs_smoke_app/core/models/utils.dart';
+import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';

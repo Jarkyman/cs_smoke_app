@@ -8,7 +8,7 @@ import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/models/notification_api.dart';
+import '../../core/helper/notification_api.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
 class MapsScreen extends StatefulWidget {

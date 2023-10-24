@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../models/notification_api.dart';
+import '../helper/notification_api.dart';
 
 class SettingsViewModel extends ChangeNotifier {
   SettingsViewModel() {

@@ -108,7 +108,6 @@ class Dimensions {
   }
 
   //Util and position
-
   static double position(BuildContext context) {
     return MediaQuery.of(context).size.height / 70.333;
   }
