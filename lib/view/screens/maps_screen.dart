@@ -74,7 +74,7 @@ class _MapsScreenState extends State<MapsScreen> {
         itemCount: Global.maps.length, // Antallet af elementer i listen
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: () {
+            onTap: () async {
               radarViewModel.reset();
               utilViewModel.reset();
               utilViewModel.toggleUtil('smokeT');
@@ -87,6 +87,12 @@ class _MapsScreenState extends State<MapsScreen> {
                   ),
                 ),
               );
+              /*await FirebaseAnalytics.instance.logSelectItem(
+                itemListId: Global.maps[index],
+              );
+              await FirebaseAnalytics.instance.logEvent(
+                name: Global.maps[index],
+              ); virker ikke?*/
             },
             child: Container(
               height: 160, // Juster højden efter behov

@@ -1,6 +1,7 @@
 import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/maps_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -16,6 +17,7 @@ void main() async {
       Permission.notification.request();
     }
   });
+  Firebase.initializeApp();
   tz.initializeTimeZones();
   runApp(const MyApp());
 }
