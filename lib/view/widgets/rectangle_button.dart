@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class RectangleButton extends StatelessWidget {
@@ -11,7 +12,7 @@ class RectangleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(18.0),
+      padding: EdgeInsets.all(Dimensions.height18(context)),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: GestureDetector(

@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<UtilViewModel>(
             create: (context) => UtilViewModel()),
         ChangeNotifierProvider<SettingsViewModel>(
-            create: (context) => SettingsViewModel())
+            create: (context) => SettingsViewModel()),
       ],
       child: MaterialApp(
         title: 'Util Master',
