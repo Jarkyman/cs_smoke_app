@@ -33,7 +33,7 @@ class UtilButton extends StatelessWidget {
           border: Border.all(color: Colors.grey, width: 2),
         ),
         child: Padding(
-          padding: EdgeInsets.all(Dimensions.radius8 / 2),
+          padding: EdgeInsets.all(Dimensions.height8 / 2),
           child: Image.asset(imagePath),
         ),
       ),

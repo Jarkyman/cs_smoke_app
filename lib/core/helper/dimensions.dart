@@ -12,6 +12,7 @@ class Dimensions {
           .height; // 844 iPhone 12
 
   //Dynamic height, padding and margin
+  static double height8 = screenHeight / 105.5;
   static double height10 = screenHeight / 84.4;
   static double height15 = screenHeight / 56.27;
   static double height18 = screenHeight / 46.889;

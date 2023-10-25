@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/models/info_model.dart';
@@ -10,7 +11,7 @@ class YoutubeControls extends StatelessWidget {
   Widget build(BuildContext context) {
     final info = ModalRoute.of(context)!.settings.arguments as InfoModel;
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(Dimensions.height15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -21,7 +22,7 @@ class YoutubeControls extends StatelessWidget {
             child: Text(
               info.description,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: Dimensions.font26,
               ),
             ),
           ),

@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
@@ -10,11 +11,11 @@ class YoutubePlayerStateSection extends StatelessWidget {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 800),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(Dimensions.radius20),
             color: _getStateColor(value.playerState),
           ),
           width: double.infinity,
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(Dimensions.height8),
           child: Text(
             value.playerState.toString(),
             style: const TextStyle(
