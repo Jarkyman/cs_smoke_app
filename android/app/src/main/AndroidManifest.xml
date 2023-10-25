@@ -5,9 +5,6 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
-    <queries>
-        <package android:name="com.google.android.youtube" />
-    </queries>
     <application
         android:label="Util Master"
         android:name="${applicationName}"
@@ -63,5 +60,7 @@
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="tel" />
         </intent>
+
+        <package android:name="com.google.android.youtube" />
     </queries>
 </manifest>

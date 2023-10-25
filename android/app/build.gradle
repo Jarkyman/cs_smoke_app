@@ -60,7 +60,7 @@ android {
     defaultConfig {
         applicationId "com.hartvig_develop.util_master"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

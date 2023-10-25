@@ -1,7 +1,5 @@
-import 'package:cs_smoke_app/core/helper/constants.dart';
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:launch_review/launch_review.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -61,7 +59,7 @@ class MenuScreen extends StatelessWidget {
               title: 'Share app',
               icon: Icons.share_outlined,
             ),
-            MenuButton(
+            /*MenuButton(
               onTap: () {
                 LaunchReview.launch(
                   androidAppId: Constants.ANDROID_ID,
@@ -70,7 +68,7 @@ class MenuScreen extends StatelessWidget {
               },
               title: 'Rate app',
               icon: Icons.star_border_outlined,
-            ), //TODO: test review for ios and android
+            ),*/ //TODO: test review for ios and android
             MenuButton(
               onTap: () async {
                 Utils.openLink(url: 'www.youtube.com/@UtilMaster');
