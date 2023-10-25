@@ -55,8 +55,15 @@ class _MapsScreenState extends State<MapsScreen> {
     return Scaffold(
       backgroundColor: Global.bgColor,
       appBar: AppBar(
-        leading: Image.asset('assets/icons/Logo.png'),
-        title: Text('Maps'),
+        leading: Image.asset(
+          'assets/icons/Logo.png',
+        ),
+        title: Text(
+          'Maps',
+          style: TextStyle(
+            fontSize: Dimensions.font26,
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -67,7 +74,10 @@ class _MapsScreenState extends State<MapsScreen> {
                 ),
               );
             },
-            icon: Icon(Icons.menu),
+            icon: Icon(
+              Icons.menu,
+              size: Dimensions.iconSize24,
+            ),
           ),
         ],
       ),
