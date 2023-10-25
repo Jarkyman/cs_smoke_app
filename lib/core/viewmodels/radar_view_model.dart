@@ -1,9 +1,10 @@
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:flutter/cupertino.dart';
 
 class RadarViewModel extends ChangeNotifier {
   double _scale = 1.0;
-  double _posScale = 12;
-  double _utilScale = 24;
+  double _posScale = Dimensions.position;
+  double _utilScale = Dimensions.utility;
   double _previousScale = 1.0;
   Pos _pos = Pos(0.0, 0.0);
   Pos _previousPos = Pos(0.0, 0.0);
@@ -55,20 +56,22 @@ class RadarViewModel extends ChangeNotifier {
 
   void handleDragScalePositionUpdate(ScaleUpdateDetails details) {
     if (scale > 4.0) {
-      _posScale = 4.5; // Minimumsværdien for posScale
+      _posScale = (Dimensions.position / 2); // Minimumsværdien for posScale
     } else {
       // Beregn posScale baseret på en lineær sammenhæng med scale
-      _posScale = _interpolate(scale, 1, 12, 4, 6); // Justér efter behov
+      _posScale = _interpolate(scale, 1, Dimensions.position, 4,
+          (Dimensions.position / 2)); // Justér efter behov
     }
     notifyListeners();
   }
 
   void handleDragScaleUtilUpdate(ScaleUpdateDetails details) {
     if (scale > 4.0) {
-      _utilScale = 12.0; // Minimumsværdien for posScale
+      _utilScale = (Dimensions.utility / 2); // Minimumsværdien for posScale
     } else {
       // Beregn posScale baseret på en lineær sammenhæng med scale
-      _utilScale = _interpolate(scale, 1, 24, 4, 12); // Justér efter behov
+      _utilScale = _interpolate(scale, 1, Dimensions.utility, 4,
+          (Dimensions.utility / 2)); // Justér efter behov
     }
     notifyListeners();
   }
@@ -79,8 +82,8 @@ class RadarViewModel extends ChangeNotifier {
 
   void reset() {
     _scale = 1.0;
-    _posScale = 12;
-    _utilScale = 24;
+    _posScale = Dimensions.position;
+    _utilScale = Dimensions.utility;
     _previousScale = 1.0;
     _pos = Pos(0.0, 0.0);
     _previousPos = Pos(0.0, 0.0);
