@@ -40,8 +40,11 @@ class Dimensions {
   //Icons
   static double iconSize16 = screenHeight / 52.75;
   static double iconSize24 = screenHeight / 35.17;
+  static double iconSize32 = screenHeight / 26.375;
 
   //Stroke
+  static double stroke1 = screenHeight / 844;
+  static double stroke2 = screenHeight / 422;
   static double stroke4 = screenHeight / 211;
 
   //Radius
