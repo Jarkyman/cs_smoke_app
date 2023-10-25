@@ -19,8 +19,7 @@ void main() async {
   });
   Firebase.initializeApp();
   tz.initializeTimeZones();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-      overlays: [SystemUiOverlay.bottom]); //On tablet .top else .bottom
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   runApp(const MyApp());
 }
 

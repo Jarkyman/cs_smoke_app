@@ -74,6 +74,7 @@ class _InfoScreenState extends State<InfoScreen> {
     return YoutubePlayerScaffold(
       controller: _controller,
       builder: (context, player) {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
         return Scaffold(
           backgroundColor: Global.bgColor,
           floatingActionButton: FloatingShareButton(
