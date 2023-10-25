@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:cs_smoke_app/core/helper/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,37 +15,36 @@ class SettingsViewModel extends ChangeNotifier {
 
   bool _isNotification = true;
   bool get isNotification => _isNotification;
-  String _notificationKey = 'notification';
 
   Future<void> loadSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    _isNotification = prefs.getBool(_notificationKey) ?? true;
+    _isNotification = prefs.getBool(Constants.NOTIFICATION_KEY) ?? true;
     if (!_isNotification) {
       NotificationApi.cancelAll();
     }
-    print('Load: $_isNotification');
+    log('Notifications load: $_isNotification');
   }
 
   void saveSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    print('Save: $_isNotification');
-    await prefs.setBool(_notificationKey, _isNotification);
+    log('Notifications save: $_isNotification');
+    await prefs.setBool(Constants.NOTIFICATION_KEY, _isNotification);
   }
 
   void toggleNotification() async {
     var status = await Permission.notification.status;
     if (_isNotification) {
-      print('off');
+      log('Notifications off');
       _isNotification = false;
       NotificationApi.cancelAll();
       saveSettings();
     } else {
       if (status.isGranted) {
-        print('on');
+        log('Notifications on');
         _isNotification = true;
         saveSettings();
       } else {
-        print('Not granted');
+        log('Notifications not granted');
         askPermission();
       }
     }
@@ -50,12 +52,12 @@ class SettingsViewModel extends ChangeNotifier {
   }
 
   void checkPermission() async {
-    var status = await Permission.notification.status;
-    print(status);
+    PermissionStatus status = await Permission.notification.status;
+    log(status.toString());
     if (status.isGranted) {
-      print('premission On');
+      log('Notifications premission On');
     } else {
-      print('premission OFF');
+      log('Notifications premission OFF');
       _isNotification = false;
       NotificationApi.cancelAll();
       saveSettings();
@@ -63,7 +65,7 @@ class SettingsViewModel extends ChangeNotifier {
     }
 
     if (await Permission.notification.isRestricted) {
-      print('premission Restrcted');
+      log('Notifications premission Restrcted');
       _isNotification = false;
       NotificationApi.cancelAll();
       saveSettings();
@@ -73,12 +75,12 @@ class SettingsViewModel extends ChangeNotifier {
 
   void askPermission() async {
     if (await Permission.notification.request().isGranted) {
-      print('Get premission');
+      log('Notifications get premission');
     } else if (await Permission.notification.isPermanentlyDenied) {
-      print('Open premission setting');
+      log('Notifications open premission setting');
       openAppSettings();
     } else {
-      print('No premission');
+      log('Notifications no premission');
       _isNotification = false;
       NotificationApi.cancelAll();
       saveSettings();
