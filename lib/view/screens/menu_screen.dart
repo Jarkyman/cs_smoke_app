@@ -1,5 +1,7 @@
+import 'package:cs_smoke_app/core/helper/constants.dart';
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:launch_review/launch_review.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -54,21 +56,21 @@ class MenuScreen extends StatelessWidget {
             MenuButton(
               onTap: () {
                 Share.share(
-                    'Check out this app \nhttp://Utilmaster.epizy.com/app');
+                    'Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: http://utilmaster.wuaze.com/app');
               },
               title: 'Share app',
               icon: Icons.share_outlined,
-            ), //TODO: Link virker ikke endu, siden skal først laves
-            /*MenuButton(
+            ),
+            MenuButton(
               onTap: () {
                 LaunchReview.launch(
-                  androidAppId: '',
-                  iOSAppId: ''
+                  androidAppId: Constants.ANDROID_ID,
+                  iOSAppId: Constants.IOS_ID,
                 );
               },
               title: 'Rate app',
               icon: Icons.star_border_outlined,
-            ),*/ //TODO: add review for ios and android
+            ), //TODO: test review for ios and android
             MenuButton(
               onTap: () async {
                 Utils.openLink(url: 'www.youtube.com/@UtilMaster');
