@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bordered_text/bordered_text.dart';
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
@@ -8,7 +9,7 @@ import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/models/notification_api.dart';
+import '../../core/helper/notification_api.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
 class MapsScreen extends StatefulWidget {
@@ -26,7 +27,8 @@ class _MapsScreenState extends State<MapsScreen> {
     String randomMap = Global.maps[random.nextInt(Global.maps.length)];
     NotificationApi.showScheduledNotification(
       title: 'Go practice now',
-      body: 'Check out this new smokes on $randomMap',
+      body:
+          'Get in the game! Click to dive into $randomMap and perfect your utility skills. Master smokes, flashes, and molotovs to dominate the battlefield',
       payload: randomMap,
       //scheduledDate: DateTime.now().add(Duration(seconds: 10)), //Test
     );
@@ -53,8 +55,15 @@ class _MapsScreenState extends State<MapsScreen> {
     return Scaffold(
       backgroundColor: Global.bgColor,
       appBar: AppBar(
-        leading: Image.asset('assets/icons/Logo.png'),
-        title: Text('Maps'),
+        leading: Image.asset(
+          'assets/icons/Logo.png',
+        ),
+        title: Text(
+          'Maps',
+          style: TextStyle(
+            fontSize: Dimensions.font26,
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -65,7 +74,10 @@ class _MapsScreenState extends State<MapsScreen> {
                 ),
               );
             },
-            icon: Icon(Icons.menu),
+            icon: Icon(
+              Icons.menu,
+              size: Dimensions.iconSize24,
+            ),
           ),
         ],
       ),
@@ -73,7 +85,7 @@ class _MapsScreenState extends State<MapsScreen> {
         itemCount: Global.maps.length, // Antallet af elementer i listen
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: () {
+            onTap: () async {
               radarViewModel.reset();
               utilViewModel.reset();
               utilViewModel.toggleUtil('smokeT');
@@ -86,12 +98,19 @@ class _MapsScreenState extends State<MapsScreen> {
                   ),
                 ),
               );
+              /*await FirebaseAnalytics.instance.logSelectItem(
+                itemListId: Global.maps[index],
+              );
+              await FirebaseAnalytics.instance.logEvent(
+                name: Global.maps[index],
+              ); virker ikke?*/
             },
             child: Container(
-              height: 160, // Juster højden efter behov
-              margin: EdgeInsets.all(10), // Afstand mellem felterne
+              height: Dimensions.height20 * 8, // Juster højden efter behov
+              margin: EdgeInsets.all(
+                  Dimensions.height10), // Afstand mellem felterne
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
+                borderRadius: BorderRadius.circular(Dimensions.radius28),
                 image: DecorationImage(
                   colorFilter:
                       ColorFilter.mode(Colors.black38, BlendMode.overlay),
@@ -102,13 +121,13 @@ class _MapsScreenState extends State<MapsScreen> {
               ),
               child: Center(
                 child: BorderedText(
-                  strokeWidth: 4.0,
+                  strokeWidth: Dimensions.stroke4,
                   strokeColor: Colors.black,
                   child: Text(
                     Global.maps[index],
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 48,
+                      fontSize: Dimensions.font48,
                       fontWeight: FontWeight.w700,
                     ),
                   ),

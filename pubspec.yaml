@@ -1,8 +1,8 @@
 name: cs_smoke_app
-description: A new Flutter project.
+description: A CS2 utility app.
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.1.0+2
 
 environment:
   sdk: '>=3.0.6 <4.0.0'

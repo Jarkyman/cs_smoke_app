@@ -115,8 +115,8 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                         );
                                       },
                                       child: SizedBox(
-                                        height: 16,
-                                        width: 16,
+                                        height: radarViewModel.posScale,
+                                        width: radarViewModel.posScale,
                                         child: Center(
                                           child: ClipRRect(
                                             borderRadius:
