@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../core/helper/dimensions.dart';
 import '../../core/viewmodels/settings_view_model.dart';
 import '../widgets/buttons/menu_button.dart';
 
@@ -14,7 +15,15 @@ class MenuScreen extends StatelessWidget {
     final SettingsViewModel settingsViewModel =
         Provider.of<SettingsViewModel>(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          iconSize: Dimensions.iconSize24,
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
