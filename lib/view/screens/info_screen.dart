@@ -122,10 +122,13 @@ class _InfoScreenState extends State<InfoScreen> {
                       const YoutubeControls(),
                     ],
                   ),
-                  const SafeArea(
+                  SafeArea(
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: RectangleButton(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
                         text: 'Go Back',
                       ),
                     ),
