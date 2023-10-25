@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:bordered_text/bordered_text.dart';
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
@@ -95,10 +96,11 @@ class _MapsScreenState extends State<MapsScreen> {
               ); virker ikke?*/
             },
             child: Container(
-              height: 160, // Juster højden efter behov
-              margin: EdgeInsets.all(10), // Afstand mellem felterne
+              height: Dimensions.height20 * 8, // Juster højden efter behov
+              margin: EdgeInsets.all(
+                  Dimensions.height10), // Afstand mellem felterne
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
+                borderRadius: BorderRadius.circular(Dimensions.radius28),
                 image: DecorationImage(
                   colorFilter:
                       ColorFilter.mode(Colors.black38, BlendMode.overlay),
@@ -109,13 +111,13 @@ class _MapsScreenState extends State<MapsScreen> {
               ),
               child: Center(
                 child: BorderedText(
-                  strokeWidth: 4.0,
+                  strokeWidth: Dimensions.stroke4,
                   strokeColor: Colors.black,
                   child: Text(
                     Global.maps[index],
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 48,
+                      fontSize: Dimensions.font48,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
