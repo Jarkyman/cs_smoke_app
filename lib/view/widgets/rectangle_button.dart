@@ -20,11 +20,11 @@ class RectangleButton extends StatelessWidget {
             Navigator.pop(context);
           },
           child: Container(
-            height: 40,
-            width: 80,
+            height: Dimensions.height20 * 2,
+            width: Dimensions.width20 * 5,
             decoration: BoxDecoration(
               color: Color(0xFF002259).withOpacity(0.6),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(Dimensions.radius10),
               border: Border.all(color: Color(0xFF000a1a), width: 2),
             ),
             child: Center(
@@ -32,7 +32,7 @@ class RectangleButton extends StatelessWidget {
                 text,
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: Dimensions.font16,
                     decoration: TextDecoration.none),
               ),
             ),
