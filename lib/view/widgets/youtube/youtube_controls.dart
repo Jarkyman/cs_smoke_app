@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/models/info_model.dart';
+import '../../../core/models/info_model.dart';
 
 class YoutubeControls extends StatelessWidget {
   ///

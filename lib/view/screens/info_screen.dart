@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:cs_smoke_app/core/models/info_model.dart';
-import 'package:cs_smoke_app/view/widgets/youtube_controls.dart';
+import 'package:cs_smoke_app/view/widgets/youtube/youtube_controls.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,9 +11,9 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../core/viewmodels/util_view_model.dart';
 import '../shared/global.dart';
-import '../widgets/floating_share_button.dart';
-import '../widgets/rectangle_button.dart';
-import '../widgets/youtube_video_position_indicator.dart';
+import '../widgets/buttons/floating_share_button.dart';
+import '../widgets/buttons/rectangle_button.dart';
+import '../widgets/youtube/youtube_video_position_indicator.dart';
 
 class InfoScreen extends StatefulWidget {
   const InfoScreen({super.key});
