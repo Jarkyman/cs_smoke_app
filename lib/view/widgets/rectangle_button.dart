@@ -12,7 +12,7 @@ class RectangleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(Dimensions.height18(context)),
+      padding: EdgeInsets.all(Dimensions.height18),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: GestureDetector(
