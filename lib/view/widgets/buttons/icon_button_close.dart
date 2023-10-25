@@ -23,7 +23,10 @@ class IconButtonClose extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color(0xFF002259).withOpacity(0.6),
               borderRadius: BorderRadius.circular(Dimensions.radius10),
-              border: Border.all(color: Color(0xFF000a1a), width: 2),
+              border: Border.all(
+                color: Color(0xFF000a1a),
+                width: Dimensions.stroke2,
+              ),
             ),
             child: Align(
               alignment: Alignment.center,

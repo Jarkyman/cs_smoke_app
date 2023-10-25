@@ -30,7 +30,10 @@ class UtilButton extends StatelessWidget {
                   : Colors.red.withOpacity(0.4)
               : Colors.grey.withOpacity(0.4),
           borderRadius: BorderRadius.circular(Dimensions.radius8),
-          border: Border.all(color: Colors.grey, width: 2),
+          border: Border.all(
+            color: Colors.grey,
+            width: Dimensions.stroke2,
+          ),
         ),
         child: Padding(
           padding: EdgeInsets.all(Dimensions.height8 / 2),
