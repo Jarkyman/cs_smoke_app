@@ -12,12 +12,12 @@ import 'core/viewmodels/radar_view_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await Permission.notification.isDenied.then((value) {
     if (value) {
       Permission.notification.request();
     }
   });
-  Firebase.initializeApp();
   tz.initializeTimeZones();
   runApp(const MyApp());
 }
