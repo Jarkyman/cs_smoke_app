@@ -6,6 +6,7 @@ import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -98,12 +99,9 @@ class _MapsScreenState extends State<MapsScreen> {
                   ),
                 ),
               );
-              /*await FirebaseAnalytics.instance.logSelectItem(
-                itemListId: Global.maps[index],
-              );
               await FirebaseAnalytics.instance.logEvent(
                 name: Global.maps[index],
-              ); virker ikke?*/
+              );
             },
             child: Container(
               height: Dimensions.height20 * 8, // Juster højden efter behov
