@@ -2,7 +2,7 @@ name: cs_smoke_app
 description: A CS2 utility app.
 publish_to: 'none'
 
-version: 1.1.1+4
+version: 1.1.2+5
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
@@ -20,7 +20,7 @@ dependencies:
   share_plus: ^7.2.0
   url_launcher: ^6.1.14
   rate_my_app: ^2.0.0
-  launch_review: ^3.0.1
+  launch_app_store: ^1.0.2
   flutter_local_notifications: ^16.1.0
   rxdart: ^0.27.7
   permission_handler: ^11.0.1

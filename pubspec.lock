@@ -240,14 +240,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
-  launch_review:
+  launch_app_store:
     dependency: "direct main"
     description:
-      name: launch_review
-      sha256: "04cdaf752033cefd53bc0fa9c22105801ef53791a93d8b6cdd00fcb3c1c1604b"
+      name: launch_app_store
+      sha256: "3fe4a9574f4fc5e3097fc28571b5b1e134c57817c54d15c96dd6f76c6040803c"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "1.0.2"
   lints:
     dependency: transitive
     description:

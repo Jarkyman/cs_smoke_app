@@ -86,7 +86,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.11.5):
     - GoogleUtilities/Logger
-  - launch_review (0.0.1):
+  - launch_app_store (0.0.2):
     - Flutter
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -117,7 +117,7 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_native_timezone_updated_gradle (from `.symlinks/plugins/flutter_native_timezone_updated_gradle/ios`)
-  - launch_review (from `.symlinks/plugins/launch_review/ios`)
+  - launch_app_store (from `.symlinks/plugins/launch_app_store/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - rate_my_app (from `.symlinks/plugins/rate_my_app/ios`)
@@ -149,8 +149,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
   flutter_native_timezone_updated_gradle:
     :path: ".symlinks/plugins/flutter_native_timezone_updated_gradle/ios"
-  launch_review:
-    :path: ".symlinks/plugins/launch_review/ios"
+  launch_app_store:
+    :path: ".symlinks/plugins/launch_app_store/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
@@ -179,7 +179,7 @@ SPEC CHECKSUMS:
   flutter_native_timezone_updated_gradle: d144a6b4980d61d022c539d090ab39bb390aac90
   GoogleAppMeasurement: 722db6550d1e6d552b08398b69a975ac61039338
   GoogleUtilities: 13e2c67ede716b8741c7989e26893d151b2b2084
-  launch_review: 75d5a956ba8eaa493e9c9d4bf4c05e505e8d5ed0
+  launch_app_store: 7086015e25e675b2a2ecece1df273d2443ccb293
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
