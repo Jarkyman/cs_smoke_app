@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
+import '../../core/helper/review.dart';
 import '../../core/viewmodels/util_view_model.dart';
 import '../shared/global.dart';
 import '../widgets/buttons/floating_share_button.dart';
@@ -128,6 +129,7 @@ class _InfoScreenState extends State<InfoScreen> {
                       child: RectangleButton(
                         onTap: () {
                           Navigator.pop(context);
+                          Review.checkReviewPopup(context);
                         },
                         text: 'Go Back',
                       ),

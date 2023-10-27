@@ -8,6 +8,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
 
+import 'core/helper/review.dart';
 import 'core/viewmodels/radar_view_model.dart';
 
 void main() async {
@@ -18,6 +19,7 @@ void main() async {
       Permission.notification.request();
     }
   });
+  await Review.rateMyApp.init();
   tz.initializeTimeZones();
   runApp(const MyApp());
 }
