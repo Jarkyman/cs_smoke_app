@@ -99,12 +99,9 @@ class _MapsScreenState extends State<MapsScreen> {
                   ),
                 ),
               );
-              await FirebaseAnalytics.instance.logSelectItem(
-                itemListId: Global.maps[index],
-              );
-              /*await FirebaseAnalytics.instance.logEvent(
+              await FirebaseAnalytics.instance.logEvent(
                 name: Global.maps[index],
-              );*/
+              );
             },
             child: Container(
               height: Dimensions.height20 * 8, // Juster højden efter behov
