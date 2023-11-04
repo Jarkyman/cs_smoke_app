@@ -20,10 +20,6 @@ class RadarScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as String ?? '';
 
     return Scaffold(
-      /*appBar: PreferredSize(
-        preferredSize: Size.fromHeight(180),
-        child: AppBarWidget(),
-      ),*/
       body: Stack(
         children: [
           AppBarWidget(),

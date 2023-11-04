@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/info_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
@@ -23,10 +24,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
   Widget build(BuildContext context) {
     final utilViewModel = Provider.of<UtilViewModel>(context);
     final radarViewModel = Provider.of<RadarViewModel>(context);
-    final Size size = MediaQuery.of(context).size;
 
     return Container(
-      height: double.maxFinite,
+      height: double.infinity,
       child: Center(
         child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -50,9 +50,11 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                 alignment: Alignment.center,
                 children: [
                   Container(
+                    width: double.infinity,
                     color: Global.bgColor,
                     child: Image.asset(
-                        'assets/img/radar/CS2_${widget.mapName.toLowerCase()}_radar.png'),
+                      'assets/img/radar/CS2_${widget.mapName.toLowerCase()}_radar.png',
+                    ),
                   ),
                   utilViewModel.isUtilSelected &&
                           utilViewModel.selectedUtil != null
@@ -63,9 +65,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                               width: double.infinity,
                               child: Transform.translate(
                                 offset: Offset(
-                                  size.width *
+                                  Dimensions.screenWidth *
                                       utilViewModel.selectedUtil!.position[0],
-                                  size.width *
+                                  Dimensions.screenWidth *
                                       utilViewModel.selectedUtil!.position[1],
                                 ),
                                 child: GestureDetector(
@@ -94,10 +96,10 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                   width: double.infinity,
                                   child: Transform.translate(
                                     offset: Offset(
-                                      size.width *
+                                      Dimensions.screenWidth *
                                           utilViewModel.selectedUtil!
                                               .stands[idx].position[0],
-                                      size.width *
+                                      Dimensions.screenWidth *
                                           utilViewModel.selectedUtil!
                                               .stands[idx].position[1],
                                     ),
@@ -145,8 +147,10 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                               width: double.infinity,
                               child: Transform.translate(
                                 offset: Offset(
-                                  size.width * tileSmokes[idx].position[0],
-                                  size.width * tileSmokes[idx].position[1],
+                                  Dimensions.screenWidth *
+                                      tileSmokes[idx].position[0],
+                                  Dimensions.screenWidth *
+                                      tileSmokes[idx].position[1],
                                 ),
                                 child: GestureDetector(
                                   onTap: () {
