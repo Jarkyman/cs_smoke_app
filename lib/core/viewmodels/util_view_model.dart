@@ -7,6 +7,9 @@ class UtilViewModel extends ChangeNotifier {
   bool _isUtilSelected = false;
   bool get isUtilSelected => _isUtilSelected;
 
+  bool _showNames = false;
+  bool get showNames => _showNames;
+
   UtilModel? _selectedUtil;
   UtilModel? get selectedUtil => _selectedUtil;
 
@@ -35,6 +38,11 @@ class UtilViewModel extends ChangeNotifier {
   final List<UtilModel> _utils =
       Global.allUtils.map((item) => UtilModel.fromMap(item)).toList();
   List<UtilModel> get utils => _utils;
+
+  void toggleShowName() {
+    _showNames = !_showNames;
+    notifyListeners();
+  }
 
   void toggleUtil(String utilName) {
     _isSmokeT = false;
@@ -92,6 +100,7 @@ class UtilViewModel extends ChangeNotifier {
   void reset() {
     _isUtilSelected = false;
     _selectedUtil = null;
+    _showNames = false;
     notifyListeners();
   }
 }
