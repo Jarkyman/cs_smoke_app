@@ -79,7 +79,7 @@ class _InfoScreenState extends State<InfoScreen> {
           backgroundColor: Global.bgColor,
           floatingActionButton: FloatingShareButton(
             onTap: () async {
-              String url = await _controller.videoUrl;
+              String url = "https://www.youtube.com/watch?v=${info.videoId}";
               if (url.isNotEmpty) {
                 print("url = " + url);
                 await Share.share(
