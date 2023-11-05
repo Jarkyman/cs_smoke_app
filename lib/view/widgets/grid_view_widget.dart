@@ -54,7 +54,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                           width: double.infinity,
                           color: Global.bgColor,
                           child: Image.asset(
-                            'assets/img/radar/CS2_${widget.mapName.toLowerCase()}_radar_name.png',
+                            'assets/img/callouts/CS2_${widget.mapName.toLowerCase()}_radar_name.png',
                           ),
                         ),
                       ],
