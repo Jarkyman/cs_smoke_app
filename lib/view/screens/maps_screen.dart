@@ -104,9 +104,8 @@ class _MapsScreenState extends State<MapsScreen> {
               );
             },
             child: Container(
-              height: Dimensions.height20 * 8, // Juster højden efter behov
-              margin: EdgeInsets.all(
-                  Dimensions.height10), // Afstand mellem felterne
+              height: Dimensions.height20 * 8,
+              margin: EdgeInsets.all(Dimensions.height10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius28),
                 image: DecorationImage(
