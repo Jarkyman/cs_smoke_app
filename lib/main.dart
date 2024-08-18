@@ -4,6 +4,7 @@ import 'package:cs_smoke_app/view/screens/maps_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -18,6 +19,11 @@ void main() async {
     if (value) {
       Permission.notification.request();
     }
+  });
+  await MobileAds.instance.initialize().then((initializationStatus) {
+    initializationStatus.adapterStatuses.forEach((key, value) {
+      debugPrint('Adapter status for $key: ${value.description}');
+    });
   });
   await Review.rateMyApp.init();
   tz.initializeTimeZones();

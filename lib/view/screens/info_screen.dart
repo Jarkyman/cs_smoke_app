@@ -1,19 +1,21 @@
 import 'dart:developer';
 
 import 'package:cs_smoke_app/core/models/info_model.dart';
-import 'package:cs_smoke_app/view/widgets/youtube/youtube_controls.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
+import '../../core/helper/ad_helper.dart';
 import '../../core/helper/review.dart';
 import '../../core/viewmodels/util_view_model.dart';
 import '../shared/global.dart';
 import '../widgets/buttons/floating_share_button.dart';
 import '../widgets/buttons/rectangle_button.dart';
+import '../widgets/youtube/youtube_controls.dart';
 import '../widgets/youtube/youtube_video_position_indicator.dart';
 
 class InfoScreen extends StatefulWidget {
@@ -25,9 +27,12 @@ class InfoScreen extends StatefulWidget {
 
 class _InfoScreenState extends State<InfoScreen> {
   late YoutubePlayerController _controller;
+  late NativeAd _nativeAd;
+  bool _nativeAdIsLoaded = false;
 
   @override
   void initState() {
+    loadNativeAd();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -62,8 +67,37 @@ class _InfoScreenState extends State<InfoScreen> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    _nativeAd.dispose();
     _controller.close();
     super.dispose();
+  }
+
+  void loadNativeAd() {
+    _nativeAd = NativeAd(
+      adUnitId: AdHelper.nativeAdUnitId,
+      listener: NativeAdListener(
+        onAdLoaded: (ad) {
+          debugPrint('$NativeAd loaded.');
+          setState(() {
+            _nativeAdIsLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (ad, error) {
+          // Dispose the ad here to free resources.
+          debugPrint('$NativeAd failed to load: $error');
+          ad.dispose();
+        },
+      ),
+      request: AdRequest(),
+      // Styling
+      nativeTemplateStyle: NativeTemplateStyle(
+          // Required: Choose a template.
+          templateType: TemplateType.medium,
+          // Optional: Customize the ad's style.
+          cornerRadius: 10.0),
+    );
+
+    _nativeAd.load();
   }
 
   @override
@@ -121,6 +155,27 @@ class _InfoScreenState extends State<InfoScreen> {
                       player,
                       const YoutubeVideoPositionIndicator(),
                       const YoutubeControls(),
+                      FutureBuilder(
+                        builder: (context, snapshot) {
+                          return _nativeAdIsLoaded
+                              ? ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    minWidth: 320, // minimum recommended width
+                                    minHeight:
+                                        320, // minimum recommended height
+                                    maxWidth: 400,
+                                    maxHeight: 400,
+                                  ),
+                                  child: AdWidget(ad: _nativeAd),
+                                )
+                              : Container();
+                        },
+                        future: Future(() async {
+                          return Future.doWhile(() =>
+                              Future.delayed(Duration(milliseconds: 10))
+                                  .then((_) => !_nativeAdIsLoaded));
+                        }),
+                      )
                     ],
                   ),
                   SafeArea(
