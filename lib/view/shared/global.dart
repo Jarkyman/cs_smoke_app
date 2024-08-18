@@ -7,7 +7,8 @@ abstract class Global {
   static const List<String> maps = [
     'Ancient',
     'Anubis',
-    //'Dust2',
+    //'Cache',
+    'Dust2',
     'Inferno',
     //'Italy',
     'Mirage',
@@ -1378,6 +1379,411 @@ abstract class Global {
           'position': [-0.088, -0.303],
           'description': 'Jump throw',
           'videoId': 'Yvgzodq95p8'
+        },
+      ],
+    },
+    //DUST 2
+    {
+      'location': 'dust2',
+      'description': 'Cross',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.312, -0.257],
+      'stands': [
+        {
+          'position': [0.396, 0.176],
+          'description': 'W jump throw',
+          'videoId': 'uj7BENGyvDo'
+        },
+        {
+          'position': [0.243, 0.042],
+          'description': 'Run jump throw',
+          'videoId': 'zjFocbQnUhI'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'A Short',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.161, -0.258],
+      'stands': [
+        {
+          'position': [0.156, -0.135],
+          'description': 'Left click',
+          'videoId': 'rCcywBSA6_0'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'A Site',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.314, -0.338],
+      'stands': [
+        {
+          'position': [0.110, -0.198],
+          'description': 'Left click',
+          'videoId': 'NxtnUAKCXVs'
+        },
+        {
+          'position': [0.440, 0.057],
+          'description': '1 step jump throw',
+          'videoId': 'Xt2TN39M1VY'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'B Doors',
+      'name': 'smoke',
+      'status': true,
+      'position': [-0.238, -0.271],
+      'stands': [
+        {
+          'position': [-0.239, 0.111],
+          'description': 'Jump throw',
+          'videoId': 'zfnZazt65YU'
+        },
+        {
+          'position': [-0.347, -0.009],
+          'description': 'Left click',
+          'videoId': 'sonGX2WJhvs'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'B plat',
+      'name': 'molotov',
+      'status': false,
+      'position': [-0.407, -0.458],
+      'stands': [
+        {
+          'position': [-0.186, -0.241],
+          'description': 'Jump throw',
+          'videoId': 'NopKPVlxwoE'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'B Site',
+      'name': 'flash',
+      'status': true,
+      'position': [-0.348, -0.240],
+      'stands': [
+        {
+          'position': [-0.355, 0.001],
+          'description': 'Jump throw',
+          'videoId': 'oTNrGFKgXNg'
+        },
+        {
+          'position': [-0.319, 0.023],
+          'description': 'Left click',
+          'videoId': 'xq4x6rsM6_Y'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'B Site',
+      'name': 'molotov',
+      'status': false,
+      'position': [-0.289, -0.378],
+      'stands': [
+        {
+          'position': [-0.231, -0.341],
+          'description': 'Jump throw',
+          'videoId': 'NF7Z3bitLjM'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'B tunnel',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.388, -0.157],
+      'stands': [
+        {
+          'position': [-0.201, -0.379],
+          'description': 'left click',
+          'videoId': 'CHm5ao4dizo'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'B window',
+      'name': 'smoke',
+      'status': true,
+      'position': [-0.247, -0.368],
+      'stands': [
+        {
+          'position': [-0.246, 0.115],
+          'description': 'Jump throw',
+          'videoId': 'BLeN-35Kqz4'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Car',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.434, -0.225],
+      'stands': [
+        {
+          'position': [0.234, 0.042],
+          'description': 'W jump throw',
+          'videoId': 'AayOJl74-ag'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Ct',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.186, -0.265],
+      'stands': [
+        {
+          'position': [-0.094, 0.113],
+          'description': 'Jump throw',
+          'videoId': '7BrGDS13oak'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Goose',
+      'name': 'molotov',
+      'status': true,
+      'position': [0.297, -0.435],
+      'stands': [
+        {
+          'position': [0.146, -0.208],
+          'description': 'Left click',
+          'videoId': '2fzrxtK525Y'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Long corner',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.334, -0.033],
+      'stands': [
+        {
+          'position': [0.048, 0.370],
+          'description': 'Jump throw',
+          'videoId': '5kIHS3KJGXw'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Long doors',
+      'name': 'smoke',
+      'status': false,
+      'position': [0.192, 0.057],
+      'stands': [
+        {
+          'position': [0.441, -0.259],
+          'description': 'Jump throw',
+          'videoId': 'cDjuh8df6Dg'
+        },
+        {
+          'position': [0.214, -0.298],
+          'description': 'Jump throw',
+          'videoId': 'PvST-ZaYPbY'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Long',
+      'name': 'flash',
+      'status': true,
+      'position': [0.290, 0.084],
+      'stands': [
+        {
+          'position': [0.128, 0.308],
+          'description': 'Jump throw',
+          'videoId': '8P-EC4aruQ8'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Long',
+      'name': 'flash',
+      'status': true,
+      'position': [0.193, 0.025],
+      'stands': [
+        {
+          'position': [0.195, 0.262],
+          'description': 'Left click',
+          'videoId': '9fvoOaLB4HM'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Long corner',
+      'name': 'flash',
+      'status': false,
+      'position': [0.382, -0.030],
+      'stands': [
+        {
+          'position': [0.331, -0.223],
+          'description': 'Left click',
+          'videoId': '2lMD8nzxew0'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Blue',
+      'name': 'flash',
+      'status': false,
+      'position': [0.229, -0.023],
+      'stands': [
+        {
+          'position': [0.408, -0.229],
+          'description': 'Jump throw',
+          'videoId': 'RpYUyzy8Zvo'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Mid cross',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.048, -0.268],
+      'stands': [
+        {
+          'position': [0.102, -0.291],
+          'description': 'Left click',
+          'videoId': 'hOxVEsZDEYU'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Xbox',
+      'name': 'smoke',
+      'status': true,
+      'position': [-0.022, -0.096],
+      'stands': [
+        {
+          'position': [-0.204, 0.378],
+          'description': 'Jump throw',
+          'videoId': 'SrnkbuJUCN8'
+        },
+        {
+          'position': [-0.058, 0.369],
+          'description': 'Jump throw',
+          'videoId': 'gwaUA9p4iYg'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Mid doors',
+      'name': 'smoke',
+      'status': true,
+      'position': [-0.044, -0.140],
+      'stands': [
+        {
+          'position': [-0.059, -0.127],
+          'description': 'Left right click',
+          'videoId': '5SsWtJ2-H7Q'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Mid',
+      'name': 'smoke',
+      'status': false,
+      'position': [-0.037, -0.047],
+      'stands': [
+        {
+          'position': [-0.005, -0.283],
+          'description': 'Left click',
+          'videoId': 'VH1ts0bxPm0'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Mid to B',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.009, -0.254],
+      'stands': [
+        {
+          'position': [0.202, 0.302],
+          'description': 'Run Jump throw',
+          'videoId': '2z7vJajQrUk'
+        },
+        {
+          'position': [-0.013, -0.079],
+          'description': 'Left click',
+          'videoId': '7dkQ_OMQIx4'
+        },
+        {
+          'position': [-0.013, -0.056],
+          'description': 'Jump throw',
+          'videoId': 'BIg-myPPsZo'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Short',
+      'name': 'flash',
+      'status': false,
+      'position': [0.125, -0.215],
+      'stands': [
+        {
+          'position': [0.351, -0.368],
+          'description': 'Run throw',
+          'videoId': 'XQhKBK0bHGk'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'Short',
+      'name': 'flash',
+      'status': true,
+      'position': [0.124, -0.192],
+      'stands': [
+        {
+          'position': [-0.069, -0.089],
+          'description': 'Jump throw',
+          'videoId': 'yfeNhZM8kWA'
+        },
+      ],
+    },
+    {
+      'location': 'dust2',
+      'description': 'A Short',
+      'name': 'smoke',
+      'status': true,
+      'position': [0.161, -0.258],
+      'stands': [
+        {
+          'position': [0.156, -0.135],
+          'description': 'Left click',
+          'videoId': 'rCcywBSA6_0'
         },
       ],
     },
