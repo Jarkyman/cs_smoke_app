@@ -158,15 +158,17 @@ class _InfoScreenState extends State<InfoScreen> {
                       FutureBuilder(
                         builder: (context, snapshot) {
                           return _nativeAdIsLoaded
-                              ? ConstrainedBox(
-                                  constraints: const BoxConstraints(
-                                    minWidth: 320, // minimum recommended width
-                                    minHeight:
-                                        320, // minimum recommended height
-                                    maxWidth: 400,
-                                    maxHeight: 400,
+                              ? Align(
+                                  alignment: Alignment.center,
+                                  child: ConstrainedBox(
+                                    constraints: const BoxConstraints(
+                                      minWidth: 300,
+                                      minHeight: 350,
+                                      maxHeight: 400,
+                                      maxWidth: 450,
+                                    ),
+                                    child: AdWidget(ad: _nativeAd),
                                   ),
-                                  child: AdWidget(ad: _nativeAd),
                                 )
                               : Container();
                         },

@@ -67,6 +67,7 @@ class _RadarScreenState extends State<RadarScreen> {
 
     return Scaffold(
       floatingActionButton: FloatingShowNameButton(
+        bannerPadding: bannerHeight.toDouble(),
         onTap: () {
           utilViewModel.toggleShowName();
         },
@@ -86,7 +87,7 @@ class _RadarScreenState extends State<RadarScreen> {
                     height: utilViewModel.showNames
                         ? Dimensions.screenHeight - bannerHeight
                         : Dimensions.screenHeight -
-                            (Dimensions.height20 * 10) -
+                            (Dimensions.height20 * 12) -
                             bannerHeight, // Højden vil variere mellem disse to værdier
                     // Indsæt andre nødvendige egenskaber for containeren
                     child: ClipRRect(
@@ -128,7 +129,13 @@ class _RadarScreenState extends State<RadarScreen> {
               ],
             ),
           ),
-          _bannerAd != null ? adBannerWidget(bannerAd: _bannerAd) : Container(),
+          _bannerAd != null
+              ? SafeArea(
+                  left: false,
+                  right: false,
+                  top: false,
+                  child: adBannerWidget(bannerAd: _bannerAd))
+              : Container(),
         ],
       ),
     );
