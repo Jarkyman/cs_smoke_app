@@ -82,6 +82,7 @@ class NotificationApi {
         _scheduleWeekly(TimeOfDay(hour: 17, minute: 00),
             days: [DateTime.tuesday, DateTime.friday]),
         await _notificationDetails(),
+        androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
         payload: payload,
         uiLocalNotificationDateInterpretation:
             UILocalNotificationDateInterpretation.absoluteTime,
