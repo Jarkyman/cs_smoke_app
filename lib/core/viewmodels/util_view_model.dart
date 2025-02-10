@@ -40,7 +40,9 @@ class UtilViewModel extends ChangeNotifier {
   List<UtilModel> get utils => _utils;
 
   void loadData() async{
-    _utils = await JsonDataHandler().loadData();
+    if (_utils.isEmpty) {
+      _utils = await JsonDataHandler().loadData();
+    }
   }
 
   void toggleShowName() {
