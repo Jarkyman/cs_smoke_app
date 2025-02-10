@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bordered_text/bordered_text.dart';
 import 'package:cs_smoke_app/core/helper/dimensions.dart';
+import 'package:cs_smoke_app/core/helper/json_data_handler.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/helper/notification_api.dart';
+import '../../core/models/util_model.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
 class MapsScreen extends StatefulWidget {
@@ -19,11 +21,16 @@ class MapsScreen extends StatefulWidget {
 }
 
 class _MapsScreenState extends State<MapsScreen> {
+  final dataHandler = JsonDataHandler();
+
   @override
   void initState() {
     super.initState();
     NotificationApi.init(initScheduled: true);
     listenNotifications();
+
+    readData();
+
     Random random = Random();
     String randomMap = Global.maps[random.nextInt(Global.maps.length)];
     NotificationApi.showScheduledNotification(
@@ -33,6 +40,11 @@ class _MapsScreenState extends State<MapsScreen> {
       payload: randomMap,
       //scheduledDate: DateTime.now().add(Duration(seconds: 10)), //Test
     );
+  }
+
+  void readData() async {
+    await dataHandler.fetchAndSaveData();
+    List<UtilModel> utilModels = await dataHandler.loadData();
   }
 
   void listenNotifications() =>
@@ -52,6 +64,7 @@ class _MapsScreenState extends State<MapsScreen> {
   Widget build(BuildContext context) {
     final radarViewModel = Provider.of<RadarViewModel>(context);
     final utilViewModel = Provider.of<UtilViewModel>(context);
+    utilViewModel.loadData();
 
     return Scaffold(
       backgroundColor: Global.bgColor,

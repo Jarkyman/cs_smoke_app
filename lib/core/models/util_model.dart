@@ -9,15 +9,16 @@ class UtilModel {
   late List<InfoModel> stands;
   bool isSelected = false;
 
-  UtilModel.fromMap(Map data) {
-    this.location = data['location'] ?? '';
-    this.description = data['description'] ?? '';
-    this.name = data['name'] ?? '';
-    this.status = data['status'] ?? false;
-    this.position = List<double>.from(data['position'] ?? [0.0]);
+  UtilModel.fromJson(Map<String, dynamic> json) {
+    location = json['location'] ?? '';
+    description = json['description'] ?? '';
+    name = json['name'] ?? '';
+    status = json['status'] ?? false;
+    position = List<double>.from(json['position'] ?? []);
 
-    List<Map> standsData = data['stands'] ?? [];
-    this.stands =
-        standsData.map((standData) => InfoModel.fromMap(standData)).toList();
+    // Håndterer stands som en liste af InfoModel objekter
+    stands = (json['stands'] as List<dynamic>? ?? [])
+        .map((stand) => InfoModel.fromJson(stand as Map<String, dynamic>))
+        .toList();
   }
 }

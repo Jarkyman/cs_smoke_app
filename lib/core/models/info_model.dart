@@ -3,9 +3,9 @@ class InfoModel {
   late String description;
   late String videoId;
 
-  InfoModel.fromMap(Map data) {
-    this.position = data['position'] ?? [0.0];
-    this.description = data['description'] ?? '';
-    this.videoId = data['videoId'] ?? '';
+  InfoModel.fromJson(Map<String, dynamic> json) {
+    position = List<double>.from(json['position'] ?? []);
+    description = json['description'] ?? '';
+    videoId = json['videoId'] ?? '';
   }
 }

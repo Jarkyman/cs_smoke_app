@@ -1,3 +1,4 @@
+import 'package:cs_smoke_app/core/helper/json_data_handler.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../view/shared/global.dart';
@@ -35,9 +36,12 @@ class UtilViewModel extends ChangeNotifier {
   bool _isMolotovCt = false;
   bool get isMolotovCt => _isMolotovCt;
 
-  final List<UtilModel> _utils =
-      Global.allUtils.map((item) => UtilModel.fromMap(item)).toList();
+  List<UtilModel> _utils = [];
   List<UtilModel> get utils => _utils;
+
+  void loadData() async{
+    _utils = await JsonDataHandler().loadData();
+  }
 
   void toggleShowName() {
     _showNames = !_showNames;
