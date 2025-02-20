@@ -5,7 +5,7 @@ import '../../../core/models/info_model.dart';
 
 class YoutubeControls extends StatelessWidget {
   ///
-  const YoutubeControls();
+  const YoutubeControls({super.key});
 
   @override
   Widget build(BuildContext context) {

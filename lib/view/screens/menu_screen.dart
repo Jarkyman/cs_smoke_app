@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:launch_app_store/launch_app_store.dart';
+import 'package:flutter_launch_store/flutter_launch_store.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -63,10 +65,22 @@ class MenuScreen extends StatelessWidget {
             ),
             MenuButton(
               onTap: () {
-                LaunchReview.launch(
-                  androidAppId: Constants.ANDROID_ID,
-                  iOSAppId: Constants.IOS_ID,
-                );
+                print('app id: ${Constants.IOS_ID}');
+                try {
+                  if (Platform.isIOS) {
+                    StoreLauncher.openWithStore(Constants.IOS_ID).catchError((e) {
+                      print('ERROR opening iOS App Store: $e');
+                    });
+                  } else if (Platform.isAndroid) {
+                    StoreLauncher.openWithStore(Constants.ANDROID_ID).catchError((e) {
+                      print('ERROR opening Android Play Store: $e');
+                    });
+                  } else {
+                    print('Unsupported platform');
+                  }
+                } catch (e) {
+                  print('An unexpected error occurred: $e');
+                }
               },
               title: 'Rate app',
               icon: Icons.star_border_outlined,

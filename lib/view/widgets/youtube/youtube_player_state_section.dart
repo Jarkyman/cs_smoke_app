@@ -4,6 +4,8 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 ///
 class YoutubePlayerStateSection extends StatelessWidget {
+  const YoutubePlayerStateSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return YoutubeValueBuilder(

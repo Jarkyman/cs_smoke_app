@@ -43,6 +43,7 @@ class _InfoScreenState extends State<InfoScreen> {
       params: const YoutubePlayerParams(
         showControls: true,
         enableCaption: false,
+        showVideoAnnotations: false,
         color: 'black',
         mute: true,
         showFullscreenButton: true,
@@ -61,6 +62,11 @@ class _InfoScreenState extends State<InfoScreen> {
     super.initState();
   }
 
+  void printLog() async{
+    String url = await _controller.videoEmbedCode;
+    print("VIDEO: ${url}");
+  }
+
   @override
   void dispose() {
     SystemChrome.setPreferredOrientations([
@@ -68,6 +74,7 @@ class _InfoScreenState extends State<InfoScreen> {
       DeviceOrientation.portraitDown,
     ]);
     _nativeAd.dispose();
+    printLog();
     _controller.close();
     super.dispose();
   }
@@ -88,7 +95,7 @@ class _InfoScreenState extends State<InfoScreen> {
           ad.dispose();
         },
       ),
-      request: AdRequest(),
+      request: const AdRequest(),
       // Styling
       nativeTemplateStyle: NativeTemplateStyle(
           // Required: Choose a template.
@@ -115,7 +122,7 @@ class _InfoScreenState extends State<InfoScreen> {
             onTap: () async {
               String url = "https://www.youtube.com/watch?v=${info.videoId}";
               if (url.isNotEmpty) {
-                print("url = " + url);
+                print("url = $url");
                 await Share.share(
                     "Hey, I came across this amazing ${utilViewModel.selectedUtil!.name} guide on Util Master! Check it out:\n\n$url");
               }
@@ -150,7 +157,7 @@ class _InfoScreenState extends State<InfoScreen> {
               return Stack(
                 children: [
                   ListView(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     children: [
                       player,
                       const YoutubeVideoPositionIndicator(),
@@ -174,7 +181,7 @@ class _InfoScreenState extends State<InfoScreen> {
                         },
                         future: Future(() async {
                           return Future.doWhile(() =>
-                              Future.delayed(Duration(milliseconds: 10))
+                              Future.delayed(const Duration(milliseconds: 10))
                                   .then((_) => !_nativeAdIsLoaded));
                         }),
                       )

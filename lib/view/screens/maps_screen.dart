@@ -16,6 +16,8 @@ import '../../core/models/util_model.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
 class MapsScreen extends StatefulWidget {
+  const MapsScreen({super.key});
+
   @override
   State<MapsScreen> createState() => _MapsScreenState();
 }
@@ -44,7 +46,6 @@ class _MapsScreenState extends State<MapsScreen> {
 
   void readData() async {
     await dataHandler.fetchAndSaveData();
-    List<UtilModel> utilModels = await dataHandler.loadData();
   }
 
   void listenNotifications() =>
@@ -96,7 +97,7 @@ class _MapsScreenState extends State<MapsScreen> {
         ],
       ),
       body: ListView.builder(
-        itemCount: Global.maps.length, // Antallet af elementer i listen
+        itemCount: Global.maps.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () async {
@@ -123,7 +124,7 @@ class _MapsScreenState extends State<MapsScreen> {
                 borderRadius: BorderRadius.circular(Dimensions.radius28),
                 image: DecorationImage(
                   colorFilter:
-                      ColorFilter.mode(Colors.black38, BlendMode.overlay),
+                      const ColorFilter.mode(Colors.black38, BlendMode.overlay),
                   image: AssetImage(
                       'assets/img/maps/CS2_${Global.maps[index].toLowerCase()}_map.png'),
                   fit: BoxFit.cover,

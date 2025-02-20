@@ -1,7 +1,6 @@
 import 'package:cs_smoke_app/core/helper/json_data_handler.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../view/shared/global.dart';
 import '../models/util_model.dart';
 
 class UtilViewModel extends ChangeNotifier {
