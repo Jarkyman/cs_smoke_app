@@ -47,7 +47,7 @@ PODS:
     - Flutter
   - flutter_local_notifications (0.0.1):
     - Flutter
-  - flutter_native_timezone_updated_gradle (0.0.1):
+  - flutter_timezone (0.0.1):
     - Flutter
   - Google-Mobile-Ads-SDK (11.13.0):
     - GoogleUserMessagingPlatform (>= 1.1)
@@ -134,7 +134,7 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_launch_store (from `.symlinks/plugins/flutter_launch_store/ios`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
-  - flutter_native_timezone_updated_gradle (from `.symlinks/plugins/flutter_native_timezone_updated_gradle/ios`)
+  - flutter_timezone (from `.symlinks/plugins/flutter_timezone/ios`)
   - google_mobile_ads (from `.symlinks/plugins/google_mobile_ads/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
@@ -169,8 +169,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_launch_store/ios"
   flutter_local_notifications:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
-  flutter_native_timezone_updated_gradle:
-    :path: ".symlinks/plugins/flutter_native_timezone_updated_gradle/ios"
+  flutter_timezone:
+    :path: ".symlinks/plugins/flutter_timezone/ios"
   google_mobile_ads:
     :path: ".symlinks/plugins/google_mobile_ads/ios"
   path_provider_foundation:
@@ -198,8 +198,8 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 6c963bd2a86aca0481eef4f48f5a4df783ae5917
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_launch_store: 26412e98c4556bc9bcd9b2f3f77264e468ecbd61
-  flutter_local_notifications: ad39620c743ea4c15127860f4b5641649a988100
-  flutter_native_timezone_updated_gradle: d6e77b02f4cd16a9ba77c95f4967fe2448a72a39
+  flutter_local_notifications: 395056b3175ba4f08480a7c5de30cd36d69827e4
+  flutter_timezone: 7c838e17ffd4645d261e87037e5bebf6d38fe544
   Google-Mobile-Ads-SDK: 14f57f2dc33532a24db288897e26494640810407
   google_mobile_ads: 16ad301354fa6a7ea55770c6254bd4339bf8558b
   GoogleAppMeasurement: fc0817122bd4d4189164f85374e06773b9561896
