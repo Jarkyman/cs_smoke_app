@@ -7,10 +7,10 @@ import 'package:rate_my_app/rate_my_app.dart';
 
 class Review {
   static final RateMyApp rateMyApp = RateMyApp(
-    minDays: 3,
-    minLaunches: 5,
+    minDays: 5,
+    minLaunches: 15,
     remindDays: 3,
-    remindLaunches: 4,
+    remindLaunches: 8,
     googlePlayIdentifier: Constants.ANDROID_ID,
     appStoreIdentifier: Constants.IOS_ID,
   );
