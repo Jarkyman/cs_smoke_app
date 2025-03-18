@@ -27,6 +27,7 @@ void main() async {
   });
   await Review.rateMyApp.init();
   tz.initializeTimeZones();
+  //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
   runApp(const MyApp());
 }
 
