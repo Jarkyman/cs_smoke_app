@@ -4,7 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cs_smoke_app/core/models/util_model.dart'; // Importer UtilModel
 
 class JsonDataHandler {
-  static const String url = 'https://hartvigsolutions.com/mapdata.json';
+  //static const String url = 'https://hartvigsolutions.com/mapdata.json';
+  static const String url = 'https://gist.githubusercontent.com/Jarkyman/d3cba4afc8948b1a78a6373d7667f230/raw/mapdata.json';
   static const String storageKey = 'cached_utility_data';
 
   // Hent JSON-data fra URL og gem det i SharedPreferences
