@@ -172,8 +172,8 @@ class _InfoScreenState extends State<InfoScreen> {
                       player,
                       const YoutubeVideoPositionIndicator(),
                       const YoutubeControls(),
-                      FutureBuilder(
-                        builder: (context, snapshot) {
+                      Builder(
+                        builder: (context) {
                           final currentAd = _nativeAd;
                           if (_nativeAdIsLoaded && currentAd != null) {
                             return Align(
@@ -189,14 +189,9 @@ class _InfoScreenState extends State<InfoScreen> {
                               ),
                             );
                           } else {
-                            return Container();
+                            return const SizedBox.shrink();
                           }
                         },
-                        future: Future(() async {
-                          return Future.doWhile(() =>
-                              Future.delayed(const Duration(milliseconds: 10))
-                                  .then((_) => !_nativeAdIsLoaded));
-                        }),
                       )
                     ],
                   ),

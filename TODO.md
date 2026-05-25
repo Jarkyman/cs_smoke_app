@@ -129,14 +129,14 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {M} [performance, ads] (M): #14 — Fjern spin-wait polling loop i InfoScreen
+// DONE {M} [performance, ads] (M): #14 — Fjern spin-wait polling loop i InfoScreen
 
 - **Fil:** `lib/view/screens/info_screen.dart` (linje ~181-184)
 - `Future.doWhile` poller hvert 10ms for at vente på ad — ekstremt spildfuldt
 - `_nativeAdIsLoaded` sættes allerede via `setState` — brug det direkte i build
 - Erstat med: `if (_nativeAdIsLoaded) AdWidget(ad: _nativeAd) else SizedBox.shrink()`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 ---
 
