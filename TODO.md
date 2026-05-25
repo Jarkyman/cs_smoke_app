@@ -104,22 +104,22 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {S} [memory, notifications] (H): #11 — Luk BehaviorSubject i NotificationApi
+// DONE {S} [memory, notifications] (H): #11 — Luk BehaviorSubject i NotificationApi
 
 - **Fil:** `lib/core/helper/notification_api.dart` (linje ~9)
 - `static final onNotifications = BehaviorSubject<String?>()` lukkes aldrig
 - Tilføj en `dispose()` metode der kalder `.close()`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
-// FIXME {M} [ads, crash] (H): #12 — Fix double-dispose af native ad i InfoScreen
+// DONE {M} [ads, crash] (H): #12 — Fix double-dispose af native ad i InfoScreen
 
 - **Fil:** `lib/view/screens/info_screen.dart`
 - Hvis ad fejler loading, kalder `onAdFailedToLoad` allerede `ad.dispose()`
 - Widget's `dispose()` kalder `_nativeAd.dispose()` igen → crash
 - Tilføj null-check eller bool flag for om ad er allerede disposed
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [notifications, bug] (H): #13 — Fix notifikations-spam ved hvert screen-push
 

@@ -8,6 +8,10 @@ class NotificationApi {
   static final _notifications = FlutterLocalNotificationsPlugin();
   static final onNotifications = BehaviorSubject<String?>();
 
+  static void dispose() {
+    onNotifications.close();
+  }
+
   static Future _notificationDetails() async {
     //Sound skal ligge under android/app/main/res/raw/
     //Sound skal ligge under Runner/Resources/

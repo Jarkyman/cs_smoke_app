@@ -27,7 +27,7 @@ class InfoScreen extends StatefulWidget {
 
 class _InfoScreenState extends State<InfoScreen> {
   late YoutubePlayerController _controller;
-  late NativeAd _nativeAd;
+  NativeAd? _nativeAd;
   bool _nativeAdIsLoaded = false;
   String? _loadedVideoId;
 
@@ -81,7 +81,7 @@ class _InfoScreenState extends State<InfoScreen> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    _nativeAd.dispose();
+    _nativeAd?.dispose();
     printLog();
     _controller.close();
     super.dispose();
@@ -101,6 +101,7 @@ class _InfoScreenState extends State<InfoScreen> {
           // Dispose the ad here to free resources.
           debugPrint('$NativeAd failed to load: $error');
           ad.dispose();
+          _nativeAd = null;
         },
       ),
       request: const AdRequest(),
@@ -112,7 +113,7 @@ class _InfoScreenState extends State<InfoScreen> {
           cornerRadius: 10.0),
     );
 
-    _nativeAd.load();
+    _nativeAd?.load();
   }
 
   @override
@@ -173,20 +174,23 @@ class _InfoScreenState extends State<InfoScreen> {
                       const YoutubeControls(),
                       FutureBuilder(
                         builder: (context, snapshot) {
-                          return _nativeAdIsLoaded
-                              ? Align(
-                                  alignment: Alignment.center,
-                                  child: ConstrainedBox(
-                                    constraints: const BoxConstraints(
-                                      minWidth: 300,
-                                      minHeight: 350,
-                                      maxHeight: 400,
-                                      maxWidth: 450,
-                                    ),
-                                    child: AdWidget(ad: _nativeAd),
-                                  ),
-                                )
-                              : Container();
+                          final currentAd = _nativeAd;
+                          if (_nativeAdIsLoaded && currentAd != null) {
+                            return Align(
+                              alignment: Alignment.center,
+                              child: ConstrainedBox(
+                                constraints: const BoxConstraints(
+                                  minWidth: 300,
+                                  minHeight: 350,
+                                  maxHeight: 400,
+                                  maxWidth: 450,
+                                ),
+                                child: AdWidget(ad: currentAd),
+                              ),
+                            );
+                          } else {
+                            return Container();
+                          }
                         },
                         future: Future(() async {
                           return Future.doWhile(() =>
