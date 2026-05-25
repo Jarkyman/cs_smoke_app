@@ -121,13 +121,13 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {M} [notifications, bug] (H): #13 — Fix notifikations-spam ved hvert screen-push
+// DONE {M} [notifications, bug] (H): #13 — Fix notifikations-spam ved hvert screen-push
 
 - **Fil:** `lib/view/screens/maps_screen.dart` (linje ~37-41)
 - Ny notification skemalægges i `initState()` HVER gang MapsScreen pushes — uden at annullere gamle
 - Kald `NotificationApi.cancelAll()` først, eller brug et unikt fast ID
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [performance, ads] (M): #14 — Fjern spin-wait polling loop i InfoScreen
 

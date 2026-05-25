@@ -38,13 +38,14 @@ class _MapsScreenState extends State<MapsScreen> {
 
     Random random = Random();
     String randomMap = Global.maps[random.nextInt(Global.maps.length)];
-    NotificationApi.showScheduledNotification(
-      title: 'Go practice now',
-      body:
-          'Get in the game! Click to dive into $randomMap and perfect your utility skills. Master smokes, flashes, and molotovs to dominate the battlefield',
-      payload: randomMap,
-      //scheduledDate: DateTime.now().add(Duration(seconds: 10)), //Test
-    );
+    NotificationApi.cancelAll().then((_) {
+      NotificationApi.showScheduledNotification(
+        title: 'Go practice now',
+        body:
+            'Get in the game! Click to dive into $randomMap and perfect your utility skills. Master smokes, flashes, and molotovs to dominate the battlefield',
+        payload: randomMap,
+      );
+    });
   }
 
   void readData() async {

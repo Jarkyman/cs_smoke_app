@@ -12,6 +12,12 @@ class NotificationApi {
     onNotifications.close();
   }
 
+  static Future<void> cancelAll() async {
+    await _notifications.cancelAll();
+  }
+
+  static Future<void> cancel(int id) => _notifications.cancel(id: id);
+
   static Future _notificationDetails() async {
     //Sound skal ligge under android/app/main/res/raw/
     //Sound skal ligge under Runner/Resources/
@@ -118,7 +124,4 @@ class NotificationApi {
 
     return scheduledDate;
   }
-
-  static void cancel(int id) => _notifications.cancel(id: id);
-  static void cancelAll() => _notifications.cancelAll();
 }
