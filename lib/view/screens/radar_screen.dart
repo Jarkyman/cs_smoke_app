@@ -31,9 +31,10 @@ class _RadarScreenState extends State<RadarScreen> {
     createBannerAd();
   }
 
+  @override
   void dispose() {
-    super.dispose();
     _bannerAd?.dispose();
+    super.dispose();
   }
 
   void createBannerAd() {
@@ -63,7 +64,7 @@ class _RadarScreenState extends State<RadarScreen> {
   Widget build(BuildContext context) {
     final utilViewModel = Provider.of<UtilViewModel>(context);
     final String mapName =
-        ModalRoute.of(context)!.settings.arguments as String ?? '';
+        ModalRoute.of(context)?.settings.arguments as String? ?? '';
 
     return Scaffold(
       floatingActionButton: FloatingShowNameButton(

@@ -26,8 +26,8 @@
 - **Fil:** `lib/view/screens/radar_screen.dart` (linje ~66)
 - `as String ?? ''` — castet sker før `??` evalueres → `_CastError` hvis arguments er null
 - Ret til `as String? ?? ''`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [architecture, bug] (H): #4a — Flyt utilViewModel.loadData() ud af build() i MapsScreen
 - **Fil:** `lib/view/screens/maps_screen.dart` (linje ~68)
@@ -48,8 +48,8 @@
 - `super.dispose()` kaldes FØR `_bannerAd?.dispose()` — state er allerede disposed
 - Tilføj manglende `@override` annotation
 - Kald `super.dispose()` sidst
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [firebase, config] (H): #6 — Tilføj DefaultFirebaseOptions til Firebase init
 - **Fil:** `lib/main.dart` (linje 17)
