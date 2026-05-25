@@ -11,10 +11,15 @@ import 'package:timezone/data/latest_all.dart' as tz;
 
 import 'core/helper/review.dart';
 import 'core/viewmodels/radar_view_model.dart';
+import 'firebase_options.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await dotenv.load(fileName: ".env");
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Permission.notification.isDenied.then((value) {
     if (value) {
       Permission.notification.request();

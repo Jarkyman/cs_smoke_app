@@ -11,6 +11,7 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
+.env
 
 # IntelliJ related
 *.iml
@@ -383,4 +384,4 @@ ios/Runner/GoogleService-Info.plist
 
 ### Firebase Patch ###
 .runtimeconfig.json
-.firebase
+.firebase.env

@@ -28,6 +28,7 @@ dependencies:
   flutter_timezone: ^5.0.2
   google_mobile_ads: ^8.0.0
   http: ^1.6.0
+  flutter_dotenv: ^6.0.1
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +40,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - .env
     - assets/icons/
     - assets/img/
     - assets/img/maps/
