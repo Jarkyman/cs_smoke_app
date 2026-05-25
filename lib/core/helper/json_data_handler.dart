@@ -9,7 +9,7 @@ class JsonDataHandler {
   static const String storageKey = 'cached_utility_data';
 
   // Hent JSON-data fra URL og gem det i SharedPreferences
-  Future<void> fetchAndSaveData() async {
+  Future<bool> fetchAndSaveData() async {
     print("Fetching data");
     try {
       final response = await http.get(Uri.parse(url));
@@ -17,15 +17,17 @@ class JsonDataHandler {
       if (response.statusCode == 200) {
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString(storageKey, response.body);
+        return true;
       } else {
         throw Exception('Fejl ved hentning af data');
       }
     } catch (e) {
       print('Fejl: $e');
+      return false;
     }
   }
 
-  Future<List<UtilModel>> loadData() async {
+  Future<List<UtilModel>> loadData({int retryCount = 0}) async {
     print("Loading data");
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(storageKey);
@@ -49,8 +51,17 @@ class JsonDataHandler {
         throw Exception("Fejl: JSON-strukturen er forkert");
       }
     } else {
-      await fetchAndSaveData();
-      return loadData(); // Prøv igen efter at have hentet
+      if (retryCount >= 1) {
+        print("Kunne ikke hente data, returnerer tom liste");
+        return [];
+      }
+
+      bool success = await fetchAndSaveData();
+      if (success) {
+        return loadData(retryCount: retryCount + 1); // Prøv igen efter succesfuld hentning
+      } else {
+        return []; // Returner en tom liste, hvis fetch fejler
+      }
     }
   }
 

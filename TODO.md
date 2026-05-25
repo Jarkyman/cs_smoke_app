@@ -11,16 +11,16 @@
 - **Fil:** `lib/core/helper/json_data_handler.dart`
 - Hvis netværket fejler, fanger `fetchAndSaveData()` fejlen stille, data gemmes aldrig, og `loadData()` kalder sig selv rekursivt → StackOverflowError
 - Tilføj retry-counter eller returner tom liste efter fejlet fetch
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [url, crash] (H): #2 — Fix _launchUrl der ødelægger email/telefon/SMS URLs
 - **Fil:** `lib/core/helper/utils.dart`
 - `openEmail`, `openPhoneCall`, `openSMS` sender fulde URIs (`mailto:`, `tel:`, `sms:`) til `_launchUrl` som tilføjer `https://` eller `youtube://` foran → helt ødelagte URLs
 - `https: //` på linje 35 er et Dart label, ikke en kommentar
 - Adskil YouTube deep-linking fra generel URL-åbning
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [navigation, crash] (H): #3 — Fix null-cast crash i RadarScreen
 - **Fil:** `lib/view/screens/radar_screen.dart` (linje ~66)
