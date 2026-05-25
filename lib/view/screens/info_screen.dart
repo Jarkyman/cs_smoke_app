@@ -61,6 +61,15 @@ class _InfoScreenState extends State<InfoScreen> {
     super.initState();
   }
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final info = ModalRoute.of(context)?.settings.arguments as InfoModel?;
+    if (info != null) {
+      _loadVideoIfNeeded(info.videoId);
+    }
+  }
+
   void printLog() async {
     String url = await _controller.videoEmbedCode;
     print("VIDEO: ${url}");
@@ -108,9 +117,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final info = ModalRoute.of(context)!.settings.arguments as InfoModel;
     final utilViewModel = Provider.of<UtilViewModel>(context);
-    _loadVideoIfNeeded(info.videoId);
 
     return YoutubePlayerScaffold(
       controller: _controller,
@@ -119,11 +126,14 @@ class _InfoScreenState extends State<InfoScreen> {
           backgroundColor: Global.bgColor,
           floatingActionButton: FloatingShareButton(
             onTap: () async {
-              String url = "https://www.youtube.com/watch?v=${info.videoId}";
-              if (url.isNotEmpty) {
-                print("url = $url");
-                await Share.share(
-                    "Hey, I came across this amazing ${utilViewModel.selectedUtil!.name} guide on Util Master! Check it out:\n\n$url");
+              final info = ModalRoute.of(context)?.settings.arguments as InfoModel?;
+              if (info != null) {
+                String url = "https://www.youtube.com/watch?v=${info.videoId}";
+                if (url.isNotEmpty) {
+                  print("url = $url");
+                  await Share.share(
+                      "Hey, I came across this amazing ${utilViewModel.selectedUtil!.name} guide on Util Master! Check it out:\n\n$url");
+                }
               }
             },
           ),

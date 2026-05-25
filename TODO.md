@@ -33,15 +33,15 @@
 - **Fil:** `lib/view/screens/maps_screen.dart` (linje ~68)
 - Side-effect i `build()` kan forårsage uendelige rebuild loops
 - Flyt til `initState()` eller `didChangeDependencies()`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [architecture, bug] (H): #4b — Flyt _loadVideoIfNeeded() ud af build() i InfoScreen
 - **Fil:** `lib/view/screens/info_screen.dart` (linje ~113)
 - Side-effect i `build()` kalder `_controller.loadVideoById` under rebuilds
 - Flyt til `didChangeDependencies()` eller `initState()`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [lifecycle, crash] (H): #5 — Fix dispose() rækkefølge i RadarScreen
 - **Fil:** `lib/view/screens/radar_screen.dart` (linje ~34-36)

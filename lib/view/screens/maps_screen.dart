@@ -32,6 +32,7 @@ class _MapsScreenState extends State<MapsScreen> {
     listenNotifications();
 
     readData();
+    Provider.of<UtilViewModel>(context, listen: false).loadData();
 
     Random random = Random();
     String randomMap = Global.maps[random.nextInt(Global.maps.length)];
@@ -65,7 +66,6 @@ class _MapsScreenState extends State<MapsScreen> {
   Widget build(BuildContext context) {
     final radarViewModel = Provider.of<RadarViewModel>(context);
     final utilViewModel = Provider.of<UtilViewModel>(context);
-    utilViewModel.loadData();
 
     return Scaffold(
       backgroundColor: Global.bgColor,
