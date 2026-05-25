@@ -9,8 +9,12 @@ import '../helper/notification_api.dart';
 
 class SettingsViewModel extends ChangeNotifier {
   SettingsViewModel() {
-    loadSettings();
-    checkPermission();
+    _init();
+  }
+
+  Future<void> _init() async {
+    await loadSettings();
+    await checkPermission();
   }
 
   bool _isNotification = true;
@@ -25,13 +29,13 @@ class SettingsViewModel extends ChangeNotifier {
     log('Notifications load: $_isNotification');
   }
 
-  void saveSettings() async {
+  Future<void> saveSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     log('Notifications save: $_isNotification');
     await prefs.setBool(Constants.NOTIFICATION_KEY, _isNotification);
   }
 
-  void toggleNotification() async {
+  Future<void> toggleNotification() async {
     var status = await Permission.notification.status;
     if (_isNotification) {
       log('Notifications off');
@@ -51,7 +55,7 @@ class SettingsViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void checkPermission() async {
+  Future<void> checkPermission() async {
     PermissionStatus status = await Permission.notification.status;
     log(status.toString());
     if (status.isGranted) {
@@ -73,7 +77,7 @@ class SettingsViewModel extends ChangeNotifier {
     }
   }
 
-  void askPermission() async {
+  Future<void> askPermission() async {
     if (await Permission.notification.request().isGranted) {
       log('Notifications get premission');
     } else if (await Permission.notification.isPermanentlyDenied) {

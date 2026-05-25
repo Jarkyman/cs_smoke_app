@@ -38,7 +38,7 @@ class UtilViewModel extends ChangeNotifier {
   List<UtilModel> _utils = [];
   List<UtilModel> get utils => _utils;
 
-  void loadData() async{
+  Future<void> loadData() async{
     if (_utils.isEmpty) {
       _utils = await JsonDataHandler().loadData();
     }

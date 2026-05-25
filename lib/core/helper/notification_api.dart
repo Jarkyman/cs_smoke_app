@@ -86,7 +86,7 @@ class NotificationApi {
         payload: payload,
       );
 
-  static void showScheduledNotification({
+  static Future<void> showScheduledNotification({
     int id = 0,
     String? title,
     String? body,

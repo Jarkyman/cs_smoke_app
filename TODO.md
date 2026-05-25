@@ -142,23 +142,23 @@
 
 ## Fase 3 — Kodekvalitet & Arkitektur
 
-// TODO {M} [async, architecture] (H): #15 — Gør async metoder til Future<void> i stedet for void
+// DONE {M} [async, architecture] (H): #15 — Gør async metoder til Future<void> i stedet for void
 
 - **Filer:**
   - `lib/core/viewmodels/settings_view_model.dart` — `saveSettings()`, `toggleNotification()`, `checkPermission()`, `askPermission()`
   - `lib/core/viewmodels/util_view_model.dart` — `loadData()`
   - `lib/core/helper/notification_api.dart` — `showScheduledNotification()`
 - Når async-funktioner returnerer `void`, forsvinder fejl stille
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
-// FIXME {S} [async, bug] (H): #15b — Fix race condition i SettingsViewModel constructor
+// DONE {S} [async, bug] (H): #15b — Fix race condition i SettingsViewModel constructor
 
 - **Fil:** `lib/core/viewmodels/settings_view_model.dart` (linje ~9-12)
 - `loadSettings()` og `checkPermission()` er begge async men awaites aldrig i constructor
 - Begge ændrer `_isNotification` — uforudsigelig rækkefølge
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // TODO {M} [responsive, deprecated] (H): #16 — Erstat Dimensions med MediaQuery-baseret responsive sizing
 
