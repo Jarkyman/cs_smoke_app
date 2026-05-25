@@ -95,14 +95,14 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {M} [memory, ads] (H): #10 — Dispose ads i AdViewModel
+// DONE {M} [memory, ads] (H): #10 — Dispose ads i AdViewModel
 
 - **Fil:** `lib/core/viewmodels/ad_view_model.dart`
 - `_bannerAd` og `_nativeAd` allokeres men har ingen `dispose()` override
 - Native ad-objekter lækker memory
 - Override `dispose()` og kald `.dispose()` på begge
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {S} [memory, notifications] (H): #11 — Luk BehaviorSubject i NotificationApi
 

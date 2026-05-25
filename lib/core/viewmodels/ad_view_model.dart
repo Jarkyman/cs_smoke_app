@@ -72,4 +72,11 @@ class AdViewModel extends ChangeNotifier {
         ))
       ..load();
   }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    _nativeAd?.dispose();
+    super.dispose();
+  }
 }
