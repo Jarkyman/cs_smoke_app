@@ -85,15 +85,15 @@
 
 ## Fase 2 — Memory Leaks & Stabilitet
 
-// FIXME {M} [memory, lifecycle] (H): #9 — Cancel stream subscription i MapsScreen
+// DONE {M} [memory, lifecycle] (H): #9 — Cancel stream subscription i MapsScreen
 
 - **Fil:** `lib/view/screens/maps_screen.dart` (linje ~52)
 - `listenNotifications()` opretter stream listener men subscription gemmes aldrig
 - Ingen `dispose()` override overhovedet
 - `onClickedNotification` bruger `Navigator.of(context)` på potentielt disposed context
 - Gem i `StreamSubscription` variabel og cancel i `dispose()`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {M} [memory, ads] (H): #10 — Dispose ads i AdViewModel
 

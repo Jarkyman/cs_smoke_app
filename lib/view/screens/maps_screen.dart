@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:async';
 
 import 'package:bordered_text/bordered_text.dart';
 import 'package:cs_smoke_app/core/helper/dimensions.dart';
@@ -24,6 +25,7 @@ class MapsScreen extends StatefulWidget {
 
 class _MapsScreenState extends State<MapsScreen> {
   final dataHandler = JsonDataHandler();
+  StreamSubscription? _notificationSubscription;
 
   @override
   void initState() {
@@ -49,17 +51,25 @@ class _MapsScreenState extends State<MapsScreen> {
     await dataHandler.fetchAndSaveData();
   }
 
-  void listenNotifications() =>
-      NotificationApi.onNotifications.stream.listen(onClickedNotification);
+  void listenNotifications() {
+    _notificationSubscription = NotificationApi.onNotifications.stream.listen(onClickedNotification);
+  }
 
   void onClickedNotification(String? payload) {
     print('GO to: $payload');
+    if (!mounted) return;
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => const RadarScreen(),
       settings: RouteSettings(
         arguments: payload,
       ),
     ));
+  }
+
+  @override
+  void dispose() {
+    _notificationSubscription?.cancel();
+    super.dispose();
   }
 
   @override
