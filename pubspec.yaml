@@ -11,23 +11,23 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.9
   provider: ^6.1.2
-  youtube_player_iframe: ^5.2.2
-  bordered_text: ^2.0.0
-  firebase_core: ^3.12.0
-  firebase_analytics: ^11.4.3
-  share_plus: ^10.1.4
+  youtube_player_iframe: ^6.0.0
+  bordered_text: ^3.0.2
+  firebase_core: ^4.9.0
+  firebase_analytics: ^12.4.1
+  share_plus: ^13.1.0
   url_launcher: ^6.3.1
-  rate_my_app: ^2.3.1
+  rate_my_app: ^2.4.0
   flutter_launch_store: ^1.0.8
-  flutter_local_notifications: ^18.0.1
+  flutter_local_notifications: ^21.0.0
   rxdart: ^0.28.0
-  permission_handler: ^11.4.0
-  shared_preferences: ^2.5.2
-  flutter_timezone: ^4.1.0
-  google_mobile_ads: ^6.0.0
-  http: ^1.3.0
+  permission_handler: ^12.0.1
+  shared_preferences: ^2.5.5
+  flutter_timezone: ^5.0.2
+  google_mobile_ads: ^8.0.0
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:
@@ -37,8 +37,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  config:
-    enable-swift-package-manager: false
 
   assets:
     - assets/icons/

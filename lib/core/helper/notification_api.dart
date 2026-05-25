@@ -41,15 +41,24 @@ class NotificationApi {
     final settings =
         InitializationSettings(android: androidSettings, iOS: iOSSettings);
     await _notifications.initialize(
-      settings,
+      settings: settings,
       onDidReceiveNotificationResponse: (payload) async {
         onNotifications.add(payload.payload);
       },
     );
 
     if (initScheduled) {
-      final locationName = await FlutterTimezone.getLocalTimezone();
-      tz.setLocalLocation(tz.getLocation(locationName));
+      try {
+        final timezoneInfo = await FlutterTimezone.getLocalTimezone();
+        tz.setLocalLocation(tz.getLocation(timezoneInfo.identifier));
+      } catch (e) {
+        debugPrint('Timezone initialization failed, falling back to UTC: $e');
+        try {
+          tz.setLocalLocation(tz.getLocation('UTC'));
+        } catch (_) {
+          // absolute fallback
+        }
+      }
     }
   }
 
@@ -60,10 +69,10 @@ class NotificationApi {
     String? payload,
   }) async =>
       _notifications.show(
-        id,
-        title,
-        body,
-        await _notificationDetails(),
+        id: id,
+        title: title,
+        body: body,
+        notificationDetails: await _notificationDetails(),
         payload: payload,
       );
 
@@ -75,17 +84,14 @@ class NotificationApi {
     DateTime? scheduledDate, //For test only
   }) async =>
       _notifications.zonedSchedule(
-        id,
-        title,
-        body,
-        //tz.TZDateTime.from(scheduledDate!, tz.local), //Test only
-        _scheduleWeekly(TimeOfDay(hour: 17, minute: 00),
+        id: id,
+        title: title,
+        body: body,
+        scheduledDate: _scheduleWeekly(TimeOfDay(hour: 17, minute: 00),
             days: [DateTime.tuesday, DateTime.friday]),
-        await _notificationDetails(),
+        notificationDetails: await _notificationDetails(),
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
         payload: payload,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
       );
 
@@ -109,6 +115,6 @@ class NotificationApi {
     return scheduledDate;
   }
 
-  static void cancel(int id) => _notifications.cancel(id);
+  static void cancel(int id) => _notifications.cancel(id: id);
   static void cancelAll() => _notifications.cancelAll();
 }
