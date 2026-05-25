@@ -29,6 +29,7 @@ class _InfoScreenState extends State<InfoScreen> {
   late YoutubePlayerController _controller;
   late NativeAd _nativeAd;
   bool _nativeAdIsLoaded = false;
+  String? _loadedVideoId;
 
   @override
   void initState() {
@@ -41,15 +42,15 @@ class _InfoScreenState extends State<InfoScreen> {
     ]);
     _controller = YoutubePlayerController(
       params: const YoutubePlayerParams(
-        showControls: true,
-        enableCaption: false,
-        showVideoAnnotations: false,
-        color: 'black',
-        mute: true,
-        showFullscreenButton: true,
-        loop: true,
-        strictRelatedVideos: true,
-      ),
+          showControls: true,
+          enableCaption: false,
+          showVideoAnnotations: false,
+          color: 'black',
+          mute: true,
+          showFullscreenButton: true,
+          loop: true,
+          strictRelatedVideos: true,
+          origin: 'https://www.youtube-nocookie.com'),
     );
 
     _controller.setFullScreenListener(
@@ -57,12 +58,10 @@ class _InfoScreenState extends State<InfoScreen> {
         log('${isFullScreen ? 'Entered' : 'Exited'} Fullscreen.');
       },
     );
-
-    _controller.loadVideoById(videoId: '');
     super.initState();
   }
 
-  void printLog() async{
+  void printLog() async {
     String url = await _controller.videoEmbedCode;
     print("VIDEO: ${url}");
   }
@@ -111,7 +110,7 @@ class _InfoScreenState extends State<InfoScreen> {
   Widget build(BuildContext context) {
     final info = ModalRoute.of(context)!.settings.arguments as InfoModel;
     final utilViewModel = Provider.of<UtilViewModel>(context);
-    _controller.loadVideoById(videoId: info.videoId);
+    _loadVideoIfNeeded(info.videoId);
 
     return YoutubePlayerScaffold(
       controller: _controller,
@@ -206,5 +205,13 @@ class _InfoScreenState extends State<InfoScreen> {
         );
       },
     );
+  }
+
+  void _loadVideoIfNeeded(String videoId) {
+    if (videoId.isEmpty || _loadedVideoId == videoId) {
+      return;
+    }
+    _controller.loadVideoById(videoId: videoId);
+    _loadedVideoId = videoId;
   }
 }

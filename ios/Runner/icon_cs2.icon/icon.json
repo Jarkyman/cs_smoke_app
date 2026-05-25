@@ -1,0 +1,76 @@
+{
+  "fill" : {
+    "automatic-gradient" : "srgb:0.24353,0.30915,0.45281,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "hidden" : true,
+          "image-name" : "Logo 3.png",
+          "name" : "Logo 3",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              25.605456222582827,
+              -4.156171234888088
+            ]
+          }
+        },
+        {
+          "blend-mode" : "normal",
+          "fill" : "none",
+          "glass" : false,
+          "image-name" : "Logo 3_granade.png",
+          "name" : "Logo 3_granade",
+          "opacity" : 1,
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              19.888611498673413,
+              -14.589877474463147
+            ]
+          }
+        }
+      ],
+      "name" : "Group",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    },
+    {
+      "layers" : [
+        {
+          "image-name" : "Logo 3_smoke.png",
+          "name" : "Logo 3_smoke",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              25.717964042635526,
+              -9.669054417470536
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
