@@ -17,27 +17,38 @@ import 'core/helper/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Load .env and Firebase first as they are needed for configurations/analytics
   await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  final bool isDenied = await Permission.notification.isDenied;
-  if (isDenied) {
-    await Permission.notification.request();
-  }
-  await MobileAds.instance.initialize().then((initializationStatus) {
+
+  // Run non-critical initializations in the background to avoid blocking the main startup thread
+  MobileAds.instance.initialize().then((initializationStatus) {
     initializationStatus.adapterStatuses.forEach((key, value) {
       debugPrint('Adapter status for $key: ${value.description}');
     });
   });
-  await Review.rateMyApp.init();
-  await Constants.init();
+
+  Review.rateMyApp.init();
+  Constants.init();
   tz.initializeTimeZones();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
   runApp(const MyApp());
+
+  // Request notification permissions after the app has started drawing its first frame to avoid a black screen hang
+  WidgetsBinding.instance.addPostFrameCallback((_) async {
+    final bool isDenied = await Permission.notification.isDenied;
+    if (isDenied) {
+      await Permission.notification.request();
+    }
+  });
 }
 
 class MyApp extends StatelessWidget {

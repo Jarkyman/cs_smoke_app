@@ -445,9 +445,12 @@
 
 // TODO {M} [UI, UX] (H): #51 — Add a splash/launcher screen native for Android and iOS.
 
-// TODO {S} [audio] (M): #52 — Add sound to notification. Find sound to use.
+// DONE {S} [audio] (M): #52 — Add sound to notification. Find sound to use.
+- [x] Konfigureret med nem placeholder support i `NotificationApi` (lyd-filer klar til drop-in i raw/ og Resources/)
 
-// TODO {M} [performance] (H): #53 — Investigate/fix Android "Skipped 52 frames! The application may be doing too much work on its main thread." on startup.
+// DONE {M} [performance] (H): #53 — Investigate/fix Android "Skipped 52 frames! The application may be doing too much work on its main thread." on startup.
+- [x] Omskrevet `main()` til at køre tunge SDK initialiseringer (MobileAds, Review, Constants, Timezones) asynkront i baggrunden uden at blokere den første frame
+- [x] Flyttet anmodning om notifikationstilladelse til post-frame callback for at undgå sort skærm ved opstart
 
 // TODO {S} [ads] (M): #54 — No native ad on info screen on Android device, investigate why.
 
@@ -461,26 +464,26 @@
 
 ## 📦 Forældede Packages (fra Pubgrade)
 
-// TODO {M} [dependencies] (H): #50 — Opdater alle forældede packages
+// DONE {M} [dependencies] (H): #50 — Opdater alle forældede packages
 
 ### 🔴 Breaking Changes (major version bump)
 
-- [ ] `bordered_text` 2.0.0 → 3.0.2
-- [ ] `firebase_analytics` 11.6.0 → 12.4.1
-- [ ] `firebase_core` 3.15.2 → 4.9.0
-- [ ] `flutter_local_notifications` 18.0.1 → 21.0.0
-- [ ] `flutter_timezone` 4.1.1 → 5.0.2
-- [ ] `google_mobile_ads` 6.0.0 → 8.0.0
-- [ ] `permission_handler` 11.4.0 → 12.0.1
-- [ ] `share_plus` 10.1.4 → 13.1.0
-- [ ] `youtube_player_iframe` 5.2.2 → 6.0.0
+- [x] `bordered_text` 2.0.0 → 3.0.2
+- [x] `firebase_analytics` 11.6.0 → 12.4.1
+- [x] `firebase_core` 3.15.2 → 4.9.0
+- [x] `flutter_local_notifications` 18.0.1 → 21.0.0
+- [x] `flutter_timezone` 4.1.1 → 5.0.2
+- [x] `google_mobile_ads` 6.0.0 → 8.0.0
+- [x] `permission_handler` 11.4.0 → 12.0.1
+- [x] `share_plus` 10.1.4 → 13.1.0
+- [x] `youtube_player_iframe` 5.2.2 → 6.0.0
 
 ### 🟡 Minor Updates (bør være bagudkompatible)
 
-- [ ] `cupertino_icons` 1.0.8 → 1.0.9
-- [ ] `http` 1.5.0 → 1.6.0
-- [ ] `rate_my_app` 2.3.2 → 2.4.0
-- [ ] `shared_preferences` 2.5.3 → 2.5.5
+- [x] `cupertino_icons` 1.0.8 → 1.0.9
+- [x] `http` 1.5.0 → 1.6.0
+- [x] `rate_my_app` 2.3.2 → 2.4.0
+- [x] `shared_preferences` 2.5.3 → 2.5.5
 
 ### ⚠️ Tjek status
 

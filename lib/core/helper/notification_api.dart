@@ -19,20 +19,26 @@ class NotificationApi {
   static Future<void> cancel(int id) => _notifications.cancel(id: id);
 
   static Future _notificationDetails() async {
-    //Sound skal ligge under android/app/main/res/raw/
-    //Sound skal ligge under Runner/Resources/
-    //const String _sound = 'Sound name'; //Do not include .wav on android
-    return const NotificationDetails(
-      android: AndroidNotificationDetails(
+    const String soundName = 'notification_sound';
+
+    // The sound files must be placed here:
+    // - Android: android/app/src/main/res/raw/notification_sound.mp3 (or .wav)
+    // - iOS: Runner/Resources/notification_sound.wav (must be added via Xcode)
+    // ----------------------------------------
+
+    return NotificationDetails(
+      android: const AndroidNotificationDetails(
         'Util Master',
         'News',
         channelDescription: 'Get news and keep up with the game.',
         importance: Importance.max,
-        //sound: RawResourceAndroidNotificationSound(_sound),
+        sound: RawResourceAndroidNotificationSound(soundName),
+        playSound: true,
       ),
-      iOS: DarwinNotificationDetails(
-          //sound: _sound,
-          ),
+      iOS: const DarwinNotificationDetails(
+        sound: '$soundName.wav',
+        presentSound: true,
+      ),
     );
   }
 

@@ -8,7 +8,7 @@ final class Global {
   static const List<String> maps = [
     'Ancient',
     'Anubis',
-    //'Cache',
+    'Cache',
     'Dust2',
     'Inferno',
     //'Italy',
