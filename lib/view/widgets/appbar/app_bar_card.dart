@@ -52,12 +52,12 @@ class AppBarCard extends StatelessWidget {
                       end: Alignment.centerRight,
                       colors: isCt
                           ? [
-                              Colors.blue.withOpacity(0.5),
+                              Colors.blue.withValues(alpha: 0.5),
                               Colors.transparent,
                             ]
                           : [
                               Colors.transparent,
-                              Colors.red.withOpacity(0.5),
+                              Colors.red.withValues(alpha: 0.5),
                             ],
                     ),
                   ),

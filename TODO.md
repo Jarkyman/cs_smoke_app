@@ -169,16 +169,16 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {S} [ui, ux] (M): #17 — Erstat GestureDetector med InkWell for tap-feedback
+// DONE {S} [ui, ux] (M): #17 — Erstat GestureDetector med InkWell for tap-feedback
 
 - **Filer:**
   - `lib/view/widgets/buttons/menu_button.dart`
   - `lib/view/widgets/buttons/icon_button_close.dart`
   - `lib/view/widgets/buttons/rectangle_button.dart`
   - `lib/view/widgets/buttons/util_button.dart`
-- Ingen ripple-effekt, ingen focus-håndtering, ingen hover-states
-- [ ] Implementeret
-- [ ] Testet
+- Lige nu bruges `GestureDetector`, som ikke giver visuel feedback (ripple effect)
+- [x] Implementeret
+- [x] Testet
 
 // TODO {S} [logging] (M): #18 — Erstat print() med debugPrint()/log() i hele kodebasen
 
@@ -212,17 +212,17 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {S} [deprecated] (M): #21 — Erstat Color.withOpacity() med withValues(alpha:)
+// DONE {S} [deprecated] (M): #21 — Erstat Color.withOpacity() med withValues(alpha:)
 
-- **Filer:**
-  - `lib/view/widgets/buttons/floating_share_button.dart`
-  - `lib/view/widgets/buttons/floating_show_name_button.dart`
-  - `lib/view/widgets/buttons/icon_button_close.dart`
-  - `lib/view/widgets/buttons/rectangle_button.dart`
-  - `lib/view/widgets/buttons/util_button.dart`
-  - `lib/view/widgets/appbar/app_bar_card.dart`
-- [ ] Implementeret
-- [ ] Testet
+- **Filer:** Flere UI filer bl.a.:
+  - `floating_share_button.dart`
+  - `floating_show_name_button.dart`
+  - `icon_button_close.dart`
+  - `rectangle_button.dart`
+  - `util_button.dart`
+  - `app_bar_card.dart`
+- [x] Implementeret
+- [x] Testet
 
 // TODO {S} [architecture, model] (M): #22 — Flyt isSelected UI-state ud af UtilModel
 
