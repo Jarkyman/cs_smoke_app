@@ -3,6 +3,7 @@ import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:cs_smoke_app/view/widgets/buttons/floating_show_name_button.dart';
 import 'package:cs_smoke_app/view/widgets/raw_gesture_detector_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:cs_smoke_app/l10n/app_localizations.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
@@ -63,6 +64,7 @@ class _RadarScreenState extends State<RadarScreen> {
   @override
   Widget build(BuildContext context) {
     final utilViewModel = Provider.of<UtilViewModel>(context);
+    final l10n = AppLocalizations.of(context)!;
     final String mapName =
         ModalRoute.of(context)?.settings.arguments as String? ?? '';
 
@@ -120,7 +122,7 @@ class _RadarScreenState extends State<RadarScreen> {
                                     onTap: () {
                                       Navigator.pop(context);
                                     },
-                                    text: 'Go Back',
+                                    text: l10n.goBack,
                                   ),
                           )
                         ],

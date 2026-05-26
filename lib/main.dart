@@ -5,7 +5,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
+import 'package:cs_smoke_app/l10n/app_localizations.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
@@ -75,14 +77,26 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<SettingsViewModel>(
             create: (context) => SettingsViewModel()),
       ],
-      child: MaterialApp(
-        title: 'Util Master',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.dark(),
-          useMaterial3: true,
-        ),
-        home: MapsScreen(),
+      child: Consumer<SettingsViewModel>(
+        builder: (context, settingsViewModel, child) {
+          return MaterialApp(
+            title: 'Util Master',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.dark(),
+              useMaterial3: true,
+            ),
+            locale: settingsViewModel.locale,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: AppLocalizations.supportedLocales,
+            home: MapsScreen(),
+          );
+        },
       ),
     );
   }

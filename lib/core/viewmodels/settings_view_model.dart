@@ -4,6 +4,7 @@ import 'package:cs_smoke_app/core/helper/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:io';
 
 import '../helper/notification_api.dart';
 
@@ -20,19 +21,40 @@ class SettingsViewModel extends ChangeNotifier {
   bool _isNotification = true;
   bool get isNotification => _isNotification;
 
+  Locale? _locale;
+  Locale? get locale => _locale;
+
   Future<void> loadSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     _isNotification = prefs.getBool(Constants.notificationKey) ?? true;
+    
+    final savedLang = prefs.getString(Constants.languageKey);
+    if (savedLang != null && savedLang.isNotEmpty) {
+      _locale = Locale(savedLang);
+    } else {
+      final systemLocale = Platform.localeName.split('_')[0];
+      _locale = Locale(systemLocale);
+    }
+
     if (!_isNotification) {
       NotificationApi.cancelAll();
     }
-    log('Notifications load: $_isNotification');
+    log('Notifications load: $_isNotification, Locale: ${_locale?.languageCode}');
   }
 
   Future<void> saveSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     log('Notifications save: $_isNotification');
     await prefs.setBool(Constants.notificationKey, _isNotification);
+    if (_locale != null) {
+      await prefs.setString(Constants.languageKey, _locale!.languageCode);
+    }
+  }
+
+  Future<void> setLocale(Locale newLocale) async {
+    _locale = newLocale;
+    notifyListeners();
+    await saveSettings();
   }
 
   Future<void> toggleNotification() async {

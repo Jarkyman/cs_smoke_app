@@ -8,6 +8,8 @@ import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:cs_smoke_app/l10n/app_localizations.dart';
 import '../../core/helper/analytics_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -78,6 +80,7 @@ class _MapsScreenState extends State<MapsScreen> {
   Widget build(BuildContext context) {
     final radarViewModel = Provider.of<RadarViewModel>(context);
     final utilViewModel = Provider.of<UtilViewModel>(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: Global.bgColor,
@@ -86,7 +89,7 @@ class _MapsScreenState extends State<MapsScreen> {
           'assets/icons/Logo.png',
         ),
         title: Text(
-          'Maps',
+          l10n.maps,
           style: TextStyle(
             fontSize: context.font26,
           ),

@@ -1,6 +1,7 @@
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:cs_smoke_app/l10n/app_localizations.dart';
 
 import 'package:flutter_launch_store/flutter_launch_store.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,8 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final SettingsViewModel settingsViewModel =
         Provider.of<SettingsViewModel>(context);
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -36,19 +39,25 @@ class MenuScreen extends StatelessWidget {
               onTap: () {
                 settingsViewModel.toggleNotification();
               },
-              title: 'Notifications',
+              title: l10n.notifications,
               icon: settingsViewModel.isNotification
                   ? Icons.check_box_outlined
                   : Icons.check_box_outline_blank_outlined,
             ),
             MenuButton(
               onTap: () {
+                _showLanguagePicker(context, settingsViewModel);
+              },
+              title: l10n.language,
+              icon: Icons.language_outlined,
+            ),
+            MenuButton(
+              onTap: () {
                 final shareUrl = Constants.shareAppUrl;
                 SharePlus.instance.share(ShareParams(
-                    text:
-                        'Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: $shareUrl'));
+                    text: l10n.shareText(shareUrl)));
               },
-              title: 'Share app',
+              title: l10n.shareApp,
               icon: Icons.share_outlined,
             ),
             MenuButton(
@@ -72,19 +81,68 @@ class MenuScreen extends StatelessWidget {
                   debugPrint('An unexpected error occurred: $e');
                 }
               },
-              title: 'Rate app',
+              title: l10n.rateApp,
               icon: Icons.star_border_outlined,
             ),
             MenuButton(
               onTap: () async {
                 Utils.openLink(url: 'www.youtube.com/@UtilMaster');
               },
-              title: 'Visit YouTube',
+              title: l10n.visitYoutube,
               icon: Icons.ondemand_video_outlined,
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void _showLanguagePicker(BuildContext context, SettingsViewModel settingsViewModel) {
+    final Map<String, String> languages = {
+      'en': 'English',
+      'da': 'Dansk',
+      'ru': 'Русский',
+      'tr': 'Türkçe',
+      'pt': 'Português',
+      'zh': '中文',
+      'es': 'Español',
+      'de': 'Deutsch',
+      'pl': 'Polski',
+      'sv': 'Svenska',
+      'no': 'Norsk',
+      'fi': 'Suomi',
+      'mn': 'Монгол',
+      'ro': 'Română',
+      'fr': 'Français',
+      'ja': '日本語',
+      'uk': 'Українська',
+    };
+
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: context.height20),
+          child: ListView.builder(
+            itemCount: languages.length,
+            itemBuilder: (context, index) {
+              final code = languages.keys.elementAt(index);
+              final name = languages.values.elementAt(index);
+              final isSelected = settingsViewModel.locale?.languageCode == code || 
+                (settingsViewModel.locale == null && Localizations.localeOf(context).languageCode == code);
+              
+              return ListTile(
+                title: Text(name),
+                trailing: isSelected ? const Icon(Icons.check, color: Colors.blue) : null,
+                onTap: () {
+                  settingsViewModel.setLocale(Locale(code));
+                  Navigator.pop(context);
+                },
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

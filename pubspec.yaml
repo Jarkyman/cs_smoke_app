@@ -1,11 +1,11 @@
 name: cs_smoke_app
 description: A CS2 utility app.
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.2.2+12
 
 environment:
-  sdk: '>=3.0.6 <4.0.0'
+  sdk: ">=3.0.6 <4.0.0"
 
 dependencies:
   flutter:
@@ -35,6 +35,9 @@ dependencies:
   package_info_plus: ^10.1.0
   timezone: ^0.11.0
   vector_math: ^2.2.0
+  intl: ^0.20.2
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +55,7 @@ flutter_native_splash:
   fullscreen: false
 
 flutter:
+  generate: true
   uses-material-design: true
 
   assets:

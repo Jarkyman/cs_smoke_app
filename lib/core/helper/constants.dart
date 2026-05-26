@@ -9,6 +9,7 @@ class Constants {
 
   //KEYS
   static const String notificationKey = 'notification';
+  static const String languageKey = 'language';
 
   // Config
   static const int cacheValidHours = 48;

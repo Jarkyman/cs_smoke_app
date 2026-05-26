@@ -1,0 +1,17 @@
+{
+  "maps": "Maps",
+  "notifications": "Notifications",
+  "shareApp": "Share app",
+  "rateApp": "Rate app",
+  "visitYoutube": "Visit YouTube",
+  "goBack": "Go Back",
+  "language": "Language",
+  "shareText": "Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: {shareUrl}",
+  "@shareText": {
+    "placeholders": {
+      "shareUrl": {
+        "type": "String"
+      }
+    }
+  }
+}

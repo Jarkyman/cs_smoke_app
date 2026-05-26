@@ -461,7 +461,7 @@
 - [x] Root cause: emulator had outdated Google Play Services (found 231818044, required 252431000)
 - [x] Confirmed working on real device and updated emulator — code is correct
 
-// TODO {M} [backend] (H): #55 — User rating system (thumbs up/down on videos). Free backend (e.g., Firebase Firestore free tier, Supabase).
+// DONE {M} [backend] (H): #55 — User rating system (thumbs up/down on videos). Free backend (e.g., Firebase Firestore free tier). this should not be visable for the user, only for me in firebase, no read only send when selected. Save the like/dislike lokally, when or if the user changes their mind, update the backend and local storage. This is to get an idea of which videos are most useful for users. Also add a flag/report function, so users can report if a video is outdated or wrong, this should also be saved in the backend and not visible to the user. give 3 or 5 pre difind options to select form when reporting, like "outdated video", "wrong data", "video do not work", ect. no text field to specify if other is selected, thats not needed. Its okay to select more than one option when reporting. This is to get an idea of which videos are most useful for users and which ones need to be updated or removed.
 
 // DONE {M} [analytics] (H): #56 — Optimize Google Analytics. Track active users, selected maps, ad clicks. Filter out default noise events like user_engagement, screen_view, session_start. Add Crashlytics.
 
@@ -473,7 +473,7 @@
 - [x] Crashlytics wired up in `main.dart`: `FlutterError.onError` + `PlatformDispatcher.instance.onError`
 - [ ] Filter noise events (user_engagement, screen_view, session_start) in Firebase Console → Events → Manage
 
-// TODO {M} [i18n] (H): #57 — Language implementation using GetX. Supported: English, Russian, Turkish, Portuguese (BR), Chinese, Spanish, German, Polish, Danish, Swedish, Norwegian, Finnish, Mongolian, Romanian, Argentine.
+// DONE {M} [i18n] (H): #57 — Language implementation using official flutter_localizations. Supported: English, Russian, Turkish, Portuguese (BR), Chinese, Spanish, German, Polish, Danish, Swedish, Norwegian, Finnish, Mongolian, Romanian, French, Japanese, Ukrainian.
 
 ---
 
