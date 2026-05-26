@@ -384,8 +384,8 @@
 - GestureDetectors mangler `Semantics` wrapping
 - Billeder mangler `semanticLabel`
 - **Filer:** Alle button widgets + `grid_view_widget.dart`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // TODO {C} [architecture] (L): #40 — Erstat custom Pos klasse med Flutters Offset
 
