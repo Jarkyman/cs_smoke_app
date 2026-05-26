@@ -16,21 +16,21 @@ class FloatingShowNameButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: bannerPadding),
       child: SizedBox(
-        width: Dimensions.height56,
-        height: Dimensions.height56,
+        width: context.height56,
+        height: context.height56,
         child: FittedBox(
           child: FloatingActionButton(
             onPressed: onTap,
             shape: RoundedRectangleBorder(
               side: BorderSide(
                 color: Color(0xFF000a1a),
-                width: Dimensions.stroke2,
+                width: context.stroke2,
               ),
-              borderRadius: BorderRadius.circular(Dimensions.radius30),
+              borderRadius: BorderRadius.circular(context.radius30),
             ),
             backgroundColor: Color(0xFF002259).withOpacity(0.6),
             child: Container(
-              width: Dimensions.iconSize32,
+              width: context.iconSize32,
               child: Image.asset(
                 'assets/icons/map_icon.png',
               ),

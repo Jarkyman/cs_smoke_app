@@ -87,7 +87,7 @@ class _MapsScreenState extends State<MapsScreen> {
         title: Text(
           'Maps',
           style: TextStyle(
-            fontSize: Dimensions.font26,
+            fontSize: context.font26,
           ),
         ),
         actions: [
@@ -102,7 +102,7 @@ class _MapsScreenState extends State<MapsScreen> {
             },
             icon: Icon(
               Icons.menu,
-              size: Dimensions.iconSize24,
+              size: context.iconSize24,
             ),
           ),
         ],
@@ -129,10 +129,10 @@ class _MapsScreenState extends State<MapsScreen> {
               );
             },
             child: Container(
-              height: Dimensions.height20 * 8,
-              margin: EdgeInsets.all(Dimensions.height10),
+              height: context.height20 * 8,
+              margin: EdgeInsets.all(context.height10),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius28),
+                borderRadius: BorderRadius.circular(context.radius28),
                 image: DecorationImage(
                   colorFilter:
                       const ColorFilter.mode(Colors.black38, BlendMode.overlay),
@@ -143,13 +143,13 @@ class _MapsScreenState extends State<MapsScreen> {
               ),
               child: Center(
                 child: BorderedText(
-                  strokeWidth: Dimensions.stroke4,
+                  strokeWidth: context.stroke4,
                   strokeColor: Colors.black,
                   child: Text(
                     Global.maps[index],
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: Dimensions.font48,
+                      fontSize: context.font48,
                       fontWeight: FontWeight.w700,
                     ),
                   ),

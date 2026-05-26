@@ -14,20 +14,20 @@ class RectangleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(Dimensions.height18),
+      padding: EdgeInsets.all(context.height18),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: GestureDetector(
           onTap: onTap,
           child: Container(
-            height: Dimensions.height20 * 2,
-            width: Dimensions.width20 * 5,
+            height: context.height20 * 2,
+            width: context.width20 * 5,
             decoration: BoxDecoration(
               color: Color(0xFF002259).withOpacity(0.6),
-              borderRadius: BorderRadius.circular(Dimensions.radius10),
+              borderRadius: BorderRadius.circular(context.radius10),
               border: Border.all(
                 color: Color(0xFF000a1a),
-                width: Dimensions.stroke2,
+                width: context.stroke2,
               ),
             ),
             child: Center(
@@ -35,7 +35,7 @@ class RectangleButton extends StatelessWidget {
                 text,
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: Dimensions.font16,
+                    fontSize: context.font16,
                     decoration: TextDecoration.none),
               ),
             ),

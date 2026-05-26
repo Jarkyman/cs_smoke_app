@@ -22,15 +22,15 @@ class UtilRow extends StatelessWidget {
         Padding(
           padding: isCt
               ? EdgeInsets.only(
-                  left: Dimensions.height38, bottom: Dimensions.height50)
+                  left: context.height38, bottom: context.height50)
               : EdgeInsets.only(
-                  right: Dimensions.height38, bottom: Dimensions.height50),
+                  right: context.height38, bottom: context.height50),
           child: Row(
             mainAxisAlignment:
                 isCt ? MainAxisAlignment.end : MainAxisAlignment.start,
             children: [
               SizedBox(
-                width: Dimensions.width10,
+                width: context.width10,
               ),
               UtilButton(
                 imagePath: 'assets/icons/smoke util.png',
@@ -46,7 +46,7 @@ class UtilRow extends StatelessWidget {
                 isCt: isCt,
               ),
               SizedBox(
-                width: Dimensions.width20,
+                width: context.width20,
               ),
               UtilButton(
                 imagePath: 'assets/icons/flash util.png',
@@ -62,7 +62,7 @@ class UtilRow extends StatelessWidget {
                 isCt: isCt,
               ),
               SizedBox(
-                width: Dimensions.width20,
+                width: context.width20,
               ),
               UtilButton(
                 imagePath: isCt
@@ -81,7 +81,7 @@ class UtilRow extends StatelessWidget {
                 isCt: isCt,
               ),
               SizedBox(
-                width: Dimensions.width10,
+                width: context.width10,
               ),
             ],
           ),

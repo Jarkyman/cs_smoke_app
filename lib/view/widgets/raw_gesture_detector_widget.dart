@@ -25,8 +25,8 @@ class RawGestureDetectorWidget extends StatelessWidget {
             }
             ..onUpdate = (details) {
               radarViewModel.handleDragScaleUpdate(details);
-              radarViewModel.handleDragScalePositionUpdate(details);
-              radarViewModel.handleDragScaleUtilUpdate(details);
+              radarViewModel.handleDragScalePositionUpdate(details, context);
+              radarViewModel.handleDragScaleUtilUpdate(details, context);
             }
             ..onEnd = (_) {
               radarViewModel.handleDragScaleEnd();

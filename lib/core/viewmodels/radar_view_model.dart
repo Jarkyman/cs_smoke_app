@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 
 class RadarViewModel extends ChangeNotifier {
   double _scale = 1.0;
-  double _posScale = Dimensions.position;
-  double _utilScale = Dimensions.utility;
+  double? _posScale;
+  double? _utilScale;
   double _previousScale = 1.0;
   Pos _pos = Pos(0.0, 0.0);
   Pos _previousPos = Pos(0.0, 0.0);
@@ -12,8 +12,8 @@ class RadarViewModel extends ChangeNotifier {
   bool _isScaled = false;
 
   double get scale => _scale;
-  double get posScale => _posScale;
-  double get utilScale => _utilScale;
+  double posScale(BuildContext context) => _posScale ?? context.position;
+  double utilScale(BuildContext context) => _utilScale ?? context.utility;
   double get previousScale => _previousScale;
   Pos get pos => _pos;
   Pos get previousPos => _previousPos;
@@ -54,24 +54,24 @@ class RadarViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void handleDragScalePositionUpdate(ScaleUpdateDetails details) {
+  void handleDragScalePositionUpdate(ScaleUpdateDetails details, BuildContext context) {
     if (scale > 4.0) {
-      _posScale = (Dimensions.position / 2); // Minimumsværdien for posScale
+      _posScale = (context.position / 2); // Minimumsværdien for posScale
     } else {
       // Beregn posScale baseret på en lineær sammenhæng med scale
-      _posScale = _interpolate(scale, 1, Dimensions.position, 4,
-          (Dimensions.position / 2)); // Justér efter behov
+      _posScale = _interpolate(scale, 1, context.position, 4,
+          (context.position / 2)); // Justér efter behov
     }
     notifyListeners();
   }
 
-  void handleDragScaleUtilUpdate(ScaleUpdateDetails details) {
+  void handleDragScaleUtilUpdate(ScaleUpdateDetails details, BuildContext context) {
     if (scale > 4.0) {
-      _utilScale = (Dimensions.utility / 2); // Minimumsværdien for posScale
+      _utilScale = (context.utility / 2); // Minimumsværdien for posScale
     } else {
       // Beregn posScale baseret på en lineær sammenhæng med scale
-      _utilScale = _interpolate(scale, 1, Dimensions.utility, 4,
-          (Dimensions.utility / 2)); // Justér efter behov
+      _utilScale = _interpolate(scale, 1, context.utility, 4,
+          (context.utility / 2)); // Justér efter behov
     }
     notifyListeners();
   }
@@ -82,8 +82,8 @@ class RadarViewModel extends ChangeNotifier {
 
   void reset() {
     _scale = 1.0;
-    _posScale = Dimensions.position;
-    _utilScale = Dimensions.utility;
+    _posScale = null;
+    _utilScale = null;
     _previousScale = 1.0;
     _pos = Pos(0.0, 0.0);
     _previousPos = Pos(0.0, 0.0);

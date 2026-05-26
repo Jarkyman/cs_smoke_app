@@ -13,7 +13,7 @@ class AppBarWidget extends StatelessWidget {
     final utilViewModel = Provider.of<UtilViewModel>(context);
 
     return Container(
-      height: Dimensions.height20 * 12,
+      height: context.height20 * 12,
       child: Stack(
         children: [
           AppBarCard(

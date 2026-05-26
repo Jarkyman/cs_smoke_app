@@ -78,10 +78,10 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                     width: double.infinity,
                                     child: Transform.translate(
                                       offset: Offset(
-                                        Dimensions.screenWidth *
+                                        context.screenWidth *
                                             utilViewModel
                                                 .selectedUtil!.position[0],
-                                        Dimensions.screenWidth *
+                                        context.screenWidth *
                                             utilViewModel
                                                 .selectedUtil!.position[1],
                                       ),
@@ -90,12 +90,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                           utilViewModel.reset();
                                         },
                                         child: SizedBox(
-                                          height: radarViewModel.utilScale,
-                                          width: radarViewModel.utilScale,
+                                          height: radarViewModel.utilScale(context),
+                                          width: radarViewModel.utilScale(context),
                                           child: Center(
                                             child: Image.asset(
                                               'assets/icons/${utilViewModel.selectedUtil!.name}.png',
-                                              width: radarViewModel.utilScale,
+                                              width: radarViewModel.utilScale(context),
                                             ),
                                           ),
                                         ),
@@ -111,10 +111,10 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                         width: double.infinity,
                                         child: Transform.translate(
                                           offset: Offset(
-                                            Dimensions.screenWidth *
+                                            context.screenWidth *
                                                 utilViewModel.selectedUtil!
                                                     .stands[idx].position[0],
-                                            Dimensions.screenWidth *
+                                            context.screenWidth *
                                                 utilViewModel.selectedUtil!
                                                     .stands[idx].position[1],
                                           ),
@@ -133,17 +133,17 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                               );
                                             },
                                             child: SizedBox(
-                                              height: radarViewModel.posScale,
-                                              width: radarViewModel.posScale,
+                                              height: radarViewModel.posScale(context),
+                                              width: radarViewModel.posScale(context),
                                               child: Center(
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(8),
                                                   child: Container(
                                                     height:
-                                                        radarViewModel.posScale,
+                                                        radarViewModel.posScale(context),
                                                     width:
-                                                        radarViewModel.posScale,
+                                                        radarViewModel.posScale(context),
                                                     color: utilViewModel.isT
                                                         ? Colors.red
                                                         : Colors.blue,
@@ -166,9 +166,9 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                     width: double.infinity,
                                     child: Transform.translate(
                                       offset: Offset(
-                                        Dimensions.screenWidth *
+                                        context.screenWidth *
                                             tileSmokes[idx].position[0],
-                                        Dimensions.screenWidth *
+                                        context.screenWidth *
                                             tileSmokes[idx].position[1],
                                       ),
                                       child: GestureDetector(
@@ -179,12 +179,12 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                           });
                                         },
                                         child: SizedBox(
-                                          height: radarViewModel.utilScale,
-                                          width: radarViewModel.utilScale,
+                                          height: radarViewModel.utilScale(context),
+                                          width: radarViewModel.utilScale(context),
                                           child: Center(
                                             child: Image.asset(
                                               'assets/icons/${tileSmokes[idx].name}.png',
-                                              width: radarViewModel.utilScale,
+                                              width: radarViewModel.utilScale(context),
                                             ),
                                           ),
                                         ),

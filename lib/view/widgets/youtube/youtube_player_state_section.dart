@@ -13,11 +13,11 @@ class YoutubePlayerStateSection extends StatelessWidget {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 800),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(Dimensions.radius20),
+            borderRadius: BorderRadius.circular(context.radius20),
             color: _getStateColor(value.playerState),
           ),
           width: double.infinity,
-          padding: EdgeInsets.all(Dimensions.height8),
+          padding: EdgeInsets.all(context.height8),
           child: Text(
             value.playerState.toString(),
             style: const TextStyle(

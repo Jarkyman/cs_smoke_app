@@ -1,63 +1,56 @@
 import 'package:flutter/material.dart';
 
-class Dimensions {
-  static var screenWidth =
-      MediaQueryData.fromView(WidgetsBinding.instance.window)
-          .size
-          .width; // 390 iPhone 12
-
-  static var screenHeight =
-      MediaQueryData.fromView(WidgetsBinding.instance.window)
-          .size
-          .height; // 844 iPhone 12
+extension Dimensions on BuildContext {
+  double get screenWidth => MediaQuery.sizeOf(this).width; // 390 iPhone 12
+  double get screenHeight => MediaQuery.sizeOf(this).height; // 844 iPhone 12
 
   //Dynamic height, padding and margin
-  static double height8 = screenHeight / 105.5;
-  static double height10 = screenHeight / 84.4;
-  static double height15 = screenHeight / 56.27;
-  static double height18 = screenHeight / 46.889;
-  static double height20 = screenHeight / 42.2;
-  static double height25 = screenHeight / 33.76;
-  static double height28 = screenHeight / 30.143;
-  static double height30 = screenHeight / 28.13;
-  static double height38 = screenHeight / 22.21;
-  static double height45 = screenHeight / 18.76;
-  static double height50 = screenHeight / 16.88;
-  static double height56 = screenHeight / 15.07;
+  double get height8 => screenHeight / 105.5;
+  double get height10 => screenHeight / 84.4;
+  double get height15 => screenHeight / 56.27;
+  double get height18 => screenHeight / 46.889;
+  double get height20 => screenHeight / 42.2;
+  double get height25 => screenHeight / 33.76;
+  double get height28 => screenHeight / 30.143;
+  double get height30 => screenHeight / 28.13;
+  double get height38 => screenHeight / 22.21;
+  double get height45 => screenHeight / 18.76;
+  double get height50 => screenHeight / 16.88;
+  double get height56 => screenHeight / 15.07;
 
   //Dynamic width, padding and margin
-  static double width5 = screenHeight / 168.8;
-  static double width10 = screenHeight / 84.4;
-  static double width15 = screenHeight / 56.27;
-  static double width20 = screenHeight / 42.2;
-  static double width30 = screenHeight / 28.13;
-  static double width45 = screenHeight / 18.76;
+  double get width5 => screenWidth / 78.0;
+  double get width10 => screenWidth / 39.0;
+  double get width15 => screenWidth / 26.0;
+  double get width20 => screenWidth / 19.5;
+  double get width30 => screenWidth / 13.0;
+  double get width45 => screenWidth / 8.667;
 
   //Font
-  static double font16 = screenHeight / 52.75;
-  static double font20 = screenHeight / 42.2;
-  static double font26 = screenHeight / 32.46;
-  static double font48 = screenHeight / 17.583;
+  double get font16 => screenHeight / 52.75;
+  double get font20 => screenHeight / 42.2;
+  double get font26 => screenHeight / 32.46;
+  double get font48 => screenHeight / 17.583;
 
   //Icons
-  static double iconSize16 = screenHeight / 52.75;
-  static double iconSize24 = screenHeight / 35.17;
-  static double iconSize32 = screenHeight / 26.375;
+  double get iconSize16 => screenHeight / 52.75;
+  double get iconSize24 => screenHeight / 35.17;
+  double get iconSize32 => screenHeight / 26.375;
 
   //Stroke
-  static double stroke1 = screenHeight / 844;
-  static double stroke2 = screenHeight / 422;
-  static double stroke4 = screenHeight / 211;
+  double get stroke1 => screenHeight / 844;
+  double get stroke2 => screenHeight / 422;
+  double get stroke4 => screenHeight / 211;
 
   //Radius
-  static double radius8 = screenHeight / 105.5;
-  static double radius10 = screenHeight / 84.4;
-  static double radius15 = screenHeight / 56.27;
-  static double radius20 = screenHeight / 42.2;
-  static double radius28 = screenHeight / 30.143;
-  static double radius30 = screenHeight / 28.13;
+  double get radius8 => screenHeight / 105.5;
+  double get radius10 => screenHeight / 84.4;
+  double get radius15 => screenHeight / 56.27;
+  double get radius20 => screenHeight / 42.2;
+  double get radius28 => screenHeight / 30.143;
+  double get radius30 => screenHeight / 28.13;
 
   //Util and position
-  static double position = screenHeight / 70.333;
-  static double utility = screenHeight / 35.167;
+  double get position => screenHeight / 70.333;
+  double get utility => screenHeight / 35.167;
 }

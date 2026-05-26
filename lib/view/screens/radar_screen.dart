@@ -86,15 +86,15 @@ class _RadarScreenState extends State<RadarScreen> {
                         milliseconds: 500), // Angiv varigheden af animationen
                     curve: Curves.easeInOut, // Kurven for animationen
                     height: utilViewModel.showNames
-                        ? Dimensions.screenHeight - bannerHeight
-                        : Dimensions.screenHeight -
-                            (Dimensions.height20 * 12) -
+                        ? context.screenHeight - bannerHeight
+                        : context.screenHeight -
+                            (context.height20 * 12) -
                             bannerHeight, // Højden vil variere mellem disse to værdier
                     // Indsæt andre nødvendige egenskaber for containeren
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(Dimensions.radius20 * 2),
-                        topRight: Radius.circular(Dimensions.radius20 * 2),
+                        topLeft: Radius.circular(context.radius20 * 2),
+                        topRight: Radius.circular(context.radius20 * 2),
                       ),
                       child: Stack(
                         children: [

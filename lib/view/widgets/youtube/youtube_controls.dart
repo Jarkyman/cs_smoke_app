@@ -11,7 +11,7 @@ class YoutubeControls extends StatelessWidget {
   Widget build(BuildContext context) {
     final info = ModalRoute.of(context)!.settings.arguments as InfoModel;
     return Padding(
-      padding: EdgeInsets.all(Dimensions.height15),
+      padding: EdgeInsets.all(context.height15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -22,7 +22,7 @@ class YoutubeControls extends StatelessWidget {
             child: Text(
               info.description,
               style: TextStyle(
-                fontSize: Dimensions.font26,
+                fontSize: context.font26,
               ),
             ),
           ),

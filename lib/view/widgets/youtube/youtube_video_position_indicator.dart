@@ -21,7 +21,7 @@ class YoutubeVideoPositionIndicator extends StatelessWidget {
         return LinearProgressIndicator(
           color: Colors.white,
           value: duration == 0 ? 0 : position / duration,
-          minHeight: Dimensions.stroke1,
+          minHeight: context.stroke1,
         );
       },
     );

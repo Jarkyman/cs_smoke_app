@@ -25,7 +25,7 @@ class MenuScreen extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          iconSize: Dimensions.iconSize24,
+          iconSize: context.iconSize24,
         ),
       ),
       body: SafeArea(

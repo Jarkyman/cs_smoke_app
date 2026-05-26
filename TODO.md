@@ -160,14 +160,14 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {M} [responsive, deprecated] (H): #16 — Erstat Dimensions med MediaQuery-baseret responsive sizing
+// DONE {M} [responsive, deprecated] (H): #16 — Erstat Dimensions med MediaQuery-baseret responsive sizing
 
 - **Fil:** `lib/core/helper/dimensions.dart`
 - `WidgetsBinding.instance.window` er deprecated siden Flutter 3.10
 - Alle dimensioner beregnes statisk ved opstart og opdateres ALDRIG
 - Brug `MediaQuery.sizeOf(context)` i stedet
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // TODO {S} [ui, ux] (M): #17 — Erstat GestureDetector med InkWell for tap-feedback
 
@@ -205,12 +205,12 @@
 - [ ] Implementeret
 - [ ] Testet
 
-// FIXME {S} [responsive, bug] (M): #20 — Fix bredde-dimensioner der beregnes fra skærmhøjden
+// DONE {S} [responsive, bug] (M): #20 — Fix bredde-dimensioner der beregnes fra skærmhøjden
 
 - **Fil:** `lib/core/helper/dimensions.dart` (linje ~29-34)
 - `width5`, `width10` osv. dividerer `screenHeight` i stedet for `screenWidth`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // TODO {S} [deprecated] (M): #21 — Erstat Color.withOpacity() med withValues(alpha:)
 
@@ -432,6 +432,8 @@
 // TODO {M} [UI, UX] (H): #47 — Add Cashe map to callouts, map logo, maps, radar.
 
 // TODO {M} [] (H): #49 — Add yor own vidoe from instagram, youtube, tiktok, etc. to map. This need to be specified in a bigger refactor plan.
+
+// TODO {M} [] (H): #51 — Add a splash/launcher screen native for Android and iOS.
 
 ---
 

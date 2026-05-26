@@ -16,19 +16,19 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(Dimensions.height20),
+      padding: EdgeInsets.all(context.height20),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          height: Dimensions.height20 * 3,
-          padding: EdgeInsets.all(Dimensions.height10),
+          height: context.height20 * 3,
+          padding: EdgeInsets.all(context.height10),
           decoration: BoxDecoration(
             color: Colors.grey.shade800, // Mørkegrå farve
             border: Border.all(
               color: Colors.grey.shade600, // Lidt lysere grå border
-              width: Dimensions.stroke2,
+              width: context.stroke2,
             ),
-            borderRadius: BorderRadius.circular(Dimensions.radius10),
+            borderRadius: BorderRadius.circular(context.radius10),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,13 +38,13 @@ class MenuButton extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: Dimensions.font20,
+                  fontSize: context.font20,
                 ),
               ),
               Icon(
                 icon,
                 color: Colors.white,
-                size: Dimensions.iconSize32,
+                size: context.iconSize32,
               ),
             ],
           ),
