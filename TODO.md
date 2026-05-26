@@ -293,29 +293,36 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {S} [config, version] (M): #30 — Fix hardcoded app-version i Constants
+// DONE {S} [config, version] (M): #30 — Fix hardcoded app-version i Constants
 
 - **Fil:** `lib/core/helper/constants.dart`
 - `APP_VERSION = '1.2.0'` men pubspec siger `1.2.2`
 - `APP_BUILD_VERSION = '3'` men pubspec siger `+12`
-- Brug `package_info_plus` til at læse runtime-versionen
-- [ ] Implementeret
-- [ ] Testet
+- Omskrevet til at bruge `package_info_plus` dynamisk
+- [x] Implementeret
+- [x] Testet
 
-// TODO {C} [naming, convention] (L): #31 — Ret SCREAMING_SNAKE_CASE til lowerCamelCase i Constants
+// DONE {C} [naming, convention] (L): #31 — Ret SCREAMING_SNAKE_CASE til lowerCamelCase i Constants
 
 - **Fil:** `lib/core/helper/constants.dart`
-- `APP_NAME` → `appName`, `APP_VERSION` → `appVersion`, osv.
 - Dart-konventionen er `lowerCamelCase` for konstanter
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
-// TODO {C} [architecture] (L): #32 — Erstat abstract class med final class + privat constructor
+// DONE {C} [architecture] (L): #32 — Erstat abstract class med final class + privat constructor
 
 - **Fil:** `lib/view/shared/global.dart`
 - `abstract class Global` → `final class Global { Global._(); ... }`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
+
+// DONE {S} [lifecycle, bug] (M): #33 — Flyt SystemChrome.setPreferredOrientations ud af build()
+
+- **Fil:** `lib/main.dart`
+- Kaldet til at låse orientation lå før i `build()` og kørte ved hvert redraw
+- Er nu flyttet til `main()`
+- [x] Implementeret
+- [x] Testet
 
 // TODO {C} [security, env] (L): #35 — Gennemgå appen for andre hardcodede URLs/nøgler til .env
 

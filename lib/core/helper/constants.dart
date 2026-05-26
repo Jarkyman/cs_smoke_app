@@ -1,10 +1,18 @@
+import 'package:package_info_plus/package_info_plus.dart';
+
 class Constants {
-  static const String APP_NAME = 'Util Master';
-  static const String APP_VERSION = '1.2.0';
-  static const String APP_BUILD_VERSION = '3';
-  static const String IOS_ID = '6470121185';
-  static const String ANDROID_ID = 'com.hartvig_develop.util_master';
+  static const String appName = 'Util Master';
+  static String appVersion = '';
+  static String appBuildVersion = '';
+  static const String iosId = '6470121185';
+  static const String androidId = 'com.hartvig_develop.util_master';
 
   //KEYS
-  static const String NOTIFICATION_KEY = 'notification';
+  static const String notificationKey = 'notification';
+
+  static Future<void> init() async {
+    final packageInfo = await PackageInfo.fromPlatform();
+    appVersion = packageInfo.version;
+    appBuildVersion = packageInfo.buildNumber;
+  }
 }

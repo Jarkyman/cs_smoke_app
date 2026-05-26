@@ -11,8 +11,8 @@ class Review {
     minLaunches: 15,
     remindDays: 3,
     remindLaunches: 8,
-    googlePlayIdentifier: Constants.ANDROID_ID,
-    appStoreIdentifier: Constants.IOS_ID,
+    googlePlayIdentifier: Constants.androidId,
+    appStoreIdentifier: Constants.iosId,
   );
 
   static void checkReviewPopup(BuildContext context) {

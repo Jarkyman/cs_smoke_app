@@ -13,6 +13,7 @@ import 'core/helper/review.dart';
 import 'core/viewmodels/radar_view_model.dart';
 import 'firebase_options.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'core/helper/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,8 +32,13 @@ void main() async {
     });
   });
   await Review.rateMyApp.init();
+  await Constants.init();
   tz.initializeTimeZones();
   //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -40,10 +46,6 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<RadarViewModel>(

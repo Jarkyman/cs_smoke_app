@@ -64,14 +64,14 @@ class MenuScreen extends StatelessWidget {
             ),
             MenuButton(
               onTap: () {
-                debugPrint('app id: ${Constants.IOS_ID}');
+                debugPrint('app id: ${Constants.iosId}');
                 try {
                   if (defaultTargetPlatform == TargetPlatform.iOS) {
-                    StoreLauncher.openWithStore(Constants.IOS_ID).catchError((e) {
+                    StoreLauncher.openWithStore(Constants.iosId).catchError((e) {
                       debugPrint('ERROR opening iOS App Store: $e');
                     });
                   } else if (defaultTargetPlatform == TargetPlatform.android) {
-                    StoreLauncher.openWithStore(Constants.ANDROID_ID).catchError((e) {
+                    StoreLauncher.openWithStore(Constants.androidId).catchError((e) {
                       debugPrint('ERROR opening Android Play Store: $e');
                     });
                   } else {

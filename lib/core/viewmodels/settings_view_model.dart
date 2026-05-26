@@ -22,7 +22,7 @@ class SettingsViewModel extends ChangeNotifier {
 
   Future<void> loadSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    _isNotification = prefs.getBool(Constants.NOTIFICATION_KEY) ?? true;
+    _isNotification = prefs.getBool(Constants.notificationKey) ?? true;
     if (!_isNotification) {
       NotificationApi.cancelAll();
     }
@@ -32,7 +32,7 @@ class SettingsViewModel extends ChangeNotifier {
   Future<void> saveSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     log('Notifications save: $_isNotification');
-    await prefs.setBool(Constants.NOTIFICATION_KEY, _isNotification);
+    await prefs.setBool(Constants.notificationKey, _isNotification);
   }
 
   Future<void> toggleNotification() async {
