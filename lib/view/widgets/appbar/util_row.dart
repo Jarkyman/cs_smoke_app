@@ -28,53 +28,57 @@ class UtilRow extends StatelessWidget {
                   left: context.height38, bottom: context.height50)
               : EdgeInsets.only(
                   right: context.height38, bottom: context.height50),
-          child: Row(
-            mainAxisAlignment:
-                isCt ? MainAxisAlignment.end : MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: context.width10,
-              ),
-              UtilButton(
-                imagePath: 'assets/icons/smoke util.png',
-                isSelected:
-                    utilViewModel.isUtilTypeSelected(UtilType.smoke, team),
-                onTap: () {
-                  utilViewModel.toggleUtil(UtilType.smoke, team);
-                },
-                isCt: isCt,
-              ),
-              SizedBox(
-                width: context.width20,
-              ),
-              UtilButton(
-                imagePath: 'assets/icons/flash util.png',
-                isSelected:
-                    utilViewModel.isUtilTypeSelected(UtilType.flash, team),
-                onTap: () {
-                  utilViewModel.toggleUtil(UtilType.flash, team);
-                },
-                isCt: isCt,
-              ),
-              SizedBox(
-                width: context.width20,
-              ),
-              UtilButton(
-                imagePath: isCt
-                    ? 'assets/icons/molotov util ct.png'
-                    : 'assets/icons/molotov util t.png',
-                isSelected:
-                    utilViewModel.isUtilTypeSelected(UtilType.molotov, team),
-                onTap: () {
-                  debugPrint('Click');
-                  utilViewModel.toggleUtil(UtilType.molotov, team);
-                },
-                isCt: isCt,
-              ),
-              SizedBox(
-                width: context.width10,
-              ),
-            ],
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: isCt ? Alignment.centerRight : Alignment.centerLeft,
+            child: Row(
+              mainAxisAlignment:
+                  isCt ? MainAxisAlignment.end : MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: context.width10,
+                ),
+                UtilButton(
+                  imagePath: 'assets/icons/smoke util.png',
+                  isSelected:
+                      utilViewModel.isUtilTypeSelected(UtilType.smoke, team),
+                  onTap: () {
+                    utilViewModel.toggleUtil(UtilType.smoke, team);
+                  },
+                  isCt: isCt,
+                ),
+                SizedBox(
+                  width: context.width20,
+                ),
+                UtilButton(
+                  imagePath: 'assets/icons/flash util.png',
+                  isSelected:
+                      utilViewModel.isUtilTypeSelected(UtilType.flash, team),
+                  onTap: () {
+                    utilViewModel.toggleUtil(UtilType.flash, team);
+                  },
+                  isCt: isCt,
+                ),
+                SizedBox(
+                  width: context.width20,
+                ),
+                UtilButton(
+                  imagePath: isCt
+                      ? 'assets/icons/molotov util ct.png'
+                      : 'assets/icons/molotov util t.png',
+                  isSelected:
+                      utilViewModel.isUtilTypeSelected(UtilType.molotov, team),
+                  onTap: () {
+                    debugPrint('Click');
+                    utilViewModel.toggleUtil(UtilType.molotov, team);
+                  },
+                  isCt: isCt,
+                ),
+                SizedBox(
+                  width: context.width10,
+                ),
+              ],
+            ),
           ),
         ),
       ],
