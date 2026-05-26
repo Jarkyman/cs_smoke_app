@@ -346,7 +346,7 @@
 // TODO {C} [i18n, cleanup] (L): #36 — Standardiser sprog i kommentarer og fejlbeskeder
 
 - Filer som `json_data_handler.dart`, `radar_screen.dart`, `youtube_controls.dart` har danske kommentarer
-- Resten er på engelsk — vælg ét sprog
+- Resten er på engelsk — vælg ét sprog (Vi skal bruge engelsk alle steder)
 - [ ] Implementeret
 
 // TODO {C} [cleanup] (L): #37 — Fjern dead code og kommenteret kode
@@ -427,9 +427,17 @@
 
 ---
 
+## Fase 5 — Extra
+
+// TODO {M} [UI, UX] (H): #47 — Add Cashe map to callouts, map logo, maps, radar.
+
+// TODO {M} [] (H): #49 — Add yor own vidoe from instagram, youtube, tiktok, etc. to map. This need to be specified in a bigger refactor plan.
+
+---
+
 ## 📦 Forældede Packages (fra Pubgrade)
 
-// TODO {M} [dependencies] (H): #47 — Opdater alle forældede packages
+// TODO {M} [dependencies] (H): #50 — Opdater alle forældede packages
 
 ### 🔴 Breaking Changes (major version bump)
 
