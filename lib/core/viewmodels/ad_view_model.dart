@@ -7,6 +7,9 @@ class AdViewModel extends ChangeNotifier {
   BannerAd? _bannerAd;
   NativeAd? _nativeAd;
 
+  BannerAd? get bannerAd => _bannerAd;
+  NativeAd? get nativeAd => _nativeAd;
+
   void createBannerAd() {
     BannerAd(
       adUnitId: AdHelper.bannerAdUnitId,
@@ -20,6 +23,7 @@ class AdViewModel extends ChangeNotifier {
         onAdFailedToLoad: (ad, err) {
           debugPrint('Failed to load a banner ad: ${err.message}');
           ad.dispose();
+          _bannerAd = null;
           notifyListeners();
         },
       ),
@@ -34,11 +38,14 @@ class AdViewModel extends ChangeNotifier {
           onAdLoaded: (ad) {
             debugPrint('$NativeAd loaded.');
             _nativeAd = ad as NativeAd;
+            notifyListeners();
           },
           onAdFailedToLoad: (ad, error) {
             // Dispose the ad here to free resources.
             debugPrint('$NativeAd failed to load: $error');
             ad.dispose();
+            _nativeAd = null;
+            notifyListeners();
           },
         ),
         request: const AdRequest(),

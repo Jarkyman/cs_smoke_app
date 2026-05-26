@@ -35,7 +35,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.example.cs_smoke_app"
+    namespace "com.hartvig_develop.util_master"
     compileSdkVersion 36
     ndkVersion flutter.ndkVersion
 

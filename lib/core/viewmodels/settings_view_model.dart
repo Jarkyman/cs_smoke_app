@@ -59,9 +59,9 @@ class SettingsViewModel extends ChangeNotifier {
     PermissionStatus status = await Permission.notification.status;
     log(status.toString());
     if (status.isGranted) {
-      log('Notifications premission On');
+      log('Notifications permission On');
     } else {
-      log('Notifications premission OFF');
+      log('Notifications permission OFF');
       _isNotification = false;
       NotificationApi.cancelAll();
       saveSettings();
@@ -69,7 +69,7 @@ class SettingsViewModel extends ChangeNotifier {
     }
 
     if (await Permission.notification.isRestricted) {
-      log('Notifications premission Restrcted');
+      log('Notifications permission Restricted');
       _isNotification = false;
       NotificationApi.cancelAll();
       saveSettings();
@@ -79,12 +79,12 @@ class SettingsViewModel extends ChangeNotifier {
 
   Future<void> askPermission() async {
     if (await Permission.notification.request().isGranted) {
-      log('Notifications get premission');
+      log('Notifications get permission');
     } else if (await Permission.notification.isPermanentlyDenied) {
-      log('Notifications open premission setting');
+      log('Notifications open permission setting');
       openAppSettings();
     } else {
-      log('Notifications no premission');
+      log('Notifications no permission');
       _isNotification = false;
       NotificationApi.cancelAll();
       saveSettings();

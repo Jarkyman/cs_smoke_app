@@ -414,26 +414,26 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {S} [android, config] (M): #44 — Ret Android namespace fra com.example til produktions-ID
+// DONE {S} [android, config] (M): #44 — Ret Android namespace fra com.example til produktions-ID
 
 - **Fil:** `android/app/build.gradle` (linje 39)
 - `namespace "com.example.cs_smoke_app"` — bør matche `applicationId` (`com.hartvig_develop.util_master`)
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
-// TODO {C} [ads, architecture] (L): #45 — Fix AdViewModel — tilføj getters og notifyListeners
+// DONE {C} [ads, architecture] (L): #45 — Fix AdViewModel — tilføj getters og notifyListeners
 
 - **Fil:** `lib/core/viewmodels/ad_view_model.dart`
 - `_bannerAd` og `_nativeAd` gemmes men har ingen getters — UI'et kan ikke tilgå dem
 - `loadAd()` kalder ikke `notifyListeners()` når ad er loadet
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
-// TODO {C} [cleanup] (L): #46 — Ret stavefejl i log-beskeder og fjern redundante checks
+// DONE {C} [cleanup] (L): #46 — Ret stavefejl i log-beskeder og fjern redundante checks
 
 - **Fil:** `lib/core/viewmodels/settings_view_model.dart` — "premission" → "permission" (6 gange)
-- **Fil:** `lib/core/helper/utils.dart` — redundant `Platform.isIOS` check inde i iOS-blok
-- [ ] Implementeret
+- **Fil:** `lib/core/helper/utils.dart` — redundant `Platform.isIOS` check inde i iOS-blok (Allerede fixet)
+- [x] Implementeret
 
 ---
 
