@@ -40,6 +40,7 @@ class SettingsViewModel extends ChangeNotifier {
       NotificationApi.cancelAll();
     }
     log('Notifications load: $_isNotification, Locale: ${_locale?.languageCode}');
+    notifyListeners();
   }
 
   Future<void> saveSettings() async {
