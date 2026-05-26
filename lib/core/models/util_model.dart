@@ -1,24 +1,37 @@
 import 'package:cs_smoke_app/core/models/info_model.dart';
 
 class UtilModel {
-  late String location;
-  late String description;
-  late String name;
-  late bool status;
-  late List<double> position;
-  late List<InfoModel> stands;
-  bool isSelected = false;
+  final String location;
+  final String description;
+  final String name;
+  final bool status;
+  final List<double> position;
+  final List<InfoModel> stands;
 
-  UtilModel.fromJson(Map<String, dynamic> json) {
-    location = json['location'] ?? '';
-    description = json['description'] ?? '';
-    name = json['name'] ?? '';
-    status = json['status'] ?? false;
-    position = List<double>.from(json['position'] ?? []);
+  UtilModel({
+    required this.location,
+    required this.description,
+    required this.name,
+    required this.status,
+    required this.position,
+    required this.stands,
+  });
 
-    // Håndterer stands som en liste af InfoModel objekter
-    stands = (json['stands'] as List<dynamic>? ?? [])
-        .map((stand) => InfoModel.fromJson(stand as Map<String, dynamic>))
-        .toList();
+  factory UtilModel.fromJson(Map<String, dynamic> json) {
+    List<double> parsedPosition = List<double>.from(json['position'] ?? []);
+    if (parsedPosition.length < 2) {
+      parsedPosition = [0.0, 0.0];
+    }
+
+    return UtilModel(
+      location: json['location'] ?? '',
+      description: json['description'] ?? '',
+      name: json['name'] ?? '',
+      status: json['status'] ?? false,
+      position: parsedPosition,
+      stands: (json['stands'] as List<dynamic>? ?? [])
+          .map((stand) => InfoModel.fromJson(stand as Map<String, dynamic>))
+          .toList(),
+    );
   }
 }

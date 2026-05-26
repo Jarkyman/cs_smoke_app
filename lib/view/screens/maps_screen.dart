@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/helper/notification_api.dart';
-import '../../core/models/util_model.dart';
+import '../../core/models/enums.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
 
@@ -115,7 +115,7 @@ class _MapsScreenState extends State<MapsScreen> {
             onTap: () async {
               radarViewModel.reset();
               utilViewModel.reset();
-              utilViewModel.toggleUtil('smokeT');
+              utilViewModel.toggleUtil(UtilType.smoke, Team.t);
               Navigator.push(
                 context,
                 MaterialPageRoute(

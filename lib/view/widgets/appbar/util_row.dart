@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../core/helper/dimensions.dart';
 import '../../../core/viewmodels/util_view_model.dart';
+import '../../../core/models/enums.dart';
 import '../buttons/util_button.dart';
-
 
 class UtilRow extends StatelessWidget {
   const UtilRow({
@@ -17,6 +17,8 @@ class UtilRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final team = isCt ? Team.ct : Team.t;
+
     return Stack(
       alignment: isCt ? Alignment.bottomRight : Alignment.bottomLeft,
       children: [
@@ -35,14 +37,9 @@ class UtilRow extends StatelessWidget {
               ),
               UtilButton(
                 imagePath: 'assets/icons/smoke util.png',
-                isSelected:
-                    isCt ? utilViewModel.isSmokeCt : utilViewModel.isSmokeT,
+                isSelected: utilViewModel.isUtilTypeSelected(UtilType.smoke, team),
                 onTap: () {
-                  if (isCt) {
-                    utilViewModel.toggleUtil('smokeCt');
-                  } else {
-                    utilViewModel.toggleUtil('smokeT');
-                  }
+                  utilViewModel.toggleUtil(UtilType.smoke, team);
                 },
                 isCt: isCt,
               ),
@@ -51,14 +48,9 @@ class UtilRow extends StatelessWidget {
               ),
               UtilButton(
                 imagePath: 'assets/icons/flash util.png',
-                isSelected:
-                    isCt ? utilViewModel.isFlashCt : utilViewModel.isFlashT,
+                isSelected: utilViewModel.isUtilTypeSelected(UtilType.flash, team),
                 onTap: () {
-                  if (isCt) {
-                    utilViewModel.toggleUtil('flashCt');
-                  } else {
-                    utilViewModel.toggleUtil('flashT');
-                  }
+                  utilViewModel.toggleUtil(UtilType.flash, team);
                 },
                 isCt: isCt,
               ),
@@ -69,15 +61,10 @@ class UtilRow extends StatelessWidget {
                 imagePath: isCt
                     ? 'assets/icons/molotov util ct.png'
                     : 'assets/icons/molotov util t.png',
-                isSelected:
-                    isCt ? utilViewModel.isMolotovCt : utilViewModel.isMolotovT,
+                isSelected: utilViewModel.isUtilTypeSelected(UtilType.molotov, team),
                 onTap: () {
-                  if (isCt) {
-                    debugPrint('Click');
-                    utilViewModel.toggleUtil('molotovCt');
-                  } else {
-                    utilViewModel.toggleUtil('molotovT');
-                  }
+                  debugPrint('Click');
+                  utilViewModel.toggleUtil(UtilType.molotov, team);
                 },
                 isCt: isCt,
               ),

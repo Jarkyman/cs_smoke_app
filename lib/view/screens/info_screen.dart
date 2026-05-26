@@ -132,8 +132,8 @@ class _InfoScreenState extends State<InfoScreen> {
                 String url = "https://www.youtube.com/watch?v=${info.videoId}";
                 if (url.isNotEmpty) {
                   debugPrint("url = $url");
-                  await Share.share(
-                      "Hey, I came across this amazing ${utilViewModel.selectedUtil!.name} guide on Util Master! Check it out:\n\n$url");
+                  await SharePlus.instance.share(
+                      ShareParams(text: "Hey, I came across this amazing ${utilViewModel.selectedUtil!.name} guide on Util Master! Check it out:\n\n$url"));
                 }
               }
             },

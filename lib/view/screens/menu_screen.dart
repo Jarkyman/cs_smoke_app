@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:cs_smoke_app/core/helper/utils.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_launch_store/flutter_launch_store.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +9,6 @@ import '../../core/helper/constants.dart';
 import '../../core/helper/dimensions.dart';
 import '../../core/viewmodels/settings_view_model.dart';
 import '../widgets/buttons/menu_button.dart';
-
 
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
@@ -58,8 +56,8 @@ class MenuScreen extends StatelessWidget {
             ),*/ //Test only
             MenuButton(
               onTap: () {
-                Share.share(
-                    'Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: http://utilmaster.wuaze.com/app');
+                SharePlus.instance.share(
+                    ShareParams(text: 'Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: http://utilmaster.wuaze.com/app'));
               },
               title: 'Share app',
               icon: Icons.share_outlined,
@@ -68,11 +66,11 @@ class MenuScreen extends StatelessWidget {
               onTap: () {
                 debugPrint('app id: ${Constants.IOS_ID}');
                 try {
-                  if (Platform.isIOS) {
+                  if (defaultTargetPlatform == TargetPlatform.iOS) {
                     StoreLauncher.openWithStore(Constants.IOS_ID).catchError((e) {
                       debugPrint('ERROR opening iOS App Store: $e');
                     });
-                  } else if (Platform.isAndroid) {
+                  } else if (defaultTargetPlatform == TargetPlatform.android) {
                     StoreLauncher.openWithStore(Constants.ANDROID_ID).catchError((e) {
                       debugPrint('ERROR opening Android Play Store: $e');
                     });

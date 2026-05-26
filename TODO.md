@@ -188,22 +188,21 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {M} [state, architecture] (M): #19 — Tilføj loading/error states til ViewModels
+// DONE {M} [state, architecture] (M): #19 — Tilføj loading/error states til ViewModels
 
-- **Fil:** `lib/core/viewmodels/util_view_model.dart`
-- Ingen `isLoading`, `hasError`, `errorMessage` felter
-- `loadData()` kalder aldrig `notifyListeners()` når data er loadet
-- UI kan ikke vise loading-indikator eller fejlbesked
-- [ ] Implementeret
-- [ ] Testet
+- **Filer:** `UtilViewModel` osv.
+- I øjeblikket antages det, at data altid er loadet korrekt, eller UI hænger hvis noget fejler (f.eks. `JSONDataHandler`).
+- Tilføjet en `ViewState` enum (idle, loading, error, success)
+- [x] Implementeret
+- [x] Testet
 
-// TODO {S} [architecture, state] (M): #19b — Brug enums i stedet for string-matching og booleans i UtilViewModel
+// DONE {M} [code quality, enum] (M): #19b — Brug enums frem for strings/booleans i UtilViewModel
 
-- **Fil:** `lib/core/viewmodels/util_view_model.dart`
-- 6 booleans (`_isSmokeT`, `_isSmokeCt`, osv.) bør erstattes af ét enum
-- `toggleUtil()` bruger magic strings (`'smokeT'`, `'smokeCt'`) — fejlprone
-- [ ] Implementeret
-- [ ] Testet
+- **Filer:** `lib/core/viewmodels/util_view_model.dart`
+- I stedet for string-matching ("Smoke", "Flash", osv.), bruges enums (`UtilType.smoke`, `UtilType.flash`).
+- Sikrer type-safety og fjerner typo-risici.
+- [x] Implementeret
+- [x] Testet
 
 // DONE {S} [responsive, bug] (M): #20 — Fix bredde-dimensioner der beregnes fra skærmhøjden
 
@@ -224,30 +223,30 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {S} [architecture, model] (M): #22 — Flyt isSelected UI-state ud af UtilModel
+// DONE {S} [architecture, model] (M): #22 — Flyt isSelected UI-state ud af UtilModel
 
 - **Fil:** `lib/core/models/util_model.dart`
-- `bool isSelected = false` er UI-state der hører i ViewModel'et, ikke i data model
-- [ ] Implementeret
-- [ ] Testet
+- `bool isSelected = false` er fjernet. Denne stat tilhører ViewModel'et, ikke i data model.
+- [x] Implementeret
+- [x] Testet
 
-// TODO {S} [model, safety] (M): #23 — Gør model-felter final og fjern late keywords
+// DONE {S} [model, safety] (M): #23 — Gør model-felter final og fjern late keywords
 
 - **Filer:**
   - `lib/core/models/info_model.dart`
   - `lib/core/models/util_model.dart`
 - `late` felter er unødvendige og risikable — brug `final` med constructor initialization
-- Tilføj position-validering (længde-check på listen)
-- [ ] Implementeret
-- [ ] Testet
+- Tilføjet position-validering (længde-check på listen, falder tilbage til [0.0, 0.0] hvis den er tom)
+- [x] Implementeret
+- [x] Testet
 
-// TODO {S} [platform, web] (M): #24 — Erstat dart:io Platform checks med defaultTargetPlatform
+// DONE {S} [platform, web] (M): #24 — Erstat dart:io Platform checks med defaultTargetPlatform
 
 - **Fil:** `lib/view/screens/menu_screen.dart` (linje 1)
 - `dart:io` import crasher på web
-- Brug `defaultTargetPlatform` fra `package:flutter/foundation.dart`
-- [ ] Implementeret
-- [ ] Testet
+- Brugt `defaultTargetPlatform` fra `package:flutter/foundation.dart`
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {S} [widget, bug] (M): #25 — Fix SkewedClipper hardcoded 60px og shouldReclip
 

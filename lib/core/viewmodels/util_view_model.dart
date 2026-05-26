@@ -2,8 +2,12 @@ import 'package:cs_smoke_app/core/helper/json_data_handler.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../models/util_model.dart';
+import '../models/enums.dart';
 
 class UtilViewModel extends ChangeNotifier {
+  ViewState _state = ViewState.idle;
+  ViewState get state => _state;
+
   bool _isUtilSelected = false;
   bool get isUtilSelected => _isUtilSelected;
 
@@ -13,34 +17,33 @@ class UtilViewModel extends ChangeNotifier {
   UtilModel? _selectedUtil;
   UtilModel? get selectedUtil => _selectedUtil;
 
-  bool _isT = true;
-  bool get isT => _isT;
+  Team _selectedTeam = Team.t;
+  Team get selectedTeam => _selectedTeam;
 
-  bool _isCt = false;
-  bool get isCt => _isCt;
-
-  String _util = 'smoke';
-  String get util => _util;
-
-  bool _isSmokeT = true;
-  bool get isSmokeT => _isSmokeT;
-  bool _isSmokeCt = false;
-  bool get isSmokeCt => _isSmokeCt;
-  bool _isFlashT = false;
-  bool get isFlashT => _isFlashT;
-  bool _isFlashCt = false;
-  bool get isFlashCt => _isFlashCt;
-  bool _isMolotovT = false;
-  bool get isMolotovT => _isMolotovT;
-  bool _isMolotovCt = false;
-  bool get isMolotovCt => _isMolotovCt;
+  UtilType _selectedType = UtilType.smoke;
+  UtilType get selectedType => _selectedType;
 
   List<UtilModel> _utils = [];
   List<UtilModel> get utils => _utils;
 
-  Future<void> loadData() async{
+  // Helpers for backward compatibility where needed
+  bool get isT => _selectedTeam == Team.t;
+  bool get isCt => _selectedTeam == Team.ct;
+  String get util => _selectedType.name; // 'smoke', 'flash', 'molotov'
+
+  Future<void> loadData() async {
     if (_utils.isEmpty) {
-      _utils = await JsonDataHandler().loadData();
+      Future.microtask(() {
+        _state = ViewState.loading;
+        notifyListeners();
+      });
+      try {
+        _utils = await JsonDataHandler().loadData();
+        _state = ViewState.success;
+      } catch (e) {
+        _state = ViewState.error;
+      }
+      notifyListeners();
     }
   }
 
@@ -49,48 +52,14 @@ class UtilViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleUtil(String utilName) {
-    _isSmokeT = false;
-    _isSmokeCt = false;
-    _isFlashT = false;
-    _isFlashCt = false;
-    _isMolotovT = false;
-    _isMolotovCt = false;
-    _isCt = false;
-    _isT = false;
+  bool isUtilTypeSelected(UtilType type, Team team) {
+    return _selectedType == type && _selectedTeam == team;
+  }
 
-    switch (utilName) {
-      case 'smokeT':
-        _isSmokeT = true;
-        _isT = true;
-        _util = 'smoke';
-        break;
-      case 'smokeCt':
-        _isSmokeCt = true;
-        _isCt = true;
-        _util = 'smoke';
-        break;
-      case 'flashT':
-        _isFlashT = true;
-        _isT = true;
-        _util = 'flash';
-        break;
-      case 'flashCt':
-        _isFlashCt = true;
-        _isCt = true;
-        _util = 'flash';
-        break;
-      case 'molotovT':
-        _isMolotovT = true;
-        _isT = true;
-        _util = 'molotov';
-        break;
-      case 'molotovCt':
-        _isMolotovCt = true;
-        _isCt = true;
-        _util = 'molotov';
-        break;
-    }
+  void toggleUtil(UtilType type, Team team) {
+    _selectedType = type;
+    _selectedTeam = team;
+    
     _isUtilSelected = false;
     _selectedUtil = null;
     notifyListeners();
