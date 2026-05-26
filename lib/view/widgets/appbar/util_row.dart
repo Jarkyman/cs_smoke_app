@@ -37,7 +37,8 @@ class UtilRow extends StatelessWidget {
               ),
               UtilButton(
                 imagePath: 'assets/icons/smoke util.png',
-                isSelected: utilViewModel.isUtilTypeSelected(UtilType.smoke, team),
+                isSelected:
+                    utilViewModel.isUtilTypeSelected(UtilType.smoke, team),
                 onTap: () {
                   utilViewModel.toggleUtil(UtilType.smoke, team);
                 },
@@ -48,7 +49,8 @@ class UtilRow extends StatelessWidget {
               ),
               UtilButton(
                 imagePath: 'assets/icons/flash util.png',
-                isSelected: utilViewModel.isUtilTypeSelected(UtilType.flash, team),
+                isSelected:
+                    utilViewModel.isUtilTypeSelected(UtilType.flash, team),
                 onTap: () {
                   utilViewModel.toggleUtil(UtilType.flash, team);
                 },
@@ -61,7 +63,8 @@ class UtilRow extends StatelessWidget {
                 imagePath: isCt
                     ? 'assets/icons/molotov util ct.png'
                     : 'assets/icons/molotov util t.png',
-                isSelected: utilViewModel.isUtilTypeSelected(UtilType.molotov, team),
+                isSelected:
+                    utilViewModel.isUtilTypeSelected(UtilType.molotov, team),
                 onTap: () {
                   debugPrint('Click');
                   utilViewModel.toggleUtil(UtilType.molotov, team);

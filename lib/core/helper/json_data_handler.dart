@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cs_smoke_app/core/helper/constants.dart';
 import 'package:cs_smoke_app/core/models/util_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:universal_io/io.dart';
@@ -9,7 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class JsonDataHandler {
-  static String get url => dotenv.env['MAP_DATA_URL'] ?? 'https://gist.githubusercontent.com/Jarkyman/d3cba4afc8948b1a78a6373d7667f230/raw/mapdata.json';
+  static String get url => dotenv.env['MAP_DATA_URL'] ?? '';
   static const String storageKey = 'cached_utility_data';
   static const String timestampKey = 'cached_utility_data_timestamp';
   static const String fileName = 'cached_utility_data.json';
@@ -27,9 +28,9 @@ class JsonDataHandler {
     final lastFetch = DateTime.fromMillisecondsSinceEpoch(lastFetchMs);
     final now = DateTime.now();
     final difference = now.difference(lastFetch);
-    
-    // Udløber efter 48 timer
-    return difference.inHours < 48;
+
+    // Expires after cacheValidHours
+    return difference.inHours < Constants.cacheValidHours;
   }
 
   Future<void> _updateTimestamp() async {
@@ -74,17 +75,17 @@ class JsonDataHandler {
         await _saveData(response.body);
         return true;
       } else {
-        throw Exception('Fejl ved hentning af data');
+        throw Exception('Error fetching data');
       }
     } catch (e) {
-      debugPrint('Fejl under fetchAndSaveData: $e');
+      debugPrint('Error in fetchAndSaveData: $e');
       return false;
     }
   }
 
   Future<List<UtilModel>> loadData({int retryCount = 0}) async {
     debugPrint("Loading data (retry: $retryCount)");
-    
+
     final bool cacheValid = await _isCacheValid();
     String? jsonString;
 
@@ -108,15 +109,15 @@ class JsonDataHandler {
             if (utilData is Map<String, dynamic>) {
               return UtilModel.fromJson(utilData);
             } else {
-              throw Exception("Fejl: Forkert format i 'allUtils' element");
+              throw Exception("Error: Incorrect format in 'allUtils' element");
             }
           }).toList();
         } else {
-          throw Exception("Fejl: JSON-strukturen er forkert");
+          throw Exception("Error: Incorrect JSON structure");
         }
       } catch (e) {
         debugPrint("Parse error: $e");
-        // Hvis parsing af cachen fejler, slet den og prøv at hente igen
+        // If parsing the cache fails, try fetching again
         if (retryCount < 1) {
           await fetchAndSaveData();
           return loadData(retryCount: retryCount + 1);
@@ -125,10 +126,10 @@ class JsonDataHandler {
       }
     } else {
       if (retryCount >= 1) {
-        debugPrint("Kunne ikke hente data, returnerer tom liste");
+        debugPrint("Could not fetch data, returning empty list");
         return [];
       }
-      
+
       bool success = await fetchAndSaveData();
       if (success) {
         return loadData(retryCount: retryCount + 1);

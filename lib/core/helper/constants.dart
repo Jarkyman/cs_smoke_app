@@ -10,6 +10,11 @@ class Constants {
   //KEYS
   static const String notificationKey = 'notification';
 
+  // Config
+  static const int cacheValidHours = 48;
+  static const String shareAppUrl =
+      'https://hartvigsolutions.com/#util-master/download';
+
   static Future<void> init() async {
     final packageInfo = await PackageInfo.fromPlatform();
     appVersion = packageInfo.version;

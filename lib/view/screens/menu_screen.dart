@@ -1,6 +1,7 @@
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_launch_store/flutter_launch_store.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -39,25 +40,12 @@ class MenuScreen extends StatelessWidget {
                   ? Icons.check_box_outlined
                   : Icons.check_box_outline_blank_outlined,
             ),
-            /*MenuButton(
-              onTap: () {
-                debugPrint('Click');
-                Random random = Random();
-    String randomMap = Global.maps[random.nextInt(Global.maps.length)];
-    NotificationApi.showScheduledNotification(
-      title: 'Go practice now',
-      body: 'Check out this new smokes on $randomMap',
-      payload: randomMap,
-      scheduledDate: DateTime.now().add(Duration(seconds: 10)), //Test
-    );
-              },
-              title: 'Test notification',
-              icon: Icons.access_alarm,
-            ),*/ //Test only
             MenuButton(
               onTap: () {
-                SharePlus.instance.share(
-                    ShareParams(text: 'Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: http://utilmaster.wuaze.com/app'));
+                final shareUrl = Constants.shareAppUrl;
+                SharePlus.instance.share(ShareParams(
+                    text:
+                        'Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: $shareUrl'));
               },
               title: 'Share app',
               icon: Icons.share_outlined,
@@ -67,11 +55,13 @@ class MenuScreen extends StatelessWidget {
                 debugPrint('app id: ${Constants.iosId}');
                 try {
                   if (defaultTargetPlatform == TargetPlatform.iOS) {
-                    StoreLauncher.openWithStore(Constants.iosId).catchError((e) {
+                    StoreLauncher.openWithStore(Constants.iosId)
+                        .catchError((e) {
                       debugPrint('ERROR opening iOS App Store: $e');
                     });
                   } else if (defaultTargetPlatform == TargetPlatform.android) {
-                    StoreLauncher.openWithStore(Constants.androidId).catchError((e) {
+                    StoreLauncher.openWithStore(Constants.androidId)
+                        .catchError((e) {
                       debugPrint('ERROR opening Android Play Store: $e');
                     });
                   } else {

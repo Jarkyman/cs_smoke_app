@@ -59,7 +59,7 @@ class UtilViewModel extends ChangeNotifier {
   void toggleUtil(UtilType type, Team team) {
     _selectedType = type;
     _selectedTeam = team;
-    
+
     _isUtilSelected = false;
     _selectedUtil = null;
     notifyListeners();

@@ -15,18 +15,12 @@ class YoutubeControls extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          /*YoutubeVideoPositionSeekAndPlay(),
-          const SizedBox(height: 10);,*/ //TODO: Vriker som en ligegyldig ting at have, hvis showControles ikke kan slåes til på fullscreen
-          //PlayerStateSection(),
-          Container(
-            child: Text(
-              info.description,
-              style: TextStyle(
-                fontSize: context.font26,
-              ),
+          Text(
+            info.description,
+            style: TextStyle(
+              fontSize: context.font26,
             ),
           ),
-          //Spacer(),
         ],
       ),
     );

@@ -16,7 +16,6 @@ import '../../core/helper/notification_api.dart';
 import '../../core/models/enums.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
-
 class MapsScreen extends StatefulWidget {
   const MapsScreen({super.key});
 
@@ -54,7 +53,8 @@ class _MapsScreenState extends State<MapsScreen> {
   }
 
   void listenNotifications() {
-    _notificationSubscription = NotificationApi.onNotifications.stream.listen(onClickedNotification);
+    _notificationSubscription =
+        NotificationApi.onNotifications.stream.listen(onClickedNotification);
   }
 
   void onClickedNotification(String? payload) {

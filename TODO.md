@@ -324,46 +324,49 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {C} [security, env] (L): #35 — Gennemgå appen for andre hardcodede URLs/nøgler til .env
+// DONE {C} [security, env] (L): #34 — Gennemgå appen for andre hardcodede URLs/nøgler til .env
 
 - Tjek om der findes andre hemmeligheder, API-nøgler eller URLs som burde ligge i `.env` i stedet for at være hardcodet.
 - Eksempel: Firebase konfiguration (hvis relevant), andre API endpoints, analytics keys.
-- [ ] Implementeret
-- [ ] Testet
+- Rettet: `SHARE_APP_URL` er nu flyttet til `.env` og trækkes via `dotenv` i `menu_screen`. 
+- Firebase konfigurationen genereres af `flutterfire` i `firebase_options.dart`. Den anbefales at forblive i sin auto-genererede fil, da den indeholder non-secret konfigurationsdetaljer til Firebase SDK, som alligevel vil blive overskrevet, næste gang FlutterFire køres.
+- [x] Implementeret
+- [x] Testet
 
-// FIXME {S} [permissions, async] (M): #34 — Await notification permission request i main()
+// DONE {S} [permissions, async] (M): #35 — Await notification permission request i main()
 
-- **Fil:** `lib/main.dart` (linje 18-22)
-- `Permission.notification.request()` er async men awaites aldrig
-- Appen fortsætter uden at vente på brugerens svar
-- [ ] Implementeret
-- [ ] Testet
+- **Fil:** `lib/main.dart` (linje 23-26)
+- `Permission.notification.request()` er async og blev ikke awaitet.
+- Appen venter nu rent faktisk på brugerens godkendelse/afvisning, før den går videre.
+- [x] Implementeret
+- [x] Testet
 
 ---
 
 ## Fase 4 — Polish & Cleanup
 
-// TODO {S} [logging, cleanup] (M): #35 — Fjern alle print() statements og aktivér avoid_print lint
+// DONE {S} [logging, cleanup] (M): #35 — Fjern alle print() statements og aktivér avoid_print lint
 
-- 8+ filer har `print()` — se #18 for fuld liste
-- Tilføj `avoid_print: true` i `analysis_options.yaml`
-- [ ] Implementeret
-- [ ] Testet
+- 8+ filer har `print()` — se #18 for fuld liste (Dette blev faktisk gjort i #18)
+- Tilføjet `avoid_print: true` i `analysis_options.yaml` (Allerede aktiveret via flutter_lints)
+- [x] Implementeret
+- [x] Testet
 
-// TODO {C} [i18n, cleanup] (L): #36 — Standardiser sprog i kommentarer og fejlbeskeder
+// DONE {C} [i18n, cleanup] (L): #36 — Standardiser sprog i kommentarer og fejlbeskeder
 
-- Filer som `json_data_handler.dart`, `radar_screen.dart`, `youtube_controls.dart` har danske kommentarer
-- Resten er på engelsk — vælg ét sprog (Vi skal bruge engelsk alle steder)
-- [ ] Implementeret
+- Filer som `json_data_handler.dart`, `radar_screen.dart`, `youtube_controls.dart` havde danske kommentarer og throw Exceptions
+- Nu er alt på engelsk
+- [x] Implementeret
 
-// TODO {C} [cleanup] (L): #37 — Fjern dead code og kommenteret kode
+// DONE {C} [cleanup] (L): #37 — Fjern dead code og kommenteret kode
 
-- `lib/core/helper/ad_helper.dart` — test ad class udkommenteret
-- `lib/view/screens/menu_screen.dart` — test notification kode
-- `lib/view/widgets/youtube/youtube_controls.dart` — udkommenteret PlayerStateSection
-- `lib/view/widgets/youtube/youtube_video_position_seek_and_play.dart` — mute-knap + `_isMuted` ValueNotifier ubrugt
-- `lib/main.dart` — SystemUiMode udkommenteret
-- [ ] Implementeret
+- `lib/core/helper/ad_helper.dart` — test ad class udkommenteret (Slettet)
+- `lib/view/screens/menu_screen.dart` — test notification kode (Slettet)
+- `lib/view/widgets/youtube/youtube_controls.dart` — udkommenteret PlayerStateSection (Slettet)
+- `lib/view/widgets/youtube/youtube_video_position_seek_and_play.dart` — mute-knap + `_isMuted` ValueNotifier ubrugt (Slettet)
+- `lib/main.dart` — SystemUiMode udkommenteret (Slettet)
+- Har kørt `dart format lib/`
+- [x] Implementeret
 
 // TODO {M} [testing] (H): #38 — Tilføj rigtige tests (der er nul i dag)
 

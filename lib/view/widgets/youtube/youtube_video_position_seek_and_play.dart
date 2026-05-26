@@ -3,9 +3,7 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 ///
 class YoutubeVideoPositionSeekAndPlay extends StatelessWidget {
-  ///
-  YoutubeVideoPositionSeekAndPlay({super.key});
-  final ValueNotifier<bool> _isMuted = ValueNotifier(false);
+  const YoutubeVideoPositionSeekAndPlay({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -61,20 +59,6 @@ class YoutubeVideoPositionSeekAndPlay extends StatelessWidget {
             },
           ),
         ),
-        /*ValueListenableBuilder<bool>(
-          valueListenable: _isMuted,
-          builder: (context, isMuted, _) {
-            return IconButton(
-              icon: Icon(isMuted ? Icons.volume_off : Icons.volume_up),
-              onPressed: () {
-                _isMuted.value = !isMuted;
-                isMuted
-                    ? context.ytController.unMute()
-                    : context.ytController.mute();
-              },
-            );
-          },
-        ),*/
       ],
     );
   }

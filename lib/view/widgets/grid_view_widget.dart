@@ -90,12 +90,15 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                           utilViewModel.reset();
                                         },
                                         child: SizedBox(
-                                          height: radarViewModel.utilScale(context),
-                                          width: radarViewModel.utilScale(context),
+                                          height:
+                                              radarViewModel.utilScale(context),
+                                          width:
+                                              radarViewModel.utilScale(context),
                                           child: Center(
                                             child: Image.asset(
                                               'assets/icons/${utilViewModel.selectedUtil!.name}.png',
-                                              width: radarViewModel.utilScale(context),
+                                              width: radarViewModel
+                                                  .utilScale(context),
                                             ),
                                           ),
                                         ),
@@ -133,17 +136,19 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                               );
                                             },
                                             child: SizedBox(
-                                              height: radarViewModel.posScale(context),
-                                              width: radarViewModel.posScale(context),
+                                              height: radarViewModel
+                                                  .posScale(context),
+                                              width: radarViewModel
+                                                  .posScale(context),
                                               child: Center(
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(8),
                                                   child: Container(
-                                                    height:
-                                                        radarViewModel.posScale(context),
-                                                    width:
-                                                        radarViewModel.posScale(context),
+                                                    height: radarViewModel
+                                                        .posScale(context),
+                                                    width: radarViewModel
+                                                        .posScale(context),
                                                     color: utilViewModel.isT
                                                         ? Colors.red
                                                         : Colors.blue,
@@ -179,12 +184,15 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                           });
                                         },
                                         child: SizedBox(
-                                          height: radarViewModel.utilScale(context),
-                                          width: radarViewModel.utilScale(context),
+                                          height:
+                                              radarViewModel.utilScale(context),
+                                          width:
+                                              radarViewModel.utilScale(context),
                                           child: Center(
                                             child: Image.asset(
                                               'assets/icons/${tileSmokes[idx].name}.png',
-                                              width: radarViewModel.utilScale(context),
+                                              width: radarViewModel
+                                                  .utilScale(context),
                                             ),
                                           ),
                                         ),

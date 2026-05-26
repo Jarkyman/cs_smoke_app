@@ -3,7 +3,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../helper/ad_helper.dart';
 
-
 class AdViewModel extends ChangeNotifier {
   BannerAd? _bannerAd;
   NativeAd? _nativeAd;

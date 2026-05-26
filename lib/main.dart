@@ -21,11 +21,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await Permission.notification.isDenied.then((value) {
-    if (value) {
-      Permission.notification.request();
-    }
-  });
+  final bool isDenied = await Permission.notification.isDenied;
+  if (isDenied) {
+    await Permission.notification.request();
+  }
   await MobileAds.instance.initialize().then((initializationStatus) {
     initializationStatus.adapterStatuses.forEach((key, value) {
       debugPrint('Adapter status for $key: ${value.description}');
@@ -34,7 +33,6 @@ void main() async {
   await Review.rateMyApp.init();
   await Constants.init();
   tz.initializeTimeZones();
-  //SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

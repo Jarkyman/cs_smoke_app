@@ -14,7 +14,6 @@ import '../widgets/buttons/icon_button_close.dart';
 import '../widgets/buttons/rectangle_button.dart';
 import '../widgets/grid_view_widget.dart';
 
-
 class RadarScreen extends StatefulWidget {
   const RadarScreen({super.key});
 
@@ -84,14 +83,15 @@ class _RadarScreenState extends State<RadarScreen> {
                   alignment: Alignment.bottomCenter,
                   child: AnimatedContainer(
                     duration: Duration(
-                        milliseconds: 500), // Angiv varigheden af animationen
-                    curve: Curves.easeInOut, // Kurven for animationen
+                        milliseconds:
+                            500), // Specify the duration of the animation
+                    curve: Curves.easeInOut, // The curve for the animation
                     height: utilViewModel.showNames
                         ? context.screenHeight - bannerHeight
                         : context.screenHeight -
                             (context.height20 * 12) -
-                            bannerHeight, // Højden vil variere mellem disse to værdier
-                    // Indsæt andre nødvendige egenskaber for containeren
+                            bannerHeight, // The height will vary between these two values
+                    // Insert other necessary properties for the container
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(context.radius20 * 2),

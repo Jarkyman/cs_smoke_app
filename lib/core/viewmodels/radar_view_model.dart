@@ -54,7 +54,8 @@ class RadarViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void handleDragScalePositionUpdate(ScaleUpdateDetails details, BuildContext context) {
+  void handleDragScalePositionUpdate(
+      ScaleUpdateDetails details, BuildContext context) {
     if (scale > 4.0) {
       _posScale = (context.position / 2); // Minimumsværdien for posScale
     } else {
@@ -65,7 +66,8 @@ class RadarViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void handleDragScaleUtilUpdate(ScaleUpdateDetails details, BuildContext context) {
+  void handleDragScaleUtilUpdate(
+      ScaleUpdateDetails details, BuildContext context) {
     if (scale > 4.0) {
       _utilScale = (context.utility / 2); // Minimumsværdien for posScale
     } else {
