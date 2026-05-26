@@ -439,16 +439,20 @@
 
 ## Fase 5 — Fremtidige / Extra Tasks
 
-// TODO {M} [UI, UX] (H): #47 — Add Cashe map to callouts, map logo, maps, radar.
+// DONE {M} [UI, UX] (H): #47 — Add Cache map to callouts, map logo, maps, radar.
 
 // TODO {M} [Feature] (H): #49 — Add yor own vidoe from instagram, youtube, tiktok, etc. to map. This need to be specified in a bigger refactor plan.
 
-// TODO {M} [UI, UX] (H): #51 — Add a splash/launcher screen native for Android and iOS.
+// DONE {M} [UI, UX] (H): #51 — Add a splash/launcher screen native for Android and iOS.
+
+- [x] Tilføjet `flutter_native_splash` og genereret native splash-skærm for både iOS og Android baseret på din HSL tailormade baggrundsfarve `#02010F` og dit højopløselige `Logo.png` asset.
 
 // DONE {S} [audio] (M): #52 — Add sound to notification. Find sound to use.
+
 - [x] Konfigureret med nem placeholder support i `NotificationApi` (lyd-filer klar til drop-in i raw/ og Resources/)
 
 // DONE {M} [performance] (H): #53 — Investigate/fix Android "Skipped 52 frames! The application may be doing too much work on its main thread." on startup.
+
 - [x] Omskrevet `main()` til at køre tunge SDK initialiseringer (MobileAds, Review, Constants, Timezones) asynkront i baggrunden uden at blokere den første frame
 - [x] Flyttet anmodning om notifikationstilladelse til post-frame callback for at undgå sort skærm ved opstart
 
