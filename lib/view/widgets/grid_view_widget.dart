@@ -85,20 +85,25 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                             utilViewModel
                                                 .selectedUtil!.position[1],
                                       ),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          utilViewModel.reset();
-                                        },
-                                        child: SizedBox(
-                                          height:
-                                              radarViewModel.utilScale(context),
-                                          width:
-                                              radarViewModel.utilScale(context),
-                                          child: Center(
-                                            child: Image.asset(
-                                              'assets/icons/${utilViewModel.selectedUtil!.name}.png',
-                                              width: radarViewModel
-                                                  .utilScale(context),
+                                      child: Semantics(
+                                        button: true,
+                                        label:
+                                            'Deselect ${utilViewModel.selectedUtil!.description} ${utilViewModel.selectedUtil!.name}',
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            utilViewModel.reset();
+                                          },
+                                          child: SizedBox(
+                                            height: radarViewModel
+                                                .utilScale(context),
+                                            width: radarViewModel
+                                                .utilScale(context),
+                                            child: Center(
+                                              child: Image.asset(
+                                                'assets/icons/${utilViewModel.selectedUtil!.name}.png',
+                                                width: radarViewModel
+                                                    .utilScale(context),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -121,37 +126,43 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                                 utilViewModel.selectedUtil!
                                                     .stands[idx].position[1],
                                           ),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const InfoScreen(),
-                                                  settings: RouteSettings(
-                                                      arguments: utilViewModel
-                                                          .selectedUtil!
-                                                          .stands[idx]),
-                                                ),
-                                              );
-                                            },
-                                            child: SizedBox(
-                                              height: radarViewModel
-                                                  .posScale(context),
-                                              width: radarViewModel
-                                                  .posScale(context),
-                                              child: Center(
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                  child: Container(
-                                                    height: radarViewModel
-                                                        .posScale(context),
-                                                    width: radarViewModel
-                                                        .posScale(context),
-                                                    color: utilViewModel.isT
-                                                        ? Colors.red
-                                                        : Colors.blue,
+                                          child: Semantics(
+                                            button: true,
+                                            label:
+                                                'Throw position: ${utilViewModel.selectedUtil!.stands[idx].description}',
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const InfoScreen(),
+                                                    settings: RouteSettings(
+                                                        arguments: utilViewModel
+                                                            .selectedUtil!
+                                                            .stands[idx]),
+                                                  ),
+                                                );
+                                              },
+                                              child: SizedBox(
+                                                height: radarViewModel
+                                                    .posScale(context),
+                                                width: radarViewModel
+                                                    .posScale(context),
+                                                child: Center(
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    child: Container(
+                                                      height: radarViewModel
+                                                          .posScale(context),
+                                                      width: radarViewModel
+                                                          .posScale(context),
+                                                      color: utilViewModel.isT
+                                                          ? Colors.red
+                                                          : Colors.blue,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -176,23 +187,28 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                         context.screenWidth *
                                             tileSmokes[idx].position[1],
                                       ),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            utilViewModel
-                                                .selectUtil(tileSmokes[idx]);
-                                          });
-                                        },
-                                        child: SizedBox(
-                                          height:
-                                              radarViewModel.utilScale(context),
-                                          width:
-                                              radarViewModel.utilScale(context),
-                                          child: Center(
-                                            child: Image.asset(
-                                              'assets/icons/${tileSmokes[idx].name}.png',
-                                              width: radarViewModel
-                                                  .utilScale(context),
+                                      child: Semantics(
+                                        button: true,
+                                        label:
+                                            'Select ${tileSmokes[idx].description} ${tileSmokes[idx].name}',
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              utilViewModel
+                                                  .selectUtil(tileSmokes[idx]);
+                                            });
+                                          },
+                                          child: SizedBox(
+                                            height: radarViewModel
+                                                .utilScale(context),
+                                            width: radarViewModel
+                                                .utilScale(context),
+                                            child: Center(
+                                              child: Image.asset(
+                                                'assets/icons/${tileSmokes[idx].name}.png',
+                                                width: radarViewModel
+                                                    .utilScale(context),
+                                              ),
                                             ),
                                           ),
                                         ),

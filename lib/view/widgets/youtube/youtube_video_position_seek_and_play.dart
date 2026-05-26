@@ -14,6 +14,8 @@ class YoutubeVideoPositionSeekAndPlay extends StatelessWidget {
         YoutubeValueBuilder(
           builder: (context, value) {
             return IconButton(
+              tooltip:
+                  value.playerState == PlayerState.playing ? 'Pause' : 'Play',
               icon: Icon(
                 value.playerState == PlayerState.playing
                     ? Icons.pause

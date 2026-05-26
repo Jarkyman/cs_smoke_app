@@ -93,6 +93,7 @@ class _MapsScreenState extends State<MapsScreen> {
         ),
         actions: [
           IconButton(
+            tooltip: 'Menu',
             onPressed: () {
               Navigator.push(
                 context,
@@ -111,47 +112,51 @@ class _MapsScreenState extends State<MapsScreen> {
       body: ListView.builder(
         itemCount: Global.maps.length,
         itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            onTap: () async {
-              radarViewModel.reset();
-              utilViewModel.reset();
-              utilViewModel.toggleUtil(UtilType.smoke, Team.t);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const RadarScreen(),
-                  settings: RouteSettings(
-                    arguments: Global.maps[index],
+          return Semantics(
+            button: true,
+            label: 'Open map ${Global.maps[index]}',
+            child: GestureDetector(
+              onTap: () async {
+                radarViewModel.reset();
+                utilViewModel.reset();
+                utilViewModel.toggleUtil(UtilType.smoke, Team.t);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RadarScreen(),
+                    settings: RouteSettings(
+                      arguments: Global.maps[index],
+                    ),
+                  ),
+                );
+                await FirebaseAnalytics.instance.logEvent(
+                  name: Global.maps[index],
+                );
+              },
+              child: Container(
+                height: context.height20 * 8,
+                margin: EdgeInsets.all(context.height10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(context.radius28),
+                  image: DecorationImage(
+                    colorFilter: const ColorFilter.mode(
+                        Colors.black38, BlendMode.overlay),
+                    image: AssetImage(
+                        'assets/img/maps/CS2_${Global.maps[index].toLowerCase()}_map.png'),
+                    fit: BoxFit.cover,
                   ),
                 ),
-              );
-              await FirebaseAnalytics.instance.logEvent(
-                name: Global.maps[index],
-              );
-            },
-            child: Container(
-              height: context.height20 * 8,
-              margin: EdgeInsets.all(context.height10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(context.radius28),
-                image: DecorationImage(
-                  colorFilter:
-                      const ColorFilter.mode(Colors.black38, BlendMode.overlay),
-                  image: AssetImage(
-                      'assets/img/maps/CS2_${Global.maps[index].toLowerCase()}_map.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Center(
-                child: BorderedText(
-                  strokeWidth: context.stroke4,
-                  strokeColor: Colors.black,
-                  child: Text(
-                    Global.maps[index],
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: context.font48,
-                      fontWeight: FontWeight.w700,
+                child: Center(
+                  child: BorderedText(
+                    strokeWidth: context.stroke4,
+                    strokeColor: Colors.black,
+                    child: Text(
+                      Global.maps[index],
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: context.font48,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
                 ),

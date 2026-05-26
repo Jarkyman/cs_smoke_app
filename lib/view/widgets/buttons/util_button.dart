@@ -25,22 +25,31 @@ class UtilButton extends StatelessWidget {
               : Colors.red.withValues(alpha: 0.4)
           : Colors.grey.withValues(alpha: 0.4),
       borderRadius: BorderRadius.circular(context.radius8),
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(context.radius8),
-        child: Container(
-          height: context.height20 * 2,
-          width: context.height20 * 2,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(context.radius8),
-            border: Border.all(
-              color: Colors.grey,
-              width: context.stroke2,
+      child: Semantics(
+        button: true,
+        label: imagePath.contains('smoke')
+            ? 'Smoke'
+            : imagePath.contains('flash')
+                ? 'Flashbang'
+                : 'Molotov',
+        selected: isSelected,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(context.radius8),
+          child: Container(
+            height: context.height20 * 2,
+            width: context.height20 * 2,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(context.radius8),
+              border: Border.all(
+                color: Colors.grey,
+                width: context.stroke2,
+              ),
             ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(context.height8 / 2),
-            child: Image.asset(imagePath),
+            child: Padding(
+              padding: EdgeInsets.all(context.height8 / 2),
+              child: Image.asset(imagePath),
+            ),
           ),
         ),
       ),

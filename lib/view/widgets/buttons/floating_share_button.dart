@@ -16,6 +16,7 @@ class FloatingShareButton extends StatelessWidget {
       height: context.height56,
       child: FittedBox(
         child: FloatingActionButton(
+          tooltip: 'Share',
           onPressed: onTap,
           shape: RoundedRectangleBorder(
             side: BorderSide(

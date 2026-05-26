@@ -60,16 +60,19 @@ class RawGestureDetectorWidget extends StatelessWidget {
         0.0,
       ));
 
-    return RawGestureDetector(
-      gestures: gestures,
-      child: Container(
-        color: Global.bgColor,
-        child: Transform(
-          alignment: alignment,
-          transform: transform,
-          child: ScrollConfiguration(
-            behavior: RemoveScrollGlow(),
-            child: child,
+    return Semantics(
+      label: 'Interactive map. Pinch to zoom, drag to pan.',
+      child: RawGestureDetector(
+        gestures: gestures,
+        child: Container(
+          color: Global.bgColor,
+          child: Transform(
+            alignment: alignment,
+            transform: transform,
+            child: ScrollConfiguration(
+              behavior: RemoveScrollGlow(),
+              child: child,
+            ),
           ),
         ),
       ),

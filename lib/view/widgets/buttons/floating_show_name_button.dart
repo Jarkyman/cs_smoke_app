@@ -20,6 +20,7 @@ class FloatingShowNameButton extends StatelessWidget {
         height: context.height56,
         child: FittedBox(
           child: FloatingActionButton(
+            tooltip: 'Show/Hide names',
             onPressed: onTap,
             shape: RoundedRectangleBorder(
               side: BorderSide(
