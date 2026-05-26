@@ -5,19 +5,21 @@ class SkewedClipper extends CustomClipper<Path> {
 
   SkewedClipper(this.skewLeft);
 
+  /// The default skew amount for clipping.
+  /// The overlap between the two AppBarCards is 56 pixels (28 pixels each).
+  /// Using a fixed skewAmount slightly larger than the overlap (e.g. 58)
+  /// creates a perfectly parallel 2 pixel gap on all screen sizes.
+  static const double defaultSkewAmount = 58.0;
+
   @override
   Path getClip(Size size) {
     Path path = Path();
-    // The overlap between the two AppBarCards is 56 pixels (28 pixels each).
-    // Using a fixed skewAmount slightly larger than the overlap (e.g. 58)
-    // creates a perfectly parallel 2 pixel gap on all screen sizes.
-    double skewAmount = 58.0;
     if (skewLeft) {
       path.lineTo(0, size.height);
       path.lineTo(size.width, size.height);
-      path.lineTo(size.width - skewAmount, 0);
+      path.lineTo(size.width - defaultSkewAmount, 0);
     } else {
-      path.lineTo(skewAmount, size.height);
+      path.lineTo(defaultSkewAmount, size.height);
       path.lineTo(size.width, size.height);
       path.lineTo(size.width, 0);
     }

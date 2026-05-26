@@ -2,10 +2,19 @@ import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:flutter/cupertino.dart';
 
 class RadarViewModel extends ChangeNotifier {
-  double _scale = 1.0;
+  /// The minimum scale limit for the interactive map (1.0 = no zoom).
+  static const double minScale = 1.0;
+
+  /// The threshold at which the map is considered "zoomed in" (2.0 = 2x zoom).
+  static const double scaleThreshold = 2.0;
+
+  /// The maximum scale limit for the interactive map (4.0 = 4x zoom).
+  static const double maxScale = 4.0;
+
+  double _scale = minScale;
   double? _posScale;
   double? _utilScale;
-  double _previousScale = 1.0;
+  double _previousScale = minScale;
   Pos _pos = Pos(0.0, 0.0);
   Pos _previousPos = Pos(0.0, 0.0);
   Pos _endPos = Pos(0.0, 0.0);
@@ -37,16 +46,16 @@ class RadarViewModel extends ChangeNotifier {
 
   void handleDragScaleUpdate(ScaleUpdateDetails details) {
     _scale = _previousScale * details.scale;
-    if (_scale > 2.0) {
+    if (_scale > scaleThreshold) {
       _isScaled = true;
     } else {
       _isScaled = false;
     }
 
-    if (_scale < 1.0) {
-      _scale = 1.0;
-    } else if (_scale > 4.0) {
-      _scale = 4.0;
+    if (_scale < minScale) {
+      _scale = minScale;
+    } else if (_scale > maxScale) {
+      _scale = maxScale;
     } else if (_previousScale == _scale) {
       _pos.x = (details.focalPoint.dx / _scale) - _previousPos.x;
       _pos.y = (details.focalPoint.dy / _scale) - _previousPos.y;
@@ -56,11 +65,11 @@ class RadarViewModel extends ChangeNotifier {
 
   void handleDragScalePositionUpdate(
       ScaleUpdateDetails details, BuildContext context) {
-    if (scale > 4.0) {
+    if (scale > maxScale) {
       _posScale = (context.position / 2); // Minimumsværdien for posScale
     } else {
       // Beregn posScale baseret på en lineær sammenhæng med scale
-      _posScale = _interpolate(scale, 1, context.position, 4,
+      _posScale = _interpolate(scale, minScale, context.position, maxScale,
           (context.position / 2)); // Justér efter behov
     }
     notifyListeners();
@@ -68,11 +77,11 @@ class RadarViewModel extends ChangeNotifier {
 
   void handleDragScaleUtilUpdate(
       ScaleUpdateDetails details, BuildContext context) {
-    if (scale > 4.0) {
+    if (scale > maxScale) {
       _utilScale = (context.utility / 2); // Minimumsværdien for posScale
     } else {
       // Beregn posScale baseret på en lineær sammenhæng med scale
-      _utilScale = _interpolate(scale, 1, context.utility, 4,
+      _utilScale = _interpolate(scale, minScale, context.utility, maxScale,
           (context.utility / 2)); // Justér efter behov
     }
     notifyListeners();
@@ -83,10 +92,10 @@ class RadarViewModel extends ChangeNotifier {
   }
 
   void reset() {
-    _scale = 1.0;
+    _scale = minScale;
     _posScale = null;
     _utilScale = null;
-    _previousScale = 1.0;
+    _previousScale = minScale;
     _pos = Pos(0.0, 0.0);
     _previousPos = Pos(0.0, 0.0);
     _endPos = Pos(0.0, 0.0);
@@ -95,7 +104,7 @@ class RadarViewModel extends ChangeNotifier {
   }
 
   void handleDragScaleEnd() {
-    _previousScale = 1.0;
+    _previousScale = minScale;
     _endPos = _pos;
     notifyListeners();
   }

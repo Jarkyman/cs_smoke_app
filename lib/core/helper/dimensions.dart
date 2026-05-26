@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 
 extension Dimensions on BuildContext {
-  double get screenWidth => MediaQuery.sizeOf(this).width; // 390 iPhone 12
-  double get screenHeight => MediaQuery.sizeOf(this).height; // 844 iPhone 12
+  // --- Scale Divisors Logic ---
+  // The layout engine scales UI elements dynamically relative to the device screen size.
+  // The baseline design is based on an iPhone 11 (390.0 pixels wide and 844.0 pixels high).
+  //
+  // Formula for height/radius/font/icon divisor: 844.0 / desired_pixel_value
+  // - Example: height10 => screenHeight / (844.0 / 10.0) => screenHeight / 84.4
+  // - Example: height20 => screenHeight / (844.0 / 20.0) => screenHeight / 42.2
+  // - Example: height8  => screenHeight / (844.0 / 8.0)  => screenHeight / 105.5
+  //
+  // Formula for width divisor: 390.0 / desired_pixel_value
+  // - Example: width10  => screenWidth / (390.0 / 10.0)  => screenWidth / 39.0
+  // - Example: width20  => screenWidth / (390.0 / 20.0)  => screenWidth / 19.5
+  // ----------------------------
+
+  double get screenWidth => MediaQuery.sizeOf(this).width; // 390 iPhone 11
+  double get screenHeight => MediaQuery.sizeOf(this).height; // 844 iPhone 11
 
   //Dynamic height, padding and margin
   double get height8 => screenHeight / 105.5;

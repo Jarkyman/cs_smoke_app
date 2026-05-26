@@ -15,13 +15,17 @@ class AppBarCard extends StatelessWidget {
   final UtilViewModel utilViewModel;
   final bool isCt;
 
+  /// The horizontal overlap offset for each side of the team cards in the AppBar.
+  /// Together they overlap by 56 pixels (28 pixels each) to allow a slanted parallel cut.
+  static const double cardOverlapOffset = 28.0;
+
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: isCt ? Alignment.centerRight : Alignment.centerLeft,
       child: SizedBox(
         height: context.height20 * 13,
-        width: (context.screenWidth / 2) + 28,
+        width: (context.screenWidth / 2) + cardOverlapOffset,
         child: Stack(
           alignment: isCt ? Alignment.topRight : Alignment.topLeft,
           children: [
@@ -42,7 +46,7 @@ class AppBarCard extends StatelessWidget {
             ),
             SizedBox(
               height: context.height20 * 13,
-              width: (context.screenWidth / 2) + 28,
+              width: (context.screenWidth / 2) + cardOverlapOffset,
               child: ClipPath(
                 clipper: SkewedClipper(!isCt),
                 child: Container(

@@ -378,7 +378,7 @@
   - [ ] Model parsing fra JSON (edge cases)
   - [ ] Navigation mellem skærme
 
-// TODO {S} [a11y] (M): #39 — Tilføj accessibility labels på alle interaktive elementer
+// DONE {S} [a11y] (M): #39 — Tilføj accessibility labels på alle interaktive elementer
 
 - FloatingActionButtons mangler `tooltip`
 - GestureDetectors mangler `Semantics` wrapping
@@ -387,24 +387,24 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {C} [architecture] (L): #40 — Erstat custom Pos klasse med Flutters Offset
+// TODO {W} [architecture] (L): #40 — Erstat custom Pos klasse med Flutters Offset
 
 - **Fil:** `lib/core/viewmodels/radar_view_model.dart` (linje ~106)
 - Custom `Pos(x, y)` har utyped parametre (dynamic) — brug `Offset` i stedet
 - [ ] Implementeret
 
-// TODO {C} [cleanup] (L): #41 — Dokumentér magic numbers eller gør dem til named constants
+// DONE {C} [cleanup] (L): #41 — Dokumentér magic numbers eller gør dem til named constants
 
 - `lib/core/helper/dimensions.dart` — divisorer: 105.5, 84.4, 56.27, 70.333
 - `lib/core/viewmodels/radar_view_model.dart` — scale-limits: 2.0, 4.0
 - `lib/view/widgets/skewed_clipper.dart` — 60px hardcoded
 - `lib/view/widgets/appbar/app_bar_card.dart` — +28 offset
-- [ ] Implementeret
+- [x] Implementeret
 
-// TODO {S} [a11y, ux] (M): #42 — Tilføj Semantics/Tooltip til alle knapper og interaktive elementer
+// DONE {S} [a11y, ux] (M): #42 — Tilføj Semantics/Tooltip til alle knapper og interaktive elementer
 
 - Se #39 — ingen af appens elementer har accessibility labels
-- [ ] Implementeret
+- [x] Implementeret
 
 // TODO {S} [network, resilience] (M): #43 — Tilføj HTTP timeout på data-fetch
 
