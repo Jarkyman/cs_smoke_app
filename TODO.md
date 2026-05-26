@@ -180,13 +180,13 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {S} [logging] (M): #18 — Erstat print() med debugPrint()/log() i hele kodebasen
+// DONE {S} [logging] (M): #18 — Erstat print() med debugPrint()/log() i hele kodebasen
 
 - **Filer:** `ad_view_model.dart`, `json_data_handler.dart`, `info_screen.dart`, `maps_screen.dart`, `menu_screen.dart`, `radar_screen.dart`, `util_row.dart`, `utils.dart`
 - `print()` forbliver i release builds og kan lække information
 - Aktivér `avoid_print` lint-regel i `analysis_options.yaml`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
 // TODO {M} [state, architecture] (M): #19 — Tilføj loading/error states til ViewModels
 

@@ -11,6 +11,7 @@ import '../../core/helper/dimensions.dart';
 import '../../core/viewmodels/settings_view_model.dart';
 import '../widgets/buttons/menu_button.dart';
 
+
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
 
@@ -42,7 +43,7 @@ class MenuScreen extends StatelessWidget {
             ),
             /*MenuButton(
               onTap: () {
-                print('Click');
+                debugPrint('Click');
                 Random random = Random();
     String randomMap = Global.maps[random.nextInt(Global.maps.length)];
     NotificationApi.showScheduledNotification(
@@ -65,21 +66,21 @@ class MenuScreen extends StatelessWidget {
             ),
             MenuButton(
               onTap: () {
-                print('app id: ${Constants.IOS_ID}');
+                debugPrint('app id: ${Constants.IOS_ID}');
                 try {
                   if (Platform.isIOS) {
                     StoreLauncher.openWithStore(Constants.IOS_ID).catchError((e) {
-                      print('ERROR opening iOS App Store: $e');
+                      debugPrint('ERROR opening iOS App Store: $e');
                     });
                   } else if (Platform.isAndroid) {
                     StoreLauncher.openWithStore(Constants.ANDROID_ID).catchError((e) {
-                      print('ERROR opening Android Play Store: $e');
+                      debugPrint('ERROR opening Android Play Store: $e');
                     });
                   } else {
-                    print('Unsupported platform');
+                    debugPrint('Unsupported platform');
                   }
                 } catch (e) {
-                  print('An unexpected error occurred: $e');
+                  debugPrint('An unexpected error occurred: $e');
                 }
               },
               title: 'Rate app',

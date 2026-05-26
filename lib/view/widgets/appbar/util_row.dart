@@ -4,6 +4,7 @@ import '../../../core/helper/dimensions.dart';
 import '../../../core/viewmodels/util_view_model.dart';
 import '../buttons/util_button.dart';
 
+
 class UtilRow extends StatelessWidget {
   const UtilRow({
     super.key,
@@ -72,7 +73,7 @@ class UtilRow extends StatelessWidget {
                     isCt ? utilViewModel.isMolotovCt : utilViewModel.isMolotovT,
                 onTap: () {
                   if (isCt) {
-                    print('Click');
+                    debugPrint('Click');
                     utilViewModel.toggleUtil('molotovCt');
                   } else {
                     utilViewModel.toggleUtil('molotovT');

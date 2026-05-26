@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:cs_smoke_app/core/models/info_model.dart';
 import 'package:flutter/foundation.dart';
@@ -55,7 +55,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
     _controller.setFullScreenListener(
       (isFullScreen) {
-        log('${isFullScreen ? 'Entered' : 'Exited'} Fullscreen.');
+        debugPrint('${isFullScreen ? 'Entered' : 'Exited'} Fullscreen.');
       },
     );
     super.initState();
@@ -72,7 +72,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
   void printLog() async {
     String url = await _controller.videoEmbedCode;
-    print("VIDEO: ${url}");
+    debugPrint("VIDEO: ${url}");
   }
 
   @override
@@ -131,7 +131,7 @@ class _InfoScreenState extends State<InfoScreen> {
               if (info != null) {
                 String url = "https://www.youtube.com/watch?v=${info.videoId}";
                 if (url.isNotEmpty) {
-                  print("url = $url");
+                  debugPrint("url = $url");
                   await Share.share(
                       "Hey, I came across this amazing ${utilViewModel.selectedUtil!.name} guide on Util Master! Check it out:\n\n$url");
                 }

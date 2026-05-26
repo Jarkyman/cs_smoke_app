@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cs_smoke_app/core/models/util_model.dart'; // Importer UtilModel
+import 'package:flutter/foundation.dart';
+
 
 class JsonDataHandler {
   //static const String url = 'https://hartvigsolutions.com/mapdata.json';
@@ -10,7 +12,7 @@ class JsonDataHandler {
 
   // Hent JSON-data fra URL og gem det i SharedPreferences
   Future<bool> fetchAndSaveData() async {
-    print("Fetching data");
+    debugPrint("Fetching data");
     try {
       final response = await http.get(Uri.parse(url));
 
@@ -22,13 +24,13 @@ class JsonDataHandler {
         throw Exception('Fejl ved hentning af data');
       }
     } catch (e) {
-      print('Fejl: $e');
+      debugPrint('Fejl: $e');
       return false;
     }
   }
 
   Future<List<UtilModel>> loadData({int retryCount = 0}) async {
-    print("Loading data");
+    debugPrint("Loading data");
     final prefs = await SharedPreferences.getInstance();
     final jsonString = prefs.getString(storageKey);
 
@@ -52,7 +54,7 @@ class JsonDataHandler {
       }
     } else {
       if (retryCount >= 1) {
-        print("Kunne ikke hente data, returnerer tom liste");
+        debugPrint("Kunne ikke hente data, returnerer tom liste");
         return [];
       }
 

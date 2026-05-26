@@ -3,6 +3,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../helper/ad_helper.dart';
 
+
 class AdViewModel extends ChangeNotifier {
   BannerAd? _bannerAd;
   NativeAd? _nativeAd;
@@ -18,7 +19,7 @@ class AdViewModel extends ChangeNotifier {
           notifyListeners();
         },
         onAdFailedToLoad: (ad, err) {
-          print('Failed to load a banner ad: ${err.message}');
+          debugPrint('Failed to load a banner ad: ${err.message}');
           ad.dispose();
           notifyListeners();
         },

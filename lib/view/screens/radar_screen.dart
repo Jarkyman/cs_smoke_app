@@ -14,6 +14,7 @@ import '../widgets/buttons/icon_button_close.dart';
 import '../widgets/buttons/rectangle_button.dart';
 import '../widgets/grid_view_widget.dart';
 
+
 class RadarScreen extends StatefulWidget {
   const RadarScreen({super.key});
 
@@ -52,7 +53,7 @@ class _RadarScreenState extends State<RadarScreen> {
           });
         },
         onAdFailedToLoad: (ad, err) {
-          print('Failed to load a banner ad: ${err.message}');
+          debugPrint('Failed to load a banner ad: ${err.message}');
           ad.dispose();
           bannerHeight = 0;
         },

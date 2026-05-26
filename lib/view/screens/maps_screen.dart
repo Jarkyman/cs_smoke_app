@@ -16,6 +16,7 @@ import '../../core/helper/notification_api.dart';
 import '../../core/models/util_model.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
+
 class MapsScreen extends StatefulWidget {
   const MapsScreen({super.key});
 
@@ -57,7 +58,7 @@ class _MapsScreenState extends State<MapsScreen> {
   }
 
   void onClickedNotification(String? payload) {
-    print('GO to: $payload');
+    debugPrint('GO to: $payload');
     if (!mounted) return;
     Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => const RadarScreen(),
