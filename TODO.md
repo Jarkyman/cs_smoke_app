@@ -406,13 +406,13 @@
 - Se #39 — ingen af appens elementer har accessibility labels
 - [x] Implementeret
 
-// TODO {S} [network, resilience] (M): #43 — Tilføj HTTP timeout på data-fetch
+// DONE {S} [network, resilience] (M): #43 — Tilføj HTTP timeout på data-fetch
 
 - **Fil:** `lib/core/helper/json_data_handler.dart`
 - `http.get(Uri.parse(url))` har ingen timeout — kan hænge uendeligt
-- Brug `.timeout(Duration(seconds: 10))`
-- [ ] Implementeret
-- [ ] Testet
+- Brug `.timeout(Duration(seconds: 20))`
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {S} [android, config] (M): #44 — Ret Android namespace fra com.example til produktions-ID
 

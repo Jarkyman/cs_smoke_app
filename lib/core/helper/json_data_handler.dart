@@ -69,7 +69,8 @@ class JsonDataHandler {
   Future<bool> fetchAndSaveData() async {
     debugPrint("Fetching data from network...");
     try {
-      final response = await http.get(Uri.parse(url));
+      final response =
+          await http.get(Uri.parse(url)).timeout(const Duration(seconds: 20));
 
       if (response.statusCode == 200) {
         await _saveData(response.body);
