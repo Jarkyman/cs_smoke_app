@@ -17,6 +17,7 @@ dependencies:
   bordered_text: ^3.0.2
   firebase_core: ^4.9.0
   firebase_analytics: ^12.4.1
+  firebase_crashlytics: ^5.2.2
   share_plus: ^13.1.0
   url_launcher: ^6.3.1
   rate_my_app: ^2.4.0

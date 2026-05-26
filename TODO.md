@@ -456,11 +456,22 @@
 - [x] Omskrevet `main()` til at køre tunge SDK initialiseringer (MobileAds, Review, Constants, Timezones) asynkront i baggrunden uden at blokere den første frame
 - [x] Flyttet anmodning om notifikationstilladelse til post-frame callback for at undgå sort skærm ved opstart
 
-// TODO {S} [ads] (M): #54 — No native ad on info screen on Android device, investigate why.
+// DONE {S} [ads] (M): #54 — No native ad on info screen on Android device, investigate why.
+
+- [x] Root cause: emulator had outdated Google Play Services (found 231818044, required 252431000)
+- [x] Confirmed working on real device and updated emulator — code is correct
 
 // TODO {M} [backend] (H): #55 — User rating system (thumbs up/down on videos). Free backend (e.g., Firebase Firestore free tier, Supabase).
 
-// TODO {M} [analytics] (H): #56 — Optimize Google Analytics. Track active users, selected maps, ad clicks. Filter out default noise events like user_engagement, screen_view, session_start. Add Crashlytics.
+// DONE {M} [analytics] (H): #56 — Optimize Google Analytics. Track active users, selected maps, ad clicks. Filter out default noise events like user_engagement, screen_view, session_start. Add Crashlytics.
+
+- [x] Created `lib/core/helper/analytics_helper.dart` — centralized analytics service with structured events
+- [x] `map_selected` event: logged when user taps a map (replaces raw event name that broke Firebase naming rules)
+- [x] `util_selected` event: logged on smoke/flash/molotov toggle with util_type, team, map_name params
+- [x] `ad_clicked` event: logged via `onAdClicked` callback in NativeAdListener on InfoScreen
+- [x] Added `firebase_crashlytics: ^5.2.2` to pubspec.yaml
+- [x] Crashlytics wired up in `main.dart`: `FlutterError.onError` + `PlatformDispatcher.instance.onError`
+- [ ] Filter noise events (user_engagement, screen_view, session_start) in Firebase Console → Events → Manage
 
 // TODO {M} [i18n] (H): #57 — Language implementation using GetX. Supported: English, Russian, Turkish, Portuguese (BR), Chinese, Spanish, German, Polish, Danish, Swedish, Norwegian, Finnish, Mongolian, Romanian, Argentine.
 
@@ -489,13 +500,13 @@
 - [x] `rate_my_app` 2.3.2 → 2.4.0
 - [x] `shared_preferences` 2.5.3 → 2.5.5
 
-### ⚠️ Tjek status
+### ✅ Tjek status
 
-- [ ] `flutter_launch_store` 1.0.8 — tjek om denne pakke stadig vedligeholdes
-- [ ] `rxdart` 0.28.0 — up to date ✅
-- [ ] `url_launcher` 6.3.2 — up to date ✅
-- [ ] `flutter_lints` 6.0.0 — up to date ✅
-- [ ] `provider` 6.1.5+1 — up to date ✅
+- [x] `flutter_launch_store` 1.0.8 — stadig vedligeholdt ✅ (v1.0.8 udgivet juli 2024, inkl. Gradle-fixes)
+- [x] `rxdart` 0.28.0 — up to date ✅
+- [x] `url_launcher` 6.3.2 — up to date ✅
+- [x] `flutter_lints` 6.0.0 — up to date ✅
+- [x] `provider` 6.1.5+1 — up to date ✅
 
 > [!WARNING]
 > 9 packages har **breaking changes** — opdater dem én ad gangen og test grundigt efter hver opdatering. Start med `firebase_core` + `firebase_analytics` da mange andre packages afhænger af Firebase.

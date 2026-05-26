@@ -8,6 +8,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../core/helper/ad_helper.dart';
+import '../../core/helper/analytics_helper.dart';
 import '../../core/helper/review.dart';
 import '../../core/viewmodels/util_view_model.dart';
 import '../shared/global.dart';
@@ -96,10 +97,12 @@ class _InfoScreenState extends State<InfoScreen> {
           });
         },
         onAdFailedToLoad: (ad, error) {
-          // Dispose the ad here to free resources.
           debugPrint('$NativeAd failed to load: $error');
           ad.dispose();
           _nativeAd = null;
+        },
+        onAdClicked: (_) {
+          AnalyticsHelper.logNativeAdClicked();
         },
       ),
       request: const AdRequest(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/helper/analytics_helper.dart';
 import '../../../core/helper/dimensions.dart';
 import '../../../core/viewmodels/util_view_model.dart';
 import '../../../core/models/enums.dart';
@@ -18,6 +19,10 @@ class UtilRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final team = isCt ? Team.ct : Team.t;
+    final teamName = isCt ? 'ct' : 't';
+    // mapName is readable here since UtilRow lives inside RadarScreen's route
+    final mapName =
+        ModalRoute.of(context)?.settings.arguments as String? ?? '';
 
     return Stack(
       alignment: isCt ? Alignment.bottomRight : Alignment.bottomLeft,
@@ -44,6 +49,11 @@ class UtilRow extends StatelessWidget {
                       utilViewModel.isUtilTypeSelected(UtilType.smoke, team),
                   onTap: () {
                     utilViewModel.toggleUtil(UtilType.smoke, team);
+                    AnalyticsHelper.logUtilSelected(
+                      utilType: 'smoke',
+                      team: teamName,
+                      mapName: mapName,
+                    );
                   },
                   isCt: isCt,
                 ),
@@ -56,6 +66,11 @@ class UtilRow extends StatelessWidget {
                       utilViewModel.isUtilTypeSelected(UtilType.flash, team),
                   onTap: () {
                     utilViewModel.toggleUtil(UtilType.flash, team);
+                    AnalyticsHelper.logUtilSelected(
+                      utilType: 'flash',
+                      team: teamName,
+                      mapName: mapName,
+                    );
                   },
                   isCt: isCt,
                 ),
@@ -69,8 +84,12 @@ class UtilRow extends StatelessWidget {
                   isSelected:
                       utilViewModel.isUtilTypeSelected(UtilType.molotov, team),
                   onTap: () {
-                    debugPrint('Click');
                     utilViewModel.toggleUtil(UtilType.molotov, team);
+                    AnalyticsHelper.logUtilSelected(
+                      utilType: 'molotov',
+                      team: teamName,
+                      mapName: mapName,
+                    );
                   },
                   isCt: isCt,
                 ),
