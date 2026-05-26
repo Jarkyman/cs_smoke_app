@@ -283,15 +283,15 @@
 - [x] Implementeret
 - [x] Testet
 
-// TODO {S} [data, cache] (M): #29 — Tilføj cache-invalidering og TTL på JSON data
+// DONE {S} [data, cache] (M): #29 — Tilføj cache-invalidering og TTL på JSON data
 
 - **Fil:** `lib/core/helper/json_data_handler.dart`
 - GitHub Gist URL uden commit SHA — kan give forældet data
 - Cached data refreshes aldrig — ingen TTL
 - `SharedPreferences` bruges til potentielt stor JSON — har size-begrænsninger (~1MB Android)
-- Overvej at bruge lokal fil eller SQLite i stedet
-- [ ] Implementeret
-- [ ] Testet
+- Rettet: Data caches nu i filsystemet via path_provider (bortset fra web, hvor det forbliver i SharedPreferences). Tilføjet tjek af en timestamp, der invalidere cachen efter 48 timer.
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {S} [config, version] (M): #30 — Fix hardcoded app-version i Constants
 
@@ -317,10 +317,10 @@
 - [ ] Implementeret
 - [ ] Testet
 
-// FIXME {S} [lifecycle, bug] (M): #33 — Flyt SystemChrome.setPreferredOrientations ud af build()
+// TODO {C} [security, env] (L): #35 — Gennemgå appen for andre hardcodede URLs/nøgler til .env
 
-- **Fil:** `lib/main.dart` (linje 38-41)
-- Side-effect i `build()` — flyt til `initState()` eller `main()`
+- Tjek om der findes andre hemmeligheder, API-nøgler eller URLs som burde ligge i `.env` i stedet for at være hardcodet.
+- Eksempel: Firebase konfiguration (hvis relevant), andre API endpoints, analytics keys.
 - [ ] Implementeret
 - [ ] Testet
 
