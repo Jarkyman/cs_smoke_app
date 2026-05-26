@@ -6,5 +6,11 @@
   "visitYoutube": "YouTube-д зочлох",
   "goBack": "Буцах",
   "language": "Хэл",
-  "shareText": "Сайн уу! Би дөнгөж сая CS2 ур чадвараа сайжруулахад туслах энэхүү гайхалтай Util Master програмыг оллоо. \n\nЭндээс үзнэ үү: {shareUrl}"
+  "shareText": "Сайн уу! Би дөнгөж сая CS2 ур чадвараа сайжруулахад туслах энэхүү гайхалтай Util Master програмыг оллоо. \n\nЭндээс үзнэ үү: {shareUrl}",
+  "reportVideo": "Видеог мэдээлэх",
+  "outdatedVideo": "Хуучирсан видео",
+  "wrongData": "Буруу өгөгдөл",
+  "videoNotWorking": "Видео ажиллахгүй байна",
+  "submitReport": "Илгээх",
+  "reportSubmitted": "Тайлан илгээгдлээ"
 }

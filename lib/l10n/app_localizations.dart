@@ -175,6 +175,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hey there! I just discovered this amazing app, Util Master, that helps improve your CS2 skills. \n\nCheck it out here: {shareUrl}'**
   String shareText(String shareUrl);
+
+  /// No description provided for @reportVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Report Video'**
+  String get reportVideo;
+
+  /// No description provided for @outdatedVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Outdated video'**
+  String get outdatedVideo;
+
+  /// No description provided for @wrongData.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong data'**
+  String get wrongData;
+
+  /// No description provided for @videoNotWorking.
+  ///
+  /// In en, this message translates to:
+  /// **'Video does not work'**
+  String get videoNotWorking;
+
+  /// No description provided for @submitReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submitReport;
+
+  /// No description provided for @reportSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Report submitted'**
+  String get reportSubmitted;
 }
 
 class _AppLocalizationsDelegate

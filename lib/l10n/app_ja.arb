@@ -6,5 +6,11 @@
   "visitYoutube": "YouTubeを見る",
   "goBack": "戻る",
   "language": "言語",
-  "shareText": "こんにちは！CS2のスキルを向上させるのに役立つ素晴らしいアプリ「Util Master」を見つけました。\n\nここでチェックしてください：{shareUrl}"
+  "shareText": "こんにちは！CS2のスキルを向上させるのに役立つ素晴らしいアプリ「Util Master」を見つけました。\n\nここでチェックしてください：{shareUrl}",
+  "reportVideo": "動画を報告",
+  "outdatedVideo": "古い動画",
+  "wrongData": "間違ったデータ",
+  "videoNotWorking": "動画が再生できない",
+  "submitReport": "送信",
+  "reportSubmitted": "報告を送信しました"
 }

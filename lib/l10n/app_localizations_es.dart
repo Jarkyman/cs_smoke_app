@@ -33,4 +33,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String shareText(String shareUrl) {
     return '¡Hola! Acabo de descubrir esta increíble aplicación, Util Master, que te ayuda a mejorar tus habilidades en CS2. \n\nMírala aquí: $shareUrl';
   }
+
+  @override
+  String get reportVideo => 'Reportar video';
+
+  @override
+  String get outdatedVideo => 'Video desactualizado';
+
+  @override
+  String get wrongData => 'Datos incorrectos';
+
+  @override
+  String get videoNotWorking => 'El video no funciona';
+
+  @override
+  String get submitReport => 'Enviar';
+
+  @override
+  String get reportSubmitted => 'Reporte enviado';
 }

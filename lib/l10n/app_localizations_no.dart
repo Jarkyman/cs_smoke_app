@@ -33,4 +33,22 @@ class AppLocalizationsNo extends AppLocalizations {
   String shareText(String shareUrl) {
     return 'Hei! Jeg oppdaget nettopp denne fantastiske appen, Util Master, som hjelper deg med å forbedre CS2-ferdighetene dine. \n\nSjekk den ut her: $shareUrl';
   }
+
+  @override
+  String get reportVideo => 'Rapporter video';
+
+  @override
+  String get outdatedVideo => 'Utdatert video';
+
+  @override
+  String get wrongData => 'Feil data';
+
+  @override
+  String get videoNotWorking => 'Videoen fungerer ikke';
+
+  @override
+  String get submitReport => 'Send inn';
+
+  @override
+  String get reportSubmitted => 'Rapport sendt';
 }

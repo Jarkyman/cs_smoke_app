@@ -1,6 +1,8 @@
 import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
+import 'package:cs_smoke_app/core/viewmodels/rating_view_model.dart';
 import 'package:cs_smoke_app/view/screens/maps_screen.dart';
+import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -76,6 +78,8 @@ class MyApp extends StatelessWidget {
             create: (context) => UtilViewModel()),
         ChangeNotifierProvider<SettingsViewModel>(
             create: (context) => SettingsViewModel()),
+        ChangeNotifierProvider<RatingViewModel>(
+            create: (context) => RatingViewModel()),
       ],
       child: Consumer<SettingsViewModel>(
         builder: (context, settingsViewModel, child) {
@@ -83,7 +87,11 @@ class MyApp extends StatelessWidget {
             title: 'Util Master',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              colorScheme: ColorScheme.dark(),
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: Global.blue,
+                brightness: Brightness.dark,
+              ),
+              scaffoldBackgroundColor: Global.bgColor,
               useMaterial3: true,
             ),
             locale: settingsViewModel.locale,

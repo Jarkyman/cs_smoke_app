@@ -13,5 +13,11 @@
         "type": "String"
       }
     }
-  }
+  },
+  "reportVideo": "Report Video",
+  "outdatedVideo": "Outdated video",
+  "wrongData": "Wrong data",
+  "videoNotWorking": "Video does not work",
+  "submitReport": "Submit",
+  "reportSubmitted": "Report submitted"
 }

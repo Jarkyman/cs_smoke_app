@@ -6,5 +6,11 @@
   "visitYoutube": "Vieraile YouTubessa",
   "goBack": "Palaa",
   "language": "Kieli",
-  "shareText": "Hei! Löysin juuri tämän upean sovelluksen, Util Masterin, joka auttaa parantamaan CS2-taitojasi. \n\nKatso se täältä: {shareUrl}"
+  "shareText": "Hei! Löysin juuri tämän upean sovelluksen, Util Masterin, joka auttaa parantamaan CS2-taitojasi. \n\nKatso se täältä: {shareUrl}",
+  "reportVideo": "Ilmoita videosta",
+  "outdatedVideo": "Vanhentunut video",
+  "wrongData": "Väärät tiedot",
+  "videoNotWorking": "Video ei toimi",
+  "submitReport": "Lähetä",
+  "reportSubmitted": "Ilmoitus lähetetty"
 }

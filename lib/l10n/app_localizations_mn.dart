@@ -33,4 +33,22 @@ class AppLocalizationsMn extends AppLocalizations {
   String shareText(String shareUrl) {
     return 'Сайн уу! Би дөнгөж сая CS2 ур чадвараа сайжруулахад туслах энэхүү гайхалтай Util Master програмыг оллоо. \n\nЭндээс үзнэ үү: $shareUrl';
   }
+
+  @override
+  String get reportVideo => 'Видеог мэдээлэх';
+
+  @override
+  String get outdatedVideo => 'Хуучирсан видео';
+
+  @override
+  String get wrongData => 'Буруу өгөгдөл';
+
+  @override
+  String get videoNotWorking => 'Видео ажиллахгүй байна';
+
+  @override
+  String get submitReport => 'Илгээх';
+
+  @override
+  String get reportSubmitted => 'Тайлан илгээгдлээ';
 }

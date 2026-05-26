@@ -6,5 +6,11 @@
   "visitYoutube": "Besøg YouTube",
   "goBack": "Gå tilbage",
   "language": "Sprog",
-  "shareText": "Hej! Jeg har lige opdaget denne fantastiske app, Util Master, som hjælper med at forbedre dine CS2 skills. \n\nTjek den ud her: {shareUrl}"
+  "shareText": "Hej! Jeg har lige opdaget denne fantastiske app, Util Master, som hjælper med at forbedre dine CS2 skills. \n\nTjek den ud her: {shareUrl}",
+  "reportVideo": "Rapporter video",
+  "outdatedVideo": "Forældet video",
+  "wrongData": "Forkert data",
+  "videoNotWorking": "Videoen virker ikke",
+  "submitReport": "Indsend",
+  "reportSubmitted": "Rapport indsendt"
 }

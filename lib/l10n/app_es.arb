@@ -6,5 +6,11 @@
   "visitYoutube": "Visitar YouTube",
   "goBack": "Volver",
   "language": "Idioma",
-  "shareText": "¡Hola! Acabo de descubrir esta increíble aplicación, Util Master, que te ayuda a mejorar tus habilidades en CS2. \n\nMírala aquí: {shareUrl}"
+  "shareText": "¡Hola! Acabo de descubrir esta increíble aplicación, Util Master, que te ayuda a mejorar tus habilidades en CS2. \n\nMírala aquí: {shareUrl}",
+  "reportVideo": "Reportar video",
+  "outdatedVideo": "Video desactualizado",
+  "wrongData": "Datos incorrectos",
+  "videoNotWorking": "El video no funciona",
+  "submitReport": "Enviar",
+  "reportSubmitted": "Reporte enviado"
 }

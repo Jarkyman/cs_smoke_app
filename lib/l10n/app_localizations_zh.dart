@@ -33,4 +33,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String shareText(String shareUrl) {
     return '你好！我刚发现了一个很棒的应用程序，Util Master，它可以帮助提升你的CS2技能。\n\n在这里查看：$shareUrl';
   }
+
+  @override
+  String get reportVideo => '举报视频';
+
+  @override
+  String get outdatedVideo => '视频过时';
+
+  @override
+  String get wrongData => '数据错误';
+
+  @override
+  String get videoNotWorking => '视频无法播放';
+
+  @override
+  String get submitReport => '提交';
+
+  @override
+  String get reportSubmitted => '报告已提交';
 }

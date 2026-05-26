@@ -33,4 +33,22 @@ class AppLocalizationsDa extends AppLocalizations {
   String shareText(String shareUrl) {
     return 'Hej! Jeg har lige opdaget denne fantastiske app, Util Master, som hjælper med at forbedre dine CS2 skills. \n\nTjek den ud her: $shareUrl';
   }
+
+  @override
+  String get reportVideo => 'Rapporter video';
+
+  @override
+  String get outdatedVideo => 'Forældet video';
+
+  @override
+  String get wrongData => 'Forkert data';
+
+  @override
+  String get videoNotWorking => 'Videoen virker ikke';
+
+  @override
+  String get submitReport => 'Indsend';
+
+  @override
+  String get reportSubmitted => 'Rapport indsendt';
 }

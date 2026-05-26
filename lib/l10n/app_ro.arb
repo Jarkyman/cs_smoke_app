@@ -6,5 +6,11 @@
   "visitYoutube": "Vizitează YouTube",
   "goBack": "Înapoi",
   "language": "Limbă",
-  "shareText": "Salut! Tocmai am descoperit această aplicație uimitoare, Util Master, care te ajută să-ți îmbunătățești abilitățile în CS2. \n\nVerific-o aici: {shareUrl}"
+  "shareText": "Salut! Tocmai am descoperit această aplicație uimitoare, Util Master, care te ajută să-ți îmbunătățești abilitățile în CS2. \n\nVerific-o aici: {shareUrl}",
+  "reportVideo": "Raportează videoclipul",
+  "outdatedVideo": "Videoclip învechit",
+  "wrongData": "Date greșite",
+  "videoNotWorking": "Videoclipul nu funcționează",
+  "submitReport": "Trimite",
+  "reportSubmitted": "Raport trimis"
 }

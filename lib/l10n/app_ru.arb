@@ -6,5 +6,11 @@
   "visitYoutube": "Посетить YouTube",
   "goBack": "Назад",
   "language": "Язык",
-  "shareText": "Привет! Я только что нашел отличное приложение Util Master, которое помогает улучшить навыки в CS2. \n\nПосмотри здесь: {shareUrl}"
+  "shareText": "Привет! Я только что нашел отличное приложение Util Master, которое помогает улучшить навыки в CS2. \n\nПосмотри здесь: {shareUrl}",
+  "reportVideo": "Пожаловаться на видео",
+  "outdatedVideo": "Устаревшее видео",
+  "wrongData": "Неверные данные",
+  "videoNotWorking": "Видео не работает",
+  "submitReport": "Отправить",
+  "reportSubmitted": "Отчет отправлен"
 }

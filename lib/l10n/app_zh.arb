@@ -6,5 +6,11 @@
   "visitYoutube": "访问YouTube",
   "goBack": "返回",
   "language": "语言",
-  "shareText": "你好！我刚发现了一个很棒的应用程序，Util Master，它可以帮助提升你的CS2技能。\n\n在这里查看：{shareUrl}"
+  "shareText": "你好！我刚发现了一个很棒的应用程序，Util Master，它可以帮助提升你的CS2技能。\n\n在这里查看：{shareUrl}",
+  "reportVideo": "举报视频",
+  "outdatedVideo": "视频过时",
+  "wrongData": "数据错误",
+  "videoNotWorking": "视频无法播放",
+  "submitReport": "提交",
+  "reportSubmitted": "报告已提交"
 }

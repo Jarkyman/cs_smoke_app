@@ -33,4 +33,22 @@ class AppLocalizationsFi extends AppLocalizations {
   String shareText(String shareUrl) {
     return 'Hei! Löysin juuri tämän upean sovelluksen, Util Masterin, joka auttaa parantamaan CS2-taitojasi. \n\nKatso se täältä: $shareUrl';
   }
+
+  @override
+  String get reportVideo => 'Ilmoita videosta';
+
+  @override
+  String get outdatedVideo => 'Vanhentunut video';
+
+  @override
+  String get wrongData => 'Väärät tiedot';
+
+  @override
+  String get videoNotWorking => 'Video ei toimi';
+
+  @override
+  String get submitReport => 'Lähetä';
+
+  @override
+  String get reportSubmitted => 'Ilmoitus lähetetty';
 }
