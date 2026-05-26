@@ -328,7 +328,7 @@
 
 - Tjek om der findes andre hemmeligheder, API-nøgler eller URLs som burde ligge i `.env` i stedet for at være hardcodet.
 - Eksempel: Firebase konfiguration (hvis relevant), andre API endpoints, analytics keys.
-- Rettet: `SHARE_APP_URL` er nu flyttet til `.env` og trækkes via `dotenv` i `menu_screen`. 
+- Rettet: `SHARE_APP_URL` er nu flyttet til `.env` og trækkes via `dotenv` i `menu_screen`.
 - Firebase konfigurationen genereres af `flutterfire` i `firebase_options.dart`. Den anbefales at forblive i sin auto-genererede fil, da den indeholder non-secret konfigurationsdetaljer til Firebase SDK, som alligevel vil blive overskrevet, næste gang FlutterFire køres.
 - [x] Implementeret
 - [x] Testet
@@ -437,13 +437,25 @@
 
 ---
 
-## Fase 5 — Extra
+## Fase 5 — Fremtidige / Extra Tasks
 
 // TODO {M} [UI, UX] (H): #47 — Add Cashe map to callouts, map logo, maps, radar.
 
-// TODO {M} [] (H): #49 — Add yor own vidoe from instagram, youtube, tiktok, etc. to map. This need to be specified in a bigger refactor plan.
+// TODO {M} [Feature] (H): #49 — Add yor own vidoe from instagram, youtube, tiktok, etc. to map. This need to be specified in a bigger refactor plan.
 
-// TODO {M} [] (H): #51 — Add a splash/launcher screen native for Android and iOS.
+// TODO {M} [UI, UX] (H): #51 — Add a splash/launcher screen native for Android and iOS.
+
+// TODO {S} [audio] (M): #52 — Add sound to notification. Find sound to use.
+
+// TODO {M} [performance] (H): #53 — Investigate/fix Android "Skipped 52 frames! The application may be doing too much work on its main thread." on startup.
+
+// TODO {S} [ads] (M): #54 — No native ad on info screen on Android device, investigate why.
+
+// TODO {M} [backend] (H): #55 — User rating system (thumbs up/down on videos). Free backend (e.g., Firebase Firestore free tier, Supabase).
+
+// TODO {M} [analytics] (H): #56 — Optimize Google Analytics. Track active users, selected maps, ad clicks. Filter out default noise events like user_engagement, screen_view, session_start. Add Crashlytics.
+
+// TODO {M} [i18n] (H): #57 — Language implementation using GetX. Supported: English, Russian, Turkish, Portuguese (BR), Chinese, Spanish, German, Polish, Danish, Swedish, Norwegian, Finnish, Mongolian, Romanian, Argentine.
 
 ---
 
