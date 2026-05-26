@@ -274,13 +274,14 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {S} [ui, scroll] (M): #28 — Fix NeverScrollableScrollPhysics på indholdsområde i InfoScreen
+// DONE {S} [ui, scroll] (M): #28 — Fix NeverScrollableScrollPhysics på indholdsområde i InfoScreen
 
 - **Fil:** `lib/view/screens/info_screen.dart` (linje ~159)
 - `ListView` med `NeverScrollableScrollPhysics` — indhold under video kan ikke scrolles
 - Hvis skærmen er lille, er controls og ad afskåret
-- [ ] Implementeret
-- [ ] Testet
+- Rettet: `NeverScrollableScrollPhysics` fjernet, ListView'en ruller nu korrekt på alle skærmstørrelser.
+- [x] Implementeret
+- [x] Testet
 
 // TODO {S} [data, cache] (M): #29 — Tilføj cache-invalidering og TTL på JSON data
 

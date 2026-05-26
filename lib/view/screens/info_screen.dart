@@ -120,10 +120,9 @@ class _InfoScreenState extends State<InfoScreen> {
   Widget build(BuildContext context) {
     final utilViewModel = Provider.of<UtilViewModel>(context);
 
-    return YoutubePlayerScaffold(
+    return YoutubePlayerControllerProvider(
       controller: _controller,
-      builder: (context, player) {
-        return Scaffold(
+      child: Scaffold(
           backgroundColor: Global.bgColor,
           floatingActionButton: FloatingShareButton(
             onTap: () async {
@@ -140,6 +139,7 @@ class _InfoScreenState extends State<InfoScreen> {
           ),
           body: LayoutBuilder(
             builder: (context, constraints) {
+              final player = YoutubePlayer(controller: _controller);
               if (kIsWeb && constraints.maxWidth > 750) {
                 //TODO: if web is wanted, this need a fix and mission buttons.
                 return Row(
@@ -167,7 +167,6 @@ class _InfoScreenState extends State<InfoScreen> {
               return Stack(
                 children: [
                   ListView(
-                    physics: const NeverScrollableScrollPhysics(),
                     children: [
                       player,
                       const YoutubeVideoPositionIndicator(),
@@ -211,8 +210,7 @@ class _InfoScreenState extends State<InfoScreen> {
               );
             },
           ),
-        );
-      },
+        ),
     );
   }
 
