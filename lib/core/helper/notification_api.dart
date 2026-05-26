@@ -21,7 +21,7 @@ class NotificationApi {
   static Future _notificationDetails() async {
     //Sound skal ligge under android/app/main/res/raw/
     //Sound skal ligge under Runner/Resources/
-    const String _sound = 'Sound name'; //Do not include .wav on android
+    //const String _sound = 'Sound name'; //Do not include .wav on android
     return const NotificationDetails(
       android: AndroidNotificationDetails(
         'Util Master',

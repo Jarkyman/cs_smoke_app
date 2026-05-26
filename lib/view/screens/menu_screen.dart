@@ -1,7 +1,7 @@
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:flutter_launch_store/flutter_launch_store.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';

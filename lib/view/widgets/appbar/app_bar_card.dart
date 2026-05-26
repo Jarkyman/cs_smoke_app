@@ -19,7 +19,7 @@ class AppBarCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: isCt ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
+      child: SizedBox(
         height: context.height20 * 13,
         width: (context.screenWidth / 2) + 28,
         child: Stack(
@@ -40,7 +40,7 @@ class AppBarCard extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            SizedBox(
               height: context.height20 * 13,
               width: (context.screenWidth / 2) + 28,
               child: ClipPath(

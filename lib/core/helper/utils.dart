@@ -39,18 +39,18 @@ class Utils {
 
   static Future _launchWebOrYoutubeUrl(String url) async {
     if (Platform.isIOS) {
-      if (await canLaunchUrl(Uri.parse('youtube://' + url))) {
-        await launchUrl(Uri.parse('youtube://' + url));
+      if (await canLaunchUrl(Uri.parse('youtube://$url'))) {
+        await launchUrl(Uri.parse('youtube://$url'));
       } else {
-        if (await canLaunchUrl(Uri.parse('https://' + url))) {
-          await launchUrl(Uri.parse('https://' + url));
+        if (await canLaunchUrl(Uri.parse('https://$url'))) {
+          await launchUrl(Uri.parse('https://$url'));
         } else {
           //TODO: Error code for failed youtube open on iOS
         }
       }
     } else {
-      if (await canLaunchUrl(Uri.parse('https://' + url))) {
-        await launchUrl(Uri.parse('https://' + url));
+      if (await canLaunchUrl(Uri.parse('https://$url'))) {
+        await launchUrl(Uri.parse('https://$url'));
       } else {
         //TODO: Error code for failed youtube open app on Android
       }

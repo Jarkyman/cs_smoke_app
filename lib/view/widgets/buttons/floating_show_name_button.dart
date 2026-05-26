@@ -29,7 +29,7 @@ class FloatingShowNameButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(context.radius30),
             ),
             backgroundColor: Color(0xFF002259).withValues(alpha: 0.6),
-            child: Container(
+            child: SizedBox(
               width: context.iconSize32,
               child: Image.asset(
                 'assets/icons/map_icon.png',

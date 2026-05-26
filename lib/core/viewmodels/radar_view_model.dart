@@ -22,7 +22,7 @@ class RadarViewModel extends ChangeNotifier {
 
   bool _hasTouched = false;
   bool get hasTouched => _hasTouched;
-  set hasTouched(value) {
+  set hasTouched(bool value) {
     _hasTouched = value;
     notifyListeners();
   }
@@ -105,8 +105,5 @@ class Pos {
   double x = 0.0;
   double y = 0.0;
 
-  Pos(x, y) {
-    this.x = x;
-    this.y = y;
-  }
+  Pos(this.x, this.y);
 }

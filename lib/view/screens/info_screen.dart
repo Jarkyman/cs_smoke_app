@@ -70,7 +70,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
   void printLog() async {
     String url = await _controller.videoEmbedCode;
-    debugPrint("VIDEO: ${url}");
+    debugPrint("VIDEO: $url");
   }
 
   @override

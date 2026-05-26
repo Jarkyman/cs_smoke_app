@@ -9,7 +9,7 @@ import '../../core/models/util_model.dart';
 import '../../core/viewmodels/radar_view_model.dart';
 
 class GridViewWidget extends StatefulWidget {
-  GridViewWidget({Key? key, required this.mapName}) : super(key: key);
+  const GridViewWidget({super.key, required this.mapName});
   final String mapName;
 
   @override
@@ -25,7 +25,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
     final utilViewModel = Provider.of<UtilViewModel>(context);
     final radarViewModel = Provider.of<RadarViewModel>(context);
 
-    return Container(
+    return SizedBox(
       height: double.infinity,
       child: Center(
         child: GridView.builder(
@@ -73,7 +73,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                 utilViewModel.selectedUtil != null
                             ? Stack(
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     height: double.infinity,
                                     width: double.infinity,
                                     child: Transform.translate(
@@ -109,7 +109,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                                     children: List.generate(
                                         utilViewModel.selectedUtil!.stands
                                             .length, (idx) {
-                                      return Container(
+                                      return SizedBox(
                                         height: double.infinity,
                                         width: double.infinity,
                                         child: Transform.translate(
@@ -166,7 +166,7 @@ class _GridViewWidgetState extends State<GridViewWidget> {
                             : Stack(
                                 children:
                                     List.generate(tileSmokes.length, (idx) {
-                                  return Container(
+                                  return SizedBox(
                                     height: double.infinity,
                                     width: double.infinity,
                                     child: Transform.translate(

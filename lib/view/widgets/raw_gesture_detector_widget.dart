@@ -15,7 +15,7 @@ class RawGestureDetectorWidget extends StatelessWidget {
     final radarViewModel = Provider.of<RadarViewModel>(context);
     final Size size = MediaQuery.of(context).size;
 
-    final _gestures = {
+    final gestures = {
       DragAndScale: GestureRecognizerFactoryWithHandlers<DragAndScale>(
         () => DragAndScale(),
         (DragAndScale instance) {
@@ -35,7 +35,7 @@ class RawGestureDetectorWidget extends StatelessWidget {
       )
     };
 
-    final AlignmentGeometry _alignment = FractionalOffset.fromOffsetAndRect(
+    final AlignmentGeometry alignment = FractionalOffset.fromOffsetAndRect(
       Offset(
         size.width / 2.0,
         size.height / 2.0,
@@ -48,24 +48,25 @@ class RawGestureDetectorWidget extends StatelessWidget {
       ),
     );
 
-    final Matrix4 _transform = Matrix4.diagonal3(
+    final Matrix4 transform = Matrix4.diagonal3(
       Vector3(
         radarViewModel.scale,
         radarViewModel.scale,
         radarViewModel.scale,
       ),
-    )..translate(
+    )..translateByVector3(Vector3(
         radarViewModel.pos.x,
         radarViewModel.pos.y,
-      );
+        0.0,
+      ));
 
     return RawGestureDetector(
-      gestures: _gestures,
+      gestures: gestures,
       child: Container(
         color: Global.bgColor,
         child: Transform(
-          alignment: _alignment,
-          transform: _transform,
+          alignment: alignment,
+          transform: transform,
           child: ScrollConfiguration(
             behavior: RemoveScrollGlow(),
             child: child,
