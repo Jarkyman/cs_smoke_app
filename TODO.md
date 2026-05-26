@@ -248,31 +248,31 @@
 - [x] Implementeret
 - [x] Testet
 
-// FIXME {S} [widget, bug] (M): #25 — Fix SkewedClipper hardcoded 60px og shouldReclip
+// DONE {S} [widget, bug] (M): #25 — Fix SkewedClipper hardcoded 60px og shouldReclip
 
 - **Fil:** `lib/view/widgets/skewed_clipper.dart`
 - 60 pixels er hardcoded — ikke responsivt
 - `shouldReclip` returnerer altid `false` — clippen opdateres aldrig selv om `skewLeft` ændres
-- [ ] Implementeret
-- [ ] Testet
+- Implementeret med width procenter og korrekt shouldReclip
+- [x] Implementeret
+- [x] Testet
 
-// FIXME {S} [naming, convention] (M): #26 — Ret klasse-navne med lowercase til UpperCamelCase
+// DONE {S} [naming, convention] (M): #26 — Ret klasse-navne med lowercase til UpperCamelCase
 
 - **Filer:**
   - `lib/view/widgets/ads/ad_banner_widget.dart` — `adBannerWidget` → `AdBannerWidget`
   - `lib/view/widgets/ads/ad_native_widget.dart` — `adNativeWidget` → `AdNativeWidget`
-- [ ] Implementeret
-- [ ] Testet
+- [x] Implementeret
+- [x] Testet
 
-// FIXME {S} [ads, null-safety] (M): #27 — Fix nullable ad-felter der force-unwrappes med !
+// DONE {S} [ads, null-safety] (M): #27 — Fix nullable ad-felter der force-unwrappes med !
 
 - **Filer:**
   - `lib/view/widgets/ads/ad_banner_widget.dart`
   - `lib/view/widgets/ads/ad_native_widget.dart`
-- Constructoren tager `required BannerAd? bannerAd` (nullable) men bruger `_bannerAd!` (force-unwrap)
-- Gør enten parameteren non-nullable, eller håndter null-casen
-- [ ] Implementeret
-- [ ] Testet
+- Constructoren tager nu required, non-nullable parametre, som sikrer compiler-checks i resten af koden.
+- [x] Implementeret
+- [x] Testet
 
 // FIXME {S} [ui, scroll] (M): #28 — Fix NeverScrollableScrollPhysics på indholdsområde i InfoScreen
 

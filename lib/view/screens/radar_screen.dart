@@ -136,7 +136,7 @@ class _RadarScreenState extends State<RadarScreen> {
                   left: false,
                   right: false,
                   top: false,
-                  child: adBannerWidget(bannerAd: _bannerAd))
+                  child: AdBannerWidget(bannerAd: _bannerAd!))
               : Container(),
         ],
       ),

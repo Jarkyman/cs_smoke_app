@@ -8,12 +8,13 @@ class SkewedClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
+    double skewAmount = size.width * 0.25;
     if (skewLeft) {
       path.lineTo(0, size.height);
       path.lineTo(size.width, size.height);
-      path.lineTo(size.width - 60, 0);
+      path.lineTo(size.width - skewAmount, 0);
     } else {
-      path.lineTo(60, size.height);
+      path.lineTo(skewAmount, size.height);
       path.lineTo(size.width, size.height);
       path.lineTo(size.width, 0);
     }
@@ -23,6 +24,6 @@ class SkewedClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
+    return oldClipper is SkewedClipper && oldClipper.skewLeft != skewLeft;
   }
 }

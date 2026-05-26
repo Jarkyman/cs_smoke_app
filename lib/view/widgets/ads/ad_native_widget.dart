@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-class adNativeWidget extends StatelessWidget {
-  const adNativeWidget({
-    Key? key,
-    required NativeAd? nativeAd,
-  })  : _nativeAd = nativeAd,
-        super(key: key);
+class AdNativeWidget extends StatelessWidget {
+  const AdNativeWidget({
+    super.key,
+    required NativeAd nativeAd,
+  }) : _nativeAd = nativeAd;
 
-  final NativeAd? _nativeAd;
+  final NativeAd _nativeAd;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class adNativeWidget extends StatelessWidget {
         maxWidth: 400,
         maxHeight: 400,
       ),
-      child: AdWidget(ad: _nativeAd!),
+      child: AdWidget(ad: _nativeAd),
     );
   }
 }
