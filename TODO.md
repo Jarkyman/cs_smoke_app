@@ -477,6 +477,8 @@
 
 - [x] lille bug, hvis jeg skifter sprog så husker den det ikke til næste opstart.
 
+- [ ] Bug: den printer "flutter: New data downloaded!" eller "flutter: Data hasn't changed on server (304 Not Modified). Using cache." 2 gange, håber ikke det er fordi vi kalder get 2 gange? det jo bare at øge load unødvendigt.
+
 ---
 
 ## 📦 Forældede Packages (fra Pubgrade)
