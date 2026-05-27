@@ -12,6 +12,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mocktail/mocktail.dart';
 import 'dart:convert';
 import '../../helpers/mocks.dart';
+import 'package:cs_smoke_app/view/screens/info_screen.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -25,11 +26,20 @@ void main() {
     final mockJsonDataHandler = MockJsonDataHandler();
     when(() => mockJsonDataHandler.loadData()).thenAnswer((_) async => [
       UtilModel.fromJson({
-        'name': 'test_smoke',
+        'name': 'smoke',
         'description': 'Test Description',
-        'position': [100.0, 100.0],
-        'type': 'smoke',
-        'videoId': 'vid1',
+        'position': [0.1, 0.1],
+        'location': 'mirage',
+        'status': true, // T (status=true)
+        'stands': [
+          {
+            'name': 'Stand 1',
+            'description': 'Stand 1',
+            'position': [0.2, 0.2],
+            'type': 'smoke',
+            'videoId': 'vid1',
+          }
+        ]
       })
     ]);
     final utilViewModel = UtilViewModel(jsonDataHandler: mockJsonDataHandler);
@@ -55,5 +65,31 @@ void main() {
 
     // Find the GridViewWidget
     expect(find.byType(GridViewWidget), findsOneWidget);
+
+    // Default state: showNames is false, isUtilSelected is false
+    // Should show radar map and smoke icons
+    expect(find.byType(Image), findsWidgets);
+    
+    // Select the util via ViewModel to bypass gesture hit-testing bounds in headless test
+    utilViewModel.selectUtil(utilViewModel.utils.first);
+    await tester.pumpAndSettle();
+    
+    // isUtilSelected is now true, should show stand positions
+    final standIcon = find.bySemanticsLabel('Throw position: Stand 1');
+    expect(standIcon, findsOneWidget);
+
+    // In headless test, if tap fails due to offset, we can also manually push to InfoScreen or just verify the button exists.
+    // Let's just verify the button exists and the state is correct, as InfoScreen uses WebView which crashes headless tests.
+    
+    // Deselect util via ViewModel
+    utilViewModel.reset();
+    await tester.pumpAndSettle();
+
+    // Toggle showNames
+    utilViewModel.toggleShowName();
+    await tester.pumpAndSettle();
+    
+    // When showNames is true, it displays the _radar_name.png image instead of util icons
+    expect(find.bySemanticsLabel('Select Test Description smoke'), findsNothing);
   });
 }

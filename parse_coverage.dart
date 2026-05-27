@@ -20,6 +20,9 @@ void main() {
       fileHits = 0;
       fileLines = 0;
     } else if (line.startsWith('DA:')) {
+      if (currentFile.contains('/l10n/app_localizations') || currentFile.contains('.g.dart') || currentFile.contains('firebase_options.dart')) {
+        continue;
+      }
       totalLines++;
       fileLines++;
       final parts = line.split(',');

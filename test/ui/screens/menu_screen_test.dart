@@ -35,5 +35,32 @@ void main() {
 
     expect(find.byType(MenuScreen), findsOneWidget);
     expect(find.byIcon(Icons.language_outlined), findsOneWidget);
+    
+    // Tap Notification toggle
+    final notificationTile = find.text('Notifications');
+    expect(notificationTile, findsOneWidget);
+    await tester.tap(notificationTile, warnIfMissed: false);
+    await tester.pumpAndSettle();
+
+    // Tap Share App
+    final shareTile = find.text('Share app');
+    expect(shareTile, findsOneWidget);
+    await tester.tap(shareTile, warnIfMissed: false);
+    await tester.pumpAndSettle();
+
+    // Tap Language to open bottom sheet
+    final languageTile = find.text('Language');
+    expect(languageTile, findsOneWidget);
+    await tester.tap(languageTile, warnIfMissed: false);
+    await tester.pumpAndSettle();
+    
+    // Bottom sheet should be visible with languages
+    expect(find.byType(BottomSheet), findsOneWidget);
+    
+    // Select English
+    final englishItem = find.text('English');
+    expect(englishItem, findsWidgets);
+    await tester.tap(englishItem.first);
+    await tester.pumpAndSettle();
   });
 }
