@@ -5,6 +5,11 @@ import '../models/util_model.dart';
 import '../models/enums.dart';
 
 class UtilViewModel extends ChangeNotifier {
+  final JsonDataHandler _jsonDataHandler;
+
+  UtilViewModel({JsonDataHandler? jsonDataHandler}) 
+      : _jsonDataHandler = jsonDataHandler ?? JsonDataHandler();
+
   ViewState _state = ViewState.idle;
   ViewState get state => _state;
 
@@ -33,12 +38,11 @@ class UtilViewModel extends ChangeNotifier {
 
   Future<void> loadData() async {
     if (_utils.isEmpty) {
-      Future.microtask(() {
-        _state = ViewState.loading;
-        notifyListeners();
-      });
+      _state = ViewState.loading;
+      notifyListeners();
+      
       try {
-        _utils = await JsonDataHandler().loadData();
+        _utils = await _jsonDataHandler.loadData();
         _state = ViewState.success;
       } catch (e) {
         _state = ViewState.error;

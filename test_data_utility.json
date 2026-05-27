@@ -1,0 +1,164 @@
+{
+  "allUtils": [
+    {
+      "location": "ancient",
+      "description": "Top mid",
+      "name": "smoke",
+      "status": true,
+      "position": [
+        -0.026,
+        -0.118
+      ],
+      "stands": [
+        {
+          "position": [
+            -0.049,
+            0.32
+          ],
+          "description": "Jump throw",
+          "videoId": "tUIVjytkxW4"
+        },
+        {
+          "position": [
+            0.008,
+            0.321
+          ],
+          "description": "Jump throw",
+          "videoId": "LGnOpPMCcHU"
+        },
+        {
+          "position": [
+            0.09,
+            0.095
+          ],
+          "description": "Left click",
+          "videoId": "aIyBhNJoYtU"
+        }
+      ]
+    },
+    {
+      "location": "ancient",
+      "description": "Mid donut",
+      "name": "smoke",
+      "status": true,
+      "position": [
+        -0.09,
+        -0.042
+      ],
+      "stands": [
+        {
+          "position": [
+            -0.061,
+            0.39
+          ],
+          "description": "Run jump throw",
+          "videoId": "lBse-jq_4g0"
+        },
+        {
+          "position": [
+            0.315,
+            0.213
+          ],
+          "description": "Jump throw",
+          "videoId": "UyBRzYID3ng"
+        },
+        {
+          "position": [
+            -0.049,
+            0.32
+          ],
+          "description": "Jump throw",
+          "videoId": "wcbBTr4VGK4"
+        }
+      ]
+    },
+    {
+      "location": "ancient",
+      "description": "Alley smoke",
+      "name": "smoke",
+      "status": true,
+      "position": [
+        0.07,
+        -0.222
+      ],
+      "stands": [
+        {
+          "position": [
+            -0.097,
+            0.082
+          ],
+          "description": "Jump throw",
+          "videoId": "elr6dPa8mV4"
+        },
+        {
+          "position": [
+            -0.068,
+            0.091
+          ],
+          "description": "Jump throw",
+          "videoId": "N6ajiNysvPI"
+        }
+      ]
+    },
+    {
+      "location": "ancient",
+      "description": "Donut",
+      "name": "molotov",
+      "status": true,
+      "position": [
+        -0.23,
+        -0.044
+      ],
+      "stands": [
+        {
+          "position": [
+            -0.054,
+            -0.029
+          ],
+          "description": "Run throw",
+          "videoId": "f_PiFuTKw-M"
+        }
+      ]
+    },
+    {
+      "location": "ancient",
+      "description": "Mid",
+      "name": "flash",
+      "status": true,
+      "position": [
+        -0.03,
+        0.1
+      ],
+      "stands": [
+        {
+          "position": [
+            -0.062,
+            0.365
+          ],
+          "description": "W jump throw",
+          "videoId": "lEaqskxxn8o"
+        }
+      ]
+    },
+    {
+      "location": "ancient",
+      "description": "Lamp room",
+      "name": "smoke",
+      "status": true,
+      "position": [
+        0.114,
+        0.069
+      ],
+      "stands": [
+        {
+          "position": [
+            -0.062,
+            0.365
+          ],
+          "description": "W jump throw",
+          "videoId": "tAtLKGqitII"
+        }
+      ]
+    }
+  ]
+}

@@ -479,6 +479,12 @@
 
 - [ ] Bug: den printer "flutter: New data downloaded!" eller "flutter: Data hasn't changed on server (304 Not Modified). Using cache." 2 gange, håber ikke det er fordi vi kalder get 2 gange? det jo bare at øge load unødvendigt.
 
+- [ ] AdHelper skal ikke retuner test ads, så er det bedere med en fejl eller en tom ad unit id, så er det mere tydeligt at der er noget galt.
+
+- [ ] Change test "Maps" to "Uitl Master" in select map screen (landing screen)
+
+- [ ] Rate app screen, der popper op efter 3 gange man har brugt appen.
+
 ---
 
 ## 📦 Forældede Packages (fra Pubgrade)

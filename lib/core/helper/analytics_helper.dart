@@ -11,7 +11,15 @@ import 'package:flutter/foundation.dart';
 /// or excluded from reports using Audiences/BigQuery. They cannot be disabled
 /// per-event from code without disabling all auto-collection.
 class AnalyticsHelper {
-  static final _analytics = FirebaseAnalytics.instance;
+  static FirebaseAnalytics? get _analytics {
+    // Avoid initializing Firebase Analytics in unit/widget tests
+    if (kIsWeb || !kDebugMode) return FirebaseAnalytics.instance;
+    try {
+      return FirebaseAnalytics.instance;
+    } catch (e) {
+      return null;
+    }
+  }
 
   // ---------------------------------------------------------------------------
   // Map events
@@ -20,7 +28,7 @@ class AnalyticsHelper {
   /// Logged when the user taps a map on the main maps screen.
   static Future<void> logMapSelected(String mapName) async {
     if (kDebugMode) debugPrint('[Analytics] map_selected: $mapName');
-    await _analytics.logEvent(
+    await _analytics?.logEvent(
       name: 'map_selected',
       parameters: {'map_name': mapName.toLowerCase()},
     );
@@ -41,7 +49,7 @@ class AnalyticsHelper {
       debugPrint(
           '[Analytics] util_selected: $utilType | team=$team | map=$mapName');
     }
-    await _analytics.logEvent(
+    await _analytics?.logEvent(
       name: 'util_selected',
       parameters: {
         'util_type': utilType.toLowerCase(),
@@ -58,7 +66,7 @@ class AnalyticsHelper {
   /// Logged when a native ad is clicked on the info screen.
   static Future<void> logNativeAdClicked() async {
     if (kDebugMode) debugPrint('[Analytics] ad_clicked: native');
-    await _analytics.logEvent(
+    await _analytics?.logEvent(
       name: 'ad_clicked',
       parameters: {'ad_type': 'native'},
     );
@@ -67,7 +75,7 @@ class AnalyticsHelper {
   /// Logged when a banner ad is clicked.
   static Future<void> logBannerAdClicked() async {
     if (kDebugMode) debugPrint('[Analytics] ad_clicked: banner');
-    await _analytics.logEvent(
+    await _analytics?.logEvent(
       name: 'ad_clicked',
       parameters: {'ad_type': 'banner'},
     );

@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../services/firestore_service.dart';
 
 class RatingViewModel extends ChangeNotifier {
-  final FirestoreService _firestoreService = FirestoreService();
+  final FirestoreService _firestoreService;
   
   // Maps videoId to rating ("like" or "dislike")
   final Map<String, String> _ratings = {};
@@ -11,7 +11,8 @@ class RatingViewModel extends ChangeNotifier {
   // Maps videoId to true if reported
   final Map<String, bool> _reports = {};
 
-  RatingViewModel() {
+  RatingViewModel({FirestoreService? firestoreService}) 
+      : _firestoreService = firestoreService ?? FirestoreService() {
     _loadState();
   }
 

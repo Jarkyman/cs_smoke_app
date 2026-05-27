@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
@@ -13,6 +14,7 @@ class NotificationApi {
   }
 
   static Future<void> cancelAll() async {
+    if (Platform.environment.containsKey('FLUTTER_TEST')) return;
     await _notifications.cancelAll();
   }
 
@@ -43,6 +45,7 @@ class NotificationApi {
   }
 
   static Future init({bool initScheduled = false}) async {
+    if (Platform.environment.containsKey('FLUTTER_TEST')) return;
     debugPrint('Notification init');
     final androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
@@ -98,8 +101,9 @@ class NotificationApi {
     String? body,
     String? payload,
     DateTime? scheduledDate, //For test only
-  }) async =>
-      _notifications.zonedSchedule(
+  }) async {
+    if (Platform.environment.containsKey('FLUTTER_TEST')) return;
+    await _notifications.zonedSchedule(
         id: id,
         title: title,
         body: body,
@@ -110,7 +114,7 @@ class NotificationApi {
         payload: payload,
         matchDateTimeComponents: DateTimeComponents.dayOfWeekAndTime,
       );
-
+  }
   static tz.TZDateTime _scheduleDaily(TimeOfDay time) {
     final now = tz.TZDateTime.now(tz.local);
     final scheduledDate = tz.TZDateTime(

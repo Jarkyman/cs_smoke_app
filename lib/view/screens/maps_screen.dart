@@ -35,7 +35,9 @@ class _MapsScreenState extends State<MapsScreen> {
     listenNotifications();
 
     readData();
-    Provider.of<UtilViewModel>(context, listen: false).loadData();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<UtilViewModel>(context, listen: false).loadData();
+    });
 
     Random random = Random();
     String randomMap = Global.maps[random.nextInt(Global.maps.length)];

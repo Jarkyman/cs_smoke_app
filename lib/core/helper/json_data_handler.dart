@@ -56,7 +56,8 @@ class JsonDataHandler {
     return null;
   }
 
-  Future<bool> fetchAndSaveData() async {
+  Future<bool> fetchAndSaveData({http.Client? client}) async {
+    final httpClient = client ?? http.Client();
     debugPrint("Fetching data from network...");
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -71,8 +72,7 @@ class JsonDataHandler {
         headers['If-Modified-Since'] = savedLastModified;
       }
 
-      final response = await http
-          .get(Uri.parse(url), headers: headers)
+      final response = await httpClient.get(Uri.parse(url), headers: headers)
           .timeout(const Duration(seconds: 20));
 
       if (response.statusCode == 200) {
@@ -87,14 +87,20 @@ class JsonDataHandler {
         }
 
         await _saveData(response.body);
+        // Cleanup if we created the client
+        if (client == null) {
+          httpClient.close();
+        }
         return true;
       } else if (response.statusCode == 304) {
-        debugPrint(
-            "Data hasn't changed on server (304 Not Modified). Using cache.");
+        debugPrint("Data hasn't changed on server (304 Not Modified). Using cache.");
         // Data hasn't changed, but we still update our local timestamp so we reset the 48h timer
         await _updateTimestamp();
+        
+        if (client == null) httpClient.close();
         return true;
       } else {
+        if (client == null) httpClient.close();
         throw Exception('Error fetching data: HTTP ${response.statusCode}');
       }
     } catch (e) {
@@ -103,11 +109,11 @@ class JsonDataHandler {
     }
   }
 
-  Future<List<UtilModel>> loadData({int retryCount = 0}) async {
+  Future<List<UtilModel>> loadData({int retryCount = 0, http.Client? client}) async {
     debugPrint("Loading data (retry: $retryCount)");
 
     // Always check for updates (uses ETag, so it's super fast if unchanged)
-    bool success = await fetchAndSaveData();
+    bool success = await fetchAndSaveData(client: client);
     if (!success) {
       debugPrint(
           "Fetch failed or no connection, attempting to fallback to local cache.");
@@ -135,8 +141,8 @@ class JsonDataHandler {
         debugPrint("Parse error: $e");
         // If parsing the cache fails, try fetching again
         if (retryCount < 1) {
-          await fetchAndSaveData();
-          return loadData(retryCount: retryCount + 1);
+          await fetchAndSaveData(client: client);
+          return loadData(retryCount: retryCount + 1, client: client);
         }
         return [];
       }
@@ -146,9 +152,9 @@ class JsonDataHandler {
         return [];
       }
 
-      bool success = await fetchAndSaveData();
+      bool success = await fetchAndSaveData(client: client);
       if (success) {
-        return loadData(retryCount: retryCount + 1);
+        return loadData(retryCount: retryCount + 1, client: client);
       } else {
         return [];
       }
