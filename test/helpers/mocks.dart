@@ -26,4 +26,17 @@ void setupMocks() {
     }
     return null;
   });
+
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(
+          const MethodChannel('flutter.baseflow.com/permissions/methods'),
+          (MethodCall methodCall) async {
+    if (methodCall.method == 'checkPermissionStatus') {
+      return 1; // 1 == PermissionStatus.granted
+    }
+    if (methodCall.method == 'requestPermissions') {
+      return {1: 1}; // Notification permission granted
+    }
+    return null;
+  });
 }

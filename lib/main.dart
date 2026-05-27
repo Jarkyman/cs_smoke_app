@@ -83,6 +83,14 @@ class MyApp extends StatelessWidget {
       ],
       child: Consumer<SettingsViewModel>(
         builder: (context, settingsViewModel, child) {
+          if (!settingsViewModel.isLoaded) {
+            return const MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: Scaffold(
+                body: Center(child: CircularProgressIndicator()),
+              ),
+            );
+          }
           return MaterialApp(
             title: 'Util Master',
             debugShowCheckedModeBanner: false,

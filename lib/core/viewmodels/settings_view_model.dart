@@ -24,6 +24,9 @@ class SettingsViewModel extends ChangeNotifier {
   Locale? _locale;
   Locale? get locale => _locale;
 
+  bool _isLoaded = false;
+  bool get isLoaded => _isLoaded;
+
   Future<void> loadSettings() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     _isNotification = prefs.getBool(Constants.notificationKey) ?? true;
@@ -39,6 +42,7 @@ class SettingsViewModel extends ChangeNotifier {
     if (!_isNotification) {
       NotificationApi.cancelAll();
     }
+    _isLoaded = true;
     log('Notifications load: $_isNotification, Locale: ${_locale?.languageCode}');
     notifyListeners();
   }
