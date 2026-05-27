@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'package:cs_smoke_app/core/helper/constants.dart';
-import 'package:permission_handler/permission_handler.dart';
 import '../helpers/mocks.dart';
 
 void main() {

@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:cs_smoke_app/core/viewmodels/radar_view_model.dart';
-import 'package:cs_smoke_app/core/helper/dimensions.dart';
 
 void main() {
   group('RadarViewModel', () {

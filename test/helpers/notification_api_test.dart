@@ -1,7 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:timezone/data/latest.dart' as tz;
 import 'package:cs_smoke_app/core/helper/notification_api.dart';
 import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'mocks.dart';

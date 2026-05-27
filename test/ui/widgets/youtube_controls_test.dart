@@ -8,7 +8,6 @@ import 'package:cs_smoke_app/core/viewmodels/rating_view_model.dart';
 import '../../helpers/mocks.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:cs_smoke_app/l10n/app_localizations.dart';
 import 'package:cs_smoke_app/view/widgets/report_bottom_sheet.dart';
 

@@ -1,3 +1,4 @@
+// ignore_for_file: depend_on_referenced_packages
 import 'package:flutter_test/flutter_test.dart';
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:mocktail/mocktail.dart';

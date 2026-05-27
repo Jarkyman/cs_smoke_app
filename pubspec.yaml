@@ -48,6 +48,8 @@ dev_dependencies:
   flutter_native_splash: ^2.4.4
   mocktail: ^1.0.5
 
+  url_launcher_platform_interface: any
+  plugin_platform_interface: any
 flutter_native_splash:
   color: "#02010f"
   image: assets/icons/Logo.png
