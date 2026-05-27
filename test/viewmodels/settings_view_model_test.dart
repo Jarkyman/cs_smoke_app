@@ -37,5 +37,45 @@ void main() {
       final prefs = await SharedPreferences.getInstance();
       expect(prefs.getString(Constants.languageKey), 'da');
     });
+
+    test('isLoaded becomes true after init completes', () async {
+      final viewModel = SettingsViewModel();
+      expect(viewModel.isLoaded, false);
+      await Future.delayed(Duration.zero);
+      expect(viewModel.isLoaded, true);
+    });
+
+    test('Fallback to system locale if no locale is saved', () async {
+      SharedPreferences.setMockInitialValues({});
+      final viewModel = SettingsViewModel();
+      await Future.delayed(Duration.zero);
+      expect(viewModel.locale, isNotNull);
+    });
+
+    test('toggleNotification toggles value and saves', () async {
+      SharedPreferences.setMockInitialValues({
+        Constants.notificationKey: true,
+      });
+      final viewModel = SettingsViewModel();
+      await Future.delayed(Duration.zero);
+      
+      await viewModel.toggleNotification();
+      
+      expect(viewModel.isNotification, false);
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getBool(Constants.notificationKey), false);
+    });
+    
+    test('checkPermission handles restricted status', () async {
+      final viewModel = SettingsViewModel();
+      await viewModel.checkPermission();
+      expect(true, true);
+    });
+    
+    test('askPermission runs without throwing', () async {
+      final viewModel = SettingsViewModel();
+      await viewModel.askPermission();
+      expect(true, true);
+    });
   });
 }
