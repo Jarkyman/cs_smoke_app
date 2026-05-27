@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:cs_smoke_app/core/helper/constants.dart';
 import 'package:cs_smoke_app/core/models/util_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:universal_io/io.dart';
@@ -13,6 +12,8 @@ class JsonDataHandler {
   static String get url => dotenv.env['MAP_DATA_URL'] ?? '';
   static const String storageKey = 'cached_utility_data';
   static const String timestampKey = 'cached_utility_data_timestamp';
+  static const String etagKey = 'cached_utility_data_etag';
+  static const String lastModifiedKey = 'cached_utility_data_last_modified';
   static const String fileName = 'cached_utility_data.json';
 
   Future<File> get _localFile async {
@@ -20,18 +21,7 @@ class JsonDataHandler {
     return File('${directory.path}/$fileName');
   }
 
-  Future<bool> _isCacheValid() async {
-    final prefs = await SharedPreferences.getInstance();
-    final lastFetchMs = prefs.getInt(timestampKey);
-    if (lastFetchMs == null) return false;
-
-    final lastFetch = DateTime.fromMillisecondsSinceEpoch(lastFetchMs);
-    final now = DateTime.now();
-    final difference = now.difference(lastFetch);
-
-    // Expires after cacheValidHours
-    return difference.inHours < Constants.cacheValidHours;
-  }
+  // Cache valid logic removed because we now use ETag to check for changes efficiently on every load
 
   Future<void> _updateTimestamp() async {
     final prefs = await SharedPreferences.getInstance();
@@ -69,14 +59,43 @@ class JsonDataHandler {
   Future<bool> fetchAndSaveData() async {
     debugPrint("Fetching data from network...");
     try {
-      final response =
-          await http.get(Uri.parse(url)).timeout(const Duration(seconds: 20));
+      final prefs = await SharedPreferences.getInstance();
+      final savedEtag = prefs.getString(etagKey);
+      final savedLastModified = prefs.getString(lastModifiedKey);
+
+      Map<String, String> headers = {};
+      if (savedEtag != null) {
+        headers['If-None-Match'] = savedEtag;
+      }
+      if (savedLastModified != null) {
+        headers['If-Modified-Since'] = savedLastModified;
+      }
+
+      final response = await http
+          .get(Uri.parse(url), headers: headers)
+          .timeout(const Duration(seconds: 20));
 
       if (response.statusCode == 200) {
+        debugPrint("New data downloaded!");
+
+        // Save new headers for next time
+        final newEtag = response.headers['etag'];
+        final newLastModified = response.headers['last-modified'];
+        if (newEtag != null) await prefs.setString(etagKey, newEtag);
+        if (newLastModified != null) {
+          await prefs.setString(lastModifiedKey, newLastModified);
+        }
+
         await _saveData(response.body);
         return true;
+      } else if (response.statusCode == 304) {
+        debugPrint(
+            "Data hasn't changed on server (304 Not Modified). Using cache.");
+        // Data hasn't changed, but we still update our local timestamp so we reset the 48h timer
+        await _updateTimestamp();
+        return true;
       } else {
-        throw Exception('Error fetching data');
+        throw Exception('Error fetching data: HTTP ${response.statusCode}');
       }
     } catch (e) {
       debugPrint('Error in fetchAndSaveData: $e');
@@ -87,18 +106,14 @@ class JsonDataHandler {
   Future<List<UtilModel>> loadData({int retryCount = 0}) async {
     debugPrint("Loading data (retry: $retryCount)");
 
-    final bool cacheValid = await _isCacheValid();
-    String? jsonString;
-
-    if (!cacheValid) {
-      debugPrint("Cache is invalid/expired. Fetching new data.");
-      bool success = await fetchAndSaveData();
-      if (!success) {
-        debugPrint("Fetch failed, attempting to fallback to stale cache.");
-      }
+    // Always check for updates (uses ETag, so it's super fast if unchanged)
+    bool success = await fetchAndSaveData();
+    if (!success) {
+      debugPrint(
+          "Fetch failed or no connection, attempting to fallback to local cache.");
     }
 
-    jsonString = await _loadCachedData();
+    String? jsonString = await _loadCachedData();
 
     if (jsonString != null && jsonString.isNotEmpty) {
       try {

@@ -471,11 +471,11 @@
 - [x] `ad_clicked` event: logged via `onAdClicked` callback in NativeAdListener on InfoScreen
 - [x] Added `firebase_crashlytics: ^5.2.2` to pubspec.yaml
 - [x] Crashlytics wired up in `main.dart`: `FlutterError.onError` + `PlatformDispatcher.instance.onError`
-- [ ] Filter noise events (user_engagement, screen_view, session_start) in Firebase Console → Events → Manage
+- [x] Filter noise events (user_engagement, screen_view, session_start) in Firebase Console → Events → Manage
 
 // DONE {M} [i18n] (H): #57 — Language implementation using official flutter_localizations. Supported: English, Russian, Turkish, Portuguese (BR), Chinese, Spanish, German, Polish, Danish, Swedish, Norwegian, Finnish, Mongolian, Romanian, French, Japanese, Ukrainian.
 
-- [ ] lille bug, hvis jeg skifter sprog så husker den det ikke til næste opstart.
+- [x] lille bug, hvis jeg skifter sprog så husker den det ikke til næste opstart.
 
 ---
 
