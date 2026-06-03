@@ -27,6 +27,22 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
+gradle.projectsEvaluated {
+    subprojects {
+        project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            def javaTarget = project.hasProperty('android') && project.android.hasProperty('compileOptions') ?
+                project.android.compileOptions.targetCompatibility.toString() : "17"
+            if (javaTarget == "1.8" || javaTarget == "VERSION_1_8") javaTarget = "1.8"
+            else if (javaTarget == "11" || javaTarget == "VERSION_11") javaTarget = "11"
+            else if (javaTarget == "17" || javaTarget == "VERSION_17") javaTarget = "17"
+            
+            kotlinOptions {
+                jvmTarget = javaTarget
+            }
+        }
+    }
+}
+
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }

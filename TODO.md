@@ -500,7 +500,17 @@
 
 - [x] Opdater app beskrivelse i Play Store og App Store, med det nye dele funktionalitet, og måske også en kort beskrivelse af hvad appen gør.
 
-- [ ] Er den her ui en ting vi skal kigge på?: [UIKit App Config] `UIScene` lifecycle will soon be required. Failure to adopt will result in an assert in the future. 
+- [x] Er den her ui en ting vi skal kigge på?: [UIKit App Config] `UIScene` lifecycle will soon be required. Failure to adopt will result in an assert in the future. 
+
+- [x] See om vi har fixet følgende:
+"WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): firebase_analytics, flutter_launch_store, flutter_timezone, in_app_review, package_info_plus, rate_my_app, receive_sharing_intent, share_plus, shared_preferences_android, webview_flutter_android
+Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
+
+Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
+If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing 
+an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
+
+If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors"
 
 - [ ] tilføj et ekstra billede til Play Store og App Store, der viser ny lav selv funktion.
 
