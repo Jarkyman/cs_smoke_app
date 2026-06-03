@@ -488,13 +488,22 @@
 
 - [x] lille bug, hvis jeg skifter sprog så husker den det ikke til næste opstart.
 
-- [ ] Bug: den printer "flutter: New data downloaded!" eller "flutter: Data hasn't changed on server (304 Not Modified). Using cache." 2 gange, håber ikke det er fordi vi kalder get 2 gange? det jo bare at øge load unødvendigt.
+- [x] Bug: den printer "flutter: New data downloaded!" eller "flutter: Data hasn't changed on server (304 Not Modified). Using cache." 2 gange, håber ikke det er fordi vi kalder get 2 gange? det jo bare at øge load unødvendigt.
 
-- [ ] AdHelper skal ikke retuner test ads, så er det bedere med en fejl eller en tom ad unit id, så er det mere tydeligt at der er noget galt.
+- [x] AdHelper skal ikke retuner test ads i prod, så er det bedere med en fejl eller en tom ad unit id, så er det mere tydeligt at der er noget galt.
 
-- [ ] Change test "Maps" to "Uitl Master" in select map screen (landing screen)
+- [x] Change test "Maps" to "Uitl Master" in select map screen (landing screen)
 
-- [ ] Rate app screen, der popper op efter 3 gange man har brugt appen.
+- [x] Rate app screen, der popper op efter 3 gange man har brugt appen.
+
+- [x] Lav engangs popup der beksriver brug af del video med vores app funktionen, så folk ved dne er der og at de kan gøre det.
+
+- [x] Opdater app beskrivelse i Play Store og App Store, med det nye dele funktionalitet, og måske også en kort beskrivelse af hvad appen gør.
+
+- [ ] Er den her ui en ting vi skal kigge på?: [UIKit App Config] `UIScene` lifecycle will soon be required. Failure to adopt will result in an assert in the future. 
+
+- [ ] tilføj et ekstra billede til Play Store og App Store, der viser ny lav selv funktion.
+
 
 // TODO {M} [Feature] (H): #58 — Onboarding popup for Create Pin feature
 

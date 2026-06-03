@@ -8,6 +8,8 @@ import 'dart:io';
 
 import '../helper/notification_api.dart';
 
+import 'package:in_app_review/in_app_review.dart';
+
 class SettingsViewModel extends ChangeNotifier {
   SettingsViewModel() {
     _init();
@@ -16,6 +18,21 @@ class SettingsViewModel extends ChangeNotifier {
   Future<void> _init() async {
     await loadSettings();
     await checkPermission();
+    _checkAppReview();
+  }
+
+  Future<void> _checkAppReview() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    int count = prefs.getInt('app_open_count') ?? 0;
+    count++;
+    await prefs.setInt('app_open_count', count);
+    
+    if (count == 3) {
+      final InAppReview inAppReview = InAppReview.instance;
+      if (await inAppReview.isAvailable()) {
+        inAppReview.requestReview();
+      }
+    }
   }
 
   bool _isNotification = true;

@@ -17,7 +17,7 @@ class AdHelper {
     } else if (Platform.isIOS) {
       return dotenv.env['ADMOB_BANNER_IOS'] ?? '';
     }
-    return 'ca-app-pub-3940256099942544/6300978111';
+    return '';
   }
 
   static String get nativeAdUnitId {
@@ -34,6 +34,6 @@ class AdHelper {
     } else if (Platform.isIOS) {
       return dotenv.env['ADMOB_NATIVE_IOS'] ?? '';
     }
-    return 'ca-app-pub-3940256099942544/2247696110';
+    return '';
   }
 }
