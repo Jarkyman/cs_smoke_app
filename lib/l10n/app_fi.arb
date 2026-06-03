@@ -12,5 +12,37 @@
   "wrongData": "Väärät tiedot",
   "videoNotWorking": "Video ei toimi",
   "submitReport": "Lähetä",
-  "reportSubmitted": "Ilmoitus lähetetty"
+  "reportSubmitted": "Ilmoitus lähetetty",
+  "createPin": "Luo pin",
+  "videoUrl": "Videon URL",
+  "description": "Kuvaus",
+  "selectMap": "Valitse kartta",
+  "next": "Seuraava",
+  "cancel": "Peruuta",
+  "done": "Valmis",
+  "undo": "Kumoa",
+  "redo": "Tee uudelleen",
+  "placeUtilPosition": "Napauta karttaa sijoittaaksesi utilityn",
+  "placeStandPosition": "Napauta lisätäksesi heittopaikkoja (maks. 10)",
+  "confirmDone": "Oletko valmis?",
+  "confirmDoneBody": "Kaikki sijoitetut utilityit tallennetaan.",
+  "confirmCancel": "Peruutetaanko luonti?",
+  "confirmCancelBody": "Kaikki edistyminen menetetään.",
+  "confirmYes": "Kyllä",
+  "confirmNo": "Ei",
+  "deletePin": "Poista pin",
+  "confirmDelete": "Poistetaanko tämä heittopaika?",
+  "confirmDeleteBody": "Tätä ei voi kumota.",
+  "openVideo": "Avaa video",
+  "maxStandsReached": "Enimmäismäärä 10 heittopaikkaa saavutettu",
+  "selectUtilTypeFirst": "Valitse ensin utility-tyyppi",
+  "addAtLeastOneStand": "Lisää vähintään yksi heittopaika",
+  "utilsAdded": "{count} utility lisätty",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

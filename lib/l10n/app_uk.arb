@@ -12,5 +12,37 @@
   "wrongData": "Невірні дані",
   "videoNotWorking": "Відео не працює",
   "submitReport": "Надіслати",
-  "reportSubmitted": "Звіт надіслано"
+  "reportSubmitted": "Звіт надіслано",
+  "createPin": "Створити пін",
+  "videoUrl": "URL відео",
+  "description": "Опис",
+  "selectMap": "Вибрати карту",
+  "next": "Далі",
+  "cancel": "Скасувати",
+  "done": "Готово",
+  "undo": "Скасувати дію",
+  "redo": "Повторити дію",
+  "placeUtilPosition": "Натисніть на карту, щоб розмістити утиліту",
+  "placeStandPosition": "Натисніть, щоб додати позиції кидка (макс. 10)",
+  "confirmDone": "Ви закінчили?",
+  "confirmDoneBody": "Усі розміщені утиліти будуть збережені.",
+  "confirmCancel": "Скасувати створення?",
+  "confirmCancelBody": "Весь прогрес буде втрачено.",
+  "confirmYes": "Так",
+  "confirmNo": "Ні",
+  "deletePin": "Видалити пін",
+  "confirmDelete": "Видалити цю позицію кидка?",
+  "confirmDeleteBody": "Цю дію не можна скасувати.",
+  "openVideo": "Відкрити відео",
+  "maxStandsReached": "Досягнуто максимум із 10 позицій кидка",
+  "selectUtilTypeFirst": "Спочатку виберіть тип утиліти",
+  "addAtLeastOneStand": "Додайте принаймні одну позицію кидка",
+  "utilsAdded": "Додано утиліт: {count}",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

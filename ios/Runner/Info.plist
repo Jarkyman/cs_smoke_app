@@ -258,6 +258,19 @@
 				<string>3qcr597p9d.skadnetwork</string>
 			</dict>
 		</array>
+		<key>AppGroupId</key>
+		<string>group.com.hartvigsolutions.utilmaster</string>
+		<key>CFBundleURLTypes</key>
+		<array>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>ShareMedia-$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+				</array>
+			</dict>
+		</array>
 		<key>UIStatusBarHidden</key>
 		<false/>
 	</dict>

@@ -12,5 +12,37 @@
   "wrongData": "数据错误",
   "videoNotWorking": "视频无法播放",
   "submitReport": "提交",
-  "reportSubmitted": "报告已提交"
+  "reportSubmitted": "报告已提交",
+  "createPin": "创建图钉",
+  "videoUrl": "视频链接",
+  "description": "描述",
+  "selectMap": "选择地图",
+  "next": "下一步",
+  "cancel": "取消",
+  "done": "完成",
+  "undo": "撤销",
+  "redo": "重做",
+  "placeUtilPosition": "点击地图放置道具",
+  "placeStandPosition": "点击放置投掷位置（最多10个）",
+  "confirmDone": "确认完成？",
+  "confirmDoneBody": "所有放置的道具将被保存。",
+  "confirmCancel": "取消创建？",
+  "confirmCancelBody": "所有进度将丢失。",
+  "confirmYes": "是",
+  "confirmNo": "否",
+  "deletePin": "删除图钉",
+  "confirmDelete": "删除此投掷位置？",
+  "confirmDeleteBody": "此操作无法撤销。",
+  "openVideo": "打开视频",
+  "maxStandsReached": "已达到最多10个投掷位置",
+  "selectUtilTypeFirst": "请先选择道具类型",
+  "addAtLeastOneStand": "请至少添加一个投掷位置",
+  "utilsAdded": "已添加 {count} 个道具",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

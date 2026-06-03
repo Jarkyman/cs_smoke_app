@@ -12,5 +12,37 @@
   "wrongData": "Datos incorrectos",
   "videoNotWorking": "El video no funciona",
   "submitReport": "Enviar",
-  "reportSubmitted": "Reporte enviado"
+  "reportSubmitted": "Reporte enviado",
+  "createPin": "Crear pin",
+  "videoUrl": "URL del video",
+  "description": "Descripción",
+  "selectMap": "Seleccionar mapa",
+  "next": "Siguiente",
+  "cancel": "Cancelar",
+  "done": "Listo",
+  "undo": "Deshacer",
+  "redo": "Rehacer",
+  "placeUtilPosition": "Toca el mapa para colocar tu utility",
+  "placeStandPosition": "Toca para colocar posiciones de lanzamiento (máx. 10)",
+  "confirmDone": "¿Has terminado?",
+  "confirmDoneBody": "Todas las utilities colocadas serán guardadas.",
+  "confirmCancel": "¿Cancelar la creación?",
+  "confirmCancelBody": "Se perderá todo el progreso.",
+  "confirmYes": "Sí",
+  "confirmNo": "No",
+  "deletePin": "Eliminar pin",
+  "confirmDelete": "¿Eliminar esta posición de lanzamiento?",
+  "confirmDeleteBody": "Esto no se puede deshacer.",
+  "openVideo": "Abrir video",
+  "maxStandsReached": "Se alcanzó el máximo de 10 posiciones de lanzamiento",
+  "selectUtilTypeFirst": "Selecciona un tipo de utility primero",
+  "addAtLeastOneStand": "Agrega al menos una posición de lanzamiento",
+  "utilsAdded": "{count} {count, plural, =1{utility} other{utilities}} añadida(s)",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

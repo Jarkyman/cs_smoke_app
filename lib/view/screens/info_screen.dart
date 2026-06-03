@@ -1,4 +1,8 @@
+import 'package:cs_smoke_app/core/helper/dimensions.dart';
+import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:cs_smoke_app/core/models/info_model.dart';
+import 'package:cs_smoke_app/core/viewmodels/user_util_view_model.dart';
+import 'package:cs_smoke_app/l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -30,9 +34,18 @@ class _InfoScreenState extends State<InfoScreen> {
   bool _nativeAdIsLoaded = false;
   String? _loadedVideoId;
 
+  InfoModel? _cachedInfo;
+
+  InfoModel? get _info => _cachedInfo;
+
+  bool get _isUserCreated => _info?.isUserCreated ?? false;
+  bool get _isYoutube => _info?.videoUrl == null && _info?.videoId.isNotEmpty == true;
+
+  bool _adLoadedAttempted = false;
+
   @override
   void initState() {
-    loadNativeAd();
+    super.initState();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -63,8 +76,13 @@ class _InfoScreenState extends State<InfoScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final info = ModalRoute.of(context)?.settings.arguments as InfoModel?;
-    if (info != null) {
+    _cachedInfo = ModalRoute.of(context)?.settings.arguments as InfoModel?;
+    if (!_adLoadedAttempted) {
+      _adLoadedAttempted = true;
+      loadNativeAd();
+    }
+    final info = _info;
+    if (info != null && _isYoutube) {
       _loadVideoIfNeeded(info.videoId);
     }
   }
@@ -81,7 +99,7 @@ class _InfoScreenState extends State<InfoScreen> {
       DeviceOrientation.portraitDown,
     ]);
     _nativeAd?.dispose();
-    printLog();
+    if (_isYoutube) printLog();
     _controller.close();
     super.dispose();
   }
@@ -106,12 +124,8 @@ class _InfoScreenState extends State<InfoScreen> {
         },
       ),
       request: const AdRequest(),
-      // Styling
       nativeTemplateStyle: NativeTemplateStyle(
-          // Required: Choose a template.
-          templateType: TemplateType.medium,
-          // Optional: Customize the ad's style.
-          cornerRadius: 10.0),
+          templateType: TemplateType.medium, cornerRadius: 10.0),
     );
 
     _nativeAd?.load();
@@ -119,7 +133,9 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final info = _info;
     final utilViewModel = Provider.of<UtilViewModel>(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return YoutubePlayerControllerProvider(
       controller: _controller,
@@ -127,24 +143,33 @@ class _InfoScreenState extends State<InfoScreen> {
         backgroundColor: Global.bgColor,
         floatingActionButton: FloatingShareButton(
           onTap: () async {
-            final info =
-                ModalRoute.of(context)?.settings.arguments as InfoModel?;
             if (info != null) {
-              String url = "https://www.youtube.com/watch?v=${info.videoId}";
+              String url = "";
+              if (_isYoutube && info.videoId.isNotEmpty) {
+                url = "https://www.youtube.com/watch?v=${info.videoId}";
+              } else if (!_isYoutube && info.videoUrl != null) {
+                url = info.videoUrl!;
+              }
+
               if (url.isNotEmpty) {
                 debugPrint("url = $url");
                 await SharePlus.instance.share(ShareParams(
                     text:
-                        "Hey, I came across this amazing ${utilViewModel.selectedUtil!.name} guide on Util Master! Check it out:\n\n$url"));
+                        "Hey, I came across this amazing ${utilViewModel.selectedUtil?.name ?? 'utility'} guide on Util Master! Check it out:\n\n$url"));
               }
             }
           },
         ),
         body: LayoutBuilder(
           builder: (context, constraints) {
+            // ----- Non-YouTube (Instagram / TikTok / other) -----
+            if (!_isYoutube) {
+              return _buildExternalVideoView(context, info, l10n);
+            }
+
+            // ----- YouTube -----
             final player = YoutubePlayer(controller: _controller);
             if (kIsWeb && constraints.maxWidth > 750) {
-              //TODO: if web is wanted, this need a fix and mission buttons.
               return Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -157,15 +182,19 @@ class _InfoScreenState extends State<InfoScreen> {
                       ],
                     ),
                   ),
-                  const Expanded(
+                  Expanded(
                     flex: 2,
                     child: SingleChildScrollView(
-                      child: YoutubeControls(),
+                      child: !_isUserCreated
+                          ? const YoutubeControls()
+                          : const SizedBox.shrink(),
                     ),
                   ),
                 ],
               );
             }
+
+            final userUtilVM = Provider.of<UserUtilViewModel>(context, listen: false);
 
             return Stack(
               children: [
@@ -173,7 +202,20 @@ class _InfoScreenState extends State<InfoScreen> {
                   children: [
                     player,
                     const YoutubeVideoPositionIndicator(),
-                    const YoutubeControls(),
+                    if (!_isUserCreated) const YoutubeControls(),
+                    if (_isUserCreated)
+                      Padding(
+                        padding: EdgeInsets.all(context.height20),
+                        child: OutlinedButton.icon(
+                          onPressed: () => _confirmDelete(context, l10n, userUtilVM, info),
+                          icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                          label: Text(l10n.deletePin, style: const TextStyle(color: Colors.redAccent)),
+                          style: OutlinedButton.styleFrom(
+                            side: const BorderSide(color: Colors.redAccent),
+                            padding: EdgeInsets.symmetric(vertical: context.height15),
+                          ),
+                        ),
+                      ),
                     Builder(
                       builder: (context) {
                         final currentAd = _nativeAd;
@@ -194,7 +236,8 @@ class _InfoScreenState extends State<InfoScreen> {
                           return const SizedBox.shrink();
                         }
                       },
-                    )
+                    ),
+                    SizedBox(height: context.height20 * 4),
                   ],
                 ),
                 SafeArea(
@@ -203,9 +246,9 @@ class _InfoScreenState extends State<InfoScreen> {
                     child: RectangleButton(
                       onTap: () {
                         Navigator.pop(context);
-                        Review.checkReviewPopup(context);
+                        if (!_isUserCreated) Review.checkReviewPopup(context);
                       },
-                      text: 'Go Back',
+                      text: l10n.goBack,
                     ),
                   ),
                 ),
@@ -213,6 +256,153 @@ class _InfoScreenState extends State<InfoScreen> {
             );
           },
         ),
+      ),
+    );
+  }
+
+  /// Shown when the video is not a YouTube embed (Instagram, TikTok, or other link).
+  Widget _buildExternalVideoView(
+    BuildContext context,
+    InfoModel? info,
+    AppLocalizations l10n,
+  ) {
+    final userUtilVM =
+        Provider.of<UserUtilViewModel>(context, listen: false);
+
+    String mapName = 'anubis';
+    if (info?.userUtilId != null) {
+      try {
+        final util = userUtilVM.utils.firstWhere((u) => u.id == info!.userUtilId);
+        mapName = util.location;
+      } catch (_) {}
+    }
+
+    return Stack(
+      children: [
+        ListView(
+          children: [
+            GestureDetector(
+              onTap: () {
+                if (info?.videoUrl != null) {
+                  Utils.openLink(url: info!.videoUrl!);
+                }
+              },
+              child: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset(
+                      'assets/img/maps/CS2_${mapName.toLowerCase()}_map.png',
+                      fit: BoxFit.cover,
+                    ),
+                    Container(color: Colors.black54),
+                    Center(
+                      child: Text(
+                        l10n.openVideo,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: context.font26,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            
+            // Delete button (user-created pins only)
+            if (_isUserCreated)
+              Padding(
+                padding: EdgeInsets.all(context.height20),
+                child: OutlinedButton.icon(
+                  onPressed: () => _confirmDelete(context, l10n, userUtilVM, info),
+                  icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
+                  label: Text(l10n.deletePin, style: const TextStyle(color: Colors.redAccent)),
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Colors.redAccent),
+                    padding: EdgeInsets.symmetric(vertical: context.height15),
+                  ),
+                ),
+              ),
+
+            // Ad
+            Builder(
+              builder: (context) {
+                final currentAd = _nativeAd;
+                if (_nativeAdIsLoaded && currentAd != null) {
+                  return Align(
+                    alignment: Alignment.center,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        minWidth: 300,
+                        minHeight: 350,
+                        maxHeight: 400,
+                        maxWidth: 450,
+                      ),
+                      child: AdWidget(ad: currentAd),
+                    ),
+                  );
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
+            ),
+            SizedBox(height: context.height20 * 4), // space for back button
+          ],
+        ),
+        SafeArea(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: RectangleButton(
+              onTap: () {
+                Navigator.pop(context);
+                if (!_isUserCreated) Review.checkReviewPopup(context);
+              },
+              text: l10n.goBack,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _confirmDelete(
+    BuildContext context,
+    AppLocalizations l10n,
+    UserUtilViewModel userUtilVM,
+    InfoModel? info,
+  ) {
+    if (info == null) return;
+    showDialog<void>(
+      context: context,
+      builder: (_) => AlertDialog(
+        backgroundColor: const Color(0xFF1a1a2e),
+        title: Text(l10n.confirmDelete,
+            style: const TextStyle(color: Colors.white)),
+        content: Text(l10n.confirmDeleteBody,
+            style: const TextStyle(color: Colors.white70)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(l10n.confirmNo,
+                style: const TextStyle(color: Colors.white54)),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context); // close dialog
+              if (info.userUtilId != null && info.standIndex != null) {
+                await userUtilVM.deleteStandFromUtil(
+                    info.userUtilId!, info.standIndex!);
+              }
+              if (!context.mounted) return;
+              Navigator.pop(context); // go back to radar
+            },
+            child: const Text('Delete',
+                style: TextStyle(color: Colors.redAccent)),
+          ),
+        ],
       ),
     );
   }

@@ -51,4 +51,82 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get reportSubmitted => 'Отчет отправлен';
+
+  @override
+  String get createPin => 'Создать пин';
+
+  @override
+  String get videoUrl => 'URL видео';
+
+  @override
+  String get description => 'Описание';
+
+  @override
+  String get selectMap => 'Выбрать карту';
+
+  @override
+  String get next => 'Далее';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get done => 'Готово';
+
+  @override
+  String get undo => 'Отменить';
+
+  @override
+  String get redo => 'Повторить';
+
+  @override
+  String get placeUtilPosition => 'Нажмите на карту, чтобы разместить утилиту';
+
+  @override
+  String get placeStandPosition =>
+      'Нажмите, чтобы добавить позиции броска (макс. 10)';
+
+  @override
+  String get confirmDone => 'Вы закончили?';
+
+  @override
+  String get confirmDoneBody => 'Все размещённые утилиты будут сохранены.';
+
+  @override
+  String get confirmCancel => 'Отменить создание?';
+
+  @override
+  String get confirmCancelBody => 'Весь прогресс будет потерян.';
+
+  @override
+  String get confirmYes => 'Да';
+
+  @override
+  String get confirmNo => 'Нет';
+
+  @override
+  String get deletePin => 'Удалить пин';
+
+  @override
+  String get confirmDelete => 'Удалить эту позицию броска?';
+
+  @override
+  String get confirmDeleteBody => 'Это действие нельзя отменить.';
+
+  @override
+  String get openVideo => 'Открыть видео';
+
+  @override
+  String get maxStandsReached => 'Достигнут максимум из 10 позиций броска';
+
+  @override
+  String get selectUtilTypeFirst => 'Сначала выберите тип утилиты';
+
+  @override
+  String get addAtLeastOneStand => 'Добавьте хотя бы одну позицию броска';
+
+  @override
+  String utilsAdded(int count) {
+    return 'Добавлено утилит: $count';
+  }
 }

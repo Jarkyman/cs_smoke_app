@@ -12,5 +12,37 @@
   "wrongData": "Буруу өгөгдөл",
   "videoNotWorking": "Видео ажиллахгүй байна",
   "submitReport": "Илгээх",
-  "reportSubmitted": "Тайлан илгээгдлээ"
+  "reportSubmitted": "Тайлан илгээгдлээ",
+  "createPin": "Пин үүсгэх",
+  "videoUrl": "Видео URL",
+  "description": "Тайлбар",
+  "selectMap": "Газрын зураг сонгох",
+  "next": "Дараах",
+  "cancel": "Цуцлах",
+  "done": "Дуусгах",
+  "undo": "Буцаах",
+  "redo": "Дахин хийх",
+  "placeUtilPosition": "Утилити байрлуулахын тулд газрын зургийг дарна уу",
+  "placeStandPosition": "Шидэх байрлал тавихын тулд дарна уу (хамгийн ихдээ 10)",
+  "confirmDone": "Дуусгах уу?",
+  "confirmDoneBody": "Байрлуулсан бүх утилити хадгалагдана.",
+  "confirmCancel": "Үүсгэхийг цуцлах уу?",
+  "confirmCancelBody": "Бүх дэвшил алдагдана.",
+  "confirmYes": "Тийм",
+  "confirmNo": "Үгүй",
+  "deletePin": "Пин устгах",
+  "confirmDelete": "Энэ шидэх байрлалыг устгах уу?",
+  "confirmDeleteBody": "Энэ үйлдлийг буцаах боломжгүй.",
+  "openVideo": "Видео нээх",
+  "maxStandsReached": "Хамгийн ихдээ 10 шидэх байрлалд хүрлээ",
+  "selectUtilTypeFirst": "Эхлээд утилитийн төрлийг сонгоно уу",
+  "addAtLeastOneStand": "Дор хаяж нэг шидэх байрлал нэмнэ үү",
+  "utilsAdded": "{count} утилити нэмэгдлээ",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

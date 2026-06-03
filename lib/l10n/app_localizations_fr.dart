@@ -51,4 +51,82 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get reportSubmitted => 'Rapport envoyé';
+
+  @override
+  String get createPin => 'Créer un pin';
+
+  @override
+  String get videoUrl => 'URL de la vidéo';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get selectMap => 'Sélectionner une carte';
+
+  @override
+  String get next => 'Suivant';
+
+  @override
+  String get cancel => 'Annuler';
+
+  @override
+  String get done => 'Terminé';
+
+  @override
+  String get undo => 'Annuler';
+
+  @override
+  String get redo => 'Rétablir';
+
+  @override
+  String get placeUtilPosition => 'Appuie sur la carte pour placer ton utility';
+
+  @override
+  String get placeStandPosition =>
+      'Appuie pour placer les positions de lancer (max. 10)';
+
+  @override
+  String get confirmDone => 'Tu as terminé ?';
+
+  @override
+  String get confirmDoneBody => 'Tous les utilities placés seront sauvegardés.';
+
+  @override
+  String get confirmCancel => 'Annuler la création ?';
+
+  @override
+  String get confirmCancelBody => 'Toute la progression sera perdue.';
+
+  @override
+  String get confirmYes => 'Oui';
+
+  @override
+  String get confirmNo => 'Non';
+
+  @override
+  String get deletePin => 'Supprimer le pin';
+
+  @override
+  String get confirmDelete => 'Supprimer cette position de lancer ?';
+
+  @override
+  String get confirmDeleteBody => 'Cette action est irréversible.';
+
+  @override
+  String get openVideo => 'Ouvrir la vidéo';
+
+  @override
+  String get maxStandsReached => 'Maximum de 10 positions de lancer atteint';
+
+  @override
+  String get selectUtilTypeFirst => 'Sélectionne d\'abord un type d\'utility';
+
+  @override
+  String get addAtLeastOneStand => 'Ajoute au moins une position de lancer';
+
+  @override
+  String utilsAdded(int count) {
+    return '$count utility ajouté(s)';
+  }
 }

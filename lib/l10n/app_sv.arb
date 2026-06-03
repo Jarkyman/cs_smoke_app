@@ -12,5 +12,37 @@
   "wrongData": "Felaktig data",
   "videoNotWorking": "Videon fungerar inte",
   "submitReport": "Skicka",
-  "reportSubmitted": "Rapport skickad"
+  "reportSubmitted": "Rapport skickad",
+  "createPin": "Skapa pin",
+  "videoUrl": "Video-URL",
+  "description": "Beskrivning",
+  "selectMap": "Välj karta",
+  "next": "Nästa",
+  "cancel": "Avbryt",
+  "done": "Klar",
+  "undo": "Ångra",
+  "redo": "Gör om",
+  "placeUtilPosition": "Tryck på kartan för att placera din utility",
+  "placeStandPosition": "Tryck för att placera kastpositioner (max 10)",
+  "confirmDone": "Är du klar?",
+  "confirmDoneBody": "Alla placerade utilities kommer att sparas.",
+  "confirmCancel": "Avbryta skapandet?",
+  "confirmCancelBody": "All framsteg kommer att gå förlorade.",
+  "confirmYes": "Ja",
+  "confirmNo": "Nej",
+  "deletePin": "Ta bort pin",
+  "confirmDelete": "Ta bort denna kastposition?",
+  "confirmDeleteBody": "Det går inte att ångra detta.",
+  "openVideo": "Öppna video",
+  "maxStandsReached": "Max 10 kastpositioner nådd",
+  "selectUtilTypeFirst": "Välj en utility-typ först",
+  "addAtLeastOneStand": "Lägg till minst en kastposition",
+  "utilsAdded": "{count} utility tillagd(a)",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

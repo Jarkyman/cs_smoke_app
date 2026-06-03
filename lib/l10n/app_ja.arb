@@ -12,5 +12,37 @@
   "wrongData": "間違ったデータ",
   "videoNotWorking": "動画が再生できない",
   "submitReport": "送信",
-  "reportSubmitted": "報告を送信しました"
+  "reportSubmitted": "報告を送信しました",
+  "createPin": "ピンを作成",
+  "videoUrl": "動画URL",
+  "description": "説明",
+  "selectMap": "マップを選択",
+  "next": "次へ",
+  "cancel": "キャンセル",
+  "done": "完了",
+  "undo": "元に戻す",
+  "redo": "やり直し",
+  "placeUtilPosition": "マップをタップしてユーティリティを配置",
+  "placeStandPosition": "投げ位置をタップして配置（最大10か所）",
+  "confirmDone": "完了しましたか？",
+  "confirmDoneBody": "配置したすべてのユーティリティが保存されます。",
+  "confirmCancel": "作成をキャンセルしますか？",
+  "confirmCancelBody": "すべての進捗が失われます。",
+  "confirmYes": "はい",
+  "confirmNo": "いいえ",
+  "deletePin": "ピンを削除",
+  "confirmDelete": "この投げ位置を削除しますか？",
+  "confirmDeleteBody": "この操作は元に戻せません。",
+  "openVideo": "動画を開く",
+  "maxStandsReached": "投げ位置は最大10か所です",
+  "selectUtilTypeFirst": "最初にユーティリティタイプを選択してください",
+  "addAtLeastOneStand": "少なくとも1か所の投げ位置を追加してください",
+  "utilsAdded": "{count}個のユーティリティを追加しました",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

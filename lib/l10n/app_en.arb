@@ -19,5 +19,37 @@
   "wrongData": "Wrong data",
   "videoNotWorking": "Video does not work",
   "submitReport": "Submit",
-  "reportSubmitted": "Report submitted"
+  "reportSubmitted": "Report submitted",
+  "createPin": "Create Pin",
+  "videoUrl": "Video URL",
+  "description": "Description",
+  "selectMap": "Select map",
+  "next": "Next",
+  "cancel": "Cancel",
+  "done": "Done",
+  "undo": "Undo",
+  "redo": "Redo",
+  "placeUtilPosition": "Tap on the map to place your utility",
+  "placeStandPosition": "Tap to place throw positions (max 10)",
+  "confirmDone": "Are you done?",
+  "confirmDoneBody": "All placed utilities will be saved.",
+  "confirmCancel": "Cancel creation?",
+  "confirmCancelBody": "All progress will be lost.",
+  "confirmYes": "Yes",
+  "confirmNo": "No",
+  "deletePin": "Delete pin",
+  "confirmDelete": "Delete this throw position?",
+  "confirmDeleteBody": "This cannot be undone.",
+  "openVideo": "Open video",
+  "maxStandsReached": "Maximum 10 throw positions reached",
+  "selectUtilTypeFirst": "Select a utility type first",
+  "addAtLeastOneStand": "Add at least one throw position",
+  "utilsAdded": "{count} {count, plural, =1{utility} other{utilities}} added",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -51,4 +51,87 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reportSubmitted => 'Report submitted';
+
+  @override
+  String get createPin => 'Create Pin';
+
+  @override
+  String get videoUrl => 'Video URL';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get selectMap => 'Select map';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get undo => 'Undo';
+
+  @override
+  String get redo => 'Redo';
+
+  @override
+  String get placeUtilPosition => 'Tap on the map to place your utility';
+
+  @override
+  String get placeStandPosition => 'Tap to place throw positions (max 10)';
+
+  @override
+  String get confirmDone => 'Are you done?';
+
+  @override
+  String get confirmDoneBody => 'All placed utilities will be saved.';
+
+  @override
+  String get confirmCancel => 'Cancel creation?';
+
+  @override
+  String get confirmCancelBody => 'All progress will be lost.';
+
+  @override
+  String get confirmYes => 'Yes';
+
+  @override
+  String get confirmNo => 'No';
+
+  @override
+  String get deletePin => 'Delete pin';
+
+  @override
+  String get confirmDelete => 'Delete this throw position?';
+
+  @override
+  String get confirmDeleteBody => 'This cannot be undone.';
+
+  @override
+  String get openVideo => 'Open video';
+
+  @override
+  String get maxStandsReached => 'Maximum 10 throw positions reached';
+
+  @override
+  String get selectUtilTypeFirst => 'Select a utility type first';
+
+  @override
+  String get addAtLeastOneStand => 'Add at least one throw position';
+
+  @override
+  String utilsAdded(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'utilities',
+      one: 'utility',
+    );
+    return '$count $_temp0 added';
+  }
 }

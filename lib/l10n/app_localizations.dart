@@ -211,6 +211,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Report submitted'**
   String get reportSubmitted;
+
+  /// No description provided for @createPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Pin'**
+  String get createPin;
+
+  /// No description provided for @videoUrl.
+  ///
+  /// In en, this message translates to:
+  /// **'Video URL'**
+  String get videoUrl;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @selectMap.
+  ///
+  /// In en, this message translates to:
+  /// **'Select map'**
+  String get selectMap;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undo;
+
+  /// No description provided for @redo.
+  ///
+  /// In en, this message translates to:
+  /// **'Redo'**
+  String get redo;
+
+  /// No description provided for @placeUtilPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap on the map to place your utility'**
+  String get placeUtilPosition;
+
+  /// No description provided for @placeStandPosition.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to place throw positions (max 10)'**
+  String get placeStandPosition;
+
+  /// No description provided for @confirmDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you done?'**
+  String get confirmDone;
+
+  /// No description provided for @confirmDoneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All placed utilities will be saved.'**
+  String get confirmDoneBody;
+
+  /// No description provided for @confirmCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel creation?'**
+  String get confirmCancel;
+
+  /// No description provided for @confirmCancelBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All progress will be lost.'**
+  String get confirmCancelBody;
+
+  /// No description provided for @confirmYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get confirmYes;
+
+  /// No description provided for @confirmNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get confirmNo;
+
+  /// No description provided for @deletePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete pin'**
+  String get deletePin;
+
+  /// No description provided for @confirmDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this throw position?'**
+  String get confirmDelete;
+
+  /// No description provided for @confirmDeleteBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This cannot be undone.'**
+  String get confirmDeleteBody;
+
+  /// No description provided for @openVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Open video'**
+  String get openVideo;
+
+  /// No description provided for @maxStandsReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum 10 throw positions reached'**
+  String get maxStandsReached;
+
+  /// No description provided for @selectUtilTypeFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a utility type first'**
+  String get selectUtilTypeFirst;
+
+  /// No description provided for @addAtLeastOneStand.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least one throw position'**
+  String get addAtLeastOneStand;
+
+  /// No description provided for @utilsAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} {count, plural, =1{utility} other{utilities}} added'**
+  String utilsAdded(int count);
 }
 
 class _AppLocalizationsDelegate

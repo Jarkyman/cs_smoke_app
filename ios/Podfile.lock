@@ -4,11 +4,14 @@ PODS:
     - Flutter
   - permission_handler_apple (9.3.0):
     - Flutter
+  - receive_sharing_intent (1.8.1):
+    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_launch_store (from `.symlinks/plugins/flutter_launch_store/ios`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - receive_sharing_intent (from `.symlinks/plugins/receive_sharing_intent/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
@@ -17,12 +20,15 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_launch_store/ios"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
+  receive_sharing_intent:
+    :path: ".symlinks/plugins/receive_sharing_intent/ios"
 
 SPEC CHECKSUMS:
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   flutter_launch_store: 26412e98c4556bc9bcd9b2f3f77264e468ecbd61
   permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
+  receive_sharing_intent: 222384f00ffe7e952bbfabaa9e3967cb87e5fe00
 
-PODFILE CHECKSUM: 7fb1034755b8796916462853ecc7f1f6004eac48
+PODFILE CHECKSUM: f8326f0b955125ac78e6fadfa6bba91dfbcb028c
 
 COCOAPODS: 1.16.2

@@ -12,5 +12,37 @@
   "wrongData": "Yanlış veri",
   "videoNotWorking": "Video çalışmıyor",
   "submitReport": "Gönder",
-  "reportSubmitted": "Rapor gönderildi"
+  "reportSubmitted": "Rapor gönderildi",
+  "createPin": "Pin oluştur",
+  "videoUrl": "Video URL'si",
+  "description": "Açıklama",
+  "selectMap": "Harita seç",
+  "next": "İleri",
+  "cancel": "İptal",
+  "done": "Bitti",
+  "undo": "Geri al",
+  "redo": "Yinele",
+  "placeUtilPosition": "Utility yerleştirmek için haritaya dokun",
+  "placeStandPosition": "Atış pozisyonu eklemek için dokun (maks. 10)",
+  "confirmDone": "Bitti mi?",
+  "confirmDoneBody": "Yerleştirilen tüm utility'ler kaydedilecek.",
+  "confirmCancel": "Oluşturma iptal edilsin mi?",
+  "confirmCancelBody": "Tüm ilerleme kaybolacak.",
+  "confirmYes": "Evet",
+  "confirmNo": "Hayır",
+  "deletePin": "Pini sil",
+  "confirmDelete": "Bu atış pozisyonu silinsin mi?",
+  "confirmDeleteBody": "Bu işlem geri alınamaz.",
+  "openVideo": "Videoyu aç",
+  "maxStandsReached": "Maksimum 10 atış pozisyonuna ulaşıldı",
+  "selectUtilTypeFirst": "Önce bir utility türü seçin",
+  "addAtLeastOneStand": "En az bir atış pozisyonu ekleyin",
+  "utilsAdded": "{count} utility eklendi",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -12,5 +12,37 @@
   "wrongData": "Date greșite",
   "videoNotWorking": "Videoclipul nu funcționează",
   "submitReport": "Trimite",
-  "reportSubmitted": "Raport trimis"
+  "reportSubmitted": "Raport trimis",
+  "createPin": "Creează pin",
+  "videoUrl": "URL video",
+  "description": "Descriere",
+  "selectMap": "Selectează harta",
+  "next": "Următor",
+  "cancel": "Anulează",
+  "done": "Gata",
+  "undo": "Anulează acțiunea",
+  "redo": "Refă acțiunea",
+  "placeUtilPosition": "Atinge harta pentru a plasa utilitarul",
+  "placeStandPosition": "Atinge pentru a plasa pozițiile de aruncare (max. 10)",
+  "confirmDone": "Ai terminat?",
+  "confirmDoneBody": "Toate utilitarele plasate vor fi salvate.",
+  "confirmCancel": "Anulezi crearea?",
+  "confirmCancelBody": "Tot progresul va fi pierdut.",
+  "confirmYes": "Da",
+  "confirmNo": "Nu",
+  "deletePin": "Șterge pin",
+  "confirmDelete": "Ștergi această poziție de aruncare?",
+  "confirmDeleteBody": "Aceasta nu poate fi anulată.",
+  "openVideo": "Deschide videoclipul",
+  "maxStandsReached": "S-a atins limita de 10 poziții de aruncare",
+  "selectUtilTypeFirst": "Selectează mai întâi un tip de utilitar",
+  "addAtLeastOneStand": "Adaugă cel puțin o poziție de aruncare",
+  "utilsAdded": "{count} utilitar(e) adăugat(e)",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

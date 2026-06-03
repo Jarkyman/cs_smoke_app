@@ -3,10 +3,20 @@ class InfoModel {
   final String description;
   final String videoId;
 
+  // User-created pin fields (null for server-provided data)
+  final String? videoUrl;
+  final bool isUserCreated;
+  final String? userUtilId;
+  final int? standIndex;
+
   InfoModel({
     required this.position,
     required this.description,
     required this.videoId,
+    this.videoUrl,
+    this.isUserCreated = false,
+    this.userUtilId,
+    this.standIndex,
   });
 
   factory InfoModel.fromJson(Map<String, dynamic> json) {

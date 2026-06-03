@@ -51,4 +51,83 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get reportSubmitted => 'Relatório enviado';
+
+  @override
+  String get createPin => 'Criar pin';
+
+  @override
+  String get videoUrl => 'URL do vídeo';
+
+  @override
+  String get description => 'Descrição';
+
+  @override
+  String get selectMap => 'Selecionar mapa';
+
+  @override
+  String get next => 'Próximo';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get done => 'Concluído';
+
+  @override
+  String get undo => 'Desfazer';
+
+  @override
+  String get redo => 'Refazer';
+
+  @override
+  String get placeUtilPosition => 'Toque no mapa para colocar seu utility';
+
+  @override
+  String get placeStandPosition =>
+      'Toque para colocar posições de arremesso (máx. 10)';
+
+  @override
+  String get confirmDone => 'Você terminou?';
+
+  @override
+  String get confirmDoneBody => 'Todos os utilities colocados serão salvos.';
+
+  @override
+  String get confirmCancel => 'Cancelar a criação?';
+
+  @override
+  String get confirmCancelBody => 'Todo o progresso será perdido.';
+
+  @override
+  String get confirmYes => 'Sim';
+
+  @override
+  String get confirmNo => 'Não';
+
+  @override
+  String get deletePin => 'Excluir pin';
+
+  @override
+  String get confirmDelete => 'Excluir esta posição de arremesso?';
+
+  @override
+  String get confirmDeleteBody => 'Isso não pode ser desfeito.';
+
+  @override
+  String get openVideo => 'Abrir vídeo';
+
+  @override
+  String get maxStandsReached => 'Máximo de 10 posições de arremesso atingido';
+
+  @override
+  String get selectUtilTypeFirst => 'Selecione um tipo de utility primeiro';
+
+  @override
+  String get addAtLeastOneStand =>
+      'Adicione pelo menos uma posição de arremesso';
+
+  @override
+  String utilsAdded(int count) {
+    return '$count utility adicionado(s)';
+  }
 }

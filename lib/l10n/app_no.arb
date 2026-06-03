@@ -12,5 +12,37 @@
   "wrongData": "Feil data",
   "videoNotWorking": "Videoen fungerer ikke",
   "submitReport": "Send inn",
-  "reportSubmitted": "Rapport sendt"
+  "reportSubmitted": "Rapport sendt",
+  "createPin": "Opprett pin",
+  "videoUrl": "Video-URL",
+  "description": "Beskrivelse",
+  "selectMap": "Velg kart",
+  "next": "Neste",
+  "cancel": "Avbryt",
+  "done": "Ferdig",
+  "undo": "Angre",
+  "redo": "Gjenta",
+  "placeUtilPosition": "Trykk på kartet for å plassere utilityen",
+  "placeStandPosition": "Trykk for å plassere kasteposisjoner (maks 10)",
+  "confirmDone": "Er du ferdig?",
+  "confirmDoneBody": "Alle plasserte utilities vil bli lagret.",
+  "confirmCancel": "Avbryte opprettelsen?",
+  "confirmCancelBody": "All fremgang vil gå tapt.",
+  "confirmYes": "Ja",
+  "confirmNo": "Nei",
+  "deletePin": "Slett pin",
+  "confirmDelete": "Slette denne kasteposisjonen?",
+  "confirmDeleteBody": "Dette kan ikke angres.",
+  "openVideo": "Åpne video",
+  "maxStandsReached": "Maks 10 kasteposisjoner nådd",
+  "selectUtilTypeFirst": "Velg en utility-type først",
+  "addAtLeastOneStand": "Legg til minst én kasteposisjon",
+  "utilsAdded": "{count} utility lagt til",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

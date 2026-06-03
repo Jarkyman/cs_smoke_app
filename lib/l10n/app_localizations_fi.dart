@@ -51,4 +51,82 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get reportSubmitted => 'Ilmoitus lähetetty';
+
+  @override
+  String get createPin => 'Luo pin';
+
+  @override
+  String get videoUrl => 'Videon URL';
+
+  @override
+  String get description => 'Kuvaus';
+
+  @override
+  String get selectMap => 'Valitse kartta';
+
+  @override
+  String get next => 'Seuraava';
+
+  @override
+  String get cancel => 'Peruuta';
+
+  @override
+  String get done => 'Valmis';
+
+  @override
+  String get undo => 'Kumoa';
+
+  @override
+  String get redo => 'Tee uudelleen';
+
+  @override
+  String get placeUtilPosition => 'Napauta karttaa sijoittaaksesi utilityn';
+
+  @override
+  String get placeStandPosition =>
+      'Napauta lisätäksesi heittopaikkoja (maks. 10)';
+
+  @override
+  String get confirmDone => 'Oletko valmis?';
+
+  @override
+  String get confirmDoneBody => 'Kaikki sijoitetut utilityit tallennetaan.';
+
+  @override
+  String get confirmCancel => 'Peruutetaanko luonti?';
+
+  @override
+  String get confirmCancelBody => 'Kaikki edistyminen menetetään.';
+
+  @override
+  String get confirmYes => 'Kyllä';
+
+  @override
+  String get confirmNo => 'Ei';
+
+  @override
+  String get deletePin => 'Poista pin';
+
+  @override
+  String get confirmDelete => 'Poistetaanko tämä heittopaika?';
+
+  @override
+  String get confirmDeleteBody => 'Tätä ei voi kumota.';
+
+  @override
+  String get openVideo => 'Avaa video';
+
+  @override
+  String get maxStandsReached => 'Enimmäismäärä 10 heittopaikkaa saavutettu';
+
+  @override
+  String get selectUtilTypeFirst => 'Valitse ensin utility-tyyppi';
+
+  @override
+  String get addAtLeastOneStand => 'Lisää vähintään yksi heittopaika';
+
+  @override
+  String utilsAdded(int count) {
+    return '$count utility lisätty';
+  }
 }

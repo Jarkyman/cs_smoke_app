@@ -12,5 +12,37 @@
   "wrongData": "Błędne dane",
   "videoNotWorking": "Wideo nie działa",
   "submitReport": "Wyślij",
-  "reportSubmitted": "Zgłoszenie wysłane"
+  "reportSubmitted": "Zgłoszenie wysłane",
+  "createPin": "Utwórz pin",
+  "videoUrl": "URL wideo",
+  "description": "Opis",
+  "selectMap": "Wybierz mapę",
+  "next": "Dalej",
+  "cancel": "Anuluj",
+  "done": "Gotowe",
+  "undo": "Cofnij",
+  "redo": "Ponów",
+  "placeUtilPosition": "Dotknij mapy, aby umieścić utility",
+  "placeStandPosition": "Dotknij, aby umieścić pozycje rzutu (maks. 10)",
+  "confirmDone": "Czy skończyłeś?",
+  "confirmDoneBody": "Wszystkie umieszczone utilities zostaną zapisane.",
+  "confirmCancel": "Anulować tworzenie?",
+  "confirmCancelBody": "Cały postęp zostanie utracony.",
+  "confirmYes": "Tak",
+  "confirmNo": "Nie",
+  "deletePin": "Usuń pin",
+  "confirmDelete": "Usunąć tę pozycję rzutu?",
+  "confirmDeleteBody": "Tej operacji nie można cofnąć.",
+  "openVideo": "Otwórz wideo",
+  "maxStandsReached": "Osiągnięto maksymalną liczbę 10 pozycji rzutu",
+  "selectUtilTypeFirst": "Najpierw wybierz typ utility",
+  "addAtLeastOneStand": "Dodaj co najmniej jedną pozycję rzutu",
+  "utilsAdded": "Dodano {count} utility",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

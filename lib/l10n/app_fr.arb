@@ -12,5 +12,37 @@
   "wrongData": "Données incorrectes",
   "videoNotWorking": "La vidéo ne fonctionne pas",
   "submitReport": "Envoyer",
-  "reportSubmitted": "Rapport envoyé"
+  "reportSubmitted": "Rapport envoyé",
+  "createPin": "Créer un pin",
+  "videoUrl": "URL de la vidéo",
+  "description": "Description",
+  "selectMap": "Sélectionner une carte",
+  "next": "Suivant",
+  "cancel": "Annuler",
+  "done": "Terminé",
+  "undo": "Annuler",
+  "redo": "Rétablir",
+  "placeUtilPosition": "Appuie sur la carte pour placer ton utility",
+  "placeStandPosition": "Appuie pour placer les positions de lancer (max. 10)",
+  "confirmDone": "Tu as terminé ?",
+  "confirmDoneBody": "Tous les utilities placés seront sauvegardés.",
+  "confirmCancel": "Annuler la création ?",
+  "confirmCancelBody": "Toute la progression sera perdue.",
+  "confirmYes": "Oui",
+  "confirmNo": "Non",
+  "deletePin": "Supprimer le pin",
+  "confirmDelete": "Supprimer cette position de lancer ?",
+  "confirmDeleteBody": "Cette action est irréversible.",
+  "openVideo": "Ouvrir la vidéo",
+  "maxStandsReached": "Maximum de 10 positions de lancer atteint",
+  "selectUtilTypeFirst": "Sélectionne d'abord un type d'utility",
+  "addAtLeastOneStand": "Ajoute au moins une position de lancer",
+  "utilsAdded": "{count} utility ajouté(s)",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

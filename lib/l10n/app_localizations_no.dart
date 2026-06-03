@@ -51,4 +51,82 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get reportSubmitted => 'Rapport sendt';
+
+  @override
+  String get createPin => 'Opprett pin';
+
+  @override
+  String get videoUrl => 'Video-URL';
+
+  @override
+  String get description => 'Beskrivelse';
+
+  @override
+  String get selectMap => 'Velg kart';
+
+  @override
+  String get next => 'Neste';
+
+  @override
+  String get cancel => 'Avbryt';
+
+  @override
+  String get done => 'Ferdig';
+
+  @override
+  String get undo => 'Angre';
+
+  @override
+  String get redo => 'Gjenta';
+
+  @override
+  String get placeUtilPosition => 'Trykk på kartet for å plassere utilityen';
+
+  @override
+  String get placeStandPosition =>
+      'Trykk for å plassere kasteposisjoner (maks 10)';
+
+  @override
+  String get confirmDone => 'Er du ferdig?';
+
+  @override
+  String get confirmDoneBody => 'Alle plasserte utilities vil bli lagret.';
+
+  @override
+  String get confirmCancel => 'Avbryte opprettelsen?';
+
+  @override
+  String get confirmCancelBody => 'All fremgang vil gå tapt.';
+
+  @override
+  String get confirmYes => 'Ja';
+
+  @override
+  String get confirmNo => 'Nei';
+
+  @override
+  String get deletePin => 'Slett pin';
+
+  @override
+  String get confirmDelete => 'Slette denne kasteposisjonen?';
+
+  @override
+  String get confirmDeleteBody => 'Dette kan ikke angres.';
+
+  @override
+  String get openVideo => 'Åpne video';
+
+  @override
+  String get maxStandsReached => 'Maks 10 kasteposisjoner nådd';
+
+  @override
+  String get selectUtilTypeFirst => 'Velg en utility-type først';
+
+  @override
+  String get addAtLeastOneStand => 'Legg til minst én kasteposisjon';
+
+  @override
+  String utilsAdded(int count) {
+    return '$count utility lagt til';
+  }
 }

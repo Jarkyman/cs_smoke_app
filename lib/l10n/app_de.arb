@@ -12,5 +12,37 @@
   "wrongData": "Falsche Daten",
   "videoNotWorking": "Video funktioniert nicht",
   "submitReport": "Senden",
-  "reportSubmitted": "Bericht gesendet"
+  "reportSubmitted": "Bericht gesendet",
+  "createPin": "Pin erstellen",
+  "videoUrl": "Video-URL",
+  "description": "Beschreibung",
+  "selectMap": "Karte auswählen",
+  "next": "Weiter",
+  "cancel": "Abbrechen",
+  "done": "Fertig",
+  "undo": "Rückgängig",
+  "redo": "Wiederholen",
+  "placeUtilPosition": "Tippe auf die Karte, um dein Utility zu platzieren",
+  "placeStandPosition": "Tippe zum Platzieren der Wurfpositionen (max. 10)",
+  "confirmDone": "Bist du fertig?",
+  "confirmDoneBody": "Alle platzierten Utilities werden gespeichert.",
+  "confirmCancel": "Erstellung abbrechen?",
+  "confirmCancelBody": "Alle Fortschritte gehen verloren.",
+  "confirmYes": "Ja",
+  "confirmNo": "Nein",
+  "deletePin": "Pin löschen",
+  "confirmDelete": "Diese Wurfposition löschen?",
+  "confirmDeleteBody": "Dies kann nicht rückgängig gemacht werden.",
+  "openVideo": "Video öffnen",
+  "maxStandsReached": "Maximal 10 Wurfpositionen erreicht",
+  "selectUtilTypeFirst": "Zuerst einen Utility-Typ auswählen",
+  "addAtLeastOneStand": "Mindestens eine Wurfposition hinzufügen",
+  "utilsAdded": "{count} {count, plural, =1{Utility} other{Utilities}} hinzugefügt",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

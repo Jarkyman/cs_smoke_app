@@ -1,6 +1,10 @@
+import 'dart:async';
+import 'package:cs_smoke_app/view/screens/create_pin_screen.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/rating_view_model.dart';
+import 'package:cs_smoke_app/core/viewmodels/user_util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/maps_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -66,8 +70,69 @@ void main() async {
   });
 }
 
-class MyApp extends StatelessWidget {
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late StreamSubscription _intentDataStreamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // For sharing coming from outside the app while the app is in the memory
+    _intentDataStreamSubscription = ReceiveSharingIntent.instance.getMediaStream().listen((List<SharedMediaFile> value) {
+      _handleSharedMedia(value);
+    }, onError: (err) {
+      debugPrint("getMediaStream error: $err");
+    });
+
+    // For sharing coming from outside the app while the app is closed
+    ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
+      _handleSharedMedia(value);
+    });
+  }
+
+  void _handleSharedMedia(List<SharedMediaFile> value) {
+    if (value.isNotEmpty) {
+      // We look for text/url
+      final media = value.firstWhere(
+        (e) => e.type == SharedMediaType.text || e.type == SharedMediaType.url,
+        orElse: () => value.first,
+      );
+      final String sharedText = media.path;
+      
+      // Basic extraction of URL if they shared text with a URL in it
+      final RegExp urlRegex = RegExp(r'(https?:\/\/[^\s]+)');
+      final match = urlRegex.firstMatch(sharedText);
+      final String url = match != null ? match.group(0)! : sharedText;
+
+      if (url.startsWith('http')) {
+        // Small delay to ensure navigator is attached if app just opened
+        Future.delayed(const Duration(milliseconds: 500), () {
+          navigatorKey.currentState?.push(
+            MaterialPageRoute(
+              builder: (context) => CreatePinScreen(prefillUrl: url),
+            ),
+          );
+        });
+      }
+      ReceiveSharingIntent.instance.reset();
+    }
+  }
+
+  @override
+  void dispose() {
+    _intentDataStreamSubscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -80,19 +145,27 @@ class MyApp extends StatelessWidget {
             create: (context) => SettingsViewModel()),
         ChangeNotifierProvider<RatingViewModel>(
             create: (context) => RatingViewModel()),
+        ChangeNotifierProvider<UserUtilViewModel>(
+            create: (context) {
+              final vm = UserUtilViewModel();
+              vm.loadUserUtils();
+              return vm;
+            }),
       ],
       child: Consumer<SettingsViewModel>(
         builder: (context, settingsViewModel, child) {
           if (!settingsViewModel.isLoaded) {
-            return const MaterialApp(
+            return MaterialApp(
+              navigatorKey: navigatorKey,
               debugShowCheckedModeBanner: false,
-              home: Scaffold(
+              home: const Scaffold(
                 body: Center(child: CircularProgressIndicator()),
               ),
             );
           }
           return MaterialApp(
             title: 'Util Master',
+            navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(

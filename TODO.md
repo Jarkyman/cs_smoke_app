@@ -441,7 +441,18 @@
 
 // DONE {M} [UI, UX] (H): #47 — Add Cache map to callouts, map logo, maps, radar.
 
-// TODO {M} [Feature] (H): #49 — Add yor own vidoe from instagram, youtube, tiktok, etc. to map. This need to be specified in a bigger refactor plan.
+// DONE {M} [Feature] (H): #49 — Allow users to add their own video pins from Instagram, YouTube, TikTok, etc.
+
+- Implemented two-screen creation flow: CreatePinScreen (URL, description, map) → RadarScreen(isCreationMode: true)
+- Full undo/redo state machine (setUtil / setPositions modes)
+- Local JSON storage via UserUtilStorage (file-based on native, SharedPreferences on web)
+- UserUtilViewModel + CreatePinViewModel
+- Dimming of existing pins during creation mode
+- YouTube ID extraction; non-YouTube links open in browser
+- Delete individual stands from InfoScreen
+- 17 languages updated
+- No ads in creation mode or user-created info screens
+- [x] Implementeret
 
 // DONE {M} [UI, UX] (H): #51 — Add a splash/launcher screen native for Android and iOS.
 
@@ -484,6 +495,35 @@
 - [ ] Change test "Maps" to "Uitl Master" in select map screen (landing screen)
 
 - [ ] Rate app screen, der popper op efter 3 gange man har brugt appen.
+
+// TODO {M} [Feature] (H): #58 — Onboarding popup for Create Pin feature
+
+- Vis en engangspopup ved første opstart efter opdateringen der forklarer "Create Pin"
+- Gem flag i SharedPreferences så den ikke vises igen
+- Tilføj "How to create pins" knap i settings der kan genåbne onboarding
+
+// TODO {M} [Feature] (H): #59 — Optimér share-menu prioritet (appen foreslås som top choice)
+
+- Undersøg om vi kan score telefon-share-menuen så vores app kommer øverst når folk deler fra Instagram, TikTok, YouTube
+- iOS: Info.plist CFBundleDocumentTypes / UTIs, Android: intent-filters med priority
+
+// TODO {M} [Feature] (H): #60 — Åbn video direkte i native app (Instagram/TikTok)
+
+- Forsøg at åbne Instagram/TikTok videoer direkte i den native app i stedet for browser
+- Instagram URL scheme: `instagram://` – TikTok: `snssdk1233://`
+- Fallback til browser hvis native app ikke er installeret
+
+// TODO {M} [Feature] (H): #61 — "Del med en ven" deep link
+
+- Lav et payload-link der åbner appen direkte på en specifik info screen
+- Modtageren ser en "Gem" knap i stedet for "Slet" og kan gemme pinet i sin egen JSON
+- Kræver deep linking setup (App Links / Universal Links)
+
+// TODO {S} [Feature] (M): #62 — Opdater dele-knap på egne pins
+
+- I stedet for YouTube-linket skal dele-knappen på user-created pins linke direkte til appen
+- Samme princip som #61: linket åbner appen, går til info screen, videoen starter
+- "Tilbage" fra dette link går til start-skærmen
 
 ---
 

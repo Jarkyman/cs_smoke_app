@@ -1,4 +1,5 @@
 import 'package:cs_smoke_app/core/helper/utils.dart';
+import 'package:cs_smoke_app/view/screens/create_pin_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cs_smoke_app/l10n/app_localizations.dart';
@@ -35,6 +36,18 @@ class MenuScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            MenuButton(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const CreatePinScreen(),
+                  ),
+                );
+              },
+              title: l10n.createPin,
+              icon: Icons.add_location_alt_outlined,
+            ),
             MenuButton(
               onTap: () {
                 settingsViewModel.toggleNotification();

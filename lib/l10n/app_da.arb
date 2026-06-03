@@ -12,5 +12,37 @@
   "wrongData": "Forkert data",
   "videoNotWorking": "Videoen virker ikke",
   "submitReport": "Indsend",
-  "reportSubmitted": "Rapport indsendt"
+  "reportSubmitted": "Rapport indsendt",
+  "createPin": "Opret pin",
+  "videoUrl": "Video URL",
+  "description": "Beskrivelse",
+  "selectMap": "Vælg kort",
+  "next": "Næste",
+  "cancel": "Annuller",
+  "done": "Færdig",
+  "undo": "Fortryd",
+  "redo": "Gentag",
+  "placeUtilPosition": "Tryk på kortet for at placere din utility",
+  "placeStandPosition": "Tryk for at placere kaste-positioner (maks 10)",
+  "confirmDone": "Er du færdig?",
+  "confirmDoneBody": "Alle placerede utilities gemmes.",
+  "confirmCancel": "Annuller oprettelse?",
+  "confirmCancelBody": "Alt fremskridt vil gå tabt.",
+  "confirmYes": "Ja",
+  "confirmNo": "Nej",
+  "deletePin": "Slet pin",
+  "confirmDelete": "Slet denne kaste-position?",
+  "confirmDeleteBody": "Dette kan ikke fortrydes.",
+  "openVideo": "Åbn video",
+  "maxStandsReached": "Maks 10 kaste-positioner nået",
+  "selectUtilTypeFirst": "Vælg en utility-type først",
+  "addAtLeastOneStand": "Tilføj mindst én kaste-position",
+  "utilsAdded": "{count} {count, plural, =1{utility} other{utilities}} tilføjet",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -12,5 +12,37 @@
   "wrongData": "Неверные данные",
   "videoNotWorking": "Видео не работает",
   "submitReport": "Отправить",
-  "reportSubmitted": "Отчет отправлен"
+  "reportSubmitted": "Отчет отправлен",
+  "createPin": "Создать пин",
+  "videoUrl": "URL видео",
+  "description": "Описание",
+  "selectMap": "Выбрать карту",
+  "next": "Далее",
+  "cancel": "Отмена",
+  "done": "Готово",
+  "undo": "Отменить",
+  "redo": "Повторить",
+  "placeUtilPosition": "Нажмите на карту, чтобы разместить утилиту",
+  "placeStandPosition": "Нажмите, чтобы добавить позиции броска (макс. 10)",
+  "confirmDone": "Вы закончили?",
+  "confirmDoneBody": "Все размещённые утилиты будут сохранены.",
+  "confirmCancel": "Отменить создание?",
+  "confirmCancelBody": "Весь прогресс будет потерян.",
+  "confirmYes": "Да",
+  "confirmNo": "Нет",
+  "deletePin": "Удалить пин",
+  "confirmDelete": "Удалить эту позицию броска?",
+  "confirmDeleteBody": "Это действие нельзя отменить.",
+  "openVideo": "Открыть видео",
+  "maxStandsReached": "Достигнут максимум из 10 позиций броска",
+  "selectUtilTypeFirst": "Сначала выберите тип утилиты",
+  "addAtLeastOneStand": "Добавьте хотя бы одну позицию броска",
+  "utilsAdded": "Добавлено утилит: {count}",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

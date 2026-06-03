@@ -1,12 +1,22 @@
-import 'dart:io';
-
 import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
   static Future openLink({
     required String url,
-  }) =>
-      _launchWebOrYoutubeUrl(url);
+  }) async {
+    Uri uri;
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      uri = Uri.parse(url);
+    } else {
+      uri = Uri.parse('https://$url');
+    }
+
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      // Fallback or error handling
+    }
+  }
 
   static Future openEmail({
     required String toEmail,
@@ -37,23 +47,4 @@ class Utils {
     }
   }
 
-  static Future _launchWebOrYoutubeUrl(String url) async {
-    if (Platform.isIOS) {
-      if (await canLaunchUrl(Uri.parse('youtube://$url'))) {
-        await launchUrl(Uri.parse('youtube://$url'));
-      } else {
-        if (await canLaunchUrl(Uri.parse('https://$url'))) {
-          await launchUrl(Uri.parse('https://$url'));
-        } else {
-          //TODO: Error code for failed youtube open on iOS
-        }
-      }
-    } else {
-      if (await canLaunchUrl(Uri.parse('https://$url'))) {
-        await launchUrl(Uri.parse('https://$url'));
-      } else {
-        //TODO: Error code for failed youtube open app on Android
-      }
-    }
-  }
 }

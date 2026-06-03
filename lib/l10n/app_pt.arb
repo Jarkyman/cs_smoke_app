@@ -12,5 +12,37 @@
   "wrongData": "Dados incorretos",
   "videoNotWorking": "O vídeo não funciona",
   "submitReport": "Enviar",
-  "reportSubmitted": "Relatório enviado"
+  "reportSubmitted": "Relatório enviado",
+  "createPin": "Criar pin",
+  "videoUrl": "URL do vídeo",
+  "description": "Descrição",
+  "selectMap": "Selecionar mapa",
+  "next": "Próximo",
+  "cancel": "Cancelar",
+  "done": "Concluído",
+  "undo": "Desfazer",
+  "redo": "Refazer",
+  "placeUtilPosition": "Toque no mapa para colocar seu utility",
+  "placeStandPosition": "Toque para colocar posições de arremesso (máx. 10)",
+  "confirmDone": "Você terminou?",
+  "confirmDoneBody": "Todos os utilities colocados serão salvos.",
+  "confirmCancel": "Cancelar a criação?",
+  "confirmCancelBody": "Todo o progresso será perdido.",
+  "confirmYes": "Sim",
+  "confirmNo": "Não",
+  "deletePin": "Excluir pin",
+  "confirmDelete": "Excluir esta posição de arremesso?",
+  "confirmDeleteBody": "Isso não pode ser desfeito.",
+  "openVideo": "Abrir vídeo",
+  "maxStandsReached": "Máximo de 10 posições de arremesso atingido",
+  "selectUtilTypeFirst": "Selecione um tipo de utility primeiro",
+  "addAtLeastOneStand": "Adicione pelo menos uma posição de arremesso",
+  "utilsAdded": "{count} utility adicionado(s)",
+  "@utilsAdded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -51,4 +51,82 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get reportSubmitted => 'Звіт надіслано';
+
+  @override
+  String get createPin => 'Створити пін';
+
+  @override
+  String get videoUrl => 'URL відео';
+
+  @override
+  String get description => 'Опис';
+
+  @override
+  String get selectMap => 'Вибрати карту';
+
+  @override
+  String get next => 'Далі';
+
+  @override
+  String get cancel => 'Скасувати';
+
+  @override
+  String get done => 'Готово';
+
+  @override
+  String get undo => 'Скасувати дію';
+
+  @override
+  String get redo => 'Повторити дію';
+
+  @override
+  String get placeUtilPosition => 'Натисніть на карту, щоб розмістити утиліту';
+
+  @override
+  String get placeStandPosition =>
+      'Натисніть, щоб додати позиції кидка (макс. 10)';
+
+  @override
+  String get confirmDone => 'Ви закінчили?';
+
+  @override
+  String get confirmDoneBody => 'Усі розміщені утиліти будуть збережені.';
+
+  @override
+  String get confirmCancel => 'Скасувати створення?';
+
+  @override
+  String get confirmCancelBody => 'Весь прогрес буде втрачено.';
+
+  @override
+  String get confirmYes => 'Так';
+
+  @override
+  String get confirmNo => 'Ні';
+
+  @override
+  String get deletePin => 'Видалити пін';
+
+  @override
+  String get confirmDelete => 'Видалити цю позицію кидка?';
+
+  @override
+  String get confirmDeleteBody => 'Цю дію не можна скасувати.';
+
+  @override
+  String get openVideo => 'Відкрити відео';
+
+  @override
+  String get maxStandsReached => 'Досягнуто максимум із 10 позицій кидка';
+
+  @override
+  String get selectUtilTypeFirst => 'Спочатку виберіть тип утиліти';
+
+  @override
+  String get addAtLeastOneStand => 'Додайте принаймні одну позицію кидка';
+
+  @override
+  String utilsAdded(int count) {
+    return 'Додано утиліт: $count';
+  }
 }
