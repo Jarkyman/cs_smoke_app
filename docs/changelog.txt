@@ -2,4 +2,6 @@
 ✨ NEW: Save Your Own Lineups!
 Found a sick smoke on Instagram, TikTok, or YouTube? You can now share videos directly from your favorite social apps to Util Master! 
 Build your own personalized library of custom lineups and never lose track of that perfect throw again.
+
+☢️ Added Cache
 </en-GB>
