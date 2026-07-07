@@ -110,10 +110,6 @@ class _InfoScreenState extends State<InfoScreen> {
   }
 
   Future<void> loadAdSlot() async {
-    if (_isUserCreated) {
-      return;
-    }
-
     final sponsorViewModel =
         Provider.of<SponsorViewModel>(context, listen: false);
     _sponsorAppId = sponsorViewModel.appId;
@@ -240,18 +236,22 @@ class _InfoScreenState extends State<InfoScreen> {
                         if (_isUserCreated)
                           Padding(
                             padding: EdgeInsets.all(context.height20),
-                            child: OutlinedButton.icon(
-                              onPressed: () => _confirmDelete(
-                                  context, l10n, userUtilVM, info),
-                              icon: const Icon(Icons.delete_outline,
-                                  color: Colors.redAccent),
-                              label: Text(l10n.deletePin,
-                                  style:
-                                      const TextStyle(color: Colors.redAccent)),
-                              style: OutlinedButton.styleFrom(
-                                side: const BorderSide(color: Colors.redAccent),
-                                padding: EdgeInsets.symmetric(
-                                    vertical: context.height15),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: OutlinedButton.icon(
+                                onPressed: () => _confirmDelete(
+                                    context, l10n, userUtilVM, info),
+                                icon: const Icon(Icons.delete_outline,
+                                    color: Colors.redAccent),
+                                label: Text(l10n.deletePin,
+                                    style: const TextStyle(
+                                        color: Colors.redAccent)),
+                                style: OutlinedButton.styleFrom(
+                                  side:
+                                      const BorderSide(color: Colors.redAccent),
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: context.height15),
+                                ),
                               ),
                             ),
                           ),
@@ -307,60 +307,77 @@ class _InfoScreenState extends State<InfoScreen> {
 
     return Stack(
       children: [
-        ListView(
-          children: [
-            GestureDetector(
-              onTap: () {
-                if (info?.videoUrl != null) {
-                  Utils.openLink(url: info!.videoUrl!);
-                }
-              },
-              child: AspectRatio(
-                aspectRatio: 16 / 9,
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Image.asset(
-                      'assets/img/maps/CS2_${mapName.toLowerCase()}_map.png',
-                      fit: BoxFit.cover,
+        SafeArea(
+          bottom: false,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: context.height20 * 3.5),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    if (info?.videoUrl != null) {
+                      Utils.openLink(url: info!.videoUrl!);
+                    }
+                  },
+                  child: AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        Image.asset(
+                          'assets/img/maps/CS2_${mapName.toLowerCase()}_map.png',
+                          fit: BoxFit.cover,
+                        ),
+                        Container(color: Colors.black54),
+                        Center(
+                          child: Text(
+                            l10n.openVideo,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: context.font26,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Container(color: Colors.black54),
-                    Center(
-                      child: Text(
-                        l10n.openVideo,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: context.font26,
-                          fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                // Delete button (user-created pins only)
+                if (_isUserCreated)
+                  Padding(
+                    padding: EdgeInsets.all(context.height20),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton.icon(
+                        onPressed: () =>
+                            _confirmDelete(context, l10n, userUtilVM, info),
+                        icon: const Icon(Icons.delete_outline,
+                            color: Colors.redAccent),
+                        label: Text(l10n.deletePin,
+                            style: const TextStyle(color: Colors.redAccent)),
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: Colors.redAccent),
+                          padding:
+                              EdgeInsets.symmetric(vertical: context.height15),
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
+                  ),
 
-            // Delete button (user-created pins only)
-            if (_isUserCreated)
-              Padding(
-                padding: EdgeInsets.all(context.height20),
-                child: OutlinedButton.icon(
-                  onPressed: () =>
-                      _confirmDelete(context, l10n, userUtilVM, info),
-                  icon:
-                      const Icon(Icons.delete_outline, color: Colors.redAccent),
-                  label: Text(l10n.deletePin,
-                      style: const TextStyle(color: Colors.redAccent)),
-                  style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.redAccent),
-                    padding: EdgeInsets.symmetric(vertical: context.height15),
+                Expanded(
+                  child: LayoutBuilder(
+                    builder: (context, adConstraints) {
+                      return _buildAdSlot(
+                        maxHeight: adConstraints.maxHeight,
+                      );
+                    },
                   ),
                 ),
-              ),
-
-            _buildAdSlot(),
-            SizedBox(height: context.height20 * 4), // space for back button
-          ],
+              ],
+            ),
+          ),
         ),
         SafeArea(
           child: Align(
@@ -379,10 +396,6 @@ class _InfoScreenState extends State<InfoScreen> {
   }
 
   Widget _buildAdSlot({double? maxHeight}) {
-    if (_isUserCreated) {
-      return const SizedBox.shrink();
-    }
-
     final sponsor = _sponsorAd;
     if (sponsor != null) {
       return SponsorAdCard(

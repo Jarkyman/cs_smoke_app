@@ -1,4 +1,3 @@
-
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:flutter/material.dart';
 import 'package:cs_smoke_app/l10n/app_localizations.dart';
@@ -124,7 +123,7 @@ class _CreatePinScreenState extends State<CreatePinScreen> {
 
               // --- Description ---
               Text(
-                l10n.description,
+                '${l10n.description} (optional)',
                 style: TextStyle(
                   color: Colors.white70,
                   fontSize: context.font16,
@@ -139,8 +138,6 @@ class _CreatePinScreenState extends State<CreatePinScreen> {
                   hint: 'e.g. A Site smoke',
                   icon: Icons.edit_outlined,
                 ),
-                validator: (v) =>
-                    (v == null || v.trim().isEmpty) ? l10n.description : null,
               ),
 
               SizedBox(height: context.height25),
@@ -164,8 +161,8 @@ class _CreatePinScreenState extends State<CreatePinScreen> {
                   padding: EdgeInsets.only(top: context.height8),
                   child: Text(
                     l10n.selectMap,
-                    style: const TextStyle(
-                        color: Colors.redAccent, fontSize: 12),
+                    style:
+                        const TextStyle(color: Colors.redAccent, fontSize: 12),
                   ),
                 ),
 
@@ -180,8 +177,7 @@ class _CreatePinScreenState extends State<CreatePinScreen> {
                     backgroundColor: Global.blue,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(context.radius10),
+                      borderRadius: BorderRadius.circular(context.radius10),
                     ),
                   ),
                   child: Text(
@@ -208,8 +204,7 @@ class _CreatePinScreenState extends State<CreatePinScreen> {
     return InputDecoration(
       hintText: hint,
       hintStyle: TextStyle(color: Colors.white24, fontSize: context.font16),
-      prefixIcon:
-          Icon(icon, color: Colors.white54, size: context.iconSize24),
+      prefixIcon: Icon(icon, color: Colors.white54, size: context.iconSize24),
       suffixIcon: locked
           ? Icon(Icons.lock_outline,
               color: Colors.white38, size: context.iconSize24)
@@ -351,10 +346,8 @@ class _MapGrid extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                          bottomLeft:
-                              Radius.circular(context.radius10),
-                          bottomRight:
-                              Radius.circular(context.radius10),
+                          bottomLeft: Radius.circular(context.radius10),
+                          bottomRight: Radius.circular(context.radius10),
                         ),
                         gradient: LinearGradient(
                           begin: Alignment.bottomCenter,
