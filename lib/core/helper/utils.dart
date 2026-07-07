@@ -1,20 +1,40 @@
 import 'package:url_launcher/url_launcher.dart';
 
 class Utils {
+  static const _videoHosts = [
+    'youtube.com',
+    'youtu.be',
+    'instagram.com',
+    'tiktok.com',
+  ];
+
   static Future openLink({
     required String url,
   }) async {
-    Uri uri;
-    if (url.startsWith('http://') || url.startsWith('https://')) {
-      uri = Uri.parse(url);
-    } else {
-      uri = Uri.parse('https://$url');
-    }
+    final uri = _normalizeWebUri(url);
 
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
       // Fallback or error handling
+    }
+  }
+
+  static Future openVideoLink({
+    required String url,
+  }) async {
+    final uri = _normalizeWebUri(url);
+    if (!_isKnownVideoHost(uri)) {
+      await openLink(url: url);
+      return;
+    }
+
+    final openedNative = await launchUrl(
+      uri,
+      mode: LaunchMode.externalNonBrowserApplication,
+    );
+    if (!openedNative) {
+      await openLink(url: url);
     }
   }
 
@@ -47,4 +67,17 @@ class Utils {
     }
   }
 
+  static Uri _normalizeWebUri(String url) {
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      return Uri.parse(url);
+    }
+    return Uri.parse('https://$url');
+  }
+
+  static bool _isKnownVideoHost(Uri uri) {
+    final host = uri.host.toLowerCase();
+    return _videoHosts.any((videoHost) {
+      return host == videoHost || host.endsWith('.$videoHost');
+    });
+  }
 }

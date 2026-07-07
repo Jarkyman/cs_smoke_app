@@ -316,7 +316,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 GestureDetector(
                   onTap: () {
                     if (info?.videoUrl != null) {
-                      Utils.openLink(url: info!.videoUrl!);
+                      Utils.openVideoLink(url: info!.videoUrl!);
                     }
                   },
                   child: AspectRatio(

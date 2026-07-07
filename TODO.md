@@ -46,8 +46,8 @@
 
 ## Ideas / Later
 
-- [ ] #59 - Improve share menu priority so the app is suggested higher when users share from Instagram, TikTok, and YouTube.
-- [ ] #60 - Open Instagram/TikTok videos directly in the native app, with browser fallback.
+- [x] #59 - Audited share target setup for Instagram, TikTok, and YouTube. App ranking is controlled by Android/iOS, and the app already accepts the relevant shared text/URL types.
+- [x] #60 - Open YouTube, Instagram, and TikTok video links with native app preference and browser-capable fallback.
 - [ ] #61 - Add "share with a friend" deep links to a specific info screen.
 - [ ] #62 - Update the share button for custom pins so it links directly to the app instead of only the source video link.
 - [ ] Rewrite `README.md` from the Flutter template to a real project README.
