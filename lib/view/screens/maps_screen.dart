@@ -4,11 +4,13 @@ import 'dart:async';
 import 'package:bordered_text/bordered_text.dart';
 import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:cs_smoke_app/core/helper/json_data_handler.dart';
+import 'package:cs_smoke_app/core/viewmodels/sponsor_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/view/screens/menu_screen.dart';
 import 'package:cs_smoke_app/view/screens/radar_screen.dart';
 import 'package:cs_smoke_app/view/shared/global.dart';
 import 'package:cs_smoke_app/view/widgets/share_tutorial_dialog.dart';
+import 'package:cs_smoke_app/view/widgets/sponsor_popup_dialog.dart';
 import '../../core/helper/analytics_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,9 +36,10 @@ class _MapsScreenState extends State<MapsScreen> {
     NotificationApi.init(initScheduled: true);
     listenNotifications();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       Provider.of<UtilViewModel>(context, listen: false).loadData();
-      ShareTutorialDialog.showIfNeeded(context);
+      await ShareTutorialDialog.showIfNeeded(context);
+      await _showStartupSponsorIfNeeded();
     });
 
     Random random = Random();
@@ -65,6 +68,26 @@ class _MapsScreenState extends State<MapsScreen> {
         arguments: payload,
       ),
     ));
+  }
+
+  Future<void> _showStartupSponsorIfNeeded() async {
+    if (!mounted) return;
+
+    late final SponsorViewModel sponsorViewModel;
+    try {
+      sponsorViewModel = Provider.of<SponsorViewModel>(context, listen: false);
+    } catch (_) {
+      return;
+    }
+
+    final sponsor = await sponsorViewModel.pickStartupSponsor();
+    if (!mounted || sponsor == null) return;
+
+    await SponsorPopupDialog.show(
+      context: context,
+      sponsor: sponsor,
+      appId: sponsorViewModel.appId,
+    );
   }
 
   @override

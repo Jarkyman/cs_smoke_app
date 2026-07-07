@@ -21,7 +21,9 @@ void main() {
 
   setUp(() async {
     setupMocks();
-    SharedPreferences.setMockInitialValues({});
+    SharedPreferences.setMockInitialValues({
+      'has_seen_share_tutorial': true,
+    });
     await dotenv.load(fileName: ".env");
 
     mockJsonDataHandler = MockJsonDataHandler();

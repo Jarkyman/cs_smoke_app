@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:cs_smoke_app/view/screens/create_pin_screen.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:cs_smoke_app/core/viewmodels/settings_view_model.dart';
+import 'package:cs_smoke_app/core/viewmodels/sponsor_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/util_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/rating_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/user_util_view_model.dart';
@@ -87,14 +88,18 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     // For sharing coming from outside the app while the app is in the memory
-    _intentDataStreamSubscription = ReceiveSharingIntent.instance.getMediaStream().listen((List<SharedMediaFile> value) {
+    _intentDataStreamSubscription = ReceiveSharingIntent.instance
+        .getMediaStream()
+        .listen((List<SharedMediaFile> value) {
       _handleSharedMedia(value);
     }, onError: (err) {
       debugPrint("getMediaStream error: $err");
     });
 
     // For sharing coming from outside the app while the app is closed
-    ReceiveSharingIntent.instance.getInitialMedia().then((List<SharedMediaFile> value) {
+    ReceiveSharingIntent.instance
+        .getInitialMedia()
+        .then((List<SharedMediaFile> value) {
       _handleSharedMedia(value);
     });
   }
@@ -107,7 +112,7 @@ class _MyAppState extends State<MyApp> {
         orElse: () => value.first,
       );
       final String sharedText = media.path;
-      
+
       // Basic extraction of URL if they shared text with a URL in it
       final RegExp urlRegex = RegExp(r'(https?:\/\/[^\s]+)');
       final match = urlRegex.firstMatch(sharedText);
@@ -145,12 +150,16 @@ class _MyAppState extends State<MyApp> {
             create: (context) => SettingsViewModel()),
         ChangeNotifierProvider<RatingViewModel>(
             create: (context) => RatingViewModel()),
-        ChangeNotifierProvider<UserUtilViewModel>(
-            create: (context) {
-              final vm = UserUtilViewModel();
-              vm.loadUserUtils();
-              return vm;
-            }),
+        ChangeNotifierProvider<SponsorViewModel>(create: (context) {
+          final vm = SponsorViewModel();
+          vm.loadSponsors();
+          return vm;
+        }),
+        ChangeNotifierProvider<UserUtilViewModel>(create: (context) {
+          final vm = UserUtilViewModel();
+          vm.loadUserUtils();
+          return vm;
+        }),
       ],
       child: Consumer<SettingsViewModel>(
         builder: (context, settingsViewModel, child) {

@@ -1,6 +1,8 @@
 import 'package:cs_smoke_app/core/helper/dimensions.dart';
 import 'package:cs_smoke_app/core/helper/utils.dart';
 import 'package:cs_smoke_app/core/models/info_model.dart';
+import 'package:cs_smoke_app/core/models/sponsor_model.dart';
+import 'package:cs_smoke_app/core/viewmodels/sponsor_view_model.dart';
 import 'package:cs_smoke_app/core/viewmodels/user_util_view_model.dart';
 import 'package:cs_smoke_app/l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart';
@@ -18,6 +20,7 @@ import '../../core/viewmodels/util_view_model.dart';
 import '../shared/global.dart';
 import '../widgets/buttons/floating_share_button.dart';
 import '../widgets/buttons/rectangle_button.dart';
+import '../widgets/sponsor_ad_card.dart';
 import '../widgets/youtube/youtube_controls.dart';
 import '../widgets/youtube/youtube_video_position_indicator.dart';
 
@@ -32,6 +35,8 @@ class _InfoScreenState extends State<InfoScreen> {
   late YoutubePlayerController _controller;
   NativeAd? _nativeAd;
   bool _nativeAdIsLoaded = false;
+  SponsorModel? _sponsorAd;
+  String _sponsorAppId = SponsorViewModel.defaultAppId;
   String? _loadedVideoId;
 
   InfoModel? _cachedInfo;
@@ -39,7 +44,8 @@ class _InfoScreenState extends State<InfoScreen> {
   InfoModel? get _info => _cachedInfo;
 
   bool get _isUserCreated => _info?.isUserCreated ?? false;
-  bool get _isYoutube => _info?.videoUrl == null && _info?.videoId.isNotEmpty == true;
+  bool get _isYoutube =>
+      _info?.videoUrl == null && _info?.videoId.isNotEmpty == true;
 
   bool _adLoadedAttempted = false;
 
@@ -70,7 +76,6 @@ class _InfoScreenState extends State<InfoScreen> {
         debugPrint('${isFullScreen ? 'Entered' : 'Exited'} Fullscreen.');
       },
     );
-    super.initState();
   }
 
   @override
@@ -79,7 +84,7 @@ class _InfoScreenState extends State<InfoScreen> {
     _cachedInfo = ModalRoute.of(context)?.settings.arguments as InfoModel?;
     if (!_adLoadedAttempted) {
       _adLoadedAttempted = true;
-      loadNativeAd();
+      loadAdSlot();
     }
     final info = _info;
     if (info != null && _isYoutube) {
@@ -102,6 +107,27 @@ class _InfoScreenState extends State<InfoScreen> {
     if (_isYoutube) printLog();
     _controller.close();
     super.dispose();
+  }
+
+  Future<void> loadAdSlot() async {
+    if (_isUserCreated) {
+      return;
+    }
+
+    final sponsorViewModel =
+        Provider.of<SponsorViewModel>(context, listen: false);
+    _sponsorAppId = sponsorViewModel.appId;
+    final sponsor = await sponsorViewModel.pickVideoSponsorForAdSlot();
+    if (!mounted) return;
+
+    if (sponsor != null) {
+      setState(() {
+        _sponsorAd = sponsor;
+      });
+      return;
+    }
+
+    loadNativeAd();
   }
 
   void loadNativeAd() {
@@ -185,60 +211,62 @@ class _InfoScreenState extends State<InfoScreen> {
                   Expanded(
                     flex: 2,
                     child: SingleChildScrollView(
-                      child: !_isUserCreated
-                          ? const YoutubeControls()
-                          : const SizedBox.shrink(),
+                      child: Column(
+                        children: [
+                          if (!_isUserCreated) const YoutubeControls(),
+                          _buildAdSlot(),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               );
             }
 
-            final userUtilVM = Provider.of<UserUtilViewModel>(context, listen: false);
+            final userUtilVM =
+                Provider.of<UserUtilViewModel>(context, listen: false);
 
             return Stack(
               children: [
-                ListView(
-                  children: [
-                    player,
-                    const YoutubeVideoPositionIndicator(),
-                    if (!_isUserCreated) const YoutubeControls(),
-                    if (_isUserCreated)
-                      Padding(
-                        padding: EdgeInsets.all(context.height20),
-                        child: OutlinedButton.icon(
-                          onPressed: () => _confirmDelete(context, l10n, userUtilVM, info),
-                          icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
-                          label: Text(l10n.deletePin, style: const TextStyle(color: Colors.redAccent)),
-                          style: OutlinedButton.styleFrom(
-                            side: const BorderSide(color: Colors.redAccent),
-                            padding: EdgeInsets.symmetric(vertical: context.height15),
+                SafeArea(
+                  bottom: false,
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: context.height20 * 3.5),
+                    child: Column(
+                      children: [
+                        player,
+                        const YoutubeVideoPositionIndicator(),
+                        if (!_isUserCreated) const YoutubeControls(),
+                        if (_isUserCreated)
+                          Padding(
+                            padding: EdgeInsets.all(context.height20),
+                            child: OutlinedButton.icon(
+                              onPressed: () => _confirmDelete(
+                                  context, l10n, userUtilVM, info),
+                              icon: const Icon(Icons.delete_outline,
+                                  color: Colors.redAccent),
+                              label: Text(l10n.deletePin,
+                                  style:
+                                      const TextStyle(color: Colors.redAccent)),
+                              style: OutlinedButton.styleFrom(
+                                side: const BorderSide(color: Colors.redAccent),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: context.height15),
+                              ),
+                            ),
+                          ),
+                        Expanded(
+                          child: LayoutBuilder(
+                            builder: (context, adConstraints) {
+                              return _buildAdSlot(
+                                maxHeight: adConstraints.maxHeight,
+                              );
+                            },
                           ),
                         ),
-                      ),
-                    Builder(
-                      builder: (context) {
-                        final currentAd = _nativeAd;
-                        if (_nativeAdIsLoaded && currentAd != null) {
-                          return Align(
-                            alignment: Alignment.center,
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                minWidth: 300,
-                                minHeight: 350,
-                                maxHeight: 400,
-                                maxWidth: 450,
-                              ),
-                              child: AdWidget(ad: currentAd),
-                            ),
-                          );
-                        } else {
-                          return const SizedBox.shrink();
-                        }
-                      },
+                      ],
                     ),
-                    SizedBox(height: context.height20 * 4),
-                  ],
+                  ),
                 ),
                 SafeArea(
                   child: Align(
@@ -266,13 +294,13 @@ class _InfoScreenState extends State<InfoScreen> {
     InfoModel? info,
     AppLocalizations l10n,
   ) {
-    final userUtilVM =
-        Provider.of<UserUtilViewModel>(context, listen: false);
+    final userUtilVM = Provider.of<UserUtilViewModel>(context, listen: false);
 
     String mapName = 'anubis';
     if (info?.userUtilId != null) {
       try {
-        final util = userUtilVM.utils.firstWhere((u) => u.id == info!.userUtilId);
+        final util =
+            userUtilVM.utils.firstWhere((u) => u.id == info!.userUtilId);
         mapName = util.location;
       } catch (_) {}
     }
@@ -311,15 +339,18 @@ class _InfoScreenState extends State<InfoScreen> {
                 ),
               ),
             ),
-            
+
             // Delete button (user-created pins only)
             if (_isUserCreated)
               Padding(
                 padding: EdgeInsets.all(context.height20),
                 child: OutlinedButton.icon(
-                  onPressed: () => _confirmDelete(context, l10n, userUtilVM, info),
-                  icon: const Icon(Icons.delete_outline, color: Colors.redAccent),
-                  label: Text(l10n.deletePin, style: const TextStyle(color: Colors.redAccent)),
+                  onPressed: () =>
+                      _confirmDelete(context, l10n, userUtilVM, info),
+                  icon:
+                      const Icon(Icons.delete_outline, color: Colors.redAccent),
+                  label: Text(l10n.deletePin,
+                      style: const TextStyle(color: Colors.redAccent)),
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.redAccent),
                     padding: EdgeInsets.symmetric(vertical: context.height15),
@@ -327,28 +358,7 @@ class _InfoScreenState extends State<InfoScreen> {
                 ),
               ),
 
-            // Ad
-            Builder(
-              builder: (context) {
-                final currentAd = _nativeAd;
-                if (_nativeAdIsLoaded && currentAd != null) {
-                  return Align(
-                    alignment: Alignment.center,
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(
-                        minWidth: 300,
-                        minHeight: 350,
-                        maxHeight: 400,
-                        maxWidth: 450,
-                      ),
-                      child: AdWidget(ad: currentAd),
-                    ),
-                  );
-                } else {
-                  return const SizedBox.shrink();
-                }
-              },
-            ),
+            _buildAdSlot(),
             SizedBox(height: context.height20 * 4), // space for back button
           ],
         ),
@@ -366,6 +376,42 @@ class _InfoScreenState extends State<InfoScreen> {
         ),
       ],
     );
+  }
+
+  Widget _buildAdSlot({double? maxHeight}) {
+    if (_isUserCreated) {
+      return const SizedBox.shrink();
+    }
+
+    final sponsor = _sponsorAd;
+    if (sponsor != null) {
+      return SponsorAdCard(
+        sponsor: sponsor,
+        placement: 'video_page',
+        appId: _sponsorAppId,
+        maxHeight: maxHeight,
+      );
+    }
+
+    final currentAd = _nativeAd;
+    if (_nativeAdIsLoaded && currentAd != null) {
+      final adHeight =
+          maxHeight == null ? 350.0 : maxHeight.clamp(120.0, 350.0).toDouble();
+      return Align(
+        alignment: Alignment.center,
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: 300,
+            minHeight: adHeight,
+            maxHeight: adHeight,
+            maxWidth: 450,
+          ),
+          child: AdWidget(ad: currentAd),
+        ),
+      );
+    }
+
+    return const SizedBox.shrink();
   }
 
   void _confirmDelete(
@@ -399,8 +445,8 @@ class _InfoScreenState extends State<InfoScreen> {
               if (!context.mounted) return;
               Navigator.pop(context); // go back to radar
             },
-            child: const Text('Delete',
-                style: TextStyle(color: Colors.redAccent)),
+            child:
+                const Text('Delete', style: TextStyle(color: Colors.redAccent)),
           ),
         ],
       ),

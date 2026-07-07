@@ -80,4 +80,46 @@ class AnalyticsHelper {
       parameters: {'ad_type': 'banner'},
     );
   }
+
+  /// Logged when a self sponsor ad is shown.
+  static Future<void> logSponsorImpression({
+    required String sponsorId,
+    required String placement,
+    required String appId,
+    required String campaignTitle,
+  }) async {
+    if (kDebugMode) {
+      debugPrint('[Analytics] sponsor_impression: $sponsorId | $placement');
+    }
+    await _analytics?.logEvent(
+      name: 'sponsor_impression',
+      parameters: {
+        'sponsor_id': sponsorId,
+        'placement': placement,
+        'app_id': appId,
+        'campaign_title': campaignTitle,
+      },
+    );
+  }
+
+  /// Logged when a self sponsor ad is clicked.
+  static Future<void> logSponsorClick({
+    required String sponsorId,
+    required String placement,
+    required String appId,
+    required String campaignTitle,
+  }) async {
+    if (kDebugMode) {
+      debugPrint('[Analytics] sponsor_click: $sponsorId | $placement');
+    }
+    await _analytics?.logEvent(
+      name: 'sponsor_click',
+      parameters: {
+        'sponsor_id': sponsorId,
+        'placement': placement,
+        'app_id': appId,
+        'campaign_title': campaignTitle,
+      },
+    );
+  }
 }
