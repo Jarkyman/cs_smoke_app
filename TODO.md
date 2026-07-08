@@ -16,6 +16,10 @@
 
 - [x] Add one extra Play Store and App Store screenshot showing the custom pin feature.
 
+### iOS release metadata
+
+- [ ] Add `ITSAppUsesNonExemptEncryption=false` to `ios/Runner/Info.plist` if App Store Connect encryption answers remain unchanged.
+
 ## Planned Feature: Self Sponsor Ads
 
 ### Sponsor data
