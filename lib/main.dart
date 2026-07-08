@@ -81,7 +81,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  static const Duration _duplicateShareWindow = Duration(seconds: 2);
+
   late StreamSubscription _intentDataStreamSubscription;
+  String? _lastSharedUrl;
+  DateTime? _lastSharedUrlAt;
+  bool _shareNavigationPending = false;
 
   @override
   void initState() {
@@ -119,17 +124,50 @@ class _MyAppState extends State<MyApp> {
       final String url = match != null ? match.group(0)! : sharedText;
 
       if (url.startsWith('http')) {
+        if (_shouldIgnoreSharedUrl(url)) {
+          ReceiveSharingIntent.instance.reset();
+          return;
+        }
+
+        _shareNavigationPending = true;
+        ReceiveSharingIntent.instance.reset();
+
         // Small delay to ensure navigator is attached if app just opened
         Future.delayed(const Duration(milliseconds: 500), () {
+          if (!mounted) {
+            _shareNavigationPending = false;
+            return;
+          }
           navigatorKey.currentState?.push(
             MaterialPageRoute(
               builder: (context) => CreatePinScreen(prefillUrl: url),
             ),
           );
+          _shareNavigationPending = false;
         });
+        return;
       }
       ReceiveSharingIntent.instance.reset();
     }
+  }
+
+  bool _shouldIgnoreSharedUrl(String url) {
+    final now = DateTime.now();
+    final lastSharedUrlAt = _lastSharedUrlAt;
+    final isSameUrl = _lastSharedUrl == url;
+    final isRecentDuplicate = isSameUrl &&
+        lastSharedUrlAt != null &&
+        now.difference(lastSharedUrlAt) < _duplicateShareWindow;
+    final isPendingDuplicate = isSameUrl && _shareNavigationPending;
+
+    if (isRecentDuplicate || isPendingDuplicate) {
+      debugPrint('Ignoring duplicate shared URL: $url');
+      return true;
+    }
+
+    _lastSharedUrl = url;
+    _lastSharedUrlAt = now;
+    return false;
   }
 
   @override

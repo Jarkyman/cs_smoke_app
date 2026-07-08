@@ -20,7 +20,7 @@ class SponsorViewModel extends ChangeNotifier {
   static const String defaultAppId = 'util_master';
   static const String appIdEnvKey = 'SPONSOR_APP_ID';
   static const String videoAdSlotCountKey = 'sponsor_video_ad_slot_count';
-  static const double startupChance = 0.1;
+  static const double startupChance = 0.2;
   static const int videoSponsorFrequency = 2;
 
   Future<void>? _loadFuture;

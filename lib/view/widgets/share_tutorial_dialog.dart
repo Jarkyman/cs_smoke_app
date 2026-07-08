@@ -122,7 +122,7 @@ class ShareTutorialDialog extends StatelessWidget {
               icon: Icons.add_to_home_screen,
               title: '3. Choose Util Master',
               description:
-                  'Select our app from the list. We will handle the rest!',
+                  'Select our app from the list, then create your pin in Util Master.',
             ),
 
             const SizedBox(height: 32),

@@ -28,7 +28,7 @@
 
 ### Startup popup
 
-- [x] Show sponsor popup on app start with a low random frequency, for example 10% chance.
+- [x] Show sponsor popup on app start with a low random frequency, currently 20% chance.
 - [x] Keep popup frequency low with random chance instead of a fixed cooldown.
 - [x] Track sponsor link clicks.
 
