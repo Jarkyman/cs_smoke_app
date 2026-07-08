@@ -1,7 +1,10 @@
 <en-GB>
-✨ NEW: Save Your Own Lineups!
-Found a sick smoke on Instagram, TikTok, or YouTube? You can now share videos directly from your favorite social apps to Util Master! 
-Build your own personalized library of custom lineups and never lose track of that perfect throw again.
+✨ Improved Custom Lineups
+Sharing videos from Instagram, TikTok, YouTube, and other apps is now more reliable.
 
-☢️ Added Cache
+• Fixed an issue where the create pin screen could open twice from the share sheet.
+• Description is now optional when creating your own pin.
+• Custom pin video pages now behave more like normal video pages.
+• External video links now prefer the native app when available, with browser fallback.
+• Added smaller UI and placement improvements.
 </en-GB>

@@ -14,7 +14,7 @@
 
 ### Store screenshots
 
-- [ ] Add one extra Play Store and App Store screenshot showing the custom pin feature.
+- [x] Add one extra Play Store and App Store screenshot showing the custom pin feature.
 
 ## Planned Feature: Self Sponsor Ads
 
