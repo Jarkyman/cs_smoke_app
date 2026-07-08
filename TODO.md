@@ -50,5 +50,5 @@
 - [x] #60 - Open YouTube, Instagram, and TikTok video links with native app preference and browser-capable fallback.
 - [ ] #61 - Add "share with a friend" deep links to a specific info screen.
 - [ ] #62 - Update the share button for custom pins so it links directly to the app instead of only the source video link.
-- [ ] Rewrite `README.md` from the Flutter template to a real project README.
+- [x] Rewrite `README.md` from the Flutter template to a short internal project README.
 - [ ] Review web-build compatibility for `dart:io` imports.
