@@ -18,7 +18,8 @@
 
 ### iOS release metadata
 
-- [ ] Add `ITSAppUsesNonExemptEncryption=false` to `ios/Runner/Info.plist` if App Store Connect encryption answers remain unchanged.
+- [x] Add `ITSAppUsesNonExemptEncryption=false` to `ios/Runner/Info.plist` if App Store Connect encryption answers remain unchanged.
+
 
 ## Planned Feature: Self Sponsor Ads
 

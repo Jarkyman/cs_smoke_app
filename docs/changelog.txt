@@ -1,10 +1,6 @@
 <en-GB>
-✨ Improved Custom Lineups
-Sharing videos from Instagram, TikTok, YouTube, and other apps is now more reliable.
+✨ Your Lineups, Easier to Save and Use
+Save great CS2 lineup videos from Instagram, TikTok, YouTube, and other apps directly in Util Master. Descriptions are now optional, shared videos open more smoothly, and custom lineups feel more consistent throughout the app.
 
-• Fixed an issue where the create pin screen could open twice from the share sheet.
-• Description is now optional when creating your own pin.
-• Custom pin video pages now behave more like normal video pages.
-• External video links now prefer the native app when available, with browser fallback.
-• Added smaller UI and placement improvements.
+We've also updated Util Master for the latest Android devices.
 </en-GB>
