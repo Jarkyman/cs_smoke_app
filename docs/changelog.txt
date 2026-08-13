@@ -1,6 +1,3 @@
 <en-GB>
-✨ Your Lineups, Easier to Save and Use
-Save great CS2 lineup videos from Instagram, TikTok, YouTube, and other apps directly in Util Master. Descriptions are now optional, shared videos open more smoothly, and custom lineups feel more consistent throughout the app.
-
-We've also updated Util Master for the latest Android devices.
+Small bug fix and improvements
 </en-GB>
